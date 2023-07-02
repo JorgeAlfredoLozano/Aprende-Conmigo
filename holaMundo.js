@@ -1,1 +1,1 @@
-console.log(holii);
+console.log(ola soi un troyano);
