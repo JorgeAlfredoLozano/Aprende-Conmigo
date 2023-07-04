@@ -13,7 +13,7 @@ const FormAnuncio = () => {
             placeholder='¡Escribe algo para que tus posibles alumnos quieran tomar tu clase!'/>
 
             <textarea
-            placeholder='Cuéntales acerca de ti...'/>
+            placeholder='Cuéntales acerca de ti..'/>
 
             <div>
             <input placeholder='¿Desde donde brindas tu servicio?'/>
