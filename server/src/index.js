@@ -1,5 +1,5 @@
-const server = require('./src/app.js');
-const { conn } = require('./src/db.js');
+const server = require('./ser/src/app.js');
+const { conn } = require('./ser/src/db.js');
 
 
 conn.sync({ force: true }).then(() => {
