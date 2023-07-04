@@ -1,0 +1,24 @@
+const { DataTypes } = require('sequelize');
+
+module.exports = (sequelize) => {
+
+  sequelize.define('City', {
+    id: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,  
+        primaryKey:true
+    },
+    postal_code: {
+        type: DataTypes.INTEGER,
+        allowNull:false,
+        validate: {
+            notNull: {
+                msg: 'Codigo can not be null'
+            }}
+    },
+    name:{
+        type: DataTypes.STRING,
+        allowNull:false
+    }
+},{timestamps:false,freezeTableName:true}
+)}
