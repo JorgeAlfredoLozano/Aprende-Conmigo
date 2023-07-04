@@ -1,7 +1,7 @@
 require('dotenv').config()
 const { Sequelize } = require('sequelize')
 
-const NombredelModelo = require('/traerlo')
+const usuario = require('./models/Usuario')
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env
 
