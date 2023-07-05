@@ -21,18 +21,15 @@ const createUserController = async (name,lastName,date,mail,gender,phone,assets,
             name:location.results[0][prop][i].long_name
                 },})
             }
-
             else if(location.results[0][prop][i].types[0]==="administrative_area_level_1"){
-                
+               
                 // Crea una nueva provincia en la tabla "Province" si no existe
                 const newProvince= await Province.findOrCreate({
                 where:{
                     name:location.results[0][prop][i].long_name
                 },})
             }
-
-            else if(location.results[0][prop][i].types[0]==="locality"){
-                
+            else if(location.results[0][prop][i].types[0]==="locality"){           
                 // Crea una nueva ciudad en la tabla "City" si no existe
             const newCity= await City.findOrCreate({
                 where:{

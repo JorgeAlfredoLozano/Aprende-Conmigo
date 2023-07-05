@@ -36,11 +36,7 @@ sequelize.define('User', {
     assets:{
         type:DataTypes.STRING,
         allowNull:false
-    },
-    location:{
-        type:DataTypes.JSON,
-        allowNull:false
-    },
+    },   
     certificate:{
         type:DataTypes.STRING,
         allowNull:false
