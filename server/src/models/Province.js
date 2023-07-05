@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
 
-  sequelize.define('Province', {
+sequelize.define('Province', {
     id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,  
