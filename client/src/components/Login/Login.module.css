@@ -1,5 +1,15 @@
 .container {
     position: absolute;
-    right: 12%;
+    right: 16%;
     top: 15%;
+}
+
+.greet {
+    position: fixed;
+    max-width: 150px;
+    color: rgb(34, 34, 34);
+    top: -5px;
+    right: 12.5%;
+    font-weight: bolder;
+    font-size: 20px;
 }

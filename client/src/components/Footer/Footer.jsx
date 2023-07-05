@@ -6,7 +6,7 @@ const Footer = () =>{
     return(
         <div  className={style.container}>
          <footer className={style.nav}>
-    <p>© 2023 Mi empresa. Todos los derechos reservados.</p>
+    <p>© 2023 Aprende Conmigo. Todos los derechos reservados.</p>
     <p>Contacto: info@example.com</p>
   </footer>    
         </div>

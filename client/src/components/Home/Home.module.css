@@ -1,0 +1,12 @@
+.container {
+    position: relative;
+}
+
+.carrusel {
+    background-color: rgb(168, 168, 168);
+    height: 220px;
+    width: 900px;
+    margin-left: 13.5%;
+    margin-top: 15%;
+    margin-bottom: 5%;
+}
