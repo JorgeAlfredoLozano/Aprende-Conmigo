@@ -48,6 +48,6 @@ const createUserController = async (name,lastName,date,mail,gender,phone,assets,
     // 5 y 6 apartamento y piso
     return newUser; // Devuelve el nuevo usuario creado
 };
-
+//hola
 
 module.exports = createUserController;  // Exporta el controlador para que pueda ser utilizado en otros módulos
