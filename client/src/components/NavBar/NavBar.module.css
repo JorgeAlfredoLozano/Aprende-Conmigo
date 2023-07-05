@@ -29,3 +29,15 @@
     color: rgb(255, 84, 61);
     transition: 0.6s ease;
 }
+
+.pepito{
+    border:2px solid black;
+    border-radius:50%;
+    width: 20px;
+    height: 20px;
+    
+
+    position: fixed;
+    top: 3%;
+    right: 20px;
+}
