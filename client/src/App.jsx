@@ -1,7 +1,7 @@
 import './App.css'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './components/Home/Home';
-import FormAnuncio from './components/formAnuncio/formAnuncio';
+import SearchPage from './components/SearchPage/SearchPage';
 
 function App() {
 
@@ -10,7 +10,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Home/>} />
-          <Route path="/form" element={<FormAnuncio/>}/>
+          <Route path="/searchPage" element={<SearchPage/>}/>
         </Routes>
       </div>
     </Router>
