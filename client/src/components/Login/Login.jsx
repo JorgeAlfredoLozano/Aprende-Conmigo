@@ -3,6 +3,7 @@ import style from "./Login.module.css";
 import firebase from "firebase/compat/app"; //firebase
 import "firebase/compat/auth"; //firebase
 import firebaseConfig from "./firebaseConfig"; //firebase
+import userData from "../Redux/actions";
 
 firebase.initializeApp(firebaseConfig); //firebase
 
@@ -21,8 +22,9 @@ const Login = () => {
         .signInWithPopup(provider)
         .then((result) => {
           const user = result.user;
+          userData(user)
           const username = user.displayName;
-          setGreetUser(username)
+          setGreetUser(username);
           setLogged(true);
           setShowLogoutButton(true); // Mostrar el botón de logout al iniciar sesión
         })
