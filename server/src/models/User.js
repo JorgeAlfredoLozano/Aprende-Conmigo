@@ -11,35 +11,28 @@ sequelize.define('User', {
     },
     name:{
         type: DataTypes.STRING,
-        allowNull:false
-    },
-    lastName:{
-        type: DataTypes.STRING,
-        allowNull:false
+        
     },
     date:{
         type:DataTypes.DATEONLY,
-        allowNull:false
+        
     },
-    mail:{
+    email:{
         type:DataTypes.STRING,
         allowNull:false
     },
     gender:{
         type:DataTypes.STRING,
-        allowNull:false
     },
     phone:{
         type:DataTypes.STRING,
-        allowNull:false
     },
     assets:{
         type:DataTypes.STRING,
-        allowNull:false
+        defaultValue:'https://w7.pngwing.com/pngs/146/551/png-transparent-user-login-mobile-phones-password-user-miscellaneous-blue-text-thumbnail.png'
     },   
     certificate:{
         type:DataTypes.STRING,
-        allowNull:false
     }
 },{timestamps:false,freezeTableName:true}
 )}

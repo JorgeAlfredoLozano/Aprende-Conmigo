@@ -22,6 +22,7 @@ const Login = () => {
         .signInWithPopup(provider)
         .then((result) => {
           const user = result.user;
+          console.log(user);
           userData(user)
           const username = user.displayName;
           setGreetUser(username);
