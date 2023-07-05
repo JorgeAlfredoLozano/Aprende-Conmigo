@@ -3,7 +3,7 @@ import style from "./Login.module.css";
 import firebase from "firebase/compat/app"; //firebase
 import "firebase/compat/auth"; //firebase
 import firebaseConfig from "./firebaseConfig"; //firebase
-import userData from "../Redux/actions";
+import userData from "../../Redux/actions.js";
 
 firebase.initializeApp(firebaseConfig); //firebase
 
