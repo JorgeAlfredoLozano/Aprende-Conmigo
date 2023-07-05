@@ -10,11 +10,7 @@ module.exports = (sequelize) => {
     },
     postal_code: {
         type: DataTypes.INTEGER,
-        allowNull:false,
-        validate: {
-            notNull: {
-                msg: 'Codigo can not be null'
-            }}
+        
     },
     name:{
         type: DataTypes.STRING,

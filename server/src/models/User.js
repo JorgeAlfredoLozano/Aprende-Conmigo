@@ -18,7 +18,7 @@ module.exports = (sequelize) => {
         allowNull:false
     },
     date:{
-        type:DataTypes.DATE,
+        type:DataTypes.DATEONLY,
         allowNull:false
     },
     mail:{
@@ -38,7 +38,7 @@ module.exports = (sequelize) => {
         allowNull:false
     },
     location:{
-        type:DataTypes.ARRAY(DataTypes.STRING),
+        type:DataTypes.JSON,
         allowNull:false
     },
     certificate:{
