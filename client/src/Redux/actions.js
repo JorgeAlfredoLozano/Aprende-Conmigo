@@ -6,10 +6,15 @@ export function userData (user) {
       console.error(error);
     });
 };
+
 export function putUser(payload){
   return async function(dispatch){
      const response=await axios.put("ruta", payload)
-   return response;
+   
+     dispatch({
+      type: 'PUT_USER',
+      payload: response
+    });
    }
 };
 

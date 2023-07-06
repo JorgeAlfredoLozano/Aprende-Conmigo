@@ -1,52 +1,52 @@
-import {useState} from "react";
-import {putUser} from '../Redux/action'
-import {useDispatch} from 'react-redux';
+import { putUser } from '../Redux/action';
+import React, { useState } from "react";
+import { connect } from "react-redux";
 
-export default function UserUpdate(){
-    const dispatch =useDispatch();
-    
+const UserUpdate = () => {
+
     const [input,setInput]=useState({
         name:'',
         date:'',
         gender:'',
         phone:''   
     });
-     
-    function handleChange(e){
+    console.log(input)
+
+    function handleChange(event){
         setInput({
             ...input,
-            [e.target.name]:e.target.value
+            [event.target.name]:event.target.value
         });
         console.log(input)
     };
 
-    function handleSubmit(e){
-        e.preventDefault();
+    function handleSubmit(event){
+        event.preventDefault();
         dispatch(putUser(input))
         alert("Datos Actualizados!!")
         setInput({
             name:'',
             date:'',
             gender:'',
-            phone:''                   
-        })      
+            phone:''
+        })
     };
 
 return(
-    <div className={style.container}>
+    <div>
        
-        <form onSubmit={(e)=> handleSubmit(e)}>
+        <form onSubmit={(event)=>handleSubmit(event)}>
             <div>
                 <label > Name: </label>
-                <input type="text" value={input.name} name='name' onChange={(e)=>handleChange(e)}/>                   
+                <input type="text" name='name' value={input.name} onChange={(event)=>handleChange(event)}/>                   
             </div>              
             <div>
                 <label > Date: </label>
-                <input type="date" value={input.date} name='date' onChange={(e)=>handleChange(e)} />   
+                <input type="date" name='date' value={input.date} onChange={(event)=>handleChange(event)} />   
             </div>
             <div>
                 <label > Gender: </label>
-                <select name='gender' onChange={(e)=> handleChange(e)}>
+                <select name='gender' value={input.gender} onChange={(event)=>handleChange(event)}>
                   <option disabled selected>Select a Gender</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
@@ -55,7 +55,7 @@ return(
             </div>
             <div>
                 <label > Phone Number: </label>
-                <input type="text" value={aux.phone} name='phone' onChange={(e)=> handleChange(e)} />   
+                <input type="text" name='phone' value={input.phone} onChange={(event)=>handleChange(event)}/>   
             </div>
             <button type='submit'>Actualizar Datos</button>           
             </form>
@@ -64,7 +64,13 @@ return(
 )
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        putUser: (value) => dispatch(putUser(value)),
+    };
+  };
 
+export default  connect(null, mapDispatchToProps)(UserUpdate);
 
 
 
