@@ -7,11 +7,11 @@ const Detail = () => {
 
   useEffect(() => {
     // Código de efecto o lógica adicional si es necesario
-    // ...
+    
 
     return () => {
       // Código de limpieza o cancelación si es necesario
-      // ...
+      
     };
   }, [id]);
 
