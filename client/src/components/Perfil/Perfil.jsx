@@ -1,6 +1,7 @@
 import NavBar from "../NavBar/NavBar";
 import style from './Perfil.module.css';
 import React, { useState } from "react";
+import FormUpdate from "../FormUpdate/FormUpdate";
 
 const Perfil = () => {
 
@@ -8,6 +9,7 @@ const Perfil = () => {
     const [renderAnuncios, setRenderAnuncios] = useState(false)
     const [renderAnunciosFavoritos, setRenderAnunciosFavoritos] = useState(false)
     const [renderHistorial, setRenderHistorial] = useState(false)
+    const [renderForm, setRenderForm] = useState(false)
 
     const changeTab = (event) => {
         if(event.target.id === 'profile') {
@@ -33,6 +35,19 @@ const Perfil = () => {
         }
     }
 
+    const updateData = () => {
+        setRenderForm(true)
+    }
+
+    const handleFormSubmit = () => {
+        setRenderForm(false);
+    }
+
+    const containerStyle = {
+        backgroundImage: `url(${localStorage.getItem('avatar')})`, /// esto es mientras no trabajemos con las imagenes provenientes de la base de datos
+      };
+    console.log(localStorage.getItem('avatar'))
+
     return (
         <div>
             <NavBar/>
@@ -46,7 +61,8 @@ const Perfil = () => {
                 <div className={style.contenedorInfo}>
                     {renderProfile && (
                         <>
-                            <div className={style.imgCont}></div>
+                            <div className={style.imgCont} style={containerStyle}></div>
+                            <button className={style.botonFoto}>Cambiar Foto</button>
                             <p className={style.infoLabel}>Nombre</p>
                             <p className={style.infoLabel}>Apellido</p>
                             <p className={style.infoLabel}>Email</p>
@@ -55,6 +71,12 @@ const Perfil = () => {
                             <p className={style.infoLabel}>Teléfono</p>
                             <p className={style.infoLabel}>Genero</p>
                             <p className={style.infoLabel}>Certificados</p>
+                            <button className={style.botonForm} onClick={updateData}>Modificar Perfil</button>
+                            {renderForm && (
+                                <div>
+                                    <FormUpdate onSubmit={handleFormSubmit}/>
+                                </div>
+                            )}
                         </>
                     )}
                     {renderAnuncios && (

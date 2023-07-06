@@ -1,8 +1,9 @@
 import { putUser } from '../../Redux/actions';
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import style from './FormUpdate.module.css'
 
-const FormUpdate = () => {
+const FormUpdate = (props) => {
 
     const [input,setInput]=useState({
         name:'',
@@ -22,7 +23,8 @@ const FormUpdate = () => {
 
     function handleSubmit(event){
         event.preventDefault();
-        dispatch(putUser(input))
+        // dispatch(putUser(input))
+        props.onSubmit()
         alert("Datos Actualizados!!")
         setInput({
             name:'',
@@ -37,16 +39,16 @@ return(
        
         <form onSubmit={(event)=>handleSubmit(event)}>
             <div>
-                <label > Name: </label>
-                <input type="text" name='name' value={input.name} onChange={(event)=>handleChange(event)}/>                   
+                {/* <label > Name: </label> */}
+                <input className={style.name} type="text" name='name' value={input.name} onChange={(event)=>handleChange(event)}/>                   
             </div>              
             <div>
-                <label > Date: </label>
-                <input type="date" name='date' value={input.date} onChange={(event)=>handleChange(event)} />   
+                {/* <label > Date: </label> */}
+                <input className={style.date} type="date" name='date' value={input.date} onChange={(event)=>handleChange(event)} />   
             </div>
             <div>
-                <label > Gender: </label>
-                <select name='gender' value={input.gender} onChange={(event)=>handleChange(event)}>
+                {/* <label > Gender: </label> */}
+                <select className={style.gender} name='gender' value={input.gender} onChange={(event)=>handleChange(event)}>
                   <option disabled selected>Select a Gender</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
@@ -54,8 +56,8 @@ return(
                 </select>
             </div>
             <div>
-                <label > Phone Number: </label>
-                <input type="text" name='phone' value={input.phone} onChange={(event)=>handleChange(event)}/>   
+                {/* <label > Phone Number: </label> */}
+                <input className={style.phone} type="text" name='phone' value={input.phone} onChange={(event)=>handleChange(event)}/>   
             </div>
             <button type='submit'>Actualizar Datos</button>           
             </form>
