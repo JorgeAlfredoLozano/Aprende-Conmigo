@@ -12,7 +12,7 @@ export function putUser(payload) {
     try {
       const response = await axios.put("ruta", payload);
 
-      dispatch({
+      return dispatch({
         type: 'PUT_USER',
         payload: response.data // Accede a los datos de la respuesta
       });
