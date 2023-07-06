@@ -1,25 +1,28 @@
-import  {putUser}  from '../../Redux/actions';
+import  {putUser,getUser}  from '../../Redux/actions';
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
+
+
 
 const FormUpdate = () => {
-
+    
+   
+    const dispatch=useDispatch();
     const [input,setInput]=useState({
         name:'',
         date:'',
         gender:'',
         phone:''   
     });
-    console.log(input)
-
+   
     function handleChange(event){
         setInput({
             ...input,
             [event.target.name]:event.target.value
         });
-        console.log(input)
+        
     };
-
+    
     function handleSubmit(event){
         event.preventDefault();
         dispatch(putUser(input))
@@ -30,6 +33,7 @@ const FormUpdate = () => {
             gender:'',
             phone:''
         })
+        console.log(getUser)
     };
 
 return(
@@ -57,6 +61,7 @@ return(
                 <label > Phone Number: </label>
                 <input type="text" name='phone' value={input.phone} onChange={(event)=>handleChange(event)}/>   
             </div>
+            {console.log(input)}
             <button type='submit'>Actualizar Datos</button>           
             </form>
        
