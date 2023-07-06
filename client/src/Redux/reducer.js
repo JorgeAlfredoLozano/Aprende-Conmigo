@@ -3,8 +3,15 @@ const initialState = {
 };
 
 const reducer = (state = initialState, {type, payload}) => {
-  // Aquí manejarás las acciones que modificarán el estado de tu aplicación
-  return state;
+  switch (action.type) {
+  case "PUT_USER":
+    return{
+      ...state
+    }
+ 
+  default:
+    return { ...state };
+  }
 };
-//
+
 export default reducer;
