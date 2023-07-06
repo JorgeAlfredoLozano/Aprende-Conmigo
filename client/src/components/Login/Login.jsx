@@ -82,12 +82,6 @@ const Login = () => {
       )}
       {logged && (
         <div>
-          {/* <img
-            className={style.icon}
-            src={image}
-            alt=""
-            onClick={() => setShowLogoutButton(!showLogoutButton)}
-          /> */}
           <div className={style.icon} style={containerStyle} onClick={() => setShowLogoutButton(!showLogoutButton)} ></div>
           {showLogoutButton && (
             <div className={style.panel}>

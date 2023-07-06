@@ -34,6 +34,8 @@ const FormUpdate = (props) => {
         })
     };
 
+    console.log(input)
+
 return(
     <div>
        
@@ -59,7 +61,7 @@ return(
                 {/* <label > Phone Number: </label> */}
                 <input className={style.phone} type="text" name='phone' value={input.phone} onChange={(event)=>handleChange(event)}/>   
             </div>
-            <button type='submit'>Actualizar Datos</button>           
+            <button type='submit'>Actualizar Datos</button>
             </form>
        
     </div>
