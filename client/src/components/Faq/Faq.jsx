@@ -1,6 +1,8 @@
 // import { useEffect } from "react";
 // import { useDispatch } from "react-redux";
 import React, { useState } from "react";
+import NavBar from "../NavBar/NavBar";
+import style from './Faq.module.css'
 
 
 const faqData = [
@@ -18,8 +20,6 @@ const faqData = [
     }
     // Agrega más preguntas y respuestas según sea necesario
   ];
-
-
 
 const Faq = () => {
   
@@ -40,7 +40,9 @@ const Faq = () => {
     };
 
   return (
-         <div>
+        <div>
+          <NavBar/>
+        <div className={style.container}>
             <h1>Preguntas frecuentes</h1>
             {faqData.map((faq, index) => (
             <div key={index}>
@@ -48,7 +50,8 @@ const Faq = () => {
                 {expandedIndex === index && <p>{faq.answer}</p>}
             </div>
             ))}
-        </div>
+        </div>  
+          </div>
         )
 
 }
