@@ -2,12 +2,8 @@ import {useState} from "react";
 import {putUser} from '../Redux/action'
 import {useDispatch} from 'react-redux';
 
-
 export default function UserUpdate(){
     const dispatch =useDispatch();
-
-
-
     
     const [input,setInput]=useState({
         name:'',
@@ -36,12 +32,9 @@ export default function UserUpdate(){
         })      
     };
 
-
 return(
     <div className={style.container}>
        
-       
-
         <form onSubmit={(e)=> handleSubmit(e)}>
             <div>
                 <label > Name: </label>
@@ -69,7 +62,6 @@ return(
        
     </div>
 )
-
 }
 
 
