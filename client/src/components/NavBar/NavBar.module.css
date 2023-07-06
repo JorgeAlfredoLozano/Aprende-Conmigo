@@ -26,6 +26,6 @@
 
 .logo:hover {
     cursor: pointer;
-    color: rgb(255, 84, 61);
+    color: red;
     transition: 0.6s ease;
 }
