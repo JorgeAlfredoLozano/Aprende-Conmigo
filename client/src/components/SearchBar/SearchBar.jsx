@@ -1,20 +1,42 @@
-import { useState } from "react"
+import style from './SearchBar.module.css'
+import { useState } from "react";
+import { Link } from 'react-router-dom'; // añado esto mientras no tengamos la funcion onSearch
 
 
-const SearchBar = ({onSearch}) => {
+// const SearchBar = ({onSearch}) => {
 
-    const [ name, setName ] = useState('')
+//     const [ name, setName ] = useState('');
 
-    const handleChange = (event) => {
-        setName(event.target.value)
-    }
+//     const handleChange = (event) => {
+//         setName(event.target.value)
+//     };
 
-    return (
-        <div>
-         <input type='search' value={name} onChange={handleChange} />
-         <button onClick={() => onSearch(name)}>Search</button>
-        </div>
-    )
-}
+//     return (
+//         <div className={style.container}>
+//          <input type='search' value={name} onChange={handleChange} />
+//          <button onClick={() => onSearch(name)}>Search</button>
+//         </div>
+//     );
+// };
 
-export default SearchBar;
+// export default SearchBar;
+
+const SearchBar = () => {
+
+        const [ name, setName ] = useState('');
+    
+        const handleChange = (event) => {
+            setName(event.target.value)
+        };
+    
+        return (
+            <div className={style.container}>
+             <input type='search' value={name} onChange={handleChange} />
+             <Link to='/busqueda'>
+             <button>Search</button>
+             </Link>
+            </div>
+        );
+    };
+    
+    export default SearchBar;

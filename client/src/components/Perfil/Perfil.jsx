@@ -1,13 +1,12 @@
 import NavBar from "../NavBar/NavBar";
 
-const FormAnuncio = () => {
-
+const Perfil = () => {
     return (
         <div>
             <NavBar/>
-            <h1>soy un form</h1>
+            Perfil
         </div>
     )
 }
 
-export default FormAnuncio;
+export default Perfil;

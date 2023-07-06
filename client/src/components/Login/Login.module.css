@@ -1,0 +1,53 @@
+.container {
+    position: absolute;
+    right: 16%;
+    top: 15%;
+}
+
+.greet {
+    position: fixed;
+    max-width: 150px;
+    color: rgb(34, 34, 34);
+    top: -5px;
+    right: 10%;
+    font-weight: bolder;
+    font-size: 20px;
+    z-index: -1;
+}
+
+.icon {
+    position: fixed;
+    top: 7px;
+    height: 50px;
+    z-index: -1;
+    right: 60px;
+}
+
+.icon:hover {
+    cursor: pointer;
+}
+
+.logout {
+    position: fixed;
+    right: 30px;
+    top: 10%;
+}
+
+.desplegable {
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    right: 2.3%;
+    top: 11%;
+}
+
+.botones {
+    color: black;
+    margin: 0%;
+    padding: 10px;
+}
+
+.botones:hover {
+    background-color: yellow;
+    cursor: pointer;
+    transition: 0.5s ease;
+}

@@ -5,12 +5,37 @@
     top:0%;
     width: 1500px;
     left: 0%;
+    z-index: 5;
 }
 
 .nav {
     color: rgb(32, 32, 32);
     font-size: 40px;
     position: fixed;
-    top: -5.5%;
+    top: -6%;
     left:45%
+}
+
+.logo {
+    position: fixed;
+    color: rgb(32, 32, 32);
+    font-size: 40px;
+    top: -5.4%;
+    left: 5%
+}
+
+.logo:hover {
+    cursor: pointer;
+}
+
+.pepito{
+    border:2px solid black;
+    border-radius:50%;
+    width: 20px;
+    height: 20px;
+    
+
+    position: fixed;
+    top: 3%;
+    right: 20px;
 }
