@@ -1,4 +1,4 @@
-import { putUser } from '../../Redux/actions';
+import  {putUser}  from '../../../Redux/actionss';
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
@@ -64,7 +64,9 @@ return(
 )
 }
 
-export default  connect(null, { putUser })(FormUpdate);
+
+
+export default  connect(null, {putUser})(FormUpdate);
 
 
 

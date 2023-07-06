@@ -3,7 +3,7 @@ import style from "./Login.module.css";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import firebaseConfig from "./firebaseConfig";
-import { userData } from "../../Redux/actions.js";
+import {userData} from "../../Redux/actions"
 import image from "../assets/imagenes/login-user.png";
 import { Link } from "react-router-dom";
 
