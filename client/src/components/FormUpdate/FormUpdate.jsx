@@ -23,7 +23,7 @@ const FormUpdate = (props) => {
 
     function handleSubmit(event){
         event.preventDefault();
-        // dispatch(putUser(input))
+        // dispatch(putUser(input)) //comentado para acomodarlo en la maqueta
         props.onSubmit()
         alert("Datos Actualizados!!")
         setInput({
