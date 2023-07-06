@@ -1,10 +1,12 @@
 import NavBar from "../NavBar/NavBar";
 import style from './Perfil.module.css';
+import UserUpdate from '../FormUpdate/FormUpdate'
 
 const Perfil = () => {
     return (
         <div>
             <NavBar/>
+            <UserUpdate/>
             <div className={style.contenedorPerfil}>
             <div className={style.contenedorTabs}>
             <p className={style.tabs}>Mi perfil</p>
