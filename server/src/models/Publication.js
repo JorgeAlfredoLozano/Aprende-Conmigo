@@ -20,10 +20,7 @@ sequelize.define('Publication', {
         type: DataTypes.STRING,
         allowNull:false
     },
-    mode:{
-        type:DataTypes.ENUM('Remote', 'AtHome', 'YourHome'),
-        defaultValue:('Remote')
-    },
+   
     value:{
         type:DataTypes.FLOAT,
         allowNull:false

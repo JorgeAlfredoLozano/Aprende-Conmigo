@@ -20,12 +20,22 @@
     position: fixed;
     color: rgb(32, 32, 32);
     font-size: 40px;
-    top: -6%;
+    top: -5.4%;
     left: 5%
 }
 
 .logo:hover {
     cursor: pointer;
-    color: rgb(255, 84, 61);
-    transition: 0.6s ease;
+}
+
+.pepito{
+    border:2px solid black;
+    border-radius:50%;
+    width: 20px;
+    height: 20px;
+    
+
+    position: fixed;
+    top: 3%;
+    right: 20px;
 }

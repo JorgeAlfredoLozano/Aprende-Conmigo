@@ -1,30 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./Login.module.css";
-import firebase from "firebase/compat/app"; //firebase
-import "firebase/compat/auth"; //firebase
-import firebaseConfig from "./firebaseConfig"; //firebase
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import firebaseConfig from "./firebaseConfig";
+import { userData } from "../../Redux/actions.js";
+import image from "../assets/imagenes/login-user.png";
+import { Link } from "react-router-dom";
 
-firebase.initializeApp(firebaseConfig); //firebase
+firebase.initializeApp(firebaseConfig);
 
-const provider = new firebase.auth.GoogleAuthProvider(); //firebase
+const provider = new firebase.auth.GoogleAuthProvider();
 
 const Login = () => {
   const [logged, setLogged] = useState(false);
-  const [greetUser, setGreetUser] = useState('');
+  const [greetUser, setGreetUser] = useState("");
   const [showLogoutButton, setShowLogoutButton] = useState(false);
 
-  // Dentro de la función changeDidLog
+  useEffect(() => {
+    const currentUser = localStorage.getItem("currentUser");
+    const userName = localStorage.getItem("userName");
+
+    if (currentUser && userName) {
+      setLogged(true);
+      setGreetUser(userName);
+    } else {
+      setLogged(false);
+    }
+  }, []);
+
   const changeDidLog = () => {
-    if (logged === false) {
+    if (!logged) {
       firebase
         .auth()
         .signInWithPopup(provider)
         .then((result) => {
           const user = result.user;
+          userData(user);
           const username = user.displayName;
-          setGreetUser(username)
+          const email = user.email;
+          console.log(user);
+          setGreetUser(username);
           setLogged(true);
-          setShowLogoutButton(true); // Mostrar el botón de logout al iniciar sesión
+          localStorage.setItem("currentUser", email);
+          localStorage.setItem("userName", username);
         })
         .catch((error) => {
           console.error("Error al iniciar sesión:", error);
@@ -35,7 +53,9 @@ const Login = () => {
         .signOut()
         .then(() => {
           setLogged(false);
-          setShowLogoutButton(false); // Ocultar el botón de logout al cerrar sesión
+          setShowLogoutButton(false);
+          localStorage.removeItem("currentUser");
+          localStorage.removeItem("userName");
         })
         .catch((error) => {
           console.error("Error al cerrar sesión:", error);
@@ -47,22 +67,28 @@ const Login = () => {
     <div className={style.container}>
       {!logged && (
         <button className={style.boton} onClick={changeDidLog}>
-          Login
+          Iniciar Sesión
         </button>
       )}
       {logged && (
         <div>
-          {/* <img className={style.logicon} src={image} alt=''  /> */}
-          <button className={style.openbox} onClick={() => setShowLogoutButton(!showLogoutButton)}>▼</button>
-          {showLogoutButton && (<div className={style.panel}>
-            <button onClick={changeDidLog} className={style.logout}>
-              Logout
-            </button>
-            </div>
-          )}
+          <img
+            className={style.icon}
+            src={image}
+            alt=""
+            onClick={() => setShowLogoutButton(!showLogoutButton)}/>
+          {showLogoutButton && (
+            <div className={style.panel}>
+              <div className={style.desplegable}>
+                <Link to="/perfil">
+                  <p className={style.botones}>Mi Perfil</p>
+                </Link>
+                <p className={style.botones}>Favoritos</p>
+                <p onClick={changeDidLog} className={style.botones}>Cerrar Sesión</p>
+              </div>
+            </div>)}
           <p className={style.greet}>{greetUser}</p>
-        </div>
-      )}
+        </div>)}
     </div>
   );
 };

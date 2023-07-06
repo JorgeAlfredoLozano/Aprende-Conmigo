@@ -1,9 +1,23 @@
 .container {
+<<<<<<< HEAD
+    /* height: 10vh;
+    background-color: rgb(248, 248, 248);
+    bottom: 0;
+    width: 100%;
+     */
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #f1f1f1;
+      padding: 20px;
+      text-align: center;
+=======
     margin-top: 8%;
     width: 100%;
     background-color: #f1f1f1;
     padding: 15px;
     box-sizing: border-box;
+>>>>>>> f4b98593a624d17a2ccdad1dade941f1cbcc50a5
 }
 
 
