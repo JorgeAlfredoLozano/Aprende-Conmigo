@@ -42,15 +42,15 @@ return(
         <form onSubmit={(event)=>handleSubmit(event)}>
             <div>
                 <label > Name: </label>
-                <input type="text" name='name' value={input.name} onChange={(event)=>handleChange(event)}/>                   
+                <input className={style.name} type="text" name='name' value={input.name} onChange={(event)=>handleChange(event)}/>                   
             </div>              
             <div>
                 <label > Date: </label>
-                <input type="date" name='date' value={input.date} onChange={(event)=>handleChange(event)} />   
+                <input className={style.date} type="date" name='date' value={input.date} onChange={(event)=>handleChange(event)} />   
             </div>
             <div>
                 <label > Gender: </label>
-                <select name='gender' value={input.gender} onChange={(event)=>handleChange(event)}>
+                <select className={style.gender} name='gender' value={input.gender} onChange={(event)=>handleChange(event)}>
                   <option disabled selected>Select a Gender</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
@@ -59,9 +59,9 @@ return(
             </div>
             <div>
                 <label > Phone Number: </label>
-                <input type="text" name='phone' value={input.phone} onChange={(event)=>handleChange(event)}/>   
+                <input className={style.phone} type="text" name='phone' value={input.phone} onChange={(event)=>handleChange(event)}/>   
             </div>
-            {console.log(input)}
+           
             <button type='submit'>Actualizar Datos</button>           
             </form>
        
