@@ -6,7 +6,7 @@ const route = Router();
 
 // Define la ruta y su manejador para la creación de usuario
 route.post('/',createUserHandler );
-route.post('/login',createUserLogin)
+route.post('/login',createUserLogin);
 
 
 
