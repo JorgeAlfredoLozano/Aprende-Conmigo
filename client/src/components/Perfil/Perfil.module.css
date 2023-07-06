@@ -1,4 +1,15 @@
 .contenedorPerfil {
     display: flex;
     background-color: black;
-}
+  }
+  
+  .contenedorTabs {
+    flex: 0.8;
+    background-color: grey;
+  }
+  
+  .contenedorInfo {
+    flex: 2;
+    background-color: rgb(194, 194, 194);
+    width: 800px;
+  }

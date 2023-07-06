@@ -1,8 +1,8 @@
-import { putUser } from '../Redux/action';
+import { putUser } from '../../Redux/actions';
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-const UserUpdate = () => {
+const FormUpdate = () => {
 
     const [input,setInput]=useState({
         name:'',
@@ -64,13 +64,7 @@ return(
 )
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        putUser: (value) => dispatch(putUser(value)),
-    };
-  };
-
-export default  connect(null, mapDispatchToProps)(UserUpdate);
+export default  connect(null, { putUser })(FormUpdate);
 
 
 

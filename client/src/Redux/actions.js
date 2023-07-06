@@ -7,14 +7,18 @@ export function userData (user) {
     });
 };
 
-export function putUser(payload){
-  return async function(dispatch){
-     const response=await axios.put("ruta", payload)
-   
-     dispatch({
-      type: 'PUT_USER',
-      payload: response
-    });
-   }
-};
+export function putUser(payload) {
+  return async function(dispatch) {
+    try {
+      const response = await axios.put("ruta", payload);
+
+      dispatch({
+        type: 'PUT_USER',
+        payload: response.data // Accede a los datos de la respuesta
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+}
 
