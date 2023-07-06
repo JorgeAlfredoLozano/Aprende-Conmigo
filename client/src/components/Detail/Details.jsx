@@ -1,45 +1,49 @@
-import parser from 'html-react-parser';
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import  axios  from 'axios';
+import { useEffect } from 'react';
 import styled from 'styled-components';
 
-
 const Detail = () => {
-    
-    const { id } = useParams()
-    const [ gameDetail, setGameDetail ] = useState({})
-    
+  const { id } = useParams();
 
-    useEffect(() => {
-        const getAxios = async () => {
-        const detail = await axios(`http://localhost:3001/videogames/${id}`)
-        setGameDetail(detail.data)
-        }
-        getAxios()
-    },[id])
-    if(gameDetail.description){ 
-        return (
-        <StyledDetail>
+  useEffect(() => {
+    // Código de efecto o lógica adicional si es necesario
+    // ...
 
-            <div>
-            <h1>{gameDetail.name}</h1>
-            <img src={gameDetail.background_image} width='600px' height='auto' alt="Loading..." />
-            <h2>Genres: {gameDetail.genres.map(genre => genre.name).join(', ')}</h2>
-            <h2>Rating: {gameDetail.rating}</h2>
-            <h2>Platforms: {gameDetail.platforms}</h2>
-            <h2>Released: {gameDetail.released}</h2>
-            <article>{parser(gameDetail.description)}</article>
-            </div>
+    return () => {
+      // Código de limpieza o cancelación si es necesario
+      // ...
+    };
+  }, [id]);
 
-        </StyledDetail>
-    )}else{
-        return (
-            <p>Loading...</p>
-        )
-    }
+  return (
+    <StyledDetail>
+      <Home />
+      <Filtros />
+      <Usuario />
+      <AgregarFavoritos />
+      <Formulario />
+    </StyledDetail>
+  );
 };
 
+const Home = () => {
+  return <div>Home Component</div>;
+};
 
+const Filtros = () => {
+  return <div>Filtros Component</div>;
+};
+
+const Usuario = () => {
+  return <div>Usuario Component</div>;
+};
+
+const AgregarFavoritos = () => {
+  return <div>AgregarFavoritos Component</div>;
+};
+
+const Formulario = () => {
+  return <div>Formulario Component</div>;
+};
 
 export default Detail;
