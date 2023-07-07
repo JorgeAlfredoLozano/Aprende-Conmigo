@@ -6,7 +6,7 @@ const route = Router();
 // Define la ruta y su manejador para la creación de usuario
 route.post('/login',createUserLogin);
 route.put('/update/:email',putUser);
-route.get('/get/:email',getUser);
+route.get('/update/:email',getUser);
 
 module.exports = route;
 
