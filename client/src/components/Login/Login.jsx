@@ -4,7 +4,6 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import firebaseConfig from "./firebaseConfig";
 import { userData } from "../../Redux/actions.js";
-import image from "../assets/imagenes/login-user.png";
 import { Link, useNavigate } from "react-router-dom";
 
 firebase.initializeApp(firebaseConfig);
@@ -71,7 +70,6 @@ const Login = () => {
   const containerStyle = {
     backgroundImage: `url(${localStorage.getItem('avatar')})`, /// esto es mientras no trabajemos con las imagenes provenientes de la base de datos
   };
-  console.log(localStorage.getItem('avatar'))
 
   return (
     <div className={style.container}>

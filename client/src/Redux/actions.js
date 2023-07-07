@@ -14,6 +14,16 @@ export const putUser=(payload)=>{
     });  
    }
 };
+export const sendPhoto=(payload)=>{
+   return async function(dispatch){
+      const response=await axios.put("http://localhost:3001/user/update/img/"+ hhh, payload)
+     return dispatch({
+       type:'SEND_PHOTO',
+       payload: response
+     });  
+    }
+ };
+
 
 export const getUser =()=>{
    
