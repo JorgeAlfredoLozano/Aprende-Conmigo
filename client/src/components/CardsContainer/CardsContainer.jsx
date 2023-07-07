@@ -18,7 +18,18 @@ const CardsContainer = () => {
     }
     // Agrega más tarjetas si lo deseas
   ];
+//______________monta-actualiza-desmonta_____________________________________________________________
+//ciclos de vidas de este component particular
+useEffect(()=>{
+  dispatch(cards) //--> montaje
+  
+  // return()=>{
+  //   dispatch(clear())  //--> Limpieza | desmonta
+  // }
+  },[dispatch]); //--> cada vez que se actualiza algo de getAllGames
 
+
+  
   return (
     <div>
       {cards.map((card) => (
