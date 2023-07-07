@@ -1,24 +1,34 @@
 import axios from 'axios';
 
 export const userData =(user)=> {
-        axios.post('http://localhost:3001/user/login', user )
+        axios.post('http://localhost:3001/user/login',  user )       
 };
 
-export const putUser=(email, user)=>{
+let hhh=localStorage.getItem("currentUser")
+export const putUser=(payload)=>{
   return async function(dispatch){
-     const response=await axios.put(`http://localhost:3001/user/update/${email}`, user)
+     const response=await axios.put("http://localhost:3001/user/update/"+ hhh, payload)
     return dispatch({
       type:'PUT_USER',
       payload: response
     });  
    }
 };
+export const sendPhoto=(payload)=>{
+   return async function(dispatch){
+      const response=await axios.put("http://localhost:3001/user/update/img/"+ hhh, payload)
+     return dispatch({
+       type:'SEND_PHOTO',
+       payload: response
+     });  
+    }
+ };
 
-export const getUser =(email)=>{
+
+export const getUser =()=>{
    
   return async (dispatch) => {
-     const { data } = await axios(`http://localhost:3001/user/update/${email}`);
-
+     const {data} = await axios(`http://localhost:3001/user/update/`+ hhh);
         return dispatch({
            type: 'GET_USER',
            payload: data,

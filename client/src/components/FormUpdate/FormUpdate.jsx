@@ -32,7 +32,7 @@ const FormUpdate = (props) => {
             gender:'',
             phone:''
         })
-        console.log(getUser)
+       
     };
 
 return(
