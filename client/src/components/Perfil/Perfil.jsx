@@ -34,20 +34,15 @@ const Perfil = () => {
             setRenderAnunciosFavoritos(false)
         }
     }
-
     const updateData = () => {
         setRenderForm(true)
     }
-
     const handleFormSubmit = () => {
         setRenderForm(false);
     }
-
     const containerStyle = {
         backgroundImage: `url(${localStorage.getItem('avatar')})`, /// esto es mientras no trabajemos con las imagenes provenientes de la base de datos
       };
-    console.log(localStorage.getItem('avatar'))
-
     return (
         <div>
             <NavBar/>
