@@ -5,7 +5,7 @@ import "firebase/compat/auth";
 import firebaseConfig from "./firebaseConfig";
 import { userData } from "../../Redux/actions.js";
 import image from "../assets/imagenes/login-user.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 firebase.initializeApp(firebaseConfig);
 
@@ -15,6 +15,7 @@ const Login = () => {
   const [logged, setLogged] = useState(false);
   const [greetUser, setGreetUser] = useState("");
   const [showLogoutButton, setShowLogoutButton] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const currentUser = localStorage.getItem("currentUser");
@@ -38,11 +39,13 @@ const Login = () => {
           userData(user);
           const username = user.displayName;
           const email = user.email;
+          const avatar = user.photoURL;
           console.log(user);
           setGreetUser(username);
           setLogged(true);
           localStorage.setItem("currentUser", email);
           localStorage.setItem("userName", username);
+          localStorage.setItem("avatar", avatar);
         })
         .catch((error) => {
           console.error("Error al iniciar sesión:", error);
@@ -56,12 +59,19 @@ const Login = () => {
           setShowLogoutButton(false);
           localStorage.removeItem("currentUser");
           localStorage.removeItem("userName");
+          localStorage.removeItem("avatar");
+          navigate("/");
         })
         .catch((error) => {
           console.error("Error al cerrar sesión:", error);
         });
     }
   };
+
+  const containerStyle = {
+    backgroundImage: `url(${localStorage.getItem('avatar')})`, /// esto es mientras no trabajemos con las imagenes provenientes de la base de datos
+  };
+  console.log(localStorage.getItem('avatar'))
 
   return (
     <div className={style.container}>
@@ -72,11 +82,7 @@ const Login = () => {
       )}
       {logged && (
         <div>
-          <img
-            className={style.icon}
-            src={image}
-            alt=""
-            onClick={() => setShowLogoutButton(!showLogoutButton)}/>
+          <div className={style.icon} style={containerStyle} onClick={() => setShowLogoutButton(!showLogoutButton)} ></div>
           {showLogoutButton && (
             <div className={style.panel}>
               <div className={style.desplegable}>
@@ -86,9 +92,11 @@ const Login = () => {
                 <p className={style.botones}>Favoritos</p>
                 <p onClick={changeDidLog} className={style.botones}>Cerrar Sesión</p>
               </div>
-            </div>)}
+            </div>
+          )}
           <p className={style.greet}>{greetUser}</p>
-        </div>)}
+        </div>
+      )}
     </div>
   );
 };
