@@ -1,6 +1,6 @@
 
 const { Router } = require("express");
-const createUserHandler = require("../handlers/createUserHandler") // requerimos el handler
+//const createUserHandler = require("../handlers/createUserHandler") // requerimos el handler
 const createUserLogin = require("../handlers/createUserLogin")
 // const updateUserHandler=require("../handlers/updateUserHandler")
 const {putUser,getUser}=require("../rutas/User")
