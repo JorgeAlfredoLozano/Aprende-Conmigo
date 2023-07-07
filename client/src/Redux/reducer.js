@@ -1,11 +1,23 @@
 const initialState = {
+  user: [],
+  allInfo:[]
   };
 
 const reducer = (state = initialState, {type, payload}) => {
   switch (type) {
+  case "PUT_USER":
+  return{
+      ...state,
+      user: payload,   
+    } 
+    case "GET_USER":
+      return{
+          ...state,
+          allInfo: payload,   
+        }   
   default:
-    return state;
+    return { ...state };
   }
-  }
-//
+};
+
 export default reducer;

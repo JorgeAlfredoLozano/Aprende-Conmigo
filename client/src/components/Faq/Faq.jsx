@@ -1,58 +1,68 @@
-// import { useEffect } from "react";
-// import { useDispatch } from "react-redux";
 import React, { useState } from "react";
 import NavBar from "../NavBar/NavBar";
-import style from './Faq.module.css'
-
-
-const faqData = [
-    {
-      question: '¿Cuál es la política de devoluciones?',
-      answer: 'Nuestra política de devoluciones permite devoluciones dentro de los 30 días posteriores a la compra. Por favor, asegúrate de tener el recibo de compra.'
-    },
-    {
-      question: '¿Cómo puedo cambiar mi contraseña?',
-      answer: 'Para cambiar tu contraseña, inicia sesión en tu cuenta y ve a la sección de configuración. Allí encontrarás la opción para cambiar tu contraseña.'
-    },
-    {
-      question: '¿Dónde puedo encontrar información de contacto?',
-      answer: 'Puedes encontrar nuestra información de contacto en la página de contacto de nuestro sitio web. También puedes llamarnos al número +123456789.'
-    }
-    // Agrega más preguntas y respuestas según sea necesario
-  ];
+import style from './Faq.module.css';
+import dataFq from './dataFq';
 
 const Faq = () => {
-  
-    // const dispatch = useDispatch();
+  const [expandedGroups, setExpandedGroups] = useState([]);
+  const [expandedResponses, setExpandedResponses] = useState([]);
 
-    // useEffect(() => {
-    //     // dispatch(faqData()); // Despacha al montarse
-    // }, [dispatch]);
+  const handleGroupClick = (grupo) => {
+    if (expandedGroups.includes(grupo)) {
+      setExpandedGroups(expandedGroups.filter((group) => group !== grupo));
+    } else {
+      setExpandedGroups([...expandedGroups, grupo]);
+    }
+  };
 
-    const [expandedIndex, setExpandedIndex] = useState(null);
-
-    const toggleAnswer = (index) => {
-      if (expandedIndex === index) {
-        setExpandedIndex(null);
-      } else {
-        setExpandedIndex(index);
-      }
-    };
+  const handleQuestionClick = (pregunta) => {
+    if (expandedResponses.includes(pregunta)) {
+      setExpandedResponses(expandedResponses.filter((question) => question !== pregunta));
+    } else {
+      setExpandedResponses([...expandedResponses, pregunta]);
+    }
+  };
 
   return (
-        <div>
-          <NavBar/>
-        <div className={style.container}>
-            <h1>Preguntas frecuentes</h1>
-            {faqData.map((faq, index) => (
-            <div key={index}>
-                <h3 onClick={() => toggleAnswer(index)}>  {faq.question}  </h3>
-                {expandedIndex === index && <p>{faq.answer}</p>}
+    <div>
+      <NavBar />
+      <div className={style.container}>
+        <h1>Preguntas frecuentes</h1>
+        {dataFq.map((mapeo, index) => (
+          <div key={index}>
+            <div
+              onClick={() => handleGroupClick(mapeo.grupo)}
+              className="grupo"
+              style={{ cursor: 'pointer', fontWeight: 'bold' }}
+            >
+             <h2>{mapeo.grupo}</h2>
             </div>
-            ))}
-        </div>  
+            {expandedGroups.includes(mapeo.grupo) && (
+              <div>
+                {mapeo.preguntasRespuestas.map((elemento, index) => (
+                  <div key={index}>
+                    <div
+                      className="pregunta"
+                      style={{ marginLeft: '20px', cursor: 'pointer',fontWeight: 'bold' }}
+                      onClick={() => handleQuestionClick(elemento.pregunta)}
+                    >
+                      <h3><img src="https://cdn-icons-png.flaticon.com/128/545/545678.png"/>{elemento.pregunta} </h3>
+                    </div>
+                    {expandedResponses.includes(elemento.pregunta) && (
+                      <div className="respuesta" style={{ marginLeft: '40px' }}>
+                       <p> {elemento.respuesta}</p>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
-        )
+        ))}
+      </div>
+    </div>
+  );
+};
 
-}
 export default Faq;
+
