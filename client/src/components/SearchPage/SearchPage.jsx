@@ -1,4 +1,4 @@
-import NavBar from "../NavBar/NavBar";
+import NavBar from "../Views/NavBar/NavBar";
 // import Footer from '../Footer/Footer';
 import style from './SearchPage.module.css'
 

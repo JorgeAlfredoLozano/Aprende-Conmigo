@@ -12,7 +12,7 @@ const SearchBar = () => {
             <div className={style.container}>
              <input type='search' value={name} onChange={handleChange} />
              <Link to='/busqueda'>
-             <button>Search</button>
+             <button>Buscar</button>
              </Link>
             </div>
         );

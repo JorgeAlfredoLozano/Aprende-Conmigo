@@ -1,4 +1,4 @@
-import NavBar from "../NavBar/NavBar";
+import NavBar from "../Views/NavBar/NavBar";
 import style from './Perfil.module.css';
 import React, { useState } from "react";
 import FormUpdate from "../FormUpdate/FormUpdate";
