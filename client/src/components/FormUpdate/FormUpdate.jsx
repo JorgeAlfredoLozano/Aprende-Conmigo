@@ -1,7 +1,7 @@
 import  {putUser,getUser}  from '../../Redux/actions';
 import React, { useState } from "react";
 import { connect, useDispatch } from "react-redux";
-
+import style from "./FormUpdate.module.css"
 
 
 const FormUpdate = () => {
