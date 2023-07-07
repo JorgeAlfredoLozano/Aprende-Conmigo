@@ -1,5 +1,4 @@
 const initialState = {
-  user: [],
   allInfo:[]
   };
 
@@ -7,13 +6,12 @@ const reducer = (state = initialState, {type, payload}) => {
   switch (type) {
   case "PUT_USER":
   return{
-      ...state,
-      user: payload,   
+      ...state
     } 
     case "GET_USER":
       return{
           ...state,
-          allInfo: payload,   
+          allInfo: payload,
         }   
   default:
     return { ...state };

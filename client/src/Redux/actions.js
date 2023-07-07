@@ -1,10 +1,9 @@
 import axios from 'axios';
 
 export const userData =(user)=> {
-        axios.post('http://localhost:3001/user/login',  user )       
+        axios.post('http://localhost:3001/user/login',  user )
+        console.log(user)      
 };
-
-let email=localStorage.getItem("currentUser")
 
 export const putUser=(email, user)=>{
   return async function(dispatch){
@@ -16,10 +15,11 @@ export const putUser=(email, user)=>{
    }
 };
 
-export const getUser =()=>{
+export const getUser =(email)=>{
    
   return async (dispatch) => {
-     const {data} = await axios(`http://localhost:3001/user/update/${email}`);
+     const { data } = await axios(`http://localhost:3001/user/update/${email}`);
+
         return dispatch({
            type: 'GET_USER',
            payload: data,

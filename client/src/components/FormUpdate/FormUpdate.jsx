@@ -4,13 +4,15 @@ import { connect, useDispatch } from "react-redux";
 import style from './FormUpdate.module.css'
 
 const FormUpdate = (props) => {
-    let email=localStorage.getItem("currentUser")
+
+    const email=localStorage.getItem("currentUser")
+
     const dispatch = useDispatch();
     const [input,setInput]=useState({
         name:'',
         date:'',
         gender:'',
-        phone:''   
+        phone:''
     }); 
     function handleChange(event){
         setInput({
@@ -19,7 +21,7 @@ const FormUpdate = (props) => {
         });
         
     };   
-    function handleSubmit(event){
+    function handleSubmit(event){ //validaciones pa que no se envien campos vacios en el input
         event.preventDefault();
         dispatch(putUser(email, input)) //comentado para acomodarlo en la maqueta
         props.onSubmit()
@@ -32,6 +34,7 @@ const FormUpdate = (props) => {
         })
         console.log(getUser)
     };
+
 return(
     <div>      
         <form onSubmit={(event)=>handleSubmit(event)}>
