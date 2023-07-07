@@ -14,6 +14,7 @@ import Carrousel from "../carrousel/Carrousel";
             <div className={style.container}></div>
             <div className={style.carrusel}></div>
             <h1>a bachir no le gusta esta home T-T</h1>
+            <Carrousel/>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ab ea tempora, suscipit natus corrupti soluta rem consequuntur omnis ad pariatur sed, minus, eos ducimus esse est perspiciatis ipsum! Ex.Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ab ea tempora, suscipit natus corrupti soluta rem consequuntur omnis ad pariatur se! Ex.</p>
         <Footer/>
         </div>
