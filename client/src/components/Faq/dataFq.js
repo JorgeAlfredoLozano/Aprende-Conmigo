@@ -75,7 +75,7 @@ const dataFq = [
       }
     ]
   }
- //agregar mas...
+ 
 ];
 
 export default dataFq;

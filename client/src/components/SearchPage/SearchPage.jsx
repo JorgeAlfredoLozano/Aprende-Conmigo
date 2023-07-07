@@ -7,9 +7,7 @@ const SearchPage = () => {
         <div>
             <NavBar/>
             <div className={style.container}>
-            
             <h2>Resultados de la búsqueda</h2>
-             
             </div>
             {/* <Footer />    */}
         </div>
