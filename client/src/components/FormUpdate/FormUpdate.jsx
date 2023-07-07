@@ -3,27 +3,22 @@ import React, { useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import style from './FormUpdate.module.css'
 
-
-
 const FormUpdate = (props) => {
     
-   
     const dispatch = useDispatch();
     const [input,setInput]=useState({
         name:'',
         date:'',
         gender:'',
         phone:''   
-    });
-   
+    }); 
     function handleChange(event){
         setInput({
             ...input,
             [event.target.name]:event.target.value
         });
         
-    };
-    
+    };   
     function handleSubmit(event){
         event.preventDefault();
         dispatch(putUser(input)) //comentado para acomodarlo en la maqueta
@@ -37,12 +32,8 @@ const FormUpdate = (props) => {
         })
         console.log(getUser)
     };
-
-    console.log(input)
-
 return(
-    <div>
-       
+    <div>      
         <form onSubmit={(event)=>handleSubmit(event)}>
             <div>
                 {/* <label > Name: </label> */}
@@ -64,14 +55,11 @@ return(
             <div>
                 {/* <label > Phone Number: </label> */}
                 <input className={style.phone} type="text" name='phone' value={input.phone} onChange={(event)=>handleChange(event)}/>   
-            </div>
-           
+            </div>           
             <button type='submit'>Actualizar Datos</button>
-            </form>
-       
+            </form>       
     </div>
-)
-}
+)}
 
 export default  connect(null, { putUser })(FormUpdate);
 
