@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 export const userData =(user)=> {
-        axios.post('http://localhost:3001/user/login',  user )
-        console.log(user)      
+        axios.post('http://localhost:3001/user/login', user )
 };
 
 export const putUser=(email, user)=>{

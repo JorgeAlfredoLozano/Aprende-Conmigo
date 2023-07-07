@@ -19,7 +19,7 @@ const FormUpdate = (props) => {
             ...input,
             [event.target.name]:event.target.value
         });
-        
+      
     };   
     function handleSubmit(event){ //validaciones pa que no se envien campos vacios en el input
         event.preventDefault();
