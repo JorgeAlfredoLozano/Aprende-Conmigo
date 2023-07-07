@@ -53,6 +53,27 @@ const dataFq = [
         respuesta: 'xxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxx'
       }
     ]
+  },
+  {
+    grupo: '🔎 Suscripción pase alumno',
+    preguntasRespuestas: [
+      {
+        pregunta: "Suscribirse al Pase alumno para contactar un profesor",
+        respuesta: 'xxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx'
+      },
+      {
+        pregunta: "Cambiar mi direccion de correo electronico",
+        respuesta: 'xxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxx'
+      },
+      {
+        pregunta: "Beneficios del Pase alumno",
+        respuesta: 'xxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxx'
+      },
+      {
+        pregunta: "Administrar mi Pase de alumno",
+        respuesta: 'xxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxx'
+      }
+    ]
   }
  //agregar mas...
 ];
