@@ -1,5 +1,5 @@
 import NavBar from "../NavBar/NavBar";
-import Footer from '../Footer/Footer';
+// import Footer from '../Footer/Footer';
 import style from './SearchPage.module.css'
 
 const SearchPage = () => {
@@ -7,11 +7,9 @@ const SearchPage = () => {
         <div>
             <NavBar/>
             <div className={style.container}>
-            
             <h2>Resultados de la búsqueda</h2>
-             
             </div>
-            <Footer />   
+            {/* <Footer />    */}
         </div>
     )
 }

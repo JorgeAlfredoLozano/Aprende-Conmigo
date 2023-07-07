@@ -31,11 +31,9 @@
 .pepito{
     border:2px solid black;
     border-radius:50%;
-    width: 20px;
-    height: 20px;
-    
-
+    width: 30px;
+    height: 30px;
     position: fixed;
-    top: 3%;
-    right: 20px;
+    top: 2.3%;
+    right: 13.5px;
 }
