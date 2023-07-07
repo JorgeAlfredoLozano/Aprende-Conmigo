@@ -7,11 +7,11 @@ const Detail = () => {
 
   useEffect(() => {
     // Código de efecto o lógica adicional si es necesario
-    
+    // ...
 
     return () => {
       // Código de limpieza o cancelación si es necesario
-      
+      // ...
     };
   }, [id]);
 
@@ -19,9 +19,7 @@ const Detail = () => {
     <StyledDetail>
       <Home />
       <Filtros />
-      <Usuario />
-      <AgregarFavoritos />
-      <Formulario />
+      <Perfil />
     </StyledDetail>
   );
 };
@@ -34,16 +32,8 @@ const Filtros = () => {
   return <div>Filtros Component</div>;
 };
 
-const Usuario = () => {
-  return <div>Usuario Component</div>;
+const Perfil = () => {
+  return <div>Perfil Component</div>;
 };
 
-const AgregarFavoritos = () => {
-  return <div>AgregarFavoritos Component</div>;
-};
-
-const Formulario = () => {
-  return <div>Formulario Component</div>;
-};
-
-export default Detail;
+export default Detail; 
