@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 const NavBar = () =>{
 
     return(
+           
         <div  className={style.container}>
             <Link to='/'>
             <h2 className={style.logo}>👩‍💻</h2>
@@ -23,6 +24,7 @@ const NavBar = () =>{
 
             <Login/>
         </div>
+          
     )
 }
 
