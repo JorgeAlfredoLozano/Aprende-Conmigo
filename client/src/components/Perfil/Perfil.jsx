@@ -2,7 +2,7 @@ import NavBar from "../NavBar/NavBar";
 import style from './Perfil.module.css';
 import React, { useState } from "react";
 import FormUpdate from "../FormUpdate/FormUpdate";
-
+import SendPhoto from "../SendPhoto/SendPhoto";
 const Perfil = () => {
 
     const [renderProfile, setRenderProfile] = useState(true)
@@ -46,6 +46,8 @@ const Perfil = () => {
     return (
         <div>
             <NavBar/>
+           
+
             <div className={style.contenedorPerfil}>
                 <div className={style.contenedorTabs}>
                     <p id='profile' onClick={changeTab} className={style.tabs}>Mi perfil</p>
@@ -56,8 +58,7 @@ const Perfil = () => {
                 <div className={style.contenedorInfo}>
                     {renderProfile && (
                         <>
-                            <div className={style.imgCont} style={containerStyle}></div>
-                            <button className={style.botonFoto}>Cambiar Foto</button>
+                         <SendPhoto/>
                             <p className={style.infoLabel}>Nombre</p>
                             <p className={style.infoLabel}>Apellido</p>
                             <p className={style.infoLabel}>Email</p>
