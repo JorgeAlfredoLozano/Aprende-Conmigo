@@ -9,7 +9,7 @@ function CardProfesor() {
         <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={imagen} />
             <Card.Body>
-            <Card.Title>Jose Ignacio Chorrillos</Card.Title>
+            <Card.Title>matematicas</Card.Title>
             <Card.Text>
                 Matematico especializado en produccion bobina con orientacion a bifurcaciones neutras.
             </Card.Text>
