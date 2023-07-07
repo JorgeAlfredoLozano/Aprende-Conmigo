@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import NavBar from "../NavBar/NavBar";
+import NavBar from "../Views/NavBar/NavBar";
 import style from './Faq.module.css';
 import dataFq from './dataFq';
 
