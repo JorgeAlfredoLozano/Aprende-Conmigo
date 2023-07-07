@@ -1,6 +1,5 @@
 const { Router } = require("express");
 const createUserLogin = require("../handlers/createUserLogin")
-// const updateUserHandler=require("../handlers/updateUserHandler")
 const {putUser,getUser}=require("../rutas/User")
 const route = Router();
 
