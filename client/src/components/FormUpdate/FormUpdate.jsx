@@ -1,13 +1,13 @@
 import  {putUser,getUser}  from '../../Redux/actions';
 import React, { useState } from "react";
 import { connect, useDispatch } from "react-redux";
-import style from "./FormUpdate.module.css"
 
 
-const FormUpdate = () => {
+
+const FormUpdate = (props) => {
     
    
-    const dispatch=useDispatch();
+    const dispatch = useDispatch();
     const [input,setInput]=useState({
         name:'',
         date:'',
@@ -25,7 +25,8 @@ const FormUpdate = () => {
     
     function handleSubmit(event){
         event.preventDefault();
-        dispatch(putUser(input))
+        dispatch(putUser(input)) //comentado para acomodarlo en la maqueta
+        props.onSubmit()
         alert("Datos Actualizados!!")
         setInput({
             name:'',
@@ -36,20 +37,22 @@ const FormUpdate = () => {
         console.log(getUser)
     };
 
+    console.log(input)
+
 return(
     <div>
        
         <form onSubmit={(event)=>handleSubmit(event)}>
             <div>
-                <label > Name: </label>
+                {/* <label > Name: </label> */}
                 <input className={style.name} type="text" name='name' value={input.name} onChange={(event)=>handleChange(event)}/>                   
             </div>              
             <div>
-                <label > Date: </label>
+                {/* <label > Date: </label> */}
                 <input className={style.date} type="date" name='date' value={input.date} onChange={(event)=>handleChange(event)} />   
             </div>
             <div>
-                <label > Gender: </label>
+                {/* <label > Gender: </label> */}
                 <select className={style.gender} name='gender' value={input.gender} onChange={(event)=>handleChange(event)}>
                   <option disabled selected>Select a Gender</option>
                   <option value="male">Male</option>
@@ -58,20 +61,18 @@ return(
                 </select>
             </div>
             <div>
-                <label > Phone Number: </label>
+                {/* <label > Phone Number: </label> */}
                 <input className={style.phone} type="text" name='phone' value={input.phone} onChange={(event)=>handleChange(event)}/>   
             </div>
            
-            <button type='submit'>Actualizar Datos</button>           
+            <button type='submit'>Actualizar Datos</button>
             </form>
        
     </div>
 )
 }
 
-
-
-export default  connect(null, {putUser})(FormUpdate);
+export default  connect(null, { putUser })(FormUpdate);
 
 
 
