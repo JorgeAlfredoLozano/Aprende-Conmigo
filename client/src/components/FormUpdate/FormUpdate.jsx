@@ -4,7 +4,7 @@ import { connect, useDispatch } from "react-redux";
 import style from './FormUpdate.module.css'
 
 const FormUpdate = (props) => {
-    
+    let email=localStorage.getItem("currentUser")
     const dispatch = useDispatch();
     const [input,setInput]=useState({
         name:'',
@@ -21,7 +21,7 @@ const FormUpdate = (props) => {
     };   
     function handleSubmit(event){
         event.preventDefault();
-        dispatch(putUser(input)) //comentado para acomodarlo en la maqueta
+        dispatch(putUser(email, input)) //comentado para acomodarlo en la maqueta
         props.onSubmit()
         alert("Datos Actualizados!!")
         setInput({
@@ -62,6 +62,4 @@ return(
 )}
 
 export default  connect(null, { putUser })(FormUpdate);
-
-
 

@@ -8,8 +8,7 @@ const createUserLogin = async (name,email,assets) => {
     }
 
    })
-    console.log(email)
-  
+    console.log(exist)
      if(!exist){
         const newUser = await User.create({name,email,assets});   
         return newUser;
