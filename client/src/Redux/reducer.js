@@ -1,5 +1,4 @@
 const initialState = {
-  user: [],
   allInfo:[],
   };
 
@@ -14,11 +13,15 @@ const reducer = (state = initialState, {type, payload}) => {
   return{
       ...state,
       user: payload,   
+    } 
+  case "SEND_PHOTO":
+  return{
+      ...state
     }
   case "GET_USER":
   return{
       ...state,
-      allInfo: payload,   
+      allInfo: payload,
     }   
        
   default:

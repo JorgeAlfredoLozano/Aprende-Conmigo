@@ -1,4 +1,3 @@
-
 const {User}= require('../db');
 
 const putUser=async(req,res)=>{

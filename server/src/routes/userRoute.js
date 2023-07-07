@@ -1,4 +1,3 @@
-
 const { Router } = require("express");
 const createUserLogin = require("../handlers/createUserLogin")
 const {putUser,getUser,putPhoto}=require("../rutas/User")
