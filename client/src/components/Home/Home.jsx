@@ -1,6 +1,6 @@
 import SearchBar from "../SearchBar/SearchBar";
 import NavBar from "../NavBar/NavBar";
-// import Footer from "../Footer/Footer";
+import Footer from "../Footer/Footer";
 import style from './Home.module.css'
 
  const Home = () => {
