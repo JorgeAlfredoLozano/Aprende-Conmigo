@@ -1,10 +1,9 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import imagen from "../assets/imagenes/nuevoProfe.jpg";
 import Container from 'react-bootstrap/Container';
 
-function CardProfesor() {
+function CardCarrousel() {
   return (
     <Container className="d-flex justify-content-center align-items-center">
       <Card style={{ width: '300px' }}>
@@ -20,11 +19,10 @@ function CardProfesor() {
           <Card.Text>
             Aquí va la publicidad de las materias que se enseñan
           </Card.Text>
-          <Button variant="primary">Aplicar aquí</Button>
-        </Card.Body>
+       </Card.Body>
       </Card>
     </Container>
   );
 }
 
-export default CardProfesor;
+export default CardCarrousel;
