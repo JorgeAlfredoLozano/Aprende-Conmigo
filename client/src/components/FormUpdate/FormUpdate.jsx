@@ -5,10 +5,10 @@ import style from './FormUpdate.module.css'
 
 
 
-const FormUpdate = () => {
+const FormUpdate = (props) => {
     
    
-    const dispatch=useDispatch();
+    const dispatch = useDispatch();
     const [input,setInput]=useState({
         name:'',
         date:'',
@@ -26,7 +26,7 @@ const FormUpdate = () => {
     
     function handleSubmit(event){
         event.preventDefault();
-        // dispatch(putUser(input)) //comentado para acomodarlo en la maqueta
+        dispatch(putUser(input)) //comentado para acomodarlo en la maqueta
         props.onSubmit()
         alert("Datos Actualizados!!")
         setInput({
