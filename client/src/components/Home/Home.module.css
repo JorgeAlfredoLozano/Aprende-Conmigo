@@ -3,10 +3,10 @@
 }
 
 .carrusel {
-    background-color: rgb(73, 172, 229);
+    background-color: #23138b;
     height: 220px;
     width: 900px;
     padding-left: 150%;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 0%;
+    margin-bottom: 0%;
 }
