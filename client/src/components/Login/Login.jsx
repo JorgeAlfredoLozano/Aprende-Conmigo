@@ -4,7 +4,7 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import firebaseConfig from "./firebaseConfig";
 import { userData } from "../../Redux/actions.js";
-import image from "../assets/imagenes/login-user.png";
+import image from "../../components/assets/imagenes/login-user.png";
 import { Link, useNavigate } from "react-router-dom";
 
 firebase.initializeApp(firebaseConfig);
