@@ -8,16 +8,12 @@ const reducer = (state = initialState, {type, payload}) => {
   case "PUT_USER":
   return{
       ...state,
-      allInfo: payload,   
+      allInfo:payload
     } 
   case "SEND_PHOTO":
   return{
       ...state,
       user: payload,   
-    } 
-  case "SEND_PHOTO":
-  return{
-      ...state
     }
   case "GET_USER":
   return{

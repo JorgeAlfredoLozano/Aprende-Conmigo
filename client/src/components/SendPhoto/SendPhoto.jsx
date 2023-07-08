@@ -4,15 +4,14 @@ import {sendPhoto} from '../../Redux/actions';
 import { useDispatch } from 'react-redux';
 const apiKey = '9f6c6345c293cd9ea633a1d2e70f1b01';
 
-const SendPhoto = () => {
+const SendPhoto = (props) => {
   const email=localStorage.getItem("currentUser")
   
   const dispatch = useDispatch();
-  const [uploadedImage, setUploadedImage] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
 
-  const handleFileChange = (e) => {
-    setSelectedFile(e.target.files[0]);
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
   };
   const handleUpload = () => {
     if (selectedFile) {
@@ -30,7 +29,7 @@ const SendPhoto = () => {
             assets:response.data.data.url
           }
           dispatch(sendPhoto(email, sendImg));
-          setUploadedImage(response.data.data.url);
+          props.onSubmit()
           alert("Foto Actualizada!!");
         })
         .catch((error) => {
@@ -40,17 +39,8 @@ const SendPhoto = () => {
   };
   return (
     <div>
-      <h1>Cargar foto a ImgBB</h1>
       <input type="file" onChange={handleFileChange} />
-      <button onClick={handleUpload}>Cargar foto</button>
-      {uploadedImage && (
-        <div>
-          <h2>Imagen subida</h2>
-          <img src={uploadedImage} alt="Page not found (404)" width="300" height="250" />
-        </div>
-      )}
-
-     
+      <button onClick={handleUpload}>Cargar foto</button>     
     </div>
   );
 };

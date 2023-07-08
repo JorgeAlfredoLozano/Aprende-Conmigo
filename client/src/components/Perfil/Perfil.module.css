@@ -4,6 +4,7 @@
     width: 1000px;
     height: 340px;
     margin-left: 17%;
+    margin-top: 100px;
   }
   
   .contenedorTabs {
@@ -27,6 +28,7 @@
     flex: 2;
     background-color: rgb(194, 194, 194);
     width: 800px;
+    padding-top: 4.5%;
   }
 
   .infoLabel {
@@ -49,12 +51,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  .botonFoto {
-    position: absolute;
-    top:57%;
-    right: 19%;
   }
 
   .botonForm {
