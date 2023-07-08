@@ -5,7 +5,7 @@ import Card from "./Card"; // Importa el componente "Card" necesario
 
 const CardsContainer = () => {
   // Array de tarjetas hardcoded
-  const cards = [
+  const cards = 
     {
       id: 10,
       name: "ivana",
@@ -17,7 +17,7 @@ const CardsContainer = () => {
       certificate: "ok"
     }
     // Agrega más tarjetas si lo deseas
-  ];
+  ;
 //______________monta-actualiza-desmonta_____________________________________________________________
 //ciclos de vidas de este component particular
 useEffect(()=>{
