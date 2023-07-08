@@ -1,37 +1,40 @@
-import  {putUser,getUser}  from '../../Redux/actions';
+import  {putUser}  from '../../Redux/actions';
 import React, { useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import style from './FormUpdate.module.css'
 
 const FormUpdate = (props) => {
-    
+
+    const email=localStorage.getItem("currentUser")
+
     const dispatch = useDispatch();
     const [input,setInput]=useState({
         name:'',
         date:'',
         gender:'',
-        phone:''   
+        phone:''
     }); 
     function handleChange(event){
         setInput({
             ...input,
             [event.target.name]:event.target.value
         });
-        
+      
     };   
-    function handleSubmit(event){
+    function handleSubmit(event){ //validaciones pa que no se envien campos vacios en el input
         event.preventDefault();
-        dispatch(putUser(input)) //comentado para acomodarlo en la maqueta
+        dispatch(putUser(email, input)) //comentado para acomodarlo en la maqueta
         props.onSubmit()
-        alert("Datos Actualizados!!")
+        alert("¡Tus datos han sido actualizados correctamente!")
         setInput({
             name:'',
             date:'',
             gender:'',
             phone:''
         })
-        console.log(getUser)
+       
     };
+
 return(
     <div>      
         <form onSubmit={(event)=>handleSubmit(event)}>
@@ -62,6 +65,4 @@ return(
 )}
 
 export default  connect(null, { putUser })(FormUpdate);
-
-
 
