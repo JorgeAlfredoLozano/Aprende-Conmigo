@@ -1,39 +1,31 @@
-import { useState } from "react";
-import style from "./CardsContainer.module.css";
-import { useSelector } from "react-redux";
-import Card from "./Card"; // Importa el componente "Card" necesario
+// import { useState } from "react";
+// import { useSelector } from "react-redux";
+import Card from "../Card/Card"; 
+import dataCards from "./dataCards";
+import styles from "./CardsContainer.module.css";
 
 const CardsContainer = () => {
-  // Array de tarjetas hardcoded
-  const cards = 
-    {
-      id: 10,
-      name: "ivana",
-      email: "ia.carmona@hotmail.com",
-      date: "7/7/2023",
-      gender: "femenino",
-      phone: 2664643646,
-      assets: "no hay",
-      certificate: "ok"
-    }
-    // Agrega más tarjetas si lo deseas
-  ;
+ 
+  
 //______________monta-actualiza-desmonta_____________________________________________________________
 //ciclos de vidas de este component particular
-useEffect(()=>{
-  dispatch(cards) //--> montaje
+// useEffect(()=>{
+//   dispatch(cards) //--> montaje
   
-  // return()=>{
-  //   dispatch(clear())  //--> Limpieza | desmonta
-  // }
-  },[dispatch]); //--> cada vez que se actualiza algo de getAllGames
+//   // return()=>{
+//   //   dispatch(clear())  //--> Limpieza | desmonta
+//   // }
+//   },[dispatch]); //--> cada vez que se actualiza algo de getAllGames
 
+//useSelector--> estate global
 
   
   return (
-    <div>
-      {cards.map((card) => (
-        <div key={card.id} className={style.lasCards}>
+    
+    <div  className={styles.cardContainer}>
+      
+      {dataCards.map((card) => (
+        <div key={card.id} className={styles.lasCards}>
           <Card
             id={card.id}
             name={card.name}
