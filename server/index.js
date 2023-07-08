@@ -1,5 +1,7 @@
-const server = require('./ser/src/app.js');
-const { conn } = require('./ser/src/db.js');
+//Levantar Server, sincronizar base de datos.
+
+const server = require('./src/app.js');
+const { conn } = require('./src/db.js');
 
 
 conn.sync({ force: true }).then(() => {
