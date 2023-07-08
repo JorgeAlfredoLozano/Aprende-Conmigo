@@ -39,7 +39,6 @@ const Login = () => {
           const username = user.displayName;
           const email = user.email;
           const avatar = user.photoURL;
-          console.log(user);
           setGreetUser(username);
           setLogged(true);
           localStorage.setItem("currentUser", email);

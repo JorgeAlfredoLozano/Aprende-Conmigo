@@ -6,24 +6,26 @@ import { getUser } from '../../Redux/actions';
 import { connect } from "react-redux";
 
 const Perfil = ({ userData, getUser }) => {
+  
+  useEffect(() => {
+    setRenderUser(userData);
+  }, [userData]);
+
+  useEffect(() => {
+    if (currentUser) {
+      getUser(currentUser)
+    }
+  }, [getUser]);
 
   const [renderProfile, setRenderProfile] = useState(true);
   const [renderAnuncios, setRenderAnuncios] = useState(false);
   const [renderAnunciosFavoritos, setRenderAnunciosFavoritos] = useState(false);
   const [renderHistorial, setRenderHistorial] = useState(false);
   const [renderForm, setRenderForm] = useState(false);
-  const [renderUser, setRenderUser] = useState(userData)
+  const [renderUser, setRenderUser] = useState(userData);
+  const [currentUser, setCurrentUser] = useState(localStorage.getItem('currentUser'));
 
-  useEffect(() => {
-    setRenderUser(userData);
-  }, [userData]);
-
-  useEffect(() => {
-    const currentUser = localStorage.getItem('currentUser');
-    if (currentUser) {
-      getUser(currentUser)
-    }
-  }, [getUser, userData]);
+  console.log(renderUser)
 
   const changeTab = (event) => {
     if (event.target.id === 'profile') {
@@ -54,11 +56,9 @@ const Perfil = ({ userData, getUser }) => {
   };
 
   const handleFormSubmit = () => {
-    setRenderForm(false);
     getUser(currentUser);
+    setRenderForm(false);
   };
-
-  console.log(renderUser)
 
   const containerStyle = {
     backgroundImage: `url(${localStorage.getItem('avatar')})`, /// esto es mientras no trabajemos con las imagenes provenientes de la base de datos

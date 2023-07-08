@@ -1,4 +1,4 @@
-import  {putUser,getUser}  from '../../Redux/actions';
+import  {putUser}  from '../../Redux/actions';
 import React, { useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import style from './FormUpdate.module.css'
@@ -25,7 +25,7 @@ const FormUpdate = (props) => {
         event.preventDefault();
         dispatch(putUser(email, input)) //comentado para acomodarlo en la maqueta
         props.onSubmit()
-        alert("Datos Actualizados!!")
+        alert("¡Tus datos han sido actualizados correctamente!")
         setInput({
             name:'',
             date:'',
