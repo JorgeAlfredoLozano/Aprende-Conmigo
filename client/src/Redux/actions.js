@@ -30,10 +30,20 @@ export const sendPhoto=(email, payload)=>{
      });  
     }
  };
+ export const sendAnuncio=(email, payload)=>{
+   return async function(dispatch){
+      const response=await axios.post("http://localhost:3001/user/publication/"+ email, payload)
+     return dispatch({
+       type:'SEND_ANUNCIO',
+       payload: response
+     });  
+    }
+ };
 
-export const getUser =(email)=>{   
+export const getUser =(email)=>{
+   
   return async (dispatch) => {
-     const {data} = await axios(`http://localhost:3001/user/update/${email}`);
+     const {data} = await axios.get(`http://localhost:3001/user/update/${email}`);
         return dispatch({
            type: 'GET_USER',
            payload: data,

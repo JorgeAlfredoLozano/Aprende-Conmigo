@@ -23,12 +23,12 @@ const Login = ({userData, getUser}) => {
     setRenderUser(userData);
     if (currentUser) {
       setLogged(true);
-      getUser(currentUser);
+      
       setGreetUser(renderUser.name);
     } else {
       setLogged(false);
     }
-  }, [getUser, userData]);
+  }, [userData]);
 
   const changeDidLog = () => {
     if (!logged) {
