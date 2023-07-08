@@ -25,10 +25,14 @@ sequelize.define('Publication', {
         type:DataTypes.FLOAT,
         allowNull:false
     },
-    Pub_image:{
+    pub_image:{
         type:DataTypes.BLOB,
         allowNull:false
+    },
+    grade:{
+        type:DataTypes.STRING,
+        values:['Primaria','Secundaria','Universidad'],
+        allowNull:false
     }
-
 },{timestamps:false,freezeTableName:true}
 )}
