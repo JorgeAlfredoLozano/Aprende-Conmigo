@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 const apiKey = '9f6c6345c293cd9ea633a1d2e70f1b01';
 
 const SendPhoto = () => {
+  const email=localStorage.getItem("currentUser")
   
   const dispatch = useDispatch();
   const [uploadedImage, setUploadedImage] = useState('');
@@ -28,7 +29,7 @@ const SendPhoto = () => {
           const sendImg={
             assets:response.data.data.url
           }
-          dispatch(sendPhoto(sendImg));
+          dispatch(sendPhoto(email, sendImg));
           setUploadedImage(response.data.data.url);
           alert("Foto Actualizada!!");
         })
