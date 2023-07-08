@@ -10,8 +10,8 @@ const SendPhoto = (props) => {
   const dispatch = useDispatch();
   const [selectedFile, setSelectedFile] = useState(null);
 
-  const handleFileChange = (e) => {
-    setSelectedFile(e.target.files[0]);
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
   };
   const handleUpload = () => {
     if (selectedFile) {
