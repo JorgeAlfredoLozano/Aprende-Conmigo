@@ -1,4 +1,4 @@
-const {User}= require('../db');
+const {User,Lesson,Publication}= require('../db');
 
 const putUser=async(req,res)=>{
     const {email}=req.params;
@@ -15,18 +15,20 @@ const getUser=async(req,res)=>{
   const {email}=req.params;
   try{
       const infoUser =await User.findAll({where:{email:email}}); 
-      if(infoUser)return infoUser;              
+      const infoLesson =await Lesson.findAll();
+
+      if(infoLesson) return res.status(200).send(infoLesson );
+      if(infoUser)return res.status(200).send(infoUser);  
+
       else return res.status(200).send("No existe el usuario")
       }catch(error){
       return res.status(404).send('Error en ruta 3');
   }};
-  const putPhoto=async(req,res)=>{
+const putPhoto=async(req,res)=>{
     const {email}=req.params;
     const {assets} = req.body;
     
   try{
-    console.log(assets);
-
      const newPhoto= await User.update({assets},{where:{email:email}});
 
      res.status(200).send("Photo actualizada");     
@@ -34,10 +36,39 @@ const getUser=async(req,res)=>{
      return res.status(404).send(error.message);
    }
 }; 
+const postPublication=async(req,res)=>{
+
+
+
+
+  const {email} = req.params;
+  const {title, about_class, about_teacher, value, lesson_name, grade} = req.body;
+
+  try {
+    const newPub = await Publication.create({title, about_class, about_teacher, value, grade});
+    const newName = await User.findOne({where: {email: email}});
+    // RELACION UNO-MUCHOS
+    await newName.addPublication(newPub);
+    console.log(lesson_name,"1")
+    const newLesson = await Lesson.create({lesson_name});
+    // RELACION MUCHOS-MUCHOS tabla: PublicationLesson
+
+    await newPub.addLesson(newLesson);
+
+    res.status(200).send("Publicación creada correctamente.");
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("Error interno del servidor.");
+  
+};
+}; 
+
 
 module.exports={
     putUser,
     getUser,
     putPhoto,
+    postPublication,
+  
 };
 

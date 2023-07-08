@@ -8,7 +8,7 @@ sequelize.define('Lesson', {
         autoIncrement: true, 
         primaryKey:true
     },
-    name:{
+    lesson_name:{
         type: DataTypes.STRING,
         allowNull:false
     },

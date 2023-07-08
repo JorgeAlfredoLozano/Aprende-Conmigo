@@ -95,7 +95,7 @@ const Perfil = ({ userData, getUser }) => {
           )}
           {renderAnuncios && (
             <>
-              <p className={style.infoLabel}>Anuncios</p>
+              <p className={style.infoLabel}>Anuncios2</p>
             </>
           )}
           {renderAnunciosFavoritos && (
