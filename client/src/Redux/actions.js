@@ -4,15 +4,22 @@ export const userData =(user)=> {
         axios.post('http://localhost:3001/user/login',  user )       
 };
 
-export const putUser=(email, input)=>{
-  return async function(dispatch){
-     const response=await axios.put(`http://localhost:3001/user/update/${email}`, input)
-    return dispatch({
-      type:'PUT_USER',
-      payload: response
-    });  
-   }
-};
+export const putUser = (email, input) => {
+   return async function (dispatch) {
+     try {
+       const response = await axios.put(`http://localhost:3001/user/update/${email}`, input); //envio el cambio
+       const updatedUser = await axios.get(`http://localhost:3001/user/update/${email}`); //recibo el cambio
+       const updatedUserInfo = updatedUser.data;
+ 
+       return dispatch({
+         type: 'PUT_USER',
+         payload: updatedUserInfo, //aca se actualiza la store cuando llega al reducer
+       });
+     } catch (error) {
+       throw 'Ha ocurrido un error al actualizar los datos'
+     }
+   };
+ };
 
 export const sendPhoto=(email, payload)=>{
    return async function(dispatch){
@@ -24,10 +31,9 @@ export const sendPhoto=(email, payload)=>{
     }
  };
 
-export const getUser =()=>{
-   
+export const getUser =(email)=>{   
   return async (dispatch) => {
-     const {data} = await axios(`http://localhost:3001/user/update/`+ hhh);
+     const {data} = await axios(`http://localhost:3001/user/update/${email}`);
         return dispatch({
            type: 'GET_USER',
            payload: data,
