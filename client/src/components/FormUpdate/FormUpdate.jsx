@@ -1,12 +1,12 @@
 import  {putUser}  from '../../Redux/actions';
-import React, { useState } from "react";
-import { connect, useDispatch } from "react-redux";
+import React, { useState, useDispatch } from "react";
+import { connect } from "react-redux";
 import style from './FormUpdate.module.css'
 
 const FormUpdate = (props) => {
 
     const email=localStorage.getItem("currentUser")
-
+    console.log(email);
     const dispatch = useDispatch();
     const [input,setInput]=useState({
         name:'',

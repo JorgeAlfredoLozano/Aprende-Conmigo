@@ -11,7 +11,7 @@ const Perfil = ({ userData, getUser }) => {
   useEffect(() => {
     setRenderUser(userData);
   }, [userData]);
-
+  
   useEffect(() => {
     if (currentUser) {
       getUser(currentUser)
@@ -25,7 +25,7 @@ const Perfil = ({ userData, getUser }) => {
   const [renderForm, setRenderForm] = useState(false);
   const [renderUser, setRenderUser] = useState(userData);
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('currentUser'));
-
+  console.log(currentUser)
   console.log(renderUser)
 
   const changeTab = (event) => {
