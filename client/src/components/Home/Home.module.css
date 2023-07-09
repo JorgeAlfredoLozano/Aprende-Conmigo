@@ -1,12 +1,6 @@
 .container {
     position: relative;
+    margin-bottom: 5%;
+    margin-top: 240px;
 }
 
-.carrusel {
-    background-color: #23138b;
-    height: 220px;
-    width: 900px;
-    padding-left: 150%;
-    margin-top: 0%;
-    margin-bottom: 0%;
-}
