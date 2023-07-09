@@ -31,12 +31,17 @@ export const sendPhoto=(email, payload)=>{
     }
  };
 
-export const getUser =(email)=>{   
+ export const getUser = (email) => {
   return async (dispatch) => {
-     const {data} = await axios(`http://localhost:3001/user/update/${email}`);
-        return dispatch({
-           type: 'GET_USER',
-           payload: data,
-        });
+    try {
+      const { data } = await axios.get(`http://localhost:3001/user/update/${email}`);
+      const userData = data; // Obtener los datos del usuario desde la respuesta
+      return dispatch({
+        type: 'GET_USER',
+        payload: userData,
+      });
+    } catch (error) {
+      throw 'Ha ocurrido un error al obtener los datos del usuario';
+    }
   };
 };
