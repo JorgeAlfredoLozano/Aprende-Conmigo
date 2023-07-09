@@ -1,6 +1,7 @@
 const initialState = {
   allInfo:[],
-  publication:[]
+  publication:[],
+  lesson:[]
   };
 
 const reducer = (state = initialState, {type, payload}) => {
@@ -20,11 +21,16 @@ const reducer = (state = initialState, {type, payload}) => {
       ...state,
       allInfo: payload,
     }   
-    case "SEND_ANUNCIO":
-      return{
-          ...state,
-          publication: payload,
-        }   
+  case "SEND_ANUNCIO":
+  return{
+      ...state,
+      publication: payload,
+    }
+  case "GET_LESSON":
+  return{
+      ...state,
+      lesson: payload,
+    }      
   default:
     return { ...state };
   }

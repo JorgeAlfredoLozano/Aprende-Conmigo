@@ -20,7 +20,7 @@ const getUser=async(req,res)=>{
       }catch(error){
       return res.status(404).send('Error en ruta 3');
   }};
-
+ 
 const putPhoto=async(req,res)=>{
   const {email}=req.params;
   const {assets} = req.body;
@@ -34,6 +34,7 @@ const putPhoto=async(req,res)=>{
 const postPublication=async(req,res)=>{
   const {email} = req.params;
   const {title, about_class, about_teacher, value, lesson_name, grade} = req.body;
+
   try {
     const newPub = await Publication.create({title, about_class, about_teacher, value, grade});
     const newName = await User.findOne({where: {email: email}});
@@ -54,6 +55,6 @@ module.exports={
     getUser,
     putPhoto,
     postPublication,
-  
+    
 };
 
