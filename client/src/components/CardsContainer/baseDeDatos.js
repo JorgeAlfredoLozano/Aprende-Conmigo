@@ -1,4 +1,5 @@
-const materias = {
+
+export const materias = {
     primaria: [
       "Matemáticas",
       "Lenguaje y Literatura",
@@ -61,3 +62,6 @@ const materias = {
       "Historia",
     ],
   };
+
+
+
