@@ -13,22 +13,39 @@ const provider = new firebase.auth.GoogleAuthProvider();
 
 const Login = ({userData, getUser}) => {
   const [logged, setLogged] = useState(false);
-  const [greetUser, setGreetUser] = useState("null");
+  const [greetUser, setGreetUser] = useState(null);
   const [showLogoutButton, setShowLogoutButton] = useState(false);
   const [renderUser, setRenderUser] = useState(userData);
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('currentUser'));
   const navigate = useNavigate();
 
   useEffect(() => {
-    setRenderUser(userData);
+    // carga de datos del usuario al iniciar la aplicacion en localStorage
+    const cachedUser = JSON.parse(localStorage.getItem('cachedUser'));
+    if (cachedUser) {
+      setLogged(true);
+      setRenderUser(cachedUser);
+      setGreetUser(cachedUser.name);
+    }
+  }, []);
+
+  useEffect(() => {
     if (currentUser) {
       setLogged(true);
       getUser(currentUser);
-      setGreetUser(renderUser.name);
     } else {
       setLogged(false);
     }
-  }, [getUser, userData]);
+  }, [currentUser, getUser]);
+
+  useEffect(() => {
+    if (userData !== renderUser) {
+      setRenderUser(userData);
+      setGreetUser(userData.name);
+      // Actualizar el usuario en el almacenamiento en caché
+      localStorage.setItem('cachedUser', JSON.stringify(userData));
+    }
+  }, [userData, renderUser]);
 
   const changeDidLog = () => {
     if (!logged) {
@@ -54,6 +71,7 @@ const Login = ({userData, getUser}) => {
           setLogged(false);
           setShowLogoutButton(false);
           localStorage.removeItem("currentUser");
+          localStorage.removeItem("cachedUser");
           navigate("/");
         })
         .catch((error) => {
