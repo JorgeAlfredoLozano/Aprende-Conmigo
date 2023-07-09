@@ -17,6 +17,7 @@ const Login = ({userData, getUser}) => {
   const [showLogoutButton, setShowLogoutButton] = useState(false);
   const [renderUser, setRenderUser] = useState(userData);
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('currentUser'));
+  
   const navigate = useNavigate();
 
   useEffect(() => {

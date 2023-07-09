@@ -26,8 +26,6 @@ const Perfil = ({ userData, getUser }) => {
   const [renderUser, setRenderUser] = useState(userData);
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('currentUser'));
 
-  console.log(renderUser)
-
   const changeTab = (event) => {
     if (event.target.id === 'profile') {
       setRenderProfile(true);
