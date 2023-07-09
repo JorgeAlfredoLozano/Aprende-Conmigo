@@ -67,7 +67,7 @@ const FormUpdate = (props) => {
         <div>
           <input className={style.phone} type="text" name='phone' value={input.phone} onChange={(event) => handleChange(event)} placeholder="Teléfono" />
         </div>
-        <button type='submit'>Actualizar Datos</button>
+        <button className={style.boton} type='submit'>Actualizar Datos</button>
       </form>
     </div>
   );
