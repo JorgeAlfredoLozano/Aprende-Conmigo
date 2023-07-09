@@ -1,12 +1,12 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import imagen from "../assets/imagenes/nuevoProfe.jpg";
+import imagen from "../assets/imagenes/Matematicas.jpg";
 import Container from 'react-bootstrap/Container';
 
 function CardCarrousel() {
   return (
     <Container className="d-flex justify-content-center align-items-center">
-      <Card style={{ width: '300px' }}>
+      <Card style={{ width: '600px' }}>
         <div style={{ height: '300px', overflow: 'hidden' }}>
           <Card.Img
             variant="top"
@@ -17,7 +17,7 @@ function CardCarrousel() {
         <Card.Body>
           <Card.Title>Matematicas</Card.Title>
           <Card.Text>
-            Aquí va la publicidad de las materias que se enseñan
+          Matemáticas: La matemática es una disciplina fundamental para el razonamiento lógico y la resolución de problemas en diversos campos. Su aplicación abarca desde ciencias exactas hasta finanzas y tecnología, permitiendo comprender el mundo y desarrollar habilidades analíticas indispensables.
           </Card.Text>
        </Card.Body>
       </Card>

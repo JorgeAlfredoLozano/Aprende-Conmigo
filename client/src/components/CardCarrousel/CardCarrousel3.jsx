@@ -1,12 +1,12 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import imagen from "../assets/imagenes/profe3.webp";
+import imagen from "../assets/imagenes/Historia.jpg";
 import Container from 'react-bootstrap/Container';
 
 function CardCarrousel3() {
   return (
     <Container className="d-flex justify-content-center align-items-center">
-      <Card style={{ width: '300px' }}>
+      <Card style={{ width: '600px' }}>
         <div style={{ height: '300px', overflow: 'hidden' }}>
           <Card.Img
             variant="top"
@@ -17,7 +17,7 @@ function CardCarrousel3() {
         <Card.Body>
           <Card.Title>Historia</Card.Title>
           <Card.Text>
-            Aquí va la publicidad de las materias que se enseñan
+          Historia: La historia nos brinda una comprensión profunda del pasado y sus repercusiones en el presente. Nos ayuda a comprender nuestras raíces, a valorar las luchas y logros de sociedades pasadas, y a aprender de los errores y éxitos para construir un futuro mejor informado y consciente de nuestro legado.
           </Card.Text>
        </Card.Body>
       </Card>
