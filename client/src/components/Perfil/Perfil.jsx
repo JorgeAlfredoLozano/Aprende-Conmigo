@@ -26,8 +26,6 @@ const Perfil = ({ userData, getUser }) => {
   const [renderUser, setRenderUser] = useState(userData);
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('currentUser'));
 
-  console.log(renderUser)
-
   const changeTab = (event) => {
     if (event.target.id === 'profile') {
       setRenderProfile(true);
@@ -65,6 +63,10 @@ const Perfil = ({ userData, getUser }) => {
     getUser(currentUser);
   };
 
+  const cancelarForm = () => {
+    setRenderForm(false)
+  }
+
   const containerStyle = {
     backgroundImage: `url(${renderUser.assets})`
   };
@@ -94,6 +96,7 @@ const Perfil = ({ userData, getUser }) => {
               {renderForm && (
                 <div>
                   <FormUpdate onSubmit={handleFormSubmit}/>
+                  <button onClick={cancelarForm}>Cancelar</button>
                 </div>
               )}
             </>
