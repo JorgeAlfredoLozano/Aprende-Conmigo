@@ -6,6 +6,7 @@ import Select from 'react-select';
 import Button from 'react-bootstrap/Button';
 
 
+
 const FormAnuncio = (props) => {
   const email=localStorage.getItem("currentUser")
   const dispatch=useDispatch();
@@ -82,21 +83,24 @@ const FormAnuncio = (props) => {
                 <textarea name='value' onChange={(event)=>handleChange(event)}/>    
             </div> 
             
-            <div>{/*BUTTONS*/ }
-                 <label > Nivel: </label>           
-      <Button variant="outline-primary"
-        className={selectedBtns.includes("Primaria") ? "seleccionado" : ""}
-        onClick={() => seleccionarBoton("Primaria")}> Primaria </Button>
-      <Button variant="outline-primary"
-        className={selectedBtns.includes("Secundaria") ? "seleccionado" : ""}
-        onClick={() => seleccionarBoton("Secundaria")}> Secundaria </Button>
-      <Button variant="outline-primary"
-        className={selectedBtns.includes("Universidad") ? "seleccionado" : ""}
-        onClick={() => seleccionarBoton("Universidad")}> Universidad </Button>
-     
-   
+            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group"> {/*CHECKBOX GRADE */}
+            <label > Nivel: </label>
+    <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" 
+        onClick={() => seleccionarBoton("Primaria")}/>
+    <label className={"btn btn-outline-primary"+ (selectedBtns.includes("Primaria") ? " seleccionado" : "")} 
+    for="btncheck1" >Primaria</label>
+  
+    <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off" 
+        onClick={() => seleccionarBoton("Secundaria")}/>
+    <label className={"btn btn-outline-primary"+ (selectedBtns.includes("Secundaria") ? " seleccionado" : "")}
+     for="btncheck2">Secundaria</label>
+  
+    <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off" 
+        onClick={() => seleccionarBoton("Universidad")}/>
+    <label className={"btn btn-outline-primary"+ (selectedBtns.includes("Universidad") ? " seleccionado" : "")}
+     for="btncheck3">Universidad</label>
              </div>
-
+                
                 <div> {/*SELECT MATERIAS */}
                 <label > Materia: </label> 
                 
