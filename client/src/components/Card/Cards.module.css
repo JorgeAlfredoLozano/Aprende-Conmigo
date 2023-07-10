@@ -27,6 +27,7 @@
 
     width: 250px;
     height: 350px;
+    
   }
   .card:hover{
     transform: scale(1.05);

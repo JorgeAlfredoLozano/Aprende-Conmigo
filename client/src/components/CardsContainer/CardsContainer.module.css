@@ -1,8 +1,8 @@
-.div {
-    width: 95vw;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: auto;
+.cardContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    grid-gap: 2.5rem;
+    margin-left: 13%;
+    margin-top: 35%;
+    padding-bottom: 30px
 }
