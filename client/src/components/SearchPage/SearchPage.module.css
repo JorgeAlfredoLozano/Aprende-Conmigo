@@ -1,5 +1,24 @@
+<<<<<<< HEAD
 /* .container {
     position: relative;
     background-color: red;
     width: 1360px;
 } */
+=======
+.container {
+    margin-top: 300px;
+    margin-left: 20%;
+    position: relative;
+    max-width: 100%;
+    width: 1360px;
+    
+  }
+ 
+  .busqueda {
+    margin-top: 30px;
+    position: relative;
+    background-color: red;
+    max-width: fit-content;
+    
+  }
+>>>>>>> 9742b6adbdecbe6dbe01c09813a7be387fe62144

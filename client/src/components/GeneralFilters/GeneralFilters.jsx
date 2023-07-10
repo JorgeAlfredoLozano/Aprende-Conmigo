@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 
-function FiltrosGenerales() {
+function GeneralFilters() {
   return (
     <>
       <Button variant="outline-primary">Primaria</Button>{' '}
@@ -10,4 +10,4 @@ function FiltrosGenerales() {
   );
 }
 
-export default FiltrosGenerales;
+export default GeneralFilters;

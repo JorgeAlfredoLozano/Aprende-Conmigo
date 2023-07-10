@@ -2,6 +2,7 @@ import NavBar from "../NavBar/NavBar";
 import style from './Perfil.module.css';
 import React, { useState, useEffect } from "react";
 import FormUpdate from "../FormUpdate/FormUpdate";
+import FormAnuncio from "../FormAnuncio/FormAnuncio"
 import { getUser } from '../../Redux/actions';
 import { connect } from "react-redux";
 import SendPhoto from "../SendPhoto/SendPhoto";
@@ -11,7 +12,7 @@ const Perfil = ({ userData, getUser }) => {
   useEffect(() => {
     setRenderUser(userData);
   }, [userData]);
-
+  
   useEffect(() => {
     if (currentUser) {
       getUser(currentUser)
@@ -25,8 +26,6 @@ const Perfil = ({ userData, getUser }) => {
   const [renderForm, setRenderForm] = useState(false);
   const [renderUser, setRenderUser] = useState(userData);
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('currentUser'));
-
-  console.log(renderUser)
 
   const changeTab = (event) => {
     if (event.target.id === 'profile') {
@@ -65,10 +64,14 @@ const Perfil = ({ userData, getUser }) => {
     getUser(currentUser);
   };
 
+  const cancelarForm = () => {
+    setRenderForm(false)
+  }
+
   const containerStyle = {
     backgroundImage: `url(${renderUser.assets})`
   };
-
+  
   return (
     <div>
       <NavBar/>
@@ -94,14 +97,15 @@ const Perfil = ({ userData, getUser }) => {
               {renderForm && (
                 <div>
                   <FormUpdate onSubmit={handleFormSubmit}/>
+                  <button onClick={cancelarForm}>Cancelar</button>
                 </div>
-              )}
+              )},
             </>
           )}
           {renderAnuncios && (
-            <>
-              <p className={style.infoLabel}>Anuncios</p>
-            </>
+            <div>
+            <FormAnuncio onSubmit={handleFormSubmit}/>
+          </div>
           )}
           {renderAnunciosFavoritos && (
             <>

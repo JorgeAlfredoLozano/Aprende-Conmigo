@@ -1,9 +1,16 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // import { useState } from "react";
 // import { useSelector } from "react-redux";
 import Card from "../Card/Card"; 
 import dataCards from "./dataCards";
 import styles from "./CardsContainer.module.css";
+=======
+import { useState } from "react";
+import style from "./CardsContainer.module.css";
+import { useSelector } from "react-redux";
+import Card from "./Card"; // Importa el componente "Card" necesario
+>>>>>>> 9742b6adbdecbe6dbe01c09813a7be387fe62144
 
 const CardsContainer = () => {
  
@@ -44,6 +51,7 @@ const CardsContainer = () => {
 };
 
 export default CardsContainer;
+<<<<<<< HEAD
 =======
 // /* eslint-disable react/prop-types */
 // import Card from "../Card/Card";
@@ -167,3 +175,5 @@ function handleFilterGames(event) {
 
 export default Filtrado;
 >>>>>>> 38e680a28f01b3201d08e185bdc78dc172f53258
+=======
+>>>>>>> 9742b6adbdecbe6dbe01c09813a7be387fe62144
