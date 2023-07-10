@@ -4,29 +4,32 @@
     width: 1000px;
     height: 340px;
     margin-left: 17%;
+    margin-top: 100px;
   }
   
   .contenedorTabs {
     flex: 0.8;
-    background-color: grey;
+    background-color: rgb(197, 216, 255);
   }
 
   .tabs {
   margin: 0%;
   padding-top: 15px;
   padding-bottom: 15px;
+  text-align: center;
   }
 
   .tabs:hover {
-    background-color: yellow;
+    background-color: rgb(170, 198, 255);
     color: rgb(41, 41, 41);
     cursor: pointer;
   }
   
   .contenedorInfo {
     flex: 2;
-    background-color: rgb(194, 194, 194);
+    background-color: rgb(170, 198, 255);
     width: 800px;
+    padding-top: 4.5%;
   }
 
   .infoLabel {
@@ -39,7 +42,7 @@
     position: absolute;
     width: 160px;
     height: 160px;
-    background-color: rgb(50, 50, 50);
+    background-color: rgb(62, 70, 121);
     border-radius: 50%;
     left: 70%;
     top: 30%;
@@ -51,13 +54,7 @@
     align-items: center;
   }
 
-  .botonFoto {
-    position: absolute;
-    top:57%;
-    right: 19%;
-  }
-
   .botonForm {
     position: absolute;
-    left: 35.8%;
+    left: 42.5%;
   }

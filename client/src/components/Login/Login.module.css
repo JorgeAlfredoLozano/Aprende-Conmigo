@@ -7,8 +7,8 @@
 .greet {
     position: fixed;
     max-width: 150px;
-    color: rgb(34, 34, 34);
-    top: -5px;
+    color: rgb(1, 1, 1);
+    top: 10px;
     right: 10%;
     font-weight: bolder;
     font-size: 20px;
@@ -66,4 +66,8 @@
     background-color: yellow;
     cursor: pointer;
     transition: 0.5s ease;
+}
+
+.greet {
+    top: 2%
 }

@@ -3,30 +3,47 @@ import style from "./Login.module.css";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import firebaseConfig from "./firebaseConfig";
-import { userData } from "../../Redux/actions.js";
+import { checkUserData, getUser } from "../../Redux/actions.js";
 import { Link, useNavigate } from "react-router-dom";
+import { connect } from "react-redux";
 
 firebase.initializeApp(firebaseConfig);
 
 const provider = new firebase.auth.GoogleAuthProvider();
 
-const Login = () => {
+const Login = ({userData, getUser}) => {
   const [logged, setLogged] = useState(false);
-  const [greetUser, setGreetUser] = useState("");
   const [showLogoutButton, setShowLogoutButton] = useState(false);
+  const [renderUser, setRenderUser] = useState(userData);
+  const [currentUser, setCurrentUser] = useState(localStorage.getItem('currentUser'));
+  
   const navigate = useNavigate();
 
   useEffect(() => {
-    const currentUser = localStorage.getItem("currentUser");
-    const userName = localStorage.getItem("userName");
-
-    if (currentUser && userName) {
+    // carga de datos del usuario al iniciar la aplicacion en localStorage
+    const cachedUser = JSON.parse(localStorage.getItem('cachedUser'));
+    if (cachedUser) {
       setLogged(true);
-      setGreetUser(userName);
+      setRenderUser(cachedUser);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (currentUser) {
+      setLogged(true);
+      getUser(currentUser);
     } else {
       setLogged(false);
     }
-  }, []);
+  }, [currentUser, getUser]);
+
+  useEffect(() => {
+    if (userData !== renderUser) {
+      setRenderUser(userData);
+      // actualizar el usuario en el almacenamiento en cache
+      localStorage.setItem('cachedUser', JSON.stringify(userData));
+    }
+  }, [userData, renderUser]);
 
   const changeDidLog = () => {
     if (!logged) {
@@ -35,19 +52,14 @@ const Login = () => {
         .signInWithPopup(provider)
         .then((result) => {
           const user = result.user;
-          userData(user);
-          const username = user.displayName;
+          checkUserData(user);
           const email = user.email;
-          const avatar = user.photoURL;
-          console.log(user);
-          setGreetUser(username);
+          setCurrentUser(email)
           setLogged(true);
-          localStorage.setItem("currentUser", email);
-          localStorage.setItem("userName", username);
-          localStorage.setItem("avatar", avatar);
+          localStorage.setItem('currentUser', email);
         })
         .catch((error) => {
-          console.error("Error al iniciar sesión:", error);
+          console.error('Error al iniciar sesión:', error);
         });
     } else {
       firebase
@@ -56,19 +68,18 @@ const Login = () => {
         .then(() => {
           setLogged(false);
           setShowLogoutButton(false);
-          localStorage.removeItem("currentUser");
-          localStorage.removeItem("userName");
-          localStorage.removeItem("avatar");
-          navigate("/");
+          localStorage.removeItem('currentUser');
+          localStorage.removeItem('cachedUser');
+          navigate('/');
         })
         .catch((error) => {
-          console.error("Error al cerrar sesión:", error);
+          console.error('Error al cerrar sesión:', error);
         });
     }
   };
 
   const containerStyle = {
-    backgroundImage: `url(${localStorage.getItem('avatar')})`, /// esto es mientras no trabajemos con las imagenes provenientes de la base de datos
+    backgroundImage: `url(${renderUser.assets})`, /// esto es mientras no trabajemos con las imagenes provenientes de la base de datos
   };
 
   return (
@@ -84,7 +95,7 @@ const Login = () => {
           {showLogoutButton && (
             <div className={style.panel}>
               <div className={style.desplegable}>
-                <Link to="/perfil">
+                <Link to='/perfil'>
                   <p className={style.botones}>Mi Perfil</p>
                 </Link>
                 <p className={style.botones}>Favoritos</p>
@@ -92,11 +103,23 @@ const Login = () => {
               </div>
             </div>
           )}
-          <p className={style.greet}>{greetUser}</p>
+          <p className={style.greet}>{renderUser.name}</p>
         </div>
       )}
     </div>
   );
 };
 
-export default Login;
+const mapStateToProps = (state) => {
+    return {
+      userData: state.allInfo
+    };
+  };
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+    getUser: (email) => dispatch(getUser(email))
+    };
+  };
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(Login);

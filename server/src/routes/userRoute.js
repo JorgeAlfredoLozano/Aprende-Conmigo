@@ -10,5 +10,7 @@ route.get('/update/:email',getUser);
 route.put('/update/img/:email',putPhoto);
 
 
+
+
 module.exports = route;
 
