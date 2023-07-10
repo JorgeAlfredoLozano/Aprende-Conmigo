@@ -8,6 +8,8 @@
     position: absolute;
     left: 39%;
     top: 88%;
-    background-color: rgb(0, 119, 255);
-    height: 200px;
+ }
+
+ .bgd {
+    background-color: rgb(224, 238, 255);
  }
