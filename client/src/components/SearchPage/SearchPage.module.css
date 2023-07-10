@@ -1,16 +1,15 @@
-.container {
-    margin-top: 300px;
-    margin-left: 20%;
-    position: relative;
-    max-width: 100%;
-    width: 1360px;
-    
-  }
- 
-  .busqueda {
-    margin-top: 30px;
-    position: relative;
-    background-color: red;
-    max-width: fit-content;
-    
-  }
+.titulo {
+    position: absolute;
+    top: 20%;
+    left: 36.7%;
+}
+ .search {
+    position: absolute;
+    left: 39%;
+    top: 40%;
+    background-color: rgb(223, 238, 255)
+ }
+
+ .body {
+    background-color: rgb(223, 238, 255);
+ }

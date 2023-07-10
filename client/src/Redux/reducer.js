@@ -26,10 +26,6 @@ const reducer = (state = initialState, {type, payload}) => {
       ...state,
       publication: payload,
     }
-  case "UPDATE_ANUNCIO":
-  return {
-      ...state
-    }
   case "GET_LESSON":
   return{
       ...state,

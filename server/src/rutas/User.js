@@ -10,6 +10,7 @@ const putUser=async(req,res)=>{
      return res.status(404).send(error.message);
    }
 }; 
+
 const getUser=async(req,res)=>{
   const {email}=req.params;
   try{
@@ -18,8 +19,8 @@ const getUser=async(req,res)=>{
       else return res.status(200).send("No existe el usuario")
       }catch(error){
       return res.status(404).send('Error en ruta 3');
-}
-};
+  }};
+ 
 const putPhoto=async(req,res)=>{
   const {email}=req.params;
   const {assets} = req.body;
@@ -44,43 +45,16 @@ const postPublication=async(req,res)=>{
     await newPub.addLesson(newLesson);
     res.status(200).send("Publicación creada correctamente.");
   } catch (error) {
-    return res.status(400).send("Error en ruta postPublication");
+    return res.status(500).send("Error interno del servidor.");
 };
-};  
-const putPublication=async(req,res)=>{//trae el cabezal en la base de datos
-  const {id} = req.params;
-  const {title, about_class, about_teacher, value} = req.body;
-  console.log("try")
-  try {
-    console.log("try2")
-    const searchPub=await Publication.findOne({where:{id:id}})
-    console.log(searchPub,"1")
-    if(!searchPub) throw new Error(message.error)
-    const updatePub = await searchPub.update({title, about_class, about_teacher, value});
-    console.log(updatePub,"2")
-    return res.status(200).send(updatePub)
-  } catch (error) {
-    return res.status(400).send("Error en ruta putPublication");
-  }
-};
-const getAllPublication=async(req,res)=>{
-  const {email} = req.params;
-  try {
-    const findUser=await User.findOne({where:{email:email}})
-    const searchPub=await Publication.findAll({where:{UserId:findUser.id}})
-    if(!searchPub) throw new Error("No se encontraron publicaciones")
-    return res.status(200).send(searchPub);
-  } catch (error) {
-    return res.status(400).send("Error en ruta getAllPublication");
-  }
-}
+}; 
+
 
 module.exports={
     putUser,
     getUser,
     putPhoto,
     postPublication,
-    putPublication,
-    getAllPublication,
+    
 };
 

@@ -28,6 +28,8 @@ export const sendPhoto = (email, payload)=>{
      });  
     }
 };
+
+//____________________________________________________________________________
 export const getUser = (email)=>{
    
   return async (dispatch) => {
@@ -43,6 +45,7 @@ export const getUser = (email)=>{
     }
   };
 };
+//____________________________________________________________________________
 //publications
 export const sendAnuncio = (email, aux )=>{
    return async function(dispatch){
@@ -53,16 +56,6 @@ export const sendAnuncio = (email, aux )=>{
      });  
     };
 };
-export const updateAnuncio = (id, aux )=>{
-  return async function(dispatch){
-     const response=await axios.put("http://localhost:3001/publication/save/"+ id, aux)
-    return dispatch({
-      type:'UPDATE_ANUNCIO',
-      payload: response
-    });  
-   };
-};
-
 //lessons
 export const getLesson = ()=>{
    

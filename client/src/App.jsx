@@ -15,7 +15,6 @@ function App() {
           <Route path="/perfil" element={<Perfil/>}/>
           <Route path="/preguntas" element={<Faq/>}/>
           <Route path="/busqueda" element={<SearchPage/>}/>
-          <Route path="/test" element={<UpdatePubli/>}/>
         </Routes>
       </div>
     </Router>
