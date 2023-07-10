@@ -1,9 +1,10 @@
-import NavBar from "../Views/NavBar/NavBar";
+import NavBar from "../NavBar/NavBar";
 import style from './Perfil.module.css';
 import React, { useState, useEffect } from "react";
 import FormUpdate from "../FormUpdate/FormUpdate";
 import { getUser } from '../../Redux/actions';
 import { connect } from "react-redux";
+import SendPhoto from "../SendPhoto/SendPhoto";
 
 const Perfil = ({ userData, getUser }) => {
   
@@ -60,8 +61,12 @@ const Perfil = ({ userData, getUser }) => {
     setRenderForm(false);
   };
 
+  const handlePhotoSubmit = () => {
+    getUser(currentUser);
+  };
+
   const containerStyle = {
-    backgroundImage: `url(${localStorage.getItem('avatar')})`, /// esto es mientras no trabajemos con las imagenes provenientes de la base de datos
+    backgroundImage: `url(${renderUser.assets})`
   };
 
   return (
@@ -78,7 +83,7 @@ const Perfil = ({ userData, getUser }) => {
           {renderProfile && (
             <>
               <div className={style.imgCont} style={containerStyle}></div>
-              <button className={style.botonFoto}>Cambiar Foto</button>
+              <SendPhoto onSubmit={handlePhotoSubmit}/>
               <p className={style.infoLabel}>Nombre: {renderUser.name}</p>
               <p className={style.infoLabel}>Email: {renderUser.email}</p>
               <p className={style.infoLabel}>Fecha de Nacimiento: {renderUser.date}</p>

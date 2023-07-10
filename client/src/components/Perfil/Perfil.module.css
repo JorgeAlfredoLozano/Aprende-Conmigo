@@ -53,12 +53,6 @@
     align-items: center;
   }
 
-  .botonFoto {
-    position: absolute;
-    top:57%;
-    right: 19%;
-  }
-
   .botonForm {
     position: absolute;
     left: 35.8%;

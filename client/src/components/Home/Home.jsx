@@ -3,8 +3,8 @@ import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import style from './Home.module.css'
 import 'bootstrap/dist/css/bootstrap.css';
-import Carrousel from "../../carrousel/Carrousel";
-import FiltrosGenerales from "../../FiltrosGenerales/Filtrosgenerales";
+import Carrousel from "../carrousel/Carrousel";
+import FiltrosGenerales from "../FiltrosGenerales/Filtrosgenerales";
 
  const Home = () => {
 

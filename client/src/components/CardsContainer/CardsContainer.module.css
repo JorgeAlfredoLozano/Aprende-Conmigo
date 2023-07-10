@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .cardContainer{
   display: grid;
   grid-template-columns: repeat(3, minmax(300px, 1fr));
@@ -16,4 +17,13 @@
           grid-gap: 30px 30px 30px;
           justify-content: center;
         }
+=======
+.div {
+    width: 95vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: auto;
+>>>>>>> 38e680a28f01b3201d08e185bdc78dc172f53258
 }

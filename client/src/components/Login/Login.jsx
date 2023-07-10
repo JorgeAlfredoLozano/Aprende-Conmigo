@@ -3,30 +3,32 @@ import style from "./Login.module.css";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import firebaseConfig from "./firebaseConfig";
-import { userData } from "../../Redux/actions.js";
+import { checkUserData, getUser } from "../../Redux/actions.js";
 import { Link, useNavigate } from "react-router-dom";
+import { connect } from "react-redux";
 
 firebase.initializeApp(firebaseConfig);
 
 const provider = new firebase.auth.GoogleAuthProvider();
 
-const Login = () => {
+const Login = ({userData, getUser}) => {
   const [logged, setLogged] = useState(false);
-  const [greetUser, setGreetUser] = useState("");
+  const [greetUser, setGreetUser] = useState("null");
   const [showLogoutButton, setShowLogoutButton] = useState(false);
+  const [renderUser, setRenderUser] = useState(userData);
+  const [currentUser, setCurrentUser] = useState(localStorage.getItem('currentUser'));
   const navigate = useNavigate();
 
   useEffect(() => {
-    const currentUser = localStorage.getItem("currentUser");
-    const userName = localStorage.getItem("userName");
-
-    if (currentUser && userName) {
+    setRenderUser(userData);
+    if (currentUser) {
       setLogged(true);
-      setGreetUser(userName);
+      getUser(currentUser);
+      setGreetUser(renderUser.name);
     } else {
       setLogged(false);
     }
-  }, []);
+  }, [getUser, userData]);
 
   const changeDidLog = () => {
     if (!logged) {
@@ -35,15 +37,11 @@ const Login = () => {
         .signInWithPopup(provider)
         .then((result) => {
           const user = result.user;
-          userData(user);
-          const username = user.displayName;
+          checkUserData(user);
           const email = user.email;
-          const avatar = user.photoURL;
-          setGreetUser(username);
+          setCurrentUser(email)
           setLogged(true);
           localStorage.setItem("currentUser", email);
-          localStorage.setItem("userName", username);
-          localStorage.setItem("avatar", avatar);
         })
         .catch((error) => {
           console.error("Error al iniciar sesión:", error);
@@ -56,8 +54,6 @@ const Login = () => {
           setLogged(false);
           setShowLogoutButton(false);
           localStorage.removeItem("currentUser");
-          localStorage.removeItem("userName");
-          localStorage.removeItem("avatar");
           navigate("/");
         })
         .catch((error) => {
@@ -67,7 +63,7 @@ const Login = () => {
   };
 
   const containerStyle = {
-    backgroundImage: `url(${localStorage.getItem('avatar')})`, /// esto es mientras no trabajemos con las imagenes provenientes de la base de datos
+    backgroundImage: `url(${renderUser.assets})`, /// esto es mientras no trabajemos con las imagenes provenientes de la base de datos
   };
 
   return (
@@ -98,4 +94,16 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapStateToProps = (state) => {
+    return {
+      userData: state.allInfo
+    };
+  };
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+    getUser: (email) => dispatch(getUser(email))
+    };
+  };
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(Login);

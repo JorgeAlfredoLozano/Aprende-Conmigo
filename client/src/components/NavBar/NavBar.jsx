@@ -1,5 +1,5 @@
 import style from "./NavBar.module.css";
-import Login from "../../Login/Login";
+import Login from "../Login/Login";
 import { Link } from 'react-router-dom';
 
 const NavBar = () =>{

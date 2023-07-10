@@ -1,5 +1,7 @@
 import Carousel from 'react-bootstrap/Carousel';
 import CardCarrousel from '../CardCarrousel/CardCarrousel';
+import CardCarrousel2 from '../CardCarrousel/CardCarrousel2';
+import CardCarrousel3 from '../CardCarrousel/CardCarrousel3';
 
 function Carrousel() {
   return (
@@ -9,10 +11,10 @@ function Carrousel() {
             <CardCarrousel/>
         </Carousel.Item>
         <Carousel.Item>
-            <CardCarrousel/>
+            <CardCarrousel2/>
         </Carousel.Item>
         <Carousel.Item>
-            <CardCarrousel/>
+            <CardCarrousel3/>
         </Carousel.Item>
     </Carousel>
   );

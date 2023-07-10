@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const userData =(user)=> {
+export const checkUserData =(user)=> {
         axios.post('http://localhost:3001/user/login',  user )       
 };
 
