@@ -1,7 +1,7 @@
-import { useState } from "react";
+//import { useState } from "react";
 import style from "./CardsContainer.module.css";
-import { useSelector } from "react-redux";
-import Card from "./Card"; // Importa el componente "Card" necesario
+//import { useSelector } from "react-redux";
+//import Card from "./Card"; // Importa el componente "Card" necesario
 
 const CardsContainer = () => {
   // Array de tarjetas hardcoded
@@ -20,13 +20,13 @@ const CardsContainer = () => {
   ];
 //______________monta-actualiza-desmonta_____________________________________________________________
 //ciclos de vidas de este component particular
-useEffect(()=>{
-  dispatch(cards) //--> montaje
+// useEffect(()=>{
+//   dispatch(cards) //--> montaje
   
-  // return()=>{
-  //   dispatch(clear())  //--> Limpieza | desmonta
-  // }
-  },[dispatch]); //--> cada vez que se actualiza algo de getAllGames
+//   return()=>{
+//     dispatch(clear())  //--> Limpieza | desmonta
+//   }
+//   },[dispatch]); //--> cada vez que se actualiza algo de getAllGames
 
 
   

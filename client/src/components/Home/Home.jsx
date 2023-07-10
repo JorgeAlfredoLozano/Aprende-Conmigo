@@ -5,6 +5,7 @@ import style from './Home.module.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import Carrousel from "../carrousel/Carrousel";
 import Accordion from 'react-bootstrap/Accordion';
+import CardsContainer from "../CardsContainer/CardsContainer"
 
  const Home = () => {
 
@@ -29,6 +30,7 @@ import Accordion from 'react-bootstrap/Accordion';
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>
+    <CardsContainer/>
         <Footer/>
         </div>
     )
