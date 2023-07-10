@@ -1,31 +1,14 @@
-// import { useState } from "react";
-// import { useSelector } from "react-redux";
-import Card from "../Card/Card"; 
-import dataCards from "./dataCards";
-import styles from "./CardsContainer.module.css";
+import React from 'react';
+import Card from '../Card/Card';
+import dataCards from './dataCards';
+import styles from './CardsContainer.module.css';
 
+const CardsContainer = ({ filtro }) => {
+  const filteredCards = filtro ? dataCards.filter(objeto => objeto.grade === filtro) : dataCards;
 
-const CardsContainer = () => {
- 
-  
-//______________monta-actualiza-desmonta_____________________________________________________________
-// useEffect(()=>{
-//   dispatch(getUser()) //--> montaje
-  
-//   // return()=>{
-//   //   dispatch(clear())  //--> Limpieza | desmonta
-//   // }
-//   },[dispatch]); //--> cada vez que se actualiza algo de getAllGames
-
-
-// //useSelector--> estate global
-
-  
   return (
-    
-    <div  className={styles.cardContainer}>
-      
-      {dataCards.map((card) => (
+    <div className={styles.cardContainer}>
+      {filteredCards.map(card => (
         <div key={card.id} className={styles.lasCards}>
           <Card
             id={card.id}
@@ -44,4 +27,3 @@ const CardsContainer = () => {
 };
 
 export default CardsContainer;
-
