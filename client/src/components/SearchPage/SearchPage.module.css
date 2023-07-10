@@ -1,0 +1,15 @@
+.titulo {
+    position: absolute;
+    top: 20%;
+    left: 36.7%;
+}
+ .search {
+    position: absolute;
+    left: 39%;
+    top: 40%;
+    background-color: rgb(223, 238, 255)
+ }
+
+ .body {
+    background-color: rgb(223, 238, 255);
+ }
