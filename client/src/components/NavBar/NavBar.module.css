@@ -1,11 +1,7 @@
 .container {
     height: 10vh;
-<<<<<<< HEAD
-    background-color: rgb(82, 139, 200);
-=======
     background-size: cover;
     background-repeat: no-repeat;
->>>>>>> 9742b6adbdecbe6dbe01c09813a7be387fe62144
     position: fixed;
     top: 0;
     width: 100vw;
