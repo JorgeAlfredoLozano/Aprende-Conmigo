@@ -3,7 +3,7 @@ import styles from "./Cards.module.css";
 
 //este tipo de component es un down por que es un component presentacional, no tiene una carga como tal mas que solo mostrar algo, osea no maneja logica en si.
 //cada componente independientemente de su trabajo, tiene la posibilidad de manejar un estado local propio suyo, que es para trabajar su propio cuerpo.
-const Card = ({id, name, certificate})=>{
+const Card = ({id, name, certificate, email})=>{
 
     return(
       <div className={styles.card}>
@@ -11,6 +11,7 @@ const Card = ({id, name, certificate})=>{
         {/* <Link to={`/detail/${id}`}></Link> <-- si quiero que me lleve al details */}
         <h3>{id}</h3>
         <h2>{name}</h2>
+        <h2>{email}</h2>
         <h2>{certificate}</h2>
 
          
