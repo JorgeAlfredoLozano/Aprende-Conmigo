@@ -13,7 +13,6 @@ const provider = new firebase.auth.GoogleAuthProvider();
 
 const Login = ({userData, getUser}) => {
   const [logged, setLogged] = useState(false);
-  const [greetUser, setGreetUser] = useState(null);
   const [showLogoutButton, setShowLogoutButton] = useState(false);
   const [renderUser, setRenderUser] = useState(userData);
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('currentUser'));
@@ -26,7 +25,6 @@ const Login = ({userData, getUser}) => {
     if (cachedUser) {
       setLogged(true);
       setRenderUser(cachedUser);
-      setGreetUser(cachedUser.name);
     }
   }, []);
 
@@ -42,8 +40,7 @@ const Login = ({userData, getUser}) => {
   useEffect(() => {
     if (userData !== renderUser) {
       setRenderUser(userData);
-      setGreetUser(userData.name);
-      // Actualizar el usuario en el almacenamiento en caché
+      // actualizar el usuario en el almacenamiento en cache
       localStorage.setItem('cachedUser', JSON.stringify(userData));
     }
   }, [userData, renderUser]);
@@ -59,10 +56,10 @@ const Login = ({userData, getUser}) => {
           const email = user.email;
           setCurrentUser(email)
           setLogged(true);
-          localStorage.setItem("currentUser", email);
+          localStorage.setItem('currentUser', email);
         })
         .catch((error) => {
-          console.error("Error al iniciar sesión:", error);
+          console.error('Error al iniciar sesión:', error);
         });
     } else {
       firebase
@@ -71,12 +68,12 @@ const Login = ({userData, getUser}) => {
         .then(() => {
           setLogged(false);
           setShowLogoutButton(false);
-          localStorage.removeItem("currentUser");
-          localStorage.removeItem("cachedUser");
-          navigate("/");
+          localStorage.removeItem('currentUser');
+          localStorage.removeItem('cachedUser');
+          navigate('/');
         })
         .catch((error) => {
-          console.error("Error al cerrar sesión:", error);
+          console.error('Error al cerrar sesión:', error);
         });
     }
   };
@@ -98,7 +95,7 @@ const Login = ({userData, getUser}) => {
           {showLogoutButton && (
             <div className={style.panel}>
               <div className={style.desplegable}>
-                <Link to="/perfil">
+                <Link to='/perfil'>
                   <p className={style.botones}>Mi Perfil</p>
                 </Link>
                 <p className={style.botones}>Favoritos</p>
@@ -106,7 +103,7 @@ const Login = ({userData, getUser}) => {
               </div>
             </div>
           )}
-          <p className={style.greet}>{greetUser}</p>
+          <p className={style.greet}>{renderUser.name}</p>
         </div>
       )}
     </div>

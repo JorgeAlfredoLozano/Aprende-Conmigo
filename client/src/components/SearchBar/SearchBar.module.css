@@ -1,5 +1,7 @@
 .container {
     position: absolute;
-    top: 15%;
+    top: 85%;
     left: 39%;
+    background-color: rgb(135, 197, 235);
+    padding: 1%;
 }
