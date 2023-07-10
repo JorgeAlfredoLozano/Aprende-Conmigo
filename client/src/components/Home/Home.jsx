@@ -9,11 +9,13 @@ import Accordion from 'react-bootstrap/Accordion';
  const Home = () => {
 
     return (
-        <div>
+        <div className={style.bgd}>
             <NavBar/>
             <Carrousel/>
             <div className={style.container}></div>
+            <div className={style.search}>
             <SearchBar/>
+            </div>
             <Accordion defaultActiveKey={['0']} alwaysOpen>
         <Accordion.Item eventKey="0">
         <Accordion.Header>La importancia de la educación</Accordion.Header>

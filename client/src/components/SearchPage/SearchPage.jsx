@@ -7,14 +7,14 @@ import SearchBar from '../SearchBar/SearchBar';
 
 const SearchPage = ({ searchValue }) => {
   return (
-    <div>
+    <div className={style.body}>
       <NavBar />
       <div className={style.search}>
       <SearchBar />
       </div>
       <div className={style.container}>
-        <h1 className={style.titulo}>Aqui las Materias, elija el Nivel que busca</h1>
-        <GeneralFilters />
+        <h1 className={style.titulo}>Ruta de búsqueda</h1>
+        <GeneralFilters/>
         <div className={style.busqueda}>
           {/* <h2>Resultados de la búsqueda</h2> */}
           <CardsContainer/>

@@ -7,7 +7,6 @@
 
 
     /* ______________ */
-    border: 1px solid black;
     /* max-width: 300%;
     max-height: 300%; */
     border-radius: 10px;
@@ -23,7 +22,6 @@
     background-color: #4e73e1;
     font-weight: bold;
     color: #e9e9e9;
-    box-shadow: inset 0px -6px 15px 10px rgb(41, 41, 41);
 
     width: 250px;
     height: 350px;

@@ -3,3 +3,11 @@
     margin-bottom: 5%;
     margin-top: 240px;
 }
+
+.search {
+    position: absolute;
+    left: 39%;
+    top: 88%;
+    background-color: rgb(0, 119, 255);
+    height: 200px;
+ }
