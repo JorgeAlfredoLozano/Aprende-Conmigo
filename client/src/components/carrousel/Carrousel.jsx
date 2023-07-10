@@ -1,18 +1,20 @@
 import Carousel from 'react-bootstrap/Carousel';
-import CardProfesor from '../CardProfesor/CardProfesor';
+import CardCarrousel from '../CardCarrousel/CardCarrousel';
+import CardCarrousel2 from '../CardCarrousel/CardCarrousel2';
+import CardCarrousel3 from '../CardCarrousel/CardCarrousel3';
 
 function Carrousel() {
   return (
         
-    <Carousel className='bg-primary slide '>
+    <Carousel className='transparent'>
         <Carousel.Item>
-            <CardProfesor/>
+            <CardCarrousel/>
         </Carousel.Item>
         <Carousel.Item>
-            <CardProfesor/>
+            <CardCarrousel2/>
         </Carousel.Item>
         <Carousel.Item>
-            <CardProfesor/>
+            <CardCarrousel3/>
         </Carousel.Item>
     </Carousel>
   );

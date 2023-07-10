@@ -2,28 +2,30 @@ import NavBar from "../NavBar/NavBar";
 import style from './Perfil.module.css';
 import React, { useState, useEffect } from "react";
 import FormUpdate from "../FormUpdate/FormUpdate";
+import FormAnuncio from "../FormAnuncio/FormAnuncio"
 import { getUser } from '../../Redux/actions';
 import { connect } from "react-redux";
+import SendPhoto from "../SendPhoto/SendPhoto";
 
 const Perfil = ({ userData, getUser }) => {
+  
+  useEffect(() => {
+    setRenderUser(userData);
+  }, [userData]);
+  
+  useEffect(() => {
+    if (currentUser) {
+      getUser(currentUser)
+    }
+  }, [getUser]);
 
   const [renderProfile, setRenderProfile] = useState(true);
   const [renderAnuncios, setRenderAnuncios] = useState(false);
   const [renderAnunciosFavoritos, setRenderAnunciosFavoritos] = useState(false);
   const [renderHistorial, setRenderHistorial] = useState(false);
   const [renderForm, setRenderForm] = useState(false);
-  const [renderUser, setRenderUser] = useState(userData)
-
-  useEffect(() => {
-    setRenderUser(userData);
-  }, [userData]);
-
-  useEffect(() => {
-    const currentUser = localStorage.getItem('currentUser');
-    if (currentUser) {
-      getUser(currentUser)
-    }
-  }, [getUser, userData]);
+  const [renderUser, setRenderUser] = useState(userData);
+  const [currentUser, setCurrentUser] = useState(localStorage.getItem('currentUser'));
 
   const changeTab = (event) => {
     if (event.target.id === 'profile') {
@@ -54,16 +56,22 @@ const Perfil = ({ userData, getUser }) => {
   };
 
   const handleFormSubmit = () => {
+    getUser(currentUser);
     setRenderForm(false);
+  };
+
+  const handlePhotoSubmit = () => {
     getUser(currentUser);
   };
 
-  console.log(renderUser)
+  const cancelarForm = () => {
+    setRenderForm(false)
+  }
 
   const containerStyle = {
-    backgroundImage: `url(${localStorage.getItem('avatar')})`, /// esto es mientras no trabajemos con las imagenes provenientes de la base de datos
+    backgroundImage: `url(${renderUser.assets})`
   };
-
+  
   return (
     <div>
       <NavBar/>
@@ -78,7 +86,7 @@ const Perfil = ({ userData, getUser }) => {
           {renderProfile && (
             <>
               <div className={style.imgCont} style={containerStyle}></div>
-              <button className={style.botonFoto}>Cambiar Foto</button>
+              <SendPhoto onSubmit={handlePhotoSubmit}/>
               <p className={style.infoLabel}>Nombre: {renderUser.name}</p>
               <p className={style.infoLabel}>Email: {renderUser.email}</p>
               <p className={style.infoLabel}>Fecha de Nacimiento: {renderUser.date}</p>
@@ -89,14 +97,15 @@ const Perfil = ({ userData, getUser }) => {
               {renderForm && (
                 <div>
                   <FormUpdate onSubmit={handleFormSubmit}/>
+                  <button onClick={cancelarForm}>Cancelar</button>
                 </div>
-              )}
+              )},
             </>
           )}
           {renderAnuncios && (
-            <>
-              <p className={style.infoLabel}>Anuncios</p>
-            </>
+            <div>
+            <FormAnuncio onSubmit={handleFormSubmit}/>
+          </div>
           )}
           {renderAnunciosFavoritos && (
             <>
