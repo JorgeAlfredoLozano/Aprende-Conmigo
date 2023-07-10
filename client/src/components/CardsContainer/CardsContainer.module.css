@@ -1,8 +1,28 @@
-.div {
-    width: 95vw;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: auto;
-}
+.cardContainer{
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    padding: 30px 10px 10px 25px;
+    grid-gap: 30px 30px 30px;
+    justify-content: center;
+    height: 100%;
+ 
+    align-items: center;
+  
+   
+  
+ .lasCards{
+    align-items: center;
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+       /* grid-template-columns: repeat(3, minmax(300px, 1fr)); */
+    padding: 30px 10px 10px 10px;
+    grid-gap: 30px 30px 30px;
+    justify-content: center;
+ 
+ 
+    /* height: 100%; */
+    /* max-width: 300%;
+     max-height: 300%;  */
+ }
+ }

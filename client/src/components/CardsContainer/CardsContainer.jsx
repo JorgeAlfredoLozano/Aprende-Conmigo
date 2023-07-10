@@ -10,13 +10,13 @@ const CardsContainer = () => {
  
   
 //______________monta-actualiza-desmonta_____________________________________________________________
-useEffect(()=>{
-  dispatch(getUser()) //--> montaje
+// useEffect(()=>{
+//   dispatch(getUser()) //--> montaje
   
-  // return()=>{
-  //   dispatch(clear())  //--> Limpieza | desmonta
-  // }
-  },[dispatch]); //--> cada vez que se actualiza algo de getAllGames
+//   // return()=>{
+//   //   dispatch(clear())  //--> Limpieza | desmonta
+//   // }
+//   },[dispatch]); //--> cada vez que se actualiza algo de getAllGames
 
 
 //useSelector--> estate global
