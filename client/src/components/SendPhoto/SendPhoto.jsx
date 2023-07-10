@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import {sendPhoto} from '../../Redux/actions';
 import { useDispatch } from 'react-redux';
+import style from './SendPhoto.module.css';
+
 const apiKey = '9f6c6345c293cd9ea633a1d2e70f1b01';
 
 const SendPhoto = (props) => {
@@ -38,7 +40,7 @@ const SendPhoto = (props) => {
     }
   };
   return (
-    <div>
+    <div className={style.contenedor}>
       <input type="file" onChange={handleFileChange} />
       <button onClick={handleUpload}>Cargar foto</button>     
     </div>

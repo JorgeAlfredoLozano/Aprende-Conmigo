@@ -6,7 +6,7 @@ import CardCarrousel3 from '../CardCarrousel/CardCarrousel3';
 function Carrousel() {
   return (
         
-    <Carousel className='bg-primary slide '>
+    <Carousel className='transparent'>
         <Carousel.Item>
             <CardCarrousel/>
         </Carousel.Item>

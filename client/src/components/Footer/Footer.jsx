@@ -5,10 +5,9 @@ const Footer = () =>{
 
     return(
         <div  className={style.container}>
-         <footer className={style.nav}>
-    <p>© 2023 Aprende Conmigo. Todos los derechos reservados.</p>
-    <p>Contacto: info@example.com</p>
-  </footer>    
+        <footer className={style.nav}>
+             <p >© 2023 Aprende Conmigo. Todos los derechos reservados. &nbsp; &nbsp; &nbsp; Contacto: info@example.com</p>
+        </footer>    
         </div>
     )
 }
