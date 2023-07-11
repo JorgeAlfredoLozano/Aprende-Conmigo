@@ -27,5 +27,5 @@ const PublicationUser = () => {
     );
   };
   
-
+                    /* En construccion*/ 
 export default PublicationUser;
