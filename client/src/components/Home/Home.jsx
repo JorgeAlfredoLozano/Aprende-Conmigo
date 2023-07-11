@@ -13,8 +13,8 @@ import CardsContainer from "../CardsContainer/CardsContainer"
         <div>
             <NavBar/>
             <Carrousel/>
-            <div className={style.container}></div>
             <SearchBar/>
+            <div className={style.container}></div>
             <Accordion defaultActiveKey={['0']} alwaysOpen>
         <Accordion.Item eventKey="0">
         <Accordion.Header>La importancia de la educación</Accordion.Header>
@@ -30,6 +30,7 @@ import CardsContainer from "../CardsContainer/CardsContainer"
       </Accordion.Item>
     </Accordion>
     <CardsContainer/>
+
         <Footer/>
         </div>
     )

@@ -4,6 +4,7 @@ import style from "./SearchPage.module.css";
 import GeneralFilters from "../GeneralFilters/GeneralFilters";
 import CardsContainer from '../CardsContainer/CardsContainer';
 import SearchBar from '../SearchBar/SearchBar';
+import Prueba from "../prueba/prueba";
 
 const SearchPage = ({ searchValue }) => {
   return (
@@ -18,6 +19,7 @@ const SearchPage = ({ searchValue }) => {
         <div className={style.busqueda}>
           {/* <h2>Resultados de la búsqueda</h2> */}
           <CardsContainer/>
+          <Prueba/>
         </div>
       </div>
       <Footer />

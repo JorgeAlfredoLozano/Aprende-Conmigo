@@ -1,4 +1,4 @@
-const publication = [{
+export const publication = [{
     id : "a1",
     title : "Se ensena matematicas",
     aboutClass : "clases Online",
