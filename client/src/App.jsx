@@ -5,6 +5,7 @@ import Perfil from './components/Perfil/Perfil';
 import Faq from './components/Faq/Faq';
 import SearchPage from './components/SearchPage/SearchPage';
 import Checkout from './components/CheckoutFormStripe/CheckoutFormStripe'
+import PublicationUser from './components/PublicationUser/PublicationUser'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/preguntas" element={<Faq/>}/>
           <Route path="/busqueda" element={<SearchPage/>}/>
           <Route path='/pago' element={<Checkout/>}/>
+          <Route path='/pub' element={<PublicationUser/>} />
         </Routes>
       </div>
     </Router>
