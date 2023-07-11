@@ -28,6 +28,8 @@ export const sendPhoto = (email, payload)=>{
      });  
     }
 };
+
+//____________________________________________________________________________
 export const getUser = (email)=>{
    
   return async (dispatch) => {
@@ -43,6 +45,7 @@ export const getUser = (email)=>{
     }
   };
 };
+//____________________________________________________________________________
 //publications
 export const sendAnuncio = (email, aux )=>{
    return async function(dispatch){

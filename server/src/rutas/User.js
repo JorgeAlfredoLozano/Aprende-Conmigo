@@ -48,13 +48,40 @@ const postPublication=async(req,res)=>{
     return res.status(500).send("Error interno del servidor.");
 };
 }; 
-
+const putPublication=async(req,res)=>{//trae el cabezal en la base de datos
+  const {id} = req.params;
+  const {title, about_class, about_teacher, value} = req.body;
+  console.log("try")
+  try {
+    console.log("try2")
+    const searchPub=await Publication.findOne({where:{id:id}})
+    console.log(searchPub,"1")
+    if(!searchPub) throw new Error(message.error)
+    const updatePub = await searchPub.update({title, about_class, about_teacher, value});
+    console.log(updatePub,"2")
+    return res.status(200).send(updatePub)
+  } catch (error) {
+    return res.status(400).send("Error en ruta putPublication");
+  }
+};
+const getAllPublication=async(req,res)=>{
+  const {email} = req.params;
+  try {
+    const findUser=await User.findOne({where:{email:email}})
+    const searchPub=await Publication.findAll({where:{UserId:findUser.id}})
+    if(!searchPub) throw new Error("No se encontraron publicaciones")
+    return res.status(200).send(searchPub);
+  } catch (error) {
+    return res.status(400).send("Error en ruta getAllPublication");
+  }
+}
 
 module.exports={
     putUser,
     getUser,
     putPhoto,
     postPublication,
-    
+    putPublication,
+    getAllPublication,
 };
 
