@@ -1,15 +1,28 @@
 .titulo {
     position: absolute;
     top: 20%;
-    left: 36.7%;
+    left: 35%;
+    font-size: 80px
 }
  .search {
     position: absolute;
-    left: 39%;
+    left: 45%;
     top: 40%;
     background-color: rgb(223, 238, 255)
  }
 
  .body {
     background-color: rgb(223, 238, 255);
+ }
+
+ .busqueda{
+   position:relative;
+    top: 140px;
+    left: 10%;
+ }
+
+ .container{
+   position:relative;
+   top: 430px;
+   left: 50px;
  }

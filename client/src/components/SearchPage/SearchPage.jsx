@@ -16,14 +16,14 @@ const SearchPage = ({ searchValue }) => {
       <div className={style.search}>
         <SearchBar />
       </div>
-      <div className={style.container}>
         <h1 className={style.titulo}>Ruta de búsqueda</h1>
-        <GeneralFilters filtro={filtro} setFiltro={setFiltro} />
+        <div className={style.container}>
+          <GeneralFilters filtro={filtro} setFiltro={setFiltro} />
+        </div>
         <div className={style.busqueda}>
           <CardsContainer filtro={filtro} />
-        </div>
       </div>
-      <Footer />
+        <Footer />
     </div>
   );
 };

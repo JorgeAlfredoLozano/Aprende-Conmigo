@@ -3,7 +3,8 @@ import Button from 'react-bootstrap/Button';
 import style from './GeneralFilters.module.css';
 
 function GeneralFilters({ filtro, setFiltro }) {
-  const handleClick = filtroSeleccionado => {
+
+   const handleClick = filtroSeleccionado => {
     setFiltro(filtroSeleccionado);
   };
 

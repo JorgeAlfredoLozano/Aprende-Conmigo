@@ -5,15 +5,16 @@ import style from './Home.module.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import Carrousel from "../carrousel/Carrousel";
 import Accordion from 'react-bootstrap/Accordion';
-import CardsContainer from "../CardsContainer/CardsContainer"
+
 
  const Home = () => {
 
     return (
         <div className={style.bgd}>
           <NavBar/>
+            <div className={style.container}>
           <Carrousel/>
-            <div className={style.container}></div>
+            </div>
             <div className={style.search}>
           <SearchBar/>
           </div>
@@ -31,7 +32,6 @@ import CardsContainer from "../CardsContainer/CardsContainer"
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>
-    <CardsContainer/>
         <Footer/>
         </div>
     )
