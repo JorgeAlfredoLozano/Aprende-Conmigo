@@ -6,8 +6,6 @@ const createUserLoginHandler = async(req,res) => {
     const {displayName,email,photoURL} = req.body;
         console.log(displayName,email,photoURL);
     try{ 
-        
-       
         const newUser = await createUserLogin(displayName,email,photoURL) 
 
         return res.status(200).send(newUser);       
