@@ -1,8 +1,0 @@
-.div {
-    width: 95vw;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: auto;
-}
