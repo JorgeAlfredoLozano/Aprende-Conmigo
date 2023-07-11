@@ -5,7 +5,8 @@ const { conn } = require('./src/db.js');
 const lessonsJson=require('./src/utils/lessons.json')
 const {Lesson}=require('./src/db.js')
 const {postLesson}=require('./src/rutas/Lesson.js')
-conn.sync({ force: true })
+
+conn.sync({ alter: true })
 .then(() => postLesson(lessonsJson, Lesson))
 .then(() => {
     server.listen(3001, () => {
