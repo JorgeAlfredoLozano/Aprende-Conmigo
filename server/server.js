@@ -1,9 +1,6 @@
 const express = require('express');
-const axios = require('axios');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const multer = require('multer');
-
 const app = express();
 const port = 3001;
 

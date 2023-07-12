@@ -1,11 +1,8 @@
 const { Router } = require("express");
-const {getLesson}=require("../rutas/Lesson");
+const getLessonHandler = require('../handlers/lesson/getLessonHandler')
 
 const route = Router();
 
-// Define la ruta y su manejador para la creación de usuario
-
-route.get('/all',getLesson);
-
+route.get('/all',getLessonHandler); //Trae todas las materias
 
 module.exports = route;
