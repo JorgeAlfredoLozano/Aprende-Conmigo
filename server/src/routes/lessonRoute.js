@@ -8,5 +8,4 @@ const route = Router();
 route.get('/all',getLesson);
 
 
-
 module.exports = route;

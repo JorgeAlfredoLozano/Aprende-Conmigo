@@ -1,4 +1,4 @@
-const {Lesson}= require('../db');
+const {Lesson, Publication}= require('../db');
 
 const postLesson=async (jsonInfo, model) => {
     jsonInfo.data.forEach(async (element) => {

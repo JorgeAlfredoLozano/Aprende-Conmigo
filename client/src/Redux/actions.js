@@ -66,7 +66,7 @@ export const getAllPublication = (email)=>{
   return async function(dispatch){
      const response=await axios.get(`http://localhost:3001/publication/get/${email}`)
     return dispatch({
-      type:'GET_ALL_PUBLICATION',
+      type:'GET_ALL_USER_PUBLICATION',
       payload: response
     });  
    };
@@ -77,9 +77,19 @@ export const getLesson = ()=>{
   return async (dispatch) => {
      const {data} = await axios.get(`http://localhost:3001/lesson/all`);
         return dispatch({
-           type: 'GET_LESSON',
+           type: 'GET_LESSON_TYPE',
            payload: data,
         });
   };
+};
+
+export const getAllAnuncios = (email)=>{
+  return async function(dispatch){
+     const response=await axios.get(`http://localhost:3001/publication/get/${email}`)
+    return dispatch({
+      type:'GET_ALL_ANUNCIOS',
+      payload: response
+    });  
+   };
 };
 
