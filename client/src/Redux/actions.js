@@ -21,7 +21,7 @@ export const putUser = (email, input) => {
 };
 export const sendPhoto = (email, payload)=>{
    return async function(dispatch){
-      const response=await axios.put("http://localhost:3001/user/update/img/"+ email, payload)
+      const response=await axios.put(`http://localhost:3001/user/update/img/${email}`, payload)
      return dispatch({
        type:'SEND_PHOTO',
        payload: response
