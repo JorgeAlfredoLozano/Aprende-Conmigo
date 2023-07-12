@@ -95,7 +95,7 @@ const FormAnuncio = (props) => {
         onClick={() => seleccionarBoton("Universidad")}/>
     <label className={"btn btn-outline-primary"+ (selectedBtns.includes("Universidad") ? " seleccionado" : "")}
      for="btncheck3">Universidad</label>
-             </div>
+          </div>
 
                 <div> {/*SELECT MATERIAS */}
                 <label className={style.label}> Materia: </label> 

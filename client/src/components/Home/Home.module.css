@@ -9,4 +9,15 @@
     padding-left: 150%;
     margin-top: 5%;
     margin-bottom: 5%;
+    margin-top: 240px;
 }
+
+.search {
+    position: absolute;
+    left: 39%;
+    top: 88%;
+ }
+
+ .bgd {
+    background-color: rgb(224, 238, 255);
+ }
