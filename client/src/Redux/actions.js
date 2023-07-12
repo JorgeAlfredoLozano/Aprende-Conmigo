@@ -64,7 +64,9 @@ export const updateAnuncio = (id, aux )=>{
 };
 export const getAllPublication = (email)=>{
   return async function(dispatch){
+    console.log('que rayos tiene email?:', email);
      const response=await axios.get("http://localhost:3001/publication/get/"+ email)
+     console.log('Contenido de responseeee:', response);
     return dispatch({
       type:'GET_ALL_PUBLICATION',
       payload: response
