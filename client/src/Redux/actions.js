@@ -45,11 +45,10 @@ export const getUser = (email)=>{
     }
   };
 };
-//____________________________________________________________________________
 //publications
-export const sendAnuncio = (email, aux )=>{
+export const sendAnuncio = (email, input )=>{
    return async function(dispatch){
-      const response=await axios.post("http://localhost:3001/publication/save/"+ email, aux)
+      const response=await axios.post(`http://localhost:3001/publication/save/${email}`, input)
      return dispatch({
        type:'SEND_ANUNCIO',
        payload: response
