@@ -1,9 +1,11 @@
-.container {
+.x {
     position: absolute;
     top: 16%;
     width: 715px;
     max-height: 340px;
     overflow: scroll;
+    background-color: rgb(226, 238, 255);
+    padding-bottom: 3%;
 }
 
 .label {
@@ -32,4 +34,8 @@
 
 .error {
     color: red;
+}
+
+.cancelar {
+    margin-left: 45%;
 }

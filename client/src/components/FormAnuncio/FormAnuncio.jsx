@@ -11,6 +11,7 @@ const FormAnuncio = (props) => {
   useEffect(() => {
     dispatch(getLesson());
   }, [dispatch]);
+
   const materias = useSelector((state) => state.lesson);
   const options = materias.map((aux) => ({ value: aux.id, label: aux.lesson_name }));
   const sortOptions = options.sort((a, b) => a.label.localeCompare(b.label));
@@ -19,9 +20,7 @@ const FormAnuncio = (props) => {
   const selectedBtnsRef = useRef([]);
   const selectedBtns = selectedBtnsRef.current;
   const [errors, setErrors] = useState({});
-
-  console.log(input)
-
+console.log(input)
   function handleChange(event) {
     const { name, value } = event.target;
     setInput((prevState) => ({
@@ -88,9 +87,16 @@ const FormAnuncio = (props) => {
     event.preventDefault();
     const validationErrors = ValidationsAnuncio(input);
     setErrors(validationErrors);
-
+  
     if (Object.keys(validationErrors).length === 0) {
-      dispatch(sendAnuncio(email, input));
+      // Realizar modificaciones en el objeto input antes del dispatch
+      const modifiedInput = {
+        ...input,
+        grade: input.grade.join(','), // Convertir el array de grade en un string separado por comas
+        value: Number(input.value) // Convertir el valor de value a tipo number
+      };
+      
+      dispatch(sendAnuncio(email, modifiedInput));
       props.onSubmit();
       alert("¡Anuncio creado exitosamente!");
       setInput({});
@@ -98,6 +104,10 @@ const FormAnuncio = (props) => {
     } else {
       alert("El formulario contiene errores. Por favor, verifica los campos.");
     }
+  };  
+
+  const handleCancel = () => {
+    props.onCancel();
   };
 
   return (
@@ -146,6 +156,7 @@ const FormAnuncio = (props) => {
         </div>
         <button className={style.submit} type="submit">Crear Anuncio</button>
       </form>
+        <button className={style.cancelar} onClick={handleCancel}>Cancelar</button>
     </div>
   );
 };

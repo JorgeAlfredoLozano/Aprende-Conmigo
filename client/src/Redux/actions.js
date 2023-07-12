@@ -55,7 +55,7 @@ export const sendAnuncio = (email, input )=>{
 };
 export const updateAnuncio = (id, aux )=>{
   return async function(dispatch){
-     const response=await axios.put("http://localhost:3001/publication/save/"+ id, aux)
+     const response=await axios.put(`http://localhost:3001/publication/save/${id}`, aux)
     return dispatch({
       type:'UPDATE_ANUNCIO',
       payload: response
@@ -64,7 +64,7 @@ export const updateAnuncio = (id, aux )=>{
 };
 export const getAllPublication = (email)=>{
   return async function(dispatch){
-     const response=await axios.get("http://localhost:3001/publication/get/"+ email)
+     const response=await axios.get(`http://localhost:3001/publication/get/${email}`)
     return dispatch({
       type:'GET_ALL_PUBLICATION',
       payload: response
