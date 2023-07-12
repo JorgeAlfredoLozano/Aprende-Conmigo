@@ -10,7 +10,7 @@ const CardPublication = ({ title, value, lesson, about_class, about_teacher, gra
       <h6 className={style.about_class}>{about_class}</h6>
       <h6 className={style.about_teacher}>{about_teacher}</h6>
       <h6 className={style.grade}>{grade}</h6>
-      <h6 className={style.value}>{value}</h6>
+      <h6 className={style.value}>💲{value}💸</h6>
     </div>
   );
 };
