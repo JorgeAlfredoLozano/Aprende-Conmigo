@@ -1,0 +1,29 @@
+/* styles.css */
+.details-card {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+    background-color: #f0f0f0;
+  }
+  
+  .details-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .details-header h1 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .details-content h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  /* Add additional styles for the educational visuals */
+  

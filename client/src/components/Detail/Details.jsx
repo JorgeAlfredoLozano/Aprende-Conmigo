@@ -1,39 +1,34 @@
-import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
-import styled from 'styled-components';
+import React from 'react';
 
-const Detail = () => {
-  const { id } = useParams();
+const Details = ({ data, match }) => {
+  const { id } = match.params;
 
-  useEffect(() => {
-    // Código de efecto o lógica adicional si es necesario
-    // ...
+  // Buscar el objeto con el ID correspondiente en el array de datos
+  const item = data.find(item => item.id === id);
 
-    return () => {
-      // Código de limpieza o cancelación si es necesario
-      // ...
-    };
-  }, [id]);
+  // Verificar si se encontró el objeto con el ID
+  if (!item) {
+    return <div>No se encontró el detalle para el ID proporcionado.</div>;
+  }
+
+  const { title, aboutClass, aboutTeacher, value, publiImage, grade, lesson } = item;
 
   return (
-    <StyledDetail>
-      <Home />
-      <Filtros />
-      <Perfil />
-    </StyledDetail>
+    <div className="details-card">
+      <div className="details-header">
+        <h1>{title}</h1>
+        {/* Agrega los dibujos o elementos visuales relacionados con la educación */}
+      </div>
+      <div className="details-content">
+        <h3>About Class: {aboutClass}</h3>
+        <h3>About Teacher: {aboutTeacher}</h3>
+        <h3>Value: {value}</h3>
+        <h3>Publication Image: {publiImage}</h3>
+        <h3>Grade: {grade}</h3>
+        <h3>Lesson: {lesson}</h3>
+      </div>
+    </div>
   );
 };
 
-const Home = () => {
-  return <div>Home Component</div>;
-};
-
-const Filtros = () => {
-  return <div>Filtros Component</div>;
-};
-
-const Perfil = () => {
-  return <div>Perfil Component</div>;
-};
-
-export default Detail; 
+export default Details;

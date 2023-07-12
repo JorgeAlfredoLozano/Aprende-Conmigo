@@ -1,14 +1,14 @@
 .titulo {
-    position: absolute;
-    top: 20%;
-    left: 35%;
+   display: grid;
+    padding-top: 30px;
+    padding-left: 33%;
     font-size: 80px
 }
  .search {
-    position: absolute;
-    left: 45%;
-    top: 40%;
-    background-color: rgb(223, 238, 255)
+   display: grid;
+    left:20%;
+    top: 30px;
+   
  }
 
  .body {
@@ -16,13 +16,15 @@
  }
 
  .busqueda{
-   position:relative;
+  
     top: 140px;
     left: 10%;
  }
 
  .container{
-   position:relative;
-   top: 430px;
-   left: 50px;
+   
+   top: 0px;
+   left:0px;
+   background-color: rgb(223, 238, 255);
+
  }

@@ -5,27 +5,36 @@ import style from './SearchPage.module.css';
 import GeneralFilters from '../GeneralFilters/GeneralFilters';
 import CardsContainer from '../CardsContainer/CardsContainer';
 import SearchBar from '../SearchBar/SearchBar';
-import Prueba from "../prueba/prueba";
+import Details from '../Detail/Details';
 
 const SearchPage = ({ searchValue }) => {
-  const [filtro, setFiltro] = useState('');
+  const [filtro, setFiltro] = useState("");
+  const currentPath = window.location.pathname;
+
+  let renderedComponent = null;
+
+  if (currentPath === '/busqueda') {
+    renderedComponent = <CardsContainer filtro={filtro} />;
+  } else if (currentPath.startsWith('/details/')) {
+    const id = currentPath.split('/details/')[1];
+    renderedComponent = <Details data={cardsData} id={id} />;
+  }
 
   return (
-    <div className={style.body}>
+    <div className={style.container}>
       <NavBar />
       <div className={style.search}>
-        <SearchBar />
-      </div>
         <h1 className={style.titulo}>Ruta de búsqueda</h1>
-        <div className={style.container}>
-          <GeneralFilters filtro={filtro} setFiltro={setFiltro} />
-        </div>
+        <GeneralFilters filtro={filtro} setFiltro={setFiltro} />
         <div className={style.busqueda}>
-          <CardsContainer filtro={filtro} />
+          <SearchBar />
+          {renderedComponent}
+        </div>
       </div>
-        <Footer />
+      <Footer />
     </div>
   );
 };
 
 export default SearchPage;
+
