@@ -2,16 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CardPublication from '../CardPublication/CardPublication';
 import {getAllPublication} from '../../Redux/actions';
-import {NavLink} from 'react-router-dom'
-const PublicationUser = () => {
-  const dispatch = useDispatch();
-  const email=localStorage.getItem("currentUser");
-  const datoPublication = useSelector((state) => state.allPublication);
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import CardPublication from '../CardPublication/CardPublication';
-import {getAllPublication} from '../../Redux/actions';
-import {NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom';
+
 const PublicationUser = () => {
   const dispatch = useDispatch();
   const email=localStorage.getItem("currentUser");
