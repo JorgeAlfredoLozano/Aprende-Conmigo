@@ -1,4 +1,5 @@
 //  Array de tarjetas hardcoded
+//NO SE ESTA USANDOOOOO
   const dataCards = [
     {
       id: 10,

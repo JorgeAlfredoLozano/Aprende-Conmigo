@@ -1,7 +1,8 @@
 // import { useState } from "react";
 // import { useSelector } from "react-redux";
 import Card from "../Card/Card"; 
-import dataCards from "./dataCards";
+// import dataCards from "./dataCards";
+import publication from "../baseDeDatosGeneral/baseDeDatosPublication"
 import styles from "./CardsContainer.module.css";
 import {getUser} from "../../Redux/actions";
 
@@ -26,17 +27,17 @@ const CardsContainer = () => {
     
     <div  className={styles.cardContainer}>
       
-      {dataCards.map((card) => (
+      {publication.map((card) => (
         <div key={card.id} className={styles.lasCards}>
           <Card
             id={card.id}
-            name={card.name}
-            email={card.email}
-            date={card.date}
-            gender={card.gender}
-            phone={card.phone}
-            assets={card.assets}
-            certificate={card.certificate}
+            title={card.title}
+            aboutClass={card.aboutClass}
+            aboutTeacher={card.aboutTeacher}
+            value={card.value}
+            publiImage={card.publiImage}
+            grade={card.grade}
+            lesson={card.lesson}
           />
         </div>
       ))}

@@ -4,7 +4,14 @@ import style from "./SearchPage.module.css";
 import GeneralFilters from "../GeneralFilters/GeneralFilters";
 import CardsContainer from "../CardsContainer/CardsContainer";
 
+
 const SearchPage = ({ searchValue }) => {
+
+
+  
+
+
+
   return (
     <div>
       <NavBar />
