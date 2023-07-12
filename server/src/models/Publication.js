@@ -27,7 +27,10 @@ sequelize.define('Publication', {
     grade:{
         type:DataTypes.STRING,
         allowNull:false
-    }
-    
-},{timestamps:false,freezeTableName:true}
+    },
+    status:{
+        type:DataTypes.BOOLEAN,
+        defaultValue: true
+    }}
+,{timestamps:false,freezeTableName:true}
 )}
