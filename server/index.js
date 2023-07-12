@@ -5,6 +5,8 @@ const { conn } = require('./src/db.js');
 const lessonsJson=require('./src/utils/lessons.json')
 const {Lesson}=require('./src/db.js')
 const {postLesson}=require('./src/rutas/Lesson.js')
+const cors = require('cors')
+server.use(cors({origin: 'http://localhost:5173'}))
 
 conn.sync({ alter: true })
 .then(() => postLesson(lessonsJson, Lesson))

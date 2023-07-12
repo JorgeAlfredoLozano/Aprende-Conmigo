@@ -4,7 +4,9 @@ import Home from './components/Home/Home';
 import Perfil from './components/Perfil/Perfil';
 import Faq from './components/Faq/Faq';
 import SearchPage from './components/SearchPage/SearchPage';
-import Details from './components/Detail/Details';
+import Checkout from './components/CheckoutFormStripe/CheckoutFormStripe'
+import PublicationUser from './components/PublicationUser/PublicationUser'
+import UpdatePubli from './components/UpdatePubli/UpdatePubli';import Details from './components/Detail/Details';
 
 function App() {
   return (
@@ -16,6 +18,9 @@ function App() {
           <Route path="/preguntas" element={<Faq />} />
           <Route path="/busqueda" element={<SearchPage />} />
           <Route path="/details/:id" element={<Details />} />
+          <Route path='/pago' element={<Checkout/>}/>
+          <Route path='/pub' element={<PublicationUser/>} />
+          <Route path='/detail/:id' element={<UpdatePubli/>} />
         </Routes>
       </Router>
     </div>
