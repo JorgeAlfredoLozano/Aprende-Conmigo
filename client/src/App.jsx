@@ -18,7 +18,7 @@ function App() {
           <Route path="/preguntas" element={<Faq/>}/>
           <Route path="/busqueda" element={<SearchPage/>}/>
           <Route path='/pago' element={<Checkout/>}/>
-          <Route path='/pub' element={<PublicationUser/>} />
+          <Route path='/anuncios' element={<PublicationUser/>} />
           <Route path='/detail/:id' element={<UpdatePubli/>} />
         </Routes>
       </div>
