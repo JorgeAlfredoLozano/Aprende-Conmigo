@@ -27,12 +27,12 @@ const reducer = (state = initialState, {type, payload}) => {
       ...state,
       publication: payload,
     }
-  case "GET_LESSON_TYPE":
+  case "GET_LESSON":
   return{
       ...state,
       lesson: payload,
     }     
-    case "GET_ALL_USER_PUBLICATION": 
+    case "GET_ALL_PUBLICATION": 
     return{
       ...state,
       allPublication: payload,
