@@ -56,7 +56,7 @@ const UpdatePubli = (props) => {
              </div>              
             <div>
                  <label className={style.label}> Acerca De La Clase: </label> 
-                <textarea className={style.textarea} name='about_class' value={input.about_class} onChange={(event)=>handleChange(event)}/>   
+                <textarea className={style.textarea} name='about_class' value={input.about_class} onChange={(event)=>handleChange(event)}/>
              </div>
             <div>
                 <label className={style.label}> Acerca Del Profesor: </label> 
