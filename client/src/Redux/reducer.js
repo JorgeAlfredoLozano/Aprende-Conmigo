@@ -2,7 +2,8 @@ const initialState = {
   allInfo:[],
   publication:[],
   lesson:[],
-  allPublication:[]
+  allPublication:[],
+  allAnuncios:[]
   };
 
 const reducer = (state = initialState, {type, payload}) => {
@@ -32,10 +33,15 @@ const reducer = (state = initialState, {type, payload}) => {
       ...state,
       lesson: payload,
     }     
-    case "GET_ALL_PUBLICATION": 
-    return{
-      ...state,
-      allPublication: payload,
+  case "GET_ALL_PUBLICATION": 
+  return{
+    ...state,
+    allPublication: payload,
+    }
+  case "GET_ALL_ANUNCIOS": 
+  return{
+    ...state,
+    allAnuncios: payload,
     }
   default:
     return { ...state };

@@ -20,7 +20,7 @@ const FormAnuncio = (props) => {
   const selectedBtnsRef = useRef([]);
   const selectedBtns = selectedBtnsRef.current;
   const [errors, setErrors] = useState({});
-console.log(input)
+  
   function handleChange(event) {
     const { name, value } = event.target;
     setInput((prevState) => ({

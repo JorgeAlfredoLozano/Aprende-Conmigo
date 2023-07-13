@@ -83,9 +83,9 @@ export const getLesson = ()=>{
   };
 };
 
-export const getAllAnuncios = (email)=>{
+export const getAllAnuncios = ()=>{
   return async function(dispatch){
-     const response=await axios.get(`http://localhost:3001/publication/get/${email}`)
+     const response=await axios.get(`http://localhost:3001/publication/get/anouncements`)
     return dispatch({
       type:'GET_ALL_ANUNCIOS',
       payload: response
