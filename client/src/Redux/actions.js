@@ -1,3 +1,5 @@
+import {CLEAN_DETAIL} from "../Redux/actionTypes";
+
 import axios from 'axios';
 //users
 export const checkUserData = (user)=> {
@@ -62,15 +64,22 @@ export const updateAnuncio = (id, aux )=>{
     });  
    };
 };
-export const getAllPublication = (email)=>{
-  return async function(dispatch){
-     const response=await axios.get("http://localhost:3001/publication/get/"+ email)
-    return dispatch({
-      type:'GET_ALL_PUBLICATION',
-      payload: response
-    });  
-   };
+
+export const getAllPublication = (email) => {
+  console.log("por aquí pasó ");
+  return async function(dispatch) {
+    try {
+      const response = await (axios.get(`http://localhost:3001/publication/get/${email}`)).data;
+      dispatch({
+        type: 'GET_ALL_PUBLICATION',
+        payload: response
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 };
+
 //lessons
 export const getLesson = ()=>{
    
@@ -83,3 +92,8 @@ export const getLesson = ()=>{
   };
 };
 
+export const cleanDetail = () => {
+    return {
+        type: CLEAN_DETAIL,
+    };
+};

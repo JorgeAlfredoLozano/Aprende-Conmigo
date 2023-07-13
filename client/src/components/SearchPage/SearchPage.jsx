@@ -5,7 +5,7 @@ import style from './SearchPage.module.css';
 import GeneralFilters from '../GeneralFilters/GeneralFilters';
 import CardsContainer from '../CardsContainer/CardsContainer';
 import SearchBar from '../SearchBar/SearchBar';
-import Details from '../Detail/Details';
+
 
 const SearchPage = ({ searchValue }) => {
   const [filtro, setFiltro] = useState("");
