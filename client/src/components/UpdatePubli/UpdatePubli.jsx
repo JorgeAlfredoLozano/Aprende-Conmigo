@@ -39,34 +39,31 @@ const [errors, setErrors] = useState({});
             ...prevState,
           [name]: value,
         }))
-
-
-         // Realiza las validaciones
-  validateInput(name, value);
+ 
+        validateInput(name, value);
   }; 
-
+//____________________________________________
   function validateInput(name, value) {
     let error = null;
   
     // Realiza las validaciones según el campo
     if (name === 'title') {
-      if (!value.trim()) {
-        error = 'El título es obligatorio.';
-      }
-    } else if (name === 'about_class') {
-      if (!value.trim()) {
-        error = 'La descripción de la clase es obligatoria.';
-      }
-    } else if (name === 'about_teacher') {
-      if (!value.trim()) {
-        error = 'La descripción del profesor es obligatoria.';
-      }
-    } else if (name === 'value') {
-      if (!value.trim()) {
-        error = 'El precio es obligatorio.';
-      } else if (isNaN(value)) {
-        error = 'El precio debe ser un número.';
-      }
+      if (!value.trim()) error = 'El título es obligatorio.';
+      if (value.trim().length > 150) error = 'Máximo 150 caracteres.';
+    } 
+    else if (name === 'about_class') {
+      if (!value.trim()) error = 'La descripción de la clase es obligatoria.';
+      if (value.trim().length > 500) error = 'Máximo 500 caracteres.';
+    }
+     else if (name === 'about_teacher') {
+      if (!value.trim()) error = 'La descripción del profesor es obligatoria.';
+      if (value.trim().length > 500) error = 'Máximo 500 caracteres.';
+    } 
+    else if (name === 'value') {
+      if (!value.trim()) error = 'El precio es obligatorio.';
+    else if (isNaN(value))  error = 'El precio debe ser un número.';
+    else if (parseFloat(value) <= 0) error = 'El precio debe ser mayor que cero.';
+    
     }
   
     // Actualiza los errores de validación
@@ -93,7 +90,6 @@ const [errors, setErrors] = useState({});
             navigate('/perfil')
         };
   }
-  //_________________________________________________________
 
  //___________________________________________________________      
   return (
