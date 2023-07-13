@@ -21,11 +21,11 @@ export const putUser = (email, input) => {
 };
 export const sendPhoto = (email, payload)=>{
    return async function(dispatch){
-      const response=await axios.put("http://localhost:3001/user/update/img/"+ email, payload)
+      const response=await axios.put(`http://localhost:3001/user/update/img/${email}`, payload)
      return dispatch({
        type:'SEND_PHOTO',
        payload: response
-     });  
+     });
     }
 };
 export const getUser = (email)=>{
@@ -44,9 +44,9 @@ export const getUser = (email)=>{
   };
 };
 //publications
-export const sendAnuncio = (email, aux )=>{
+export const sendAnuncio = (email, input )=>{
    return async function(dispatch){
-      const response=await axios.post("http://localhost:3001/publication/save/"+ email, aux)
+      const response=await axios.post(`http://localhost:3001/publication/save/${email}`, input)
      return dispatch({
        type:'SEND_ANUNCIO',
        payload: response
@@ -55,7 +55,7 @@ export const sendAnuncio = (email, aux )=>{
 };
 export const updateAnuncio = (id, aux )=>{
   return async function(dispatch){
-     const response=await axios.put("http://localhost:3001/publication/save/"+ id, aux)
+     const response=await axios.put(`http://localhost:3001/publication/save/${id}`, aux)
     return dispatch({
       type:'UPDATE_ANUNCIO',
       payload: response
@@ -64,7 +64,7 @@ export const updateAnuncio = (id, aux )=>{
 };
 export const getAllPublication = (email)=>{
   return async function(dispatch){
-     const response=await axios.get("http://localhost:3001/publication/get/"+ email)
+     const response=await axios.get(`http://localhost:3001/publication/get/${email}`)
     return dispatch({
       type:'GET_ALL_PUBLICATION',
       payload: response
@@ -83,3 +83,22 @@ export const getLesson = ()=>{
   };
 };
 
+export const getAllAnuncios = ()=>{
+  return async function(dispatch){
+     const response=await axios.get(`http://localhost:3001/publication/get/anouncements`)
+    return dispatch({
+      type:'GET_ALL_ANUNCIOS',
+      payload: response
+    });  
+   };
+};
+
+export const getUserById = (id) => {
+  return async function(dispatch){
+    const response=await axios.get(`http://localhost:3001/user/get/${id}`)
+   return dispatch({
+     type:'GET_USER_BY_ID',
+     payload: response
+   });  
+  };
+}

@@ -2,7 +2,9 @@ const initialState = {
   allInfo:[],
   publication:[],
   lesson:[],
-  allPublication:[]
+  allPublication:[],
+  allAnuncios:[],
+  userID: null
   };
 
 const reducer = (state = initialState, {type, payload}) => {
@@ -32,10 +34,20 @@ const reducer = (state = initialState, {type, payload}) => {
       ...state,
       lesson: payload,
     }     
-    case "GET_ALL_PUBLICATION": 
+  case "GET_ALL_PUBLICATION": 
+  return{
+    ...state,
+    allPublication: payload,
+    }
+  case "GET_ALL_ANUNCIOS": 
+  return{
+    ...state,
+    allAnuncios: payload,
+    }
+  case 'GET_USER_BY_ID':
     return{
       ...state,
-      allPublication: payload,
+      userID: payload
     }
   default:
     return { ...state };

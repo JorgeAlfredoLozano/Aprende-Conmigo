@@ -8,6 +8,9 @@ import SearchBar from '../SearchBar/SearchBar';
 
 const SearchPage = ({ searchValue }) => {
   const [filtro, setFiltro] = useState('');
+  const [lesson, setLesson] = useState('')
+
+  console.log(lesson)
 
   return (
     <div className={style.body}>
@@ -17,9 +20,9 @@ const SearchPage = ({ searchValue }) => {
       </div>
       <div className={style.container}>
         <h1 className={style.titulo}>Ruta de búsqueda</h1>
-        <GeneralFilters filtro={filtro} setFiltro={setFiltro} />
+        <GeneralFilters filtro={filtro} setFiltro={setFiltro} lesson={lesson} setLesson={setLesson}/>
         <div className={style.busqueda}>
-          <CardsContainer filtro={filtro} />
+          <CardsContainer filtro={filtro} lesson={lesson}/>
         </div>
       </div>
       <Footer />
