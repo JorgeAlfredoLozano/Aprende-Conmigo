@@ -26,3 +26,10 @@
     position: absolute;
     left: 50%
 }
+
+.error {
+    color: red;
+    position: absolute;
+    left: 47.5%;
+    top: 53%;
+}

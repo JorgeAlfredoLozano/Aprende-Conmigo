@@ -1,7 +1,7 @@
 import { useState,useEffect } from "react";
 import { useDispatch,useSelector } from "react-redux";
 import {updateAnuncio,getLesson} from '../../Redux/actions';
-import { useParams, NavLink, useNavigate} from 'react-router-dom';
+import { useParams, useNavigate} from 'react-router-dom';
 import style from '../FormAnuncio/FormAnuncio.module.css';
 
 const UpdatePubli = (props) => {
@@ -35,14 +35,14 @@ const UpdatePubli = (props) => {
         if (boton === 'actualizar') { 
             dispatch(updateAnuncio(id, input)) 
             alert("Aviso actualizada con exito!!")
-            navigate('/pub')
+            navigate('/perfil')
         } else if (boton === 'eliminar') {
             setInput(input.status=false)
             dispatch(updateAnuncio(id, input )) 
             alert("Aviso eliminado con exito!!")
-            navigate('/pub')
+            navigate('/perfil')
         } else if (boton === 'volver') {
-            navigate('/pub')
+            navigate('/perfil')
         };
   }
     

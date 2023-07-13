@@ -58,3 +58,17 @@
     position: absolute;
     left: 42.5%;
   }
+
+  .crearAnuncio {
+    margin-left: 10%;
+    margin-bottom: 5%;
+    margin-top: 5%;
+  }
+
+  .containerAnuncios {
+    background-color: rgb(170, 198, 255);
+    height: 340px;
+    overflow: scroll;
+    margin-top: -45px;
+    padding-left: 5%;
+  }

@@ -32,7 +32,7 @@ const SendPhoto = (props) => {
           }
           dispatch(sendPhoto(email, sendImg));
           props.onSubmit()
-          alert("Foto Actualizada!!");
+          alert("¡Imagen actualizada!");
         })
         .catch((error) => {
           console.error('Hubo un error al subir la imagen:', error);

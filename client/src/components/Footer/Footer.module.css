@@ -1,17 +1,14 @@
 .container {
     margin-top: 8%;
     width: 100%;
-    background-color: #ffffff;
+    background-color: #f1f1f1;
     padding: 15px;
     box-sizing: border-box;
 }
 
 
 .nav {
-    color: rgb(0, 0, 0);
+    color: rgb(32, 32, 32);
     font-size: 20px;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-  }
-  
+    bottom: 0%;
+}

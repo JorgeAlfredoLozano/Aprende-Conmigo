@@ -6,6 +6,8 @@ import FormAnuncio from "../FormAnuncio/FormAnuncio"
 import { getUser } from '../../Redux/actions';
 import { connect } from "react-redux";
 import SendPhoto from "../SendPhoto/SendPhoto";
+import PublicationUser from "../PublicationUser/PublicationUser";
+
 
 const Perfil = ({ userData, getUser }) => {
   
@@ -26,6 +28,7 @@ const Perfil = ({ userData, getUser }) => {
   const [renderForm, setRenderForm] = useState(false);
   const [renderUser, setRenderUser] = useState(userData);
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('currentUser'));
+  const [renderFormAnuncio, setRenderFormAnuncio] = useState(false)
 
   const changeTab = (event) => {
     if (event.target.id === 'profile') {
@@ -62,10 +65,19 @@ const Perfil = ({ userData, getUser }) => {
 
   const handlePhotoSubmit = () => {
     getUser(currentUser);
+    setRenderUser(userData);
   };
 
   const cancelarForm = () => {
     setRenderForm(false)
+  }
+
+  const createAnuncio = () => {
+    setRenderFormAnuncio(true)
+  }
+
+  const cancelarFormAnuncio = () => {
+    setRenderFormAnuncio(false);
   }
 
   const containerStyle = {
@@ -96,15 +108,23 @@ const Perfil = ({ userData, getUser }) => {
               <button className={style.botonForm} onClick={updateData}>Modificar Perfil</button>
               {renderForm && (
                 <div>
-                  <FormUpdate onSubmit={handleFormSubmit}/>
+                  <FormUpdate onSubmit={handleFormSubmit} />
                   <button onClick={cancelarForm}>Cancelar</button>
                 </div>
-              )},
+              )}
             </>
           )}
           {renderAnuncios && (
             <div>
-            <FormAnuncio onSubmit={handleFormSubmit}/>
+              <div className={style.containerAnuncios}>
+              <button className={style.crearAnuncio} onClick={createAnuncio}>Crear Anuncio</button>
+              <PublicationUser/>
+              </div>
+            {renderFormAnuncio && (
+              <>
+              <FormAnuncio onCancel={cancelarFormAnuncio} onSubmit={handleFormSubmit}/>
+              </>
+            )}
           </div>
           )}
           {renderAnunciosFavoritos && (

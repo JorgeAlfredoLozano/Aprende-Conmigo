@@ -11,20 +11,17 @@ firebase.initializeApp(firebaseConfig);
 
 const provider = new firebase.auth.GoogleAuthProvider();
 
-const Login = ({userData, getUser}) => {
+const Login = ({ userData, getUser }) => {
   const [logged, setLogged] = useState(false);
   const [showLogoutButton, setShowLogoutButton] = useState(false);
-  const [renderUser, setRenderUser] = useState(userData);
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('currentUser'));
-  
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    // carga de datos del usuario al iniciar la aplicacion en localStorage
     const cachedUser = JSON.parse(localStorage.getItem('cachedUser'));
     if (cachedUser) {
       setLogged(true);
-      setRenderUser(cachedUser);
     }
   }, []);
 
@@ -38,12 +35,10 @@ const Login = ({userData, getUser}) => {
   }, [currentUser, getUser]);
 
   useEffect(() => {
-    if (userData !== renderUser) {
-      setRenderUser(userData);
-      // actualizar el usuario en el almacenamiento en cache
+    if (userData) {
       localStorage.setItem('cachedUser', JSON.stringify(userData));
     }
-  }, [userData, renderUser]);
+  }, [userData]);
 
   const changeDidLog = () => {
     if (!logged) {
@@ -54,7 +49,7 @@ const Login = ({userData, getUser}) => {
           const user = result.user;
           checkUserData(user);
           const email = user.email;
-          setCurrentUser(email)
+          setCurrentUser(email);
           setLogged(true);
           localStorage.setItem('currentUser', email);
         })
@@ -79,7 +74,7 @@ const Login = ({userData, getUser}) => {
   };
 
   const containerStyle = {
-    backgroundImage: `url(${renderUser.assets})`, /// esto es mientras no trabajemos con las imagenes provenientes de la base de datos
+    backgroundImage: `url(${userData && userData.assets})`,
   };
 
   return (
@@ -103,7 +98,7 @@ const Login = ({userData, getUser}) => {
               </div>
             </div>
           )}
-          <p className={style.greet}>{renderUser.name}</p>
+          <p className={style.greet}>{userData && userData.name}</p>
         </div>
       )}
     </div>
@@ -111,15 +106,15 @@ const Login = ({userData, getUser}) => {
 };
 
 const mapStateToProps = (state) => {
-    return {
-      userData: state.allInfo
-    };
+  return {
+    userData: state.allInfo,
   };
-  
-  const mapDispatchToProps = (dispatch) => {
-    return {
-    getUser: (email) => dispatch(getUser(email))
-    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getUser: (email) => dispatch(getUser(email)),
   };
-  
-  export default connect(mapStateToProps, mapDispatchToProps)(Login);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

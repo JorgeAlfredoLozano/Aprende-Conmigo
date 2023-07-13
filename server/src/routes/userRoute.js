@@ -1,18 +1,16 @@
 const { Router } = require("express");
-const createUserLogin = require("../handlers/createUserLogin")
-const {putUser,getUser,putPhoto}=require("../rutas/User")
-const {cheackoutApi} = require('../rutas/ApiCheckout')
 const route = Router();
 
-// Define la ruta y su manejador para la creación de usuario
-route.post('/login',createUserLogin);
-route.post('/api/checkout',cheackoutApi)
-route.put('/update/:email',putUser);
-route.get('/update/:email',getUser);
-route.put('/update/img/:email',putPhoto);
+const createUserLoginHandler = require("../handlers/user/createUserLoginHandler")
+const putUserHandler=require('../handlers/user/putUserHandler')
+const getUserHandler=require('../handlers/user/getUserHandler')
+const putPhotoHandler=require('../handlers/user/putPhotoHandler')
+const {cheackoutApi} = require('../handlers/user/ApiCheckout')
 
-
-
+route.post('/login',createUserLoginHandler); // Si no existe, crea un usuario en la DB 
+route.post('/api/checkout',cheackoutApi) // Ruta para manejar los pagos (stripe)
+route.put('/update/:email',putUserHandler); // Actualiza los datos del perfil de usuario
+route.get('/update/:email',getUserHandler); // Trae los datos del usuario
+route.put('/update/img/:email',putPhotoHandler); // Actualiza la foto del perfil de usuario
 
 module.exports = route;
-

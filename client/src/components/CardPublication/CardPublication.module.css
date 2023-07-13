@@ -1,0 +1,32 @@
+.card_publication {
+    background-color: #414e96;
+    border: 2px solid #050505;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 250px; /* Ajusta el tamaño según tus necesidades */
+    max-height: 300px;
+  }
+  
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 3px solid #ccc;
+  
+  }
+  
+  .lesson {
+    font-size: 16px;
+    margin-top: 5px;
+  
+   
+  }
+  
+  .about_class,
+  .about_teacher,
+  .grade,
+  .value {
+    font-size: 14px;
+    margin-top: 3px;
+  }
+  

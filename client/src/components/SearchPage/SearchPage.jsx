@@ -8,27 +8,19 @@ import SearchBar from '../SearchBar/SearchBar';
 
 
 const SearchPage = ({ searchValue }) => {
-  const [filtro, setFiltro] = useState("");
-  const currentPath = window.location.pathname;
+  const [filtro, setFiltro] = useState('');
+  const [lesson, setLesson] = useState('')
 
-  let renderedComponent = null;
-
-  if (currentPath === '/busqueda') {
-    renderedComponent = <CardsContainer filtro={filtro} />;
-  } else if (currentPath.startsWith('/details/')) {
-    const id = currentPath.split('/details/')[1];
-    renderedComponent = <Details data={cardsData} id={id} />;
-  }
+  console.log(lesson)
 
   return (
     <div className={style.container}>
       <NavBar />
       <div className={style.search}>
         <h1 className={style.titulo}>Ruta de búsqueda</h1>
-        <GeneralFilters filtro={filtro} setFiltro={setFiltro} />
+        <GeneralFilters filtro={filtro} setFiltro={setFiltro} lesson={lesson} setLesson={setLesson}/>
         <div className={style.busqueda}>
-          <SearchBar />
-          {renderedComponent}
+          <CardsContainer filtro={filtro} lesson={lesson}/>
         </div>
       </div>
       <Footer />

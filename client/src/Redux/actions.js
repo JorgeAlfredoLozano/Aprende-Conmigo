@@ -23,7 +23,7 @@ export const putUser = (email, input) => {
 };
 export const sendPhoto = (email, payload)=>{
    return async function(dispatch){
-      const response=await axios.put("http://localhost:3001/user/update/img/"+ email, payload)
+      const response=await axios.put(`http://localhost:3001/user/update/img/${email}`, payload)
      return dispatch({
        type:'SEND_PHOTO',
        payload: response
@@ -46,9 +46,9 @@ export const getUser = (email)=>{
   };
 };
 //publications
-export const sendAnuncio = (email, aux )=>{
+export const sendAnuncio = (email, input )=>{
    return async function(dispatch){
-      const response=await axios.post("http://localhost:3001/publication/save/"+ email, aux)
+      const response=await axios.post(`http://localhost:3001/publication/save/${email}`, input)
      return dispatch({
        type:'SEND_ANUNCIO',
        payload: response
@@ -57,27 +57,21 @@ export const sendAnuncio = (email, aux )=>{
 };
 export const updateAnuncio = (id, aux )=>{
   return async function(dispatch){
-     const response=await axios.put("http://localhost:3001/publication/save/"+ id, aux)
+     const response=await axios.put(`http://localhost:3001/publication/save/${id}`, aux)
     return dispatch({
       type:'UPDATE_ANUNCIO',
       payload: response
     });  
    };
 };
-
-export const getAllPublication = (email) => {
-  console.log("por aquí pasó ");
-  return async function(dispatch) {
-    try {
-      const response = await (axios.get(`http://localhost:3001/publication/get/${email}`)).data;
-      dispatch({
-        type: 'GET_ALL_PUBLICATION',
-        payload: response
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  };
+export const getAllPublication = (email)=>{
+  return async function(dispatch){
+     const response=await axios.get(`http://localhost:3001/publication/get/${email}`)
+    return dispatch({
+      type:'GET_ALL_PUBLICATION',
+      payload: response
+    });  
+   };
 };
 
 //lessons
@@ -92,8 +86,18 @@ export const getLesson = ()=>{
   };
 };
 
+export const getAllAnuncios = ()=>{
+  return async function(dispatch){
+     const response=await axios.get(`http://localhost:3001/publication/get/anouncements`)
+    return dispatch({
+      type:'GET_ALL_ANUNCIOS',
+      payload: response
+    });  
+   };
+};
+
 export const cleanDetail = () => {
-    return {
-        type: CLEAN_DETAIL,
-    };
+  return {
+      type: CLEAN_DETAIL,
+  };
 };
