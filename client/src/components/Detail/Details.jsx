@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getAllPublication } from '../../Redux/actions';
 import CardPublication from '../CardPublication/CardPublication';
-import style from '../Detail/Publication.module.css';
+import style from '../Detail/Publication.module';
 
 const CardPublicationContainer = ({ card }) => {
   // Aquí puedes agregar los elementos adicionales que necesitas mostrar en la tarjeta
@@ -52,3 +52,5 @@ const Details = () => {
 };
 
 export default Details;
+
+
