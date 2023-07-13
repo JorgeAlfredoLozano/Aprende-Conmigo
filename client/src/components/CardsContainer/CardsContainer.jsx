@@ -23,6 +23,7 @@ const CardsContainer = ({ filtro, lesson }) => {
 
     if (lesson) {
       filteredData = filteredData.filter(card => card.Lessons.some(lessonItem => lessonItem.lesson_name.toLowerCase().includes(lesson.toLowerCase())));
+      
     }
 
     setFilteredCards(filteredData);
@@ -39,7 +40,7 @@ const CardsContainer = ({ filtro, lesson }) => {
                   id={card.id}
                   title={card.title}
                   value={card.value}
-                  lesson={card.Lessons[0].lesson_name}
+                  lesson={card.lessons[0].lesson_name}
                   about_class={card.about_class}
                   about_teacher={card.about_teacher}
                   grade={card.grade}
