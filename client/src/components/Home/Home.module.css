@@ -9,14 +9,13 @@
     padding-left: 150%;
     margin-top: 5%;
     margin-bottom: 5%;
-    margin-top: 100px;
+    margin-top: 240px;
 }
 
 .search {
     position: absolute;
-    left: 45%;
-    top: 60%;
-    border-radius: 15px;
+    left: 39%;
+    top: 88%;
  }
 
  .bgd {

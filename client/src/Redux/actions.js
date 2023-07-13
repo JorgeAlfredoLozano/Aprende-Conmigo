@@ -1,5 +1,3 @@
-import {CLEAN_DETAIL} from "../Redux/actionTypes";
-
 import axios from 'axios';
 //users
 export const checkUserData = (user)=> {
@@ -73,7 +71,6 @@ export const getAllPublication = (email)=>{
     });  
    };
 };
-
 //lessons
 export const getLesson = ()=>{
    
@@ -96,18 +93,3 @@ export const getAllAnuncios = ()=>{
    };
 };
 
-export const cleanDetail = () => {
-  return {
-      type: CLEAN_DETAIL,
-  };
-};
-
-export const deleteAnuncio = (id) => {
-  return async function(dispatch) {
-    const response = await axios.patch(`http://localhost:3001/publication/delete/${id}`, { status: false });
-    return dispatch({
-      type: 'DELETE_ANUNCIO',
-      payload: response
-    });
-  };
-};
