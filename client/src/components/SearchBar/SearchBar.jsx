@@ -1,11 +1,6 @@
 import style from './SearchBar.module.css'
 import { useState } from "react";
-<<<<<<< HEAD
-import { Link } from 'react-router-dom';
-import { materias } from "../BaseDeDatosHarco/baseDeDatos";
-=======
 import { Link } from 'react-router-dom'; // añado esto mientras no tengamos la funcion onSearch
->>>>>>> 8a602ecb0563915129144d4343c089bef2b988f4
 
 
 const SearchBar = () => {

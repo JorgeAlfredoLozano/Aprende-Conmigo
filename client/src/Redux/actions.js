@@ -101,3 +101,13 @@ export const cleanDetail = () => {
       type: CLEAN_DETAIL,
   };
 };
+
+export const deleteAnuncio = (id) => {
+  return async function(dispatch) {
+    const response = await axios.patch(`http://localhost:3001/publication/delete/${id}`, { status: false });
+    return dispatch({
+      type: 'DELETE_ANUNCIO',
+      payload: response
+    });
+  };
+};

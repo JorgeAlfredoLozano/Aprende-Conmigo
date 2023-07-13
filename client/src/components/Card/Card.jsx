@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styles from "./Cards.module.css";
-=======
 import style from "./Cards.module.css";
 // import {Link} from "react-router-dom";
->>>>>>> 8a602ecb0563915129144d4343c089bef2b988f4
 
 //este tipo de component es un down por que es un component presentacional, no tiene una carga como tal mas que solo mostrar algo, osea no maneja logica en si.
 //cada componente independientemente de su trabajo, tiene la posibilidad de manejar un estado local propio suyo, que es para trabajar su propio cuerpo.

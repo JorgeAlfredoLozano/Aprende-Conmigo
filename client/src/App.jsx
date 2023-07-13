@@ -8,6 +8,7 @@ import Checkout from './components/CheckoutForm/CheckoutForm'
 import PublicationUser from './components/PublicationUser/PublicationUser'
 import UpdatePubli from './components/UpdatePubli/UpdatePubli';
 import DetailAnuncio from './components/DetailAnuncio/DetailAnuncio';
+import Details from './components/Detail/Details';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           <Route path="/perfil" element={<Perfil />} />
           <Route path="/preguntas" element={<Faq />} />
           <Route path="/busqueda" element={<SearchPage />} />
-          <Route path="/details/:id" element={<Details />} />
+          <Route path="/publication/get/:email" element={<Details/>} />
           <Route path='/pago' element={<Checkout/>}/>
           <Route path='/anuncios' element={<PublicationUser/>} />
           <Route path='/detail/:id' element={<UpdatePubli/>} />

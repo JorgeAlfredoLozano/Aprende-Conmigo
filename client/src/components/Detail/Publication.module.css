@@ -1,0 +1,62 @@
+/* PublicationUser.module.css */
+.publication_user_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .card_container {
+    width: 300px;
+    margin-bottom: 20px;
+  }
+  
+  .details_link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* CardPublication.module.css */
+  .card_publication {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card_publication h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card_publication p {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  .card_publication .lesson {
+    font-weight: bold;
+  }
+  
+  /* CardPublicationContainer.module.css */
+  .card_container {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  .card_container h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card_container p {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  .card_container .lesson {
+    font-weight: bold;
+  }
+  
