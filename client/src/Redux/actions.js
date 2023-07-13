@@ -25,7 +25,7 @@ export const sendPhoto = (email, payload)=>{
      return dispatch({
        type:'SEND_PHOTO',
        payload: response
-     });  
+     });
     }
 };
 export const getUser = (email)=>{
@@ -93,3 +93,12 @@ export const getAllAnuncios = ()=>{
    };
 };
 
+export const getUserById = (id) => {
+  return async function(dispatch){
+    const response=await axios.get(`http://localhost:3001/user/get/${id}`)
+   return dispatch({
+     type:'GET_USER_BY_ID',
+     payload: response
+   });  
+  };
+}

@@ -3,7 +3,8 @@ const initialState = {
   publication:[],
   lesson:[],
   allPublication:[],
-  allAnuncios:[]
+  allAnuncios:[],
+  userID: null
   };
 
 const reducer = (state = initialState, {type, payload}) => {
@@ -42,6 +43,11 @@ const reducer = (state = initialState, {type, payload}) => {
   return{
     ...state,
     allAnuncios: payload,
+    }
+  case 'GET_USER_BY_ID':
+    return{
+      ...state,
+      userID: payload
     }
   default:
     return { ...state };

@@ -22,7 +22,6 @@ const PublicationUser = () => {
             <div key={card.id} className={style.card_container}>
                <NavLink to={`/detail/${card.id}`} className={style.details_link}>
               <CardPublication
-               
                 id={card.id}
                 title={card.title}
                 value={card.value}
@@ -30,7 +29,6 @@ const PublicationUser = () => {
                 about_class={card.about_class}
                 about_teacher={card.about_teacher}
                 grade={card.grade}
-                
               />
               </NavLink>
             </div>
