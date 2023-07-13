@@ -11,6 +11,6 @@
             </div>
         </div>
     )
- }
+ };
 
  export default DetailAnuncio;
