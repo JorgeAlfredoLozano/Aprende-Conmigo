@@ -6,10 +6,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  width: 100%;
 }
 
-a:hover {
-  color: #3056ff;
+#root {
+  width: 100%;
 }
 
 body {
@@ -21,4 +22,12 @@ body {
   place-items: center;
   background-color: rgb(136, 136, 136);
   width: 100%;
+}
+
+section {
+  display: flex;
+}
+
+a {
+  text-decoration: none;
 }
