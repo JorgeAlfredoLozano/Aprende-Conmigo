@@ -1,18 +1,4 @@
 .container {
-<<<<<<< HEAD
-    margin-top: 8%;
-    width: 100%;
-    background-color: #f1f1f1;
-    padding: 15px;
-    box-sizing: border-box;
-}
-
-
-.nav {
-    color: rgb(32, 32, 32);
-    font-size: 20px;
-    bottom: 0%;
-=======
     background-color: rgb(195, 195, 195);
     margin-right: -5px;
     margin-bottom: -2%;
@@ -22,5 +8,4 @@
     padding-top: 5%;
     padding-bottom: 5%;
     width: 100%;
->>>>>>> 58375bbc69c5c49eb9cb295d70c1c324e2f2d397
 }

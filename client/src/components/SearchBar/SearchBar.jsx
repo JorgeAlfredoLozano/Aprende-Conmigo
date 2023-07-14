@@ -10,15 +10,9 @@ const SearchBar = () => {
         };
         return (
             <div className={style.container}>
-<<<<<<< HEAD
-             <input type='search' value={name} onChange={handleChange} />
-             <Link to='/busqueda'>
-             <button>Search</button>
-=======
              <input className={style.input} type='search' value={name} onChange={handleChange} />
              <Link to='/busqueda'>
              <button className={style.boton}>Buscar</button>
->>>>>>> 58375bbc69c5c49eb9cb295d70c1c324e2f2d397
              </Link>
             </div>
         );

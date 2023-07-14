@@ -1,44 +1,4 @@
 .container {
-<<<<<<< HEAD
-    position: absolute;
-    right: 16%;
-    top: 15%;
-}
-
-.greet {
-    position: fixed;
-    max-width: 150px;
-    color: rgb(1, 1, 1);
-    top: 10px;
-    right: 10%;
-    font-weight: bolder;
-    font-size: 20px;
-    z-index: -1;
-}
-
-/* .icon {
-    position: fixed;
-    top: 7px;
-    height: 50px;
-    z-index: -1;
-    right: 60px;
-} */
-
-.icon {
-    width: 50px;
-    height: 50px;
-    background-color: rgb(50, 50, 50);
-    border-radius: 50%;
-    position: fixed;
-    top: 7px;
-    right: 60px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-=======
     position: fixed;
     display: flex;
     flex-direction: row-reverse;
@@ -65,7 +25,6 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
->>>>>>> 58375bbc69c5c49eb9cb295d70c1c324e2f2d397
 }
 
 .icon:hover {
@@ -78,17 +37,10 @@
     top: 10%;
 }
 
-<<<<<<< HEAD
-.desplegable {
-    background-color: rgb(255, 255, 255);
-    position: fixed;
-    right: 2.3%;
-=======
 .panel {
     background-color: rgb(255, 255, 255);
     position: fixed;
     right: 12.5%;
->>>>>>> 58375bbc69c5c49eb9cb295d70c1c324e2f2d397
     top: 11%;
 }
 
@@ -102,11 +54,4 @@
     background-color: yellow;
     cursor: pointer;
     transition: 0.5s ease;
-<<<<<<< HEAD
-}
-
-.greet {
-    top: 2%
-=======
->>>>>>> 58375bbc69c5c49eb9cb295d70c1c324e2f2d397
 }

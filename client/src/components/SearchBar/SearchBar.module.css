@@ -1,8 +1,4 @@
 .container {
-<<<<<<< HEAD
-    position: absolute;
-    width: 300px;
-=======
     width: 300px;
 }
 
@@ -27,5 +23,4 @@
     cursor: pointer;
     transition: border-color 0.25s;
 
->>>>>>> 58375bbc69c5c49eb9cb295d70c1c324e2f2d397
 }
