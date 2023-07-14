@@ -1,10 +1,10 @@
 const Stripe = require('stripe')
-
-
-const stripe = new Stripe('sk_test_51NSJ1MEqVxv7pAKJ0U8f7kuyQJBwBMVsOdwoOA5zxVpwYPTcRwJU2CWUSCmZmbmG90mw8Ay5f0zOfxupWLpMR92200lgQ51Weo')
+const {SENDSTRIPE}=process.env;
+const sendmail=require('../../utils/sendmail')
+const stripe = new Stripe(`${SENDSTRIPE}`)
 const cheackoutApi = async(req,res) => { 
     try {
-        const {id,amount} = req.body
+        const {id,amount,email} = req.body
     
     const payment = await stripe.paymentIntents.create({
         amount,
@@ -13,7 +13,7 @@ const cheackoutApi = async(req,res) => {
         payment_method:id,
         confirm:true
     })
-    console.log(payment)
+    sendmail('payment',email);
     res.send({message: 'successfull payment'})
     } catch (error) {
         res.json({message:error.raw.message})

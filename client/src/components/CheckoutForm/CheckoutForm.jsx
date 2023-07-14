@@ -2,8 +2,10 @@ import "bootswatch/dist/lux/bootstrap.min.css"
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements, CardElement, useStripe, useElements} from '@stripe/react-stripe-js'
 import axios from 'axios'
+const VITE_API_STRIPE=import.meta.env.VITE_API_STRIPE;
 
-const stripePromise = loadStripe("pk_test_51NSJ1MEqVxv7pAKJSd5oZL8wBvsgvPm83YP66SNomXMyU0tK615q9dNybMwth474aX435OiMPAq3JiVVYXHA4D1v007Ku2489r")
+const stripePromise = loadStripe(`${VITE_API_STRIPE}`)
+const email = localStorage.getItem("currentUser");
 const CheckoutForm = () => {
 const stripe = useStripe()
 const elements = useElements()
@@ -19,9 +21,9 @@ if(!error) {
 const {id} = paymentMethod
 const {data} = await axios.post('http://localhost:3001/user/api/checkout', {
     id,
-    amount:10000
+    amount:10000,
+    email
 })
-console.log(data)
 elements.getElement(CardElement).clear()
 }}
 return( 
