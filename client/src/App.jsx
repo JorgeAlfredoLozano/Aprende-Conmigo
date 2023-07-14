@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 import './App.css'
-=======
->>>>>>> 58375bbc69c5c49eb9cb295d70c1c324e2f2d397
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './components/Home/Home';
 import Perfil from './components/Perfil/Perfil';
