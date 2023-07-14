@@ -1,74 +1,72 @@
 .contenedorPerfil {
     display: flex;
-    background-color: black;
-    width: 1000px;
-    height: 340px;
-    margin-left: 17%;
-    margin-top: 100px;
+    flex-direction: row;
+    margin: 0%;
+    width: 100%;
+    min-height: 100vh;
   }
   
   .contenedorTabs {
-    flex: 0.8;
-    background-color: rgb(197, 216, 255);
+    flex: 0.5;
+    gap: 1;
+    background-color: rgb(154, 154, 154);
   }
 
   .tabs {
   margin: 0%;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 12%;
+  padding-bottom: 12%;
   text-align: center;
+  color: rgb(24, 24, 24);
   }
 
   .tabs:hover {
-    background-color: rgb(170, 198, 255);
+    background-color: rgb(189, 189, 189);
     color: rgb(41, 41, 41);
     cursor: pointer;
   }
-  
+
+  .datos{
+    flex-direction: column;
+    gap: 1.5em
+  }
+
+  .imagen {
+    flex-direction: column;
+    align-items: center;
+    gap: 3em;
+  }
+
   .contenedorInfo {
-    flex: 2;
-    background-color: rgb(170, 198, 255);
-    width: 800px;
-    padding-top: 4.5%;
+    flex: 1.5;
+    background-color: rgb(189, 189, 189);
+    justify-content: center;
+    padding-top: 5%;
+    gap: 5em;
   }
 
   .infoLabel {
-    color: rgb(41, 41, 41);
+    color: rgb(32, 32, 32);
     text-align: left;
-    margin-left: 60px;
   }
 
   .imgCont {
-    position: absolute;
-    width: 160px;
-    height: 160px;
-    background-color: rgb(62, 70, 121);
+    flex-direction: column;
+    width: 40vh;
+    height: 40vh;
+    background-color: rgb(81, 81, 81);
     border-radius: 50%;
-    left: 70%;
-    top: 30%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .botonForm {
-    position: absolute;
-    left: 42.5%;
-  }
-
-  .crearAnuncio {
-    margin-left: 10%;
-    margin-bottom: 5%;
-    margin-top: 5%;
   }
 
   .containerAnuncios {
-    background-color: rgb(170, 198, 255);
-    height: 340px;
-    overflow: scroll;
-    margin-top: -45px;
-    padding-left: 5%;
+    margin-bottom: 5%;
+  }
+
+  .crearAnuncio {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
