@@ -2,28 +2,35 @@ import NavBar from "../NavBar/NavBar";
 import style from './Perfil.module.css';
 import React, { useState, useEffect } from "react";
 import FormUpdate from "../FormUpdate/FormUpdate";
+import FormAnuncio from "../FormAnuncio/FormAnuncio"
 import { getUser } from '../../Redux/actions';
 import { connect } from "react-redux";
+import SendPhoto from "../SendPhoto/SendPhoto";
+import PublicationUser from "../PublicationUser/PublicationUser";
+import Footer from '../Footer/Footer'
+
+
 
 const Perfil = ({ userData, getUser }) => {
+  
+  useEffect(() => {
+    setRenderUser(userData);
+  }, [userData]);
+  
+  useEffect(() => {
+    if (currentUser) {
+      getUser(currentUser)
+    }
+  }, [getUser]);
 
   const [renderProfile, setRenderProfile] = useState(true);
   const [renderAnuncios, setRenderAnuncios] = useState(false);
   const [renderAnunciosFavoritos, setRenderAnunciosFavoritos] = useState(false);
   const [renderHistorial, setRenderHistorial] = useState(false);
   const [renderForm, setRenderForm] = useState(false);
-  const [renderUser, setRenderUser] = useState(userData)
-
-  useEffect(() => {
-    setRenderUser(userData);
-  }, [userData]);
-
-  useEffect(() => {
-    const currentUser = localStorage.getItem('currentUser');
-    if (currentUser) {
-      getUser(currentUser)
-    }
-  }, [getUser, userData]);
+  const [renderUser, setRenderUser] = useState(userData);
+  const [currentUser, setCurrentUser] = useState(localStorage.getItem('currentUser'));
+  const [renderFormAnuncio, setRenderFormAnuncio] = useState(false)
 
   const changeTab = (event) => {
     if (event.target.id === 'profile') {
@@ -54,16 +61,31 @@ const Perfil = ({ userData, getUser }) => {
   };
 
   const handleFormSubmit = () => {
-    setRenderForm(false);
     getUser(currentUser);
+    setRenderForm(false);
   };
 
-  console.log(renderUser)
+  const handlePhotoSubmit = () => {
+    getUser(currentUser);
+    setRenderUser(userData);
+  };
+
+  const cancelarForm = () => {
+    setRenderForm(false)
+  }
+
+  const createAnuncio = () => {
+    setRenderFormAnuncio(true)
+  }
+
+  const cancelarFormAnuncio = () => {
+    setRenderFormAnuncio(false);
+  }
 
   const containerStyle = {
-    backgroundImage: `url(${localStorage.getItem('avatar')})`, /// esto es mientras no trabajemos con las imagenes provenientes de la base de datos
+    backgroundImage: `url(${renderUser.assets})`
   };
-
+  
   return (
     <div>
       <NavBar/>
@@ -74,11 +96,10 @@ const Perfil = ({ userData, getUser }) => {
           <p id='anunciosfav' onClick={changeTab} className={style.tabs}>Anuncios Favoritos</p>
           <p id='historial' onClick={changeTab} className={style.tabs}>Historial</p>
         </div>
-        <div className={style.contenedorInfo}>
+        <section className={style.contenedorInfo}>
           {renderProfile && (
             <>
-              <div className={style.imgCont} style={containerStyle}></div>
-              <button className={style.botonFoto}>Cambiar Foto</button>
+              <section  className={style.datos}>
               <p className={style.infoLabel}>Nombre: {renderUser.name}</p>
               <p className={style.infoLabel}>Email: {renderUser.email}</p>
               <p className={style.infoLabel}>Fecha de Nacimiento: {renderUser.date}</p>
@@ -86,17 +107,35 @@ const Perfil = ({ userData, getUser }) => {
               <p className={style.infoLabel}>Teléfono: {renderUser.phone}</p>
               <p className={style.infoLabel}>Certificados: {renderUser.certificate}</p>
               <button className={style.botonForm} onClick={updateData}>Modificar Perfil</button>
+              </section>
+              <section className={style.imagen}>
+              <div className={style.imgCont} style={containerStyle}></div>
+              <SendPhoto className={style.send} onSubmit={handlePhotoSubmit}/>
+              </section>
               {renderForm && (
                 <div>
-                  <FormUpdate onSubmit={handleFormSubmit}/>
+                  <FormUpdate onSubmit={handleFormSubmit} />
+                  <button onClick={cancelarForm}>Cancelar</button>
                 </div>
               )}
             </>
           )}
           {renderAnuncios && (
-            <>
-              <p className={style.infoLabel}>Anuncios</p>
-            </>
+            <div>
+              <div className={style.containerAnuncios}>
+                <section className={style.crearAnuncio}>
+                <button onClick={createAnuncio}>Crear Anuncio</button>
+                </section>
+              <section className={style.cards}>
+              <PublicationUser/>
+              </section>
+              </div>
+            {renderFormAnuncio && (
+              <>
+              <FormAnuncio onCancel={cancelarFormAnuncio} onSubmit={handleFormSubmit}/>
+              </>
+            )}
+          </div>
           )}
           {renderAnunciosFavoritos && (
             <>
@@ -108,8 +147,9 @@ const Perfil = ({ userData, getUser }) => {
               <p className={style.infoLabel}>Historial</p>
             </>
           )}
-        </div>
+        </section>
       </div>
+      <Footer/>
     </div>
   );
 };

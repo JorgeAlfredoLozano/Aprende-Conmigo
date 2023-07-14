@@ -1,5 +1,16 @@
 .container {
-    position: relative;
-    background-color: red;
-    width: 1360px;
-}
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 5em;
+   margin-bottom: 5%;
+   margin-top: 5%;
+ }
+
+ .busqueda {
+   margin: 0%;
+ }
+
+ .titulo {
+  color: white;
+ }

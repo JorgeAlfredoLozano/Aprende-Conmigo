@@ -10,9 +10,9 @@ const SearchBar = () => {
         };
         return (
             <div className={style.container}>
-             <input type='search' value={name} onChange={handleChange} />
+             <input className={style.input} type='search' value={name} onChange={handleChange} />
              <Link to='/busqueda'>
-             <button>Search</button>
+             <button className={style.boton}>Buscar</button>
              </Link>
             </div>
         );

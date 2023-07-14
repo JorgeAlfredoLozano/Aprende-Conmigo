@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import NavBar from "../NavBar/NavBar";
 import style from './Faq.module.css';
 import dataFq from './dataFq';
+import Footer from '../Footer/Footer';
 
 const Faq = () => {
   const [expandedGroups, setExpandedGroups] = useState([]);
@@ -60,6 +61,7 @@ const Faq = () => {
           </div>
         ))}
       </div>
+      <Footer/>
     </div>
   );
 };

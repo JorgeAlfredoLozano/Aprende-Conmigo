@@ -20,15 +20,17 @@ sequelize.define('Publication', {
         type: DataTypes.STRING,
         allowNull:false
     },
-   
     value:{
         type:DataTypes.FLOAT,
         allowNull:false
     },
-    Pub_image:{
-        type:DataTypes.BLOB,
+    grade:{
+        type:DataTypes.STRING,
         allowNull:false
-    }
-
-},{timestamps:false,freezeTableName:true}
+    },
+    status:{
+        type:DataTypes.BOOLEAN,
+        defaultValue: true
+    }}
+,{timestamps:false,freezeTableName:true}
 )}

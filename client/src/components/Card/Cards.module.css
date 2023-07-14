@@ -1,0 +1,41 @@
+.card_publication {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    cursor: pointer; 
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out; 
+    background-color: #4b4b4b;
+    font-weight: bold;
+    color: #e9e9e9;
+    width: 250px;
+    height: 250px;
+  }
+  .card:hover{
+    transform: scale(1.05);
+} 
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.lesson {
+  font-size: 16px;
+  margin-top: 5px;
+  color: rgb(206, 206, 206); 
+}
+
+.about_class,
+.about_teacher,
+.grade,
+.value {
+  font-size: 12px;
+  margin-top: 3px;
+  color:rgb(193, 193, 193)
+}
