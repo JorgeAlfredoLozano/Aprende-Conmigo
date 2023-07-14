@@ -106,10 +106,8 @@ const [errors, setErrors] = useState({});
 
             <div>
                  <label className={style.label}> Acerca De La Clase: </label> 
-                <textarea className={style.textarea} name='about_class' value={input.about_class} onChange={(event)=>handleChange(event)}/> 
-                {errors.about_class && <span className={style.error}>{errors.about_class}</span>}  
-            </div>
-
+                <textarea className={style.textarea} name='about_class' value={input.about_class} onChange={(event)=>handleChange(event)}/>
+             </div>
             <div>
                 <label className={style.label}> Acerca Del Profesor: </label> 
                 <textarea className={style.textarea} name='about_teacher' value={input.about_teacher} onChange={(event)=>handleChange(event)}/>  

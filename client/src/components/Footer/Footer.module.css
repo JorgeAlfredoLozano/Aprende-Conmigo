@@ -1,14 +1,11 @@
 .container {
-    margin-top: 8%;
+    background-color: rgb(26, 26, 26);
+    margin-right: -5px;
+    margin-bottom: -2%;
+    text-align: center;
+    flex-direction: column;
+    padding-top: 5%;
+    padding-bottom: 5%;
     width: 100%;
-    background-color: #f1f1f1;
-    padding: 15px;
-    box-sizing: border-box;
-}
-
-
-.nav {
-    color: rgb(32, 32, 32);
-    font-size: 20px;
-    bottom: 0%;
+    color: white;
 }

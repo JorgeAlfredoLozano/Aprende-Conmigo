@@ -1,23 +1,11 @@
-.container {
-    position: relative;
-}
-
-.carrusel {
-    background-color: rgb(73, 172, 229);
-    height: 220px;
-    width: 900px;
-    padding-left: 150%;
+.acordeon {
+    width: 80%;
     margin-top: 5%;
     margin-bottom: 5%;
-    margin-top: 240px;
 }
 
-.search {
-    position: absolute;
-    left: 39%;
-    top: 88%;
- }
-
- .bgd {
-    background-color: rgb(224, 238, 255);
- }
+.body {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
