@@ -9,6 +9,7 @@ import Accordion from 'react-bootstrap/Accordion';
  const Home = () => {
 
     return (
+<<<<<<< HEAD
         <div className={style.bgd}>
             <NavBar/>
             <Carrousel/>
@@ -17,6 +18,16 @@ import Accordion from 'react-bootstrap/Accordion';
             <SearchBar/>
             </div>
             <Accordion defaultActiveKey={['0']} alwaysOpen>
+=======
+        <div>
+            <NavBar/>
+            <div className={style.body}>
+            <Carrousel/>
+            <div className={style.search}>
+            <SearchBar/>
+            </div>
+            <Accordion className={style.acordeon} defaultActiveKey={['0']} alwaysOpen>
+>>>>>>> 58375bbc69c5c49eb9cb295d70c1c324e2f2d397
         <Accordion.Item eventKey="0">
         <Accordion.Header>La importancia de la educación</Accordion.Header>
         <Accordion.Body>
@@ -26,10 +37,18 @@ import Accordion from 'react-bootstrap/Accordion';
       <Accordion.Item eventKey="1">
         <Accordion.Header>Acerca de nosotros</Accordion.Header>
         <Accordion.Body>
+<<<<<<< HEAD
         Hemos creado una página web innovadora para buscar profesores en diferentes niveles educativos: primario, secundario y universitario. Nuestro equipo se ha unido con el objetivo de facilitar el acceso a la educación de calidad, brindando a los estudiantes una plataforma confiable para encontrar profesionales capacitados en diversas materias. Estamos comprometidos en promover el aprendizaje y el desarrollo académico, fomentando la excelencia educativa y el crecimiento de la comunidad estudiantil. Los integrantes de nuestro equipo son: Abril Lopizzo, Ramses Garay, Bachir Nasser, Camila Cufre, Ivana Carmona, Jorge Lozano, Alejandro Garcia y Marcelo Diaz.
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>
+=======
+        Hemos creado una página web innovadora para buscar profesores en diferentes niveles educativos: primario, secundario y universitario. Nuestro equipo se ha unido con el objetivo de facilitar el acceso a la educación de calidad, brindando a los estudiantes una plataforma confiable para encontrar profesionales capacitados en diversas materias. Estamos comprometidos en promover el aprendizaje y el desarrollo académico, fomentando la excelencia educativa y el crecimiento de la comunidad estudiantil. Los integrantes de nuestro equipo son: Ramses Garay, Bachir Nasser, Camila Cufre, Ivana Carmona, Jorge Lozano, Alejandro Garcia y Marcelo Diaz.
+        </Accordion.Body>
+      </Accordion.Item>
+    </Accordion>
+            </div>
+>>>>>>> 58375bbc69c5c49eb9cb295d70c1c324e2f2d397
         <Footer/>
         </div>
     )

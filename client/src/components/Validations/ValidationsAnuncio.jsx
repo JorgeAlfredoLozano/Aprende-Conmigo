@@ -1,8 +1,11 @@
 const ValidationsAnuncio = (input) => {
     const errors = {}
 
+<<<<<<< HEAD
     const regex = /^[0-9]*$/;
 
+=======
+>>>>>>> 58375bbc69c5c49eb9cb295d70c1c324e2f2d397
     if (input.about_class && input.about_class.length > 500) {
         errors.about_class = 'Máximo 500 caracteres.'
     };

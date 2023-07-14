@@ -85,7 +85,11 @@ const Login = ({ userData, getUser }) => {
         </button>
       )}
       {logged && (
+<<<<<<< HEAD
         <div>
+=======
+        <div className={style.container}>
+>>>>>>> 58375bbc69c5c49eb9cb295d70c1c324e2f2d397
           <div className={style.icon} style={containerStyle} onClick={() => setShowLogoutButton(!showLogoutButton)} ></div>
           {showLogoutButton && (
             <div className={style.panel}>

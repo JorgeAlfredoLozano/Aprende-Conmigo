@@ -21,10 +21,13 @@ import { getAllAnuncios, getUserById } from "../../Redux/actions";
 
     filteredData = filteredData.filter(card => card.id === id);
 
+<<<<<<< HEAD
     // const containerStyle = {
     //     backgroundImage: `url(${userTeacher.data.assets})`
     //   };
 
+=======
+>>>>>>> 58375bbc69c5c49eb9cb295d70c1c324e2f2d397
     return (
         <div>
             <NavBar/>
@@ -41,6 +44,7 @@ import { getAllAnuncios, getUserById } from "../../Redux/actions";
             </div>
             {filteredData && userTeacher && (
             <div className={style.about}>
+<<<<<<< HEAD
                 {/* <div className={style.imgCont} style={containerStyle}></div> */}
                 <h1>{userTeacher.data.name}</h1>
                 <h3>{userTeacher.data.gender}</h3>
@@ -50,5 +54,16 @@ import { getAllAnuncios, getUserById } from "../../Redux/actions";
         </div>
     )
  }
+=======
+            <div className={style.imgCont} style={{
+            backgroundImage: `url(${userTeacher.data.assets})`
+            }}></div>
+            <h1>{userTeacher.data.name}</h1>
+            <h3>{userTeacher.data.gender}</h3>
+            </div>)}
+            </div>
+        </div>
+    )}
+>>>>>>> 58375bbc69c5c49eb9cb295d70c1c324e2f2d397
 
  export default DetailAnuncio;

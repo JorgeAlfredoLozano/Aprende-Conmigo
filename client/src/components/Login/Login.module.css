@@ -1,4 +1,5 @@
 .container {
+<<<<<<< HEAD
     position: absolute;
     right: 16%;
     top: 15%;
@@ -37,6 +38,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
+=======
+    position: fixed;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 1.5em;
+    right: 16%;
+    top: 1.2%;
+}
+
+.greet {
+    max-width: 150px;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    font-size: 1.2vw;
+    text-align: left;
+    padding-top: 7%;
+}
+
+.icon {
+    width: 3vw;
+    height: 3vw;
+    background-color: rgb(50, 50, 50);
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+>>>>>>> 58375bbc69c5c49eb9cb295d70c1c324e2f2d397
 }
 
 .icon:hover {
@@ -49,10 +78,17 @@
     top: 10%;
 }
 
+<<<<<<< HEAD
 .desplegable {
     background-color: rgb(255, 255, 255);
     position: fixed;
     right: 2.3%;
+=======
+.panel {
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    right: 12.5%;
+>>>>>>> 58375bbc69c5c49eb9cb295d70c1c324e2f2d397
     top: 11%;
 }
 
@@ -66,8 +102,11 @@
     background-color: yellow;
     cursor: pointer;
     transition: 0.5s ease;
+<<<<<<< HEAD
 }
 
 .greet {
     top: 2%
+=======
+>>>>>>> 58375bbc69c5c49eb9cb295d70c1c324e2f2d397
 }

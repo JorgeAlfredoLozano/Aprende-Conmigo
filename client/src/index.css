@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -7,6 +8,11 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
+=======
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+>>>>>>> 58375bbc69c5c49eb9cb295d70c1c324e2f2d397
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -14,6 +20,7 @@
   -webkit-text-size-adjust: 100%;
 }
 
+<<<<<<< HEAD
 a {
   font-weight: 500;
   color: #646cff;
@@ -67,3 +74,19 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+=======
+a:hover {
+  color: #3056ff;
+}
+
+body {
+  margin: 0%;
+  padding: 0%;
+  padding-top: 4.5%;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  background-color: rgb(136, 136, 136);
+  width: 100%;
+}
+>>>>>>> 58375bbc69c5c49eb9cb295d70c1c324e2f2d397

@@ -30,6 +30,7 @@ const CardsContainer = ({ filtro, lesson }) => {
 
   return (
     <div className={style.cardContainer}>
+<<<<<<< HEAD
       {filteredCards &&
         filteredCards.map((card) =>
           card.status && (
@@ -49,6 +50,29 @@ const CardsContainer = ({ filtro, lesson }) => {
           )
         )}
     </div>
+=======
+      {filteredCards ? (
+    filteredCards.map((card) =>
+    card.status && (
+      <div key={card.id} className={style.card_container}>
+        <NavLink to={`/anuncio/${card.id}`} className={style.details_link}>
+          <Card
+            id={card.id}
+            title={card.title}
+            value={card.value}
+            lesson={card.Lessons[0].lesson_name}
+            about_class={card.about_class}
+            about_teacher={card.about_teacher}
+            grade={card.grade}
+          />
+        </NavLink>
+      </div>
+    )
+  )
+  ) : (
+  <p>No se encontraron resultados</p>)}
+  </div>
+>>>>>>> 58375bbc69c5c49eb9cb295d70c1c324e2f2d397
   );
 };
 
