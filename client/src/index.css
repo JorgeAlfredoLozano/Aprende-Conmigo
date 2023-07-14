@@ -31,3 +31,12 @@ section {
 a {
   text-decoration: none;
 }
+
+button {
+  border-radius: 0.8em;
+  height: 7vh;
+  border-color: transparent;
+  padding-left: 2vh;
+  padding-right: 2vh;
+  background-color: white;
+}

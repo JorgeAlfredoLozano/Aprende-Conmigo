@@ -1,9 +1,10 @@
 .container {
     width: 300px;
+    display: flex;
 }
 
 .input {
-    height: 3.3vw;
+    height: 7vh;
     border-top-left-radius: 0.8em;
     border-bottom-left-radius: 0.8em;
     border-color: transparent;

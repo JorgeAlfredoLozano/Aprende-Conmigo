@@ -62,9 +62,13 @@ const FormUpdate = (props) => {
     }
   }
 
+  const handleCancel = () => {
+    props.onCancel();
+  };
+
   return (
-    <div>
-      <form onSubmit={(event) => handleSubmit(event)}>
+    <div className={style.formu}>
+      <form className={style.weas} onSubmit={(event) => handleSubmit(event)}>
         <div>
           <input className={style.name} type="text" name='name' value={input.name} onChange={(event) => handleChange(event)} placeholder="Nombre"/>
           {errors.name && <span className={style.error}>{errors.name}</span>}
@@ -86,6 +90,9 @@ const FormUpdate = (props) => {
         </div>
         <button className={style.boton} type='submit'>Actualizar Datos</button>
       </form>
+      <div className={style.cancelar} >
+      <button onClick={handleCancel}>Cancelar</button>
+      </div>
     </div>
   );
 };

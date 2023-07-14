@@ -154,7 +154,9 @@ const FormAnuncio = (props) => {
           <Select className={style.select} options={sortOptions} isSearchable={true} onChange={handleSelect}></Select>
           {errors.lesson_name && <span className={style.error}>{errors.lesson_name}</span>}
         </div>
-        <button className={style.submit} type="submit">Crear Anuncio</button>
+        <div className={style.submit}>
+        <button type="submit">Crear Anuncio</button>
+        </div>
       </form>
         <button className={style.cancelar} onClick={handleCancel}>Cancelar</button>
     </div>

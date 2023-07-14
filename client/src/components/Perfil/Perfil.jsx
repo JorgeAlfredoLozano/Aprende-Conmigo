@@ -112,10 +112,7 @@ const Perfil = ({ userData, getUser }) => {
               <SendPhoto className={style.send} onSubmit={handlePhotoSubmit}/>
               </section>
               {renderForm && (
-                <div>
-                  <FormUpdate onSubmit={handleFormSubmit} />
-                  <button onClick={cancelarForm}>Cancelar</button>
-                </div>
+                  <FormUpdate onCancel={cancelarForm} onSubmit={handleFormSubmit} />
               )}
             </>
           )}

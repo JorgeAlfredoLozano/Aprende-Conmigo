@@ -1,35 +1,27 @@
-.name {
+.formu {
     position: absolute;
-    top: 23%;
-    left: 47.2%;
+    display: flex;
+    background-color: rgba(242, 242, 242, 0.922);
+    flex-direction: column;
+    gap: 2em;
+    padding: 4%;
+    align-items: center;
+    justify-content: center;
+    left: 42%;
+    box-shadow: 2px 2px 15px rgba(150, 150, 150, 0.889),
+    2px 2px 25px rgba(166, 166, 166, 0.896);
 }
 
-.date {
-    position: absolute;
-    top: 36%;
-    left: 54%;
-}
-
-.gender {
-    position: absolute;
-    top: 42.5%;
-    left: 46.8%;
-}
-
-.phone {
-    position: absolute;
-    top: 48.5%;
-    left: 47.5%;
-}
-
-.boton {
-    position: absolute;
-    left: 50%
+.weas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
 }
 
 .error {
     color: red;
-    position: absolute;
-    left: 47.5%;
-    top: 53%;
+    display: flex;
+
 }
