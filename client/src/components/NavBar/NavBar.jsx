@@ -1,16 +1,18 @@
 import style from "./NavBar.module.css";
 import Login from "../Login/Login";
 import { Link } from 'react-router-dom';
+import loguito from '../../assets/isologo.png';
+import faqicon from '../../assets/faq-icon.png'
 
 const NavBar = () =>{
     return(
            
         <div  className={style.container}>
             <Link to='/'>
-            <h2 className={style.logo}>👩‍💻</h2>
+            <img className={style.logo} src={loguito}/>
             </Link>
           <Link to="/Preguntas" >
-           <img src="https://cdn-icons-png.flaticon.com/128/3524/3524344.png" className={style.pepito}/>
+           <img src={faqicon} className={style.faq}/>
           </Link>
             <Login/>
         </div>

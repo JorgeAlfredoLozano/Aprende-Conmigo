@@ -31,8 +31,8 @@ const CardsContainer = ({ filtro, lesson }) => {
   return (
     <div className={style.cardContainer}>
       {filteredCards ? (
-      filteredCards.map((card) =>
-      card.status && (
+    filteredCards.map((card) =>
+    card.status && (
       <div key={card.id} className={style.card_container}>
         <NavLink to={`/anuncio/${card.id}`} className={style.details_link}>
           <Card

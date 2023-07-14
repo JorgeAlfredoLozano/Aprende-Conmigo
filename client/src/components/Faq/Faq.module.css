@@ -1,15 +1,10 @@
 .container {
-    width: 1360px;
-
-
-
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
 }
-
 
 img{
     height: 15px;
     width: 15px;
 }
-
-
-  
