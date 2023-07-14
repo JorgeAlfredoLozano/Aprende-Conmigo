@@ -1,14 +1,10 @@
 .container {
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
-    margin-top: 10%;
-=======
     padding-top: 5%;
     padding-bottom: 5%;
     align-items: center;
     background-color: rgb(228, 228, 228);
->>>>>>> 6cf0d3841c2c590ecc538d8fe43d03816c6c4196
 }
 
 img{

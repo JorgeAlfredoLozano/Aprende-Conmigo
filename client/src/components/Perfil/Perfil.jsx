@@ -7,10 +7,8 @@ import { getUser } from '../../Redux/actions';
 import { connect } from "react-redux";
 import SendPhoto from "../SendPhoto/SendPhoto";
 import PublicationUser from "../PublicationUser/PublicationUser";
-<<<<<<< HEAD
-=======
 import Footer from '../Footer/Footer'
->>>>>>> 6cf0d3841c2c590ecc538d8fe43d03816c6c4196
+
 
 
 const Perfil = ({ userData, getUser }) => {
@@ -125,17 +123,12 @@ const Perfil = ({ userData, getUser }) => {
           {renderAnuncios && (
             <div>
               <div className={style.containerAnuncios}>
-<<<<<<< HEAD
-              <button className={style.crearAnuncio} onClick={createAnuncio}>Crear Anuncio</button>
-              <PublicationUser/>
-=======
                 <section className={style.crearAnuncio}>
                 <button onClick={createAnuncio}>Crear Anuncio</button>
                 </section>
               <section className={style.cards}>
               <PublicationUser/>
               </section>
->>>>>>> 6cf0d3841c2c590ecc538d8fe43d03816c6c4196
               </div>
             {renderFormAnuncio && (
               <>

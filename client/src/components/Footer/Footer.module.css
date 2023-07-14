@@ -1,21 +1,11 @@
 .container {
-<<<<<<< HEAD
-    background-color: rgb(195, 195, 195);
-    margin-right: -5px;
-    margin-bottom: -2%;
-    margin-top: 5%;
-=======
     background-color: rgb(26, 26, 26);
     margin-right: -5px;
     margin-bottom: -2%;
->>>>>>> 6cf0d3841c2c590ecc538d8fe43d03816c6c4196
     text-align: center;
     flex-direction: column;
     padding-top: 5%;
     padding-bottom: 5%;
     width: 100%;
-<<<<<<< HEAD
-=======
     color: white;
->>>>>>> 6cf0d3841c2c590ecc538d8fe43d03816c6c4196
 }

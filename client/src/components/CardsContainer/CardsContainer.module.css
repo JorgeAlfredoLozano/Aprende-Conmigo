@@ -2,11 +2,4 @@
     display: grid;
     grid-template-columns: repeat(3, 300px);
     grid-gap: 2.5rem;
-<<<<<<< HEAD
-    margin-left: 13%;
-    margin-top: 0%;
-    padding-bottom: 30px;
-    padding-top: 450px;
-=======
->>>>>>> 6cf0d3841c2c590ecc538d8fe43d03816c6c4196
 }

@@ -1,56 +1,30 @@
 .card_publication {
-<<<<<<< HEAD
-    background-color: #414e96;
-    border: 2px solid #050505;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 250px; /* Ajusta el tamaño según tus necesidades */
-=======
     background-color: #4d4d4d;
     border-radius: 1em;
     padding: 5%;
     width: 60vh;
->>>>>>> 6cf0d3841c2c590ecc538d8fe43d03816c6c4196
     max-height: 300px;
   }
   
   .title {
-<<<<<<< HEAD
-    font-size: 18px;
-    font-weight: bold;
-    border-bottom: 3px solid #ccc;
-  
-=======
     font-size: 20px;
     font-weight: bold;
     color: white;
     text-align: center;
->>>>>>> 6cf0d3841c2c590ecc538d8fe43d03816c6c4196
   }
   
   .lesson {
     font-size: 16px;
     margin-top: 5px;
-<<<<<<< HEAD
-  
-   
-=======
     color: rgb(206, 206, 206); 
->>>>>>> 6cf0d3841c2c590ecc538d8fe43d03816c6c4196
   }
   
   .about_class,
   .about_teacher,
   .grade,
   .value {
-<<<<<<< HEAD
-    font-size: 14px;
-    margin-top: 3px;
-=======
     font-size: 12px;
     margin-top: 3px;
     color:rgb(193, 193, 193)
->>>>>>> 6cf0d3841c2c590ecc538d8fe43d03816c6c4196
   }
   
