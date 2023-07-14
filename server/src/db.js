@@ -35,9 +35,6 @@ Publication.belongsTo(User)
 Publication.belongsToMany(Lesson, {through: 'PublicationLesson'})
 Lesson.belongsToMany(Publication, {through: 'PublicationLesson'})
 
-Message.belongsTo(User, { foreignKey: 'id_send', as: 'sender' });
-Message.belongsTo(User, { foreignKey: 'id_received', as: 'receiver' });
-
 module.exports = {
     ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
     conn: sequelize, // para importart la conexión { conn } = require('./db.js');

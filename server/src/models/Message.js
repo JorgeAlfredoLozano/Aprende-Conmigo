@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  sequelize.define('Message', {
+  const Message = sequelize.define('Message', {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -10,10 +10,12 @@ module.exports = (sequelize) => {
     idSend: {
       type: DataTypes.UUID,
       allowNull: false,
+      foreignKey: true,
     },
     idReceived: {
       type: DataTypes.UUID,
       allowNull: false,
+      foreignKey: true,
     },
     message: {
       type: DataTypes.TEXT,
