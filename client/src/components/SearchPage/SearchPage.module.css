@@ -1,11 +1,27 @@
 .container {
+<<<<<<< HEAD
    margin-top: 5%;
+=======
+>>>>>>> 6cf0d3841c2c590ecc538d8fe43d03816c6c4196
    display: flex;
    flex-direction: column;
    align-items: center;
    gap: 5em;
+<<<<<<< HEAD
  }
 
  .busqueda {
    background-color: aqua;
+=======
+   margin-bottom: 5%;
+   margin-top: 5%;
+ }
+
+ .busqueda {
+   margin: 0%;
+ }
+
+ .titulo {
+  color: white;
+>>>>>>> 6cf0d3841c2c590ecc538d8fe43d03816c6c4196
  }

@@ -7,6 +7,10 @@ import { getUser } from '../../Redux/actions';
 import { connect } from "react-redux";
 import SendPhoto from "../SendPhoto/SendPhoto";
 import PublicationUser from "../PublicationUser/PublicationUser";
+<<<<<<< HEAD
+=======
+import Footer from '../Footer/Footer'
+>>>>>>> 6cf0d3841c2c590ecc538d8fe43d03816c6c4196
 
 
 const Perfil = ({ userData, getUser }) => {
@@ -94,11 +98,10 @@ const Perfil = ({ userData, getUser }) => {
           <p id='anunciosfav' onClick={changeTab} className={style.tabs}>Anuncios Favoritos</p>
           <p id='historial' onClick={changeTab} className={style.tabs}>Historial</p>
         </div>
-        <div className={style.contenedorInfo}>
+        <section className={style.contenedorInfo}>
           {renderProfile && (
             <>
-              <div className={style.imgCont} style={containerStyle}></div>
-              <SendPhoto onSubmit={handlePhotoSubmit}/>
+              <section  className={style.datos}>
               <p className={style.infoLabel}>Nombre: {renderUser.name}</p>
               <p className={style.infoLabel}>Email: {renderUser.email}</p>
               <p className={style.infoLabel}>Fecha de Nacimiento: {renderUser.date}</p>
@@ -106,6 +109,11 @@ const Perfil = ({ userData, getUser }) => {
               <p className={style.infoLabel}>Teléfono: {renderUser.phone}</p>
               <p className={style.infoLabel}>Certificados: {renderUser.certificate}</p>
               <button className={style.botonForm} onClick={updateData}>Modificar Perfil</button>
+              </section>
+              <section className={style.imagen}>
+              <div className={style.imgCont} style={containerStyle}></div>
+              <SendPhoto className={style.send} onSubmit={handlePhotoSubmit}/>
+              </section>
               {renderForm && (
                 <div>
                   <FormUpdate onSubmit={handleFormSubmit} />
@@ -117,8 +125,17 @@ const Perfil = ({ userData, getUser }) => {
           {renderAnuncios && (
             <div>
               <div className={style.containerAnuncios}>
+<<<<<<< HEAD
               <button className={style.crearAnuncio} onClick={createAnuncio}>Crear Anuncio</button>
               <PublicationUser/>
+=======
+                <section className={style.crearAnuncio}>
+                <button onClick={createAnuncio}>Crear Anuncio</button>
+                </section>
+              <section className={style.cards}>
+              <PublicationUser/>
+              </section>
+>>>>>>> 6cf0d3841c2c590ecc538d8fe43d03816c6c4196
               </div>
             {renderFormAnuncio && (
               <>
@@ -137,8 +154,9 @@ const Perfil = ({ userData, getUser }) => {
               <p className={style.infoLabel}>Historial</p>
             </>
           )}
-        </div>
+        </section>
       </div>
+      <Footer/>
     </div>
   );
 };
