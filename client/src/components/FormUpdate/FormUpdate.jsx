@@ -70,22 +70,23 @@ const FormUpdate = (props) => {
     <div className={style.formu}>
       <form className={style.weas} onSubmit={(event) => handleSubmit(event)}>
         <div>
-          <input className={style.name} type="text" name='name' value={input.name} onChange={(event) => handleChange(event)} placeholder="Nombre"/>
+          <input className={style.name} type="text" name='name' value={input.name} onChange={(event) => handleChange(event)} placeholder="  Nombre"/>
           {errors.name && <span className={style.error}>{errors.name}</span>}
         </div>
         <div>
-          <input className={style.date} type="date" name='date' value={input.date} onChange={(event) => handleChange(event)} placeholder="Tu cumpleaños"/>
+          <input className={style.date} type="date" name='date' value={input.date} onChange={(event) => handleChange(event)}/>
         </div>
         <div>
           <select className={style.gender} name='gender' value={input.gender} onChange={(event) => handleChange(event)}>
             <option disabled value=''>Selecciona un género</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
+            <option value="male">Hombre</option>
+            <option value="female">Mujer</option>
+            <option value="other">No binario</option>
+            <option value="other">Otro</option>
           </select>
         </div>
         <div>
-          <input className={style.phone} type="text" name='phone' value={input.phone} onChange={(event) => handleChange(event)} placeholder="Teléfono"/>
+          <input className={style.phone} type="text" name='phone' value={input.phone} onChange={(event) => handleChange(event)} placeholder="  Teléfono"/>
           {errors.phone && <span className={style.error}>{errors.phone}</span>}
         </div>
         <button className={style.boton} type='submit'>Actualizar Datos</button>

@@ -65,6 +65,11 @@ const Perfil = ({ userData, getUser }) => {
     setRenderForm(false);
   };
 
+  const handleFormSubmitAnuncio = () => {
+    getUser(currentUser);
+    setRenderFormAnuncio(false);
+  };
+
   const handlePhotoSubmit = () => {
     getUser(currentUser);
     setRenderUser(userData);
@@ -129,7 +134,7 @@ const Perfil = ({ userData, getUser }) => {
               </div>
             {renderFormAnuncio && (
               <>
-              <FormAnuncio onCancel={cancelarFormAnuncio} onSubmit={handleFormSubmit}/>
+              <FormAnuncio onCancel={cancelarFormAnuncio} onSubmit={handleFormSubmitAnuncio}/>
               </>
             )}
           </div>

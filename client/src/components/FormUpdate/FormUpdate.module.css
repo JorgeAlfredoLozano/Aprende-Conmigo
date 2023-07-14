@@ -1,15 +1,16 @@
 .formu {
-    position: absolute;
+    position: fixed;
     display: flex;
-    background-color: rgba(242, 242, 242, 0.922);
+    background-color: rgba(242, 242, 242, 0.675);
     flex-direction: column;
     gap: 2em;
     padding: 4%;
     align-items: center;
     justify-content: center;
-    left: 42%;
-    box-shadow: 2px 2px 15px rgba(150, 150, 150, 0.889),
-    2px 2px 25px rgba(166, 166, 166, 0.896);
+    backdrop-filter: blur(4px);
+    left: 40%;
+    top: 15%;
+    border-radius: 1em;
 }
 
 .weas {
@@ -24,4 +25,10 @@
     color: red;
     display: flex;
 
+}
+.date,
+.name,
+.phone,
+.gender {
+    width: 200px;
 }

@@ -39,4 +39,27 @@ button {
   padding-left: 2vh;
   padding-right: 2vh;
   background-color: white;
+  transition: 0.4s linear;
+  position: relative;
+}
+
+button:hover {
+  background-color: rgb(23, 23, 23);
+  color: white;
+}
+
+input {
+  border: transparent;
+  border-radius: 5px;
+}
+
+textarea {
+  border: transparent;
+  border-radius: 5px;
+  resize: none;
+}
+
+select {
+  border-radius: 5px;
+  border: transparent;
 }
