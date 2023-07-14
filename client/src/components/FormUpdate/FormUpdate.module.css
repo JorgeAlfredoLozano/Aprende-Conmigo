@@ -1,0 +1,35 @@
+.name {
+    position: absolute;
+    top: 23%;
+    left: 47.2%;
+}
+
+.date {
+    position: absolute;
+    top: 36%;
+    left: 54%;
+}
+
+.gender {
+    position: absolute;
+    top: 42.5%;
+    left: 46.8%;
+}
+
+.phone {
+    position: absolute;
+    top: 48.5%;
+    left: 47.5%;
+}
+
+.boton {
+    position: absolute;
+    left: 50%
+}
+
+.error {
+    color: red;
+    position: absolute;
+    left: 47.5%;
+    top: 53%;
+}
