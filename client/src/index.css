@@ -6,11 +6,18 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+<<<<<<< HEAD
+}
+
+a:hover {
+  color: #3056ff;
+=======
   width: 100%;
 }
 
 #root {
   width: 100%;
+>>>>>>> 6cf0d3841c2c590ecc538d8fe43d03816c6c4196
 }
 
 body {
@@ -22,6 +29,8 @@ body {
   place-items: center;
   background-color: rgb(136, 136, 136);
   width: 100%;
+<<<<<<< HEAD
+=======
 }
 
 section {
@@ -30,6 +39,7 @@ section {
 
 a {
   text-decoration: none;
+>>>>>>> 6cf0d3841c2c590ecc538d8fe43d03816c6c4196
 }
 
 button {

@@ -10,6 +10,7 @@ import PublicationUser from "../PublicationUser/PublicationUser";
 import Footer from '../Footer/Footer'
 
 
+
 const Perfil = ({ userData, getUser }) => {
   
   useEffect(() => {
