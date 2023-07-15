@@ -6,18 +6,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-<<<<<<< HEAD
-}
-
-a:hover {
-  color: #3056ff;
-=======
   width: 100%;
 }
 
 #root {
   width: 100%;
->>>>>>> 6cf0d3841c2c590ecc538d8fe43d03816c6c4196
 }
 
 body {
@@ -29,8 +22,6 @@ body {
   place-items: center;
   background-color: rgb(136, 136, 136);
   width: 100%;
-<<<<<<< HEAD
-=======
 }
 
 section {
@@ -39,5 +30,36 @@ section {
 
 a {
   text-decoration: none;
->>>>>>> 6cf0d3841c2c590ecc538d8fe43d03816c6c4196
+}
+
+button {
+  border-radius: 0.8em;
+  height: 7vh;
+  border-color: transparent;
+  padding-left: 2vh;
+  padding-right: 2vh;
+  background-color: white;
+  transition: 0.4s linear;
+  position: relative;
+}
+
+button:hover {
+  background-color: rgb(23, 23, 23);
+  color: white;
+}
+
+input {
+  border: transparent;
+  border-radius: 5px;
+}
+
+textarea {
+  border: transparent;
+  border-radius: 5px;
+  resize: none;
+}
+
+select {
+  border-radius: 5px;
+  border: transparent;
 }
