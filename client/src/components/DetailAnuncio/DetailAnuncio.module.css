@@ -1,31 +1,42 @@
 .container {
-    position: absolute;
     display: flex;
-    background-color: rgb(206, 206, 255);
+    background-color: rgb(56, 56, 56);
     top: 30%;
     left: 5%;
+    min-height: 95vh;
 }
 
 .anuncio {
-    background-color: rgb(191, 255, 255);
+    background-color: rgb(211, 211, 211);
+    flex: 1;
+    text-align: center;
+    padding-top: 5%;
 }
 
 .about {
-    background-color: rgb(193, 255, 194);
+    background-color: rgb(247, 247, 247);
+    flex: 0.4;
+    padding-top: 5%;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
 }
 
 .imgCont {
-    position: absolute;
     width: 160px;
     height: 160px;
-    background-color: rgb(62, 70, 121);
+    background-color: rgb(86, 86, 86);
     border-radius: 50%;
-    left: 70%;
-    top: 30%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  }
+
+  .botonPago {
+    margin-top: 10%;
+  }
+
+  .label {
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
   }
