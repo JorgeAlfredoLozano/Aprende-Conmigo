@@ -82,7 +82,6 @@ export const getLesson = ()=>{
         });
   };
 };
-
 export const getAllAnuncios = ()=>{
   return async function(dispatch){
      const response=await axios.get(`http://localhost:3001/publication/get/anouncements`)
@@ -92,7 +91,6 @@ export const getAllAnuncios = ()=>{
     });  
    };
 };
-
 export const getUserById = (id) => {
   return async function(dispatch){
     const response=await axios.get(`http://localhost:3001/user/get/${id}`)

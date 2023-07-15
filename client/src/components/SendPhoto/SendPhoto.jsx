@@ -39,9 +39,10 @@ const SendPhoto = (props) => {
         });
     }
   };
+  
   return (
     <div className={style.contenedor}>
-      <input type="file" onChange={handleFileChange} />
+      <input type="file" onChange={handleFileChange}/>
       <button onClick={handleUpload}>Cargar foto</button>     
     </div>
   );
