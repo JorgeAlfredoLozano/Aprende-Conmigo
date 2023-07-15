@@ -10,7 +10,6 @@ const UpdatePubli = (props) => {
   const datoPublication = useSelector((state) => state.allPublication); //Estado de todas la publicaciones
   const {id}=useParams();
   const datoId=datoPublication.data.filter((el)=>el.id===id)[0] //Avisos del usuario ID
-
   useEffect(()=>{
     dispatch(getLesson());    
   },[dispatch]);

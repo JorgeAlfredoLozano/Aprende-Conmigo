@@ -18,7 +18,7 @@ function App() {
           <Route path="/perfil" element={<Perfil/>}/>
           <Route path="/preguntas" element={<Faq/>}/>
           <Route path="/busqueda" element={<SearchPage/>}/>
-          <Route path='/pago' element={<Checkout/>}/>
+          <Route path='/pago/:id' element={<Checkout/>}/>
           <Route path='/anuncios' element={<PublicationUser/>}/>
           <Route path='/detail/:id' element={<UpdatePubli/>}/>
           <Route path='/anuncio/:id' element={<DetailAnuncio/>}/>

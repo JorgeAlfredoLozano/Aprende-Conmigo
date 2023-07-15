@@ -1,7 +1,7 @@
  import NavBar from "../NavBar/NavBar";
  import style from './DetailAnuncio.module.css';
  import { useParams, Link } from "react-router-dom";
- import React, { useEffect } from 'react';
+ import React, { useEffect,useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllAnuncios, getUserById } from "../../Redux/actions";
 import Footer from '../Footer/Footer';
@@ -14,7 +14,7 @@ import Footer from '../Footer/Footer';
         dispatch(getAllAnuncios());
         dispatch(getUserById(filteredData[0].UserId))
     }, [dispatch]);
-    
+
     const datoPublication = useSelector((state) => state.allAnuncios);
     const userTeacher = useSelector((state) => state.userID);
 
@@ -35,7 +35,8 @@ import Footer from '../Footer/Footer';
             <h3 className={style.label}>💲{filteredData[0].value}💸</h3>
                 </div>
                 <div className={style.botonPago}>
-            <Link to='/pago'>
+           
+            <Link to={`/pago/${filteredData[0].id}`}>
             <button>Contratar este profesor</button>
             </Link>
                 </div>
