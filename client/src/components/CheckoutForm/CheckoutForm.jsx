@@ -2,6 +2,9 @@ import "bootswatch/dist/lux/bootstrap.min.css"
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements, CardElement, useStripe, useElements} from '@stripe/react-stripe-js'
 import axios from 'axios'
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import {useState} from 'react';
 const VITE_API_STRIPE=import.meta.env.VITE_API_STRIPE;
 
 const stripePromise = loadStripe(`${VITE_API_STRIPE}`)
@@ -10,9 +13,19 @@ const CheckoutForm = () => {
 const stripe = useStripe()
 const elements = useElements()
 
+const {id}= useParams();
+const info=useSelector((state)=>state.allAnuncios.data)
+const infoFiltered=info.filter((inf)=> inf.id===id);
+const [horas,setHoras]=useState(1);
+const number=[1,2,3,4,5,6,7,8,9,10];
+
+const handleSelect=async (event)=>{
+   
+        setHoras(event.target.value);
+}
+
 const handleSubmit = async (event) => { 
 event.preventDefault()
-
 const {error, paymentMethod} = await stripe.createPaymentMethod({
     type:'card',
     card:elements.getElement(CardElement)
@@ -21,20 +34,32 @@ if(!error) {
 const {id} = paymentMethod
 const {data} = await axios.post('http://localhost:3001/user/api/checkout', {
     id,
-    amount:10000,
-    email
+    amount:infoFiltered[0].value * horas * 100,
+    email,
+    datos:infoFiltered[0]
 })
 elements.getElement(CardElement).clear()
 }}
 return( 
+
+    <div>
+      
     <form onSubmit={handleSubmit} className="card card-body">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Stripe_Logo%2C_revised_2016.svg/512px-Stripe_Logo%2C_revised_2016.svg.png" alt="imagenn" className="img-fluid"/>
-    <h3 className="text-center my-2">Monto A pagar: </h3>
+    <h3 className="text-center my-2">Detalles de la compra: </h3>
+    <p>Precio por Hora:{infoFiltered[0].value}$ </p>
+    <p>Cantidad de Horas: <select onChange={handleSelect}>
+    {number.map((num)=> <option value={num}>{num} 
+    </option>)}
+    </select>
+    </p>
+    <p>Total a pagar: {infoFiltered[0].value * horas}$</p>
     <div className="form-group">
         <CardElement className="form-control" options={{ style: { base: { fontSize: '16px' } } }}/> 
     </div>   
     <button  className="btn btn-success" disabled={!stripe}>buy</button>
     </form>
+    </div>
 )}
 
 function Checkout() {
