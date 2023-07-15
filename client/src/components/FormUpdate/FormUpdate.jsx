@@ -67,7 +67,7 @@ const FormUpdate = (props) => {
   };
 
   return (
-    <div className={style.formu}>
+    <div className={`${style.formu} ${props.isVisible ? style.fadeIn : style.fadeOut}`}>
       <form className={style.weas} onSubmit={(event) => handleSubmit(event)}>
         <div>
           <input className={style.name} type="text" name='name' value={input.name} onChange={(event) => handleChange(event)} placeholder="  Nombre"/>

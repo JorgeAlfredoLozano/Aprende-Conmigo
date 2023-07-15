@@ -90,6 +90,7 @@
 .error {
     color: red;
 }
+
 /* 
 titulo
 aboutclass
@@ -99,3 +100,23 @@ grades
 materias
 submit
 cancelar */
+
+/*////////////////////////animaciones//////////////////////////*/
+
+.fadeIn {
+    animation: fadeInAnimation 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeInAnimation {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  .fadeOut {
+    animation: fadeOutAnimation 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeOutAnimation {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-10px); }
+  }
