@@ -3,6 +3,8 @@
 import style from "./CardPublication.module.css"
 
 const CardPublication = ({ title, value, lesson, about_class, about_teacher, grade }) => {
+  //solamente mostrar 2(tittle, lesson, about) datos about con ... suspensivo
+  //dinero en la esquinita como super profe
   return (
     <div className={style.card_publication}>
       <h4 className={style.title}>{title}</h4>

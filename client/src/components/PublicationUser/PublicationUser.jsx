@@ -8,7 +8,7 @@ import style from "./Publication.module.css"
 const PublicationUser = () => {
   const dispatch = useDispatch();
   const email = localStorage.getItem('currentUser');
-  const datoPublication = useSelector((state) => state.allPublication);
+  const datoPublication = useSelector((state) => state.allPublication); //estado global
 
   useEffect(() => {
     dispatch(getAllPublication(email));
@@ -35,6 +35,8 @@ const PublicationUser = () => {
           )
         )}
     </div>
+
+    
   );
 };
 

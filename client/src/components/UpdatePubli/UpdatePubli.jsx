@@ -1,12 +1,14 @@
 import { useState,useEffect } from "react";
 import { useDispatch,useSelector } from "react-redux";
-import {updateAnuncio,getLesson} from '../../Redux/actions';
+import {updateAnuncio,getLesson, sendAnuncio} from '../../Redux/actions';
 import { useParams, useNavigate} from 'react-router-dom';
 import style from '../FormAnuncio/FormAnuncio.module.css';
 
+//traer action que hace el posteo 
+
 const UpdatePubli = (props) => {
-
-
+  const email = localStorage.getItem('currentUser');
+  
   const dispatch=useDispatch();
   const navigate=useNavigate();
  //me traigo el state global allPublication
@@ -16,10 +18,10 @@ const UpdatePubli = (props) => {
 
   //me trae el objeto selecionado por id
   const datoId =datoPublication.data.filter((el)=>el.id===id)[0] //Avisos del usuario ID
-  console.log("resultado del filtrado del id de publication.data =>", datoId)
+ 
   //cuando se monta este comp quiero que de despache esta action
   useEffect(()=>{
-    dispatch(getLesson()); //nombre de las materias
+    dispatch(getLesson()); //despacha nombre de las materias
   },[dispatch]);
 
   const [input,setInput]=useState({//se inicializa con los valores obtenidos del objeto filtrado datoId.
@@ -29,9 +31,8 @@ const UpdatePubli = (props) => {
     value:datoId.value,
     status:datoId.status
   })
-  console.log("jiji ", input)
+
 //______________________________________________________
-const [errors, setErrors] = useState({});
 
   function handleChange(event) { //control de los input
         const { name, value } = event.target;
@@ -43,6 +44,8 @@ const [errors, setErrors] = useState({});
         validateInput(name, value);
   }; 
 //____________________________________________
+const [errors, setErrors] = useState({}); //maneja error de las validaciones input
+
   function validateInput(name, value) {
     let error = null;
   
@@ -89,9 +92,10 @@ const [errors, setErrors] = useState({});
         } else if (boton === 'volver') {
             navigate('/perfil')
         };
+
+        submitObject(event)
   }
 
- //___________________________________________________________      
   return (
         <div className={style.x}>
 

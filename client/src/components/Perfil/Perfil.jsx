@@ -65,6 +65,11 @@ const Perfil = ({ userData, getUser }) => {
     setRenderForm(false);
   };
 
+  const handleFormSubmitAnuncio = () => {
+    getUser(currentUser);
+    setRenderFormAnuncio(false);
+  };
+
   const handlePhotoSubmit = () => {
     getUser(currentUser);
     setRenderUser(userData);
@@ -113,10 +118,7 @@ const Perfil = ({ userData, getUser }) => {
               <SendPhoto className={style.send} onSubmit={handlePhotoSubmit}/>
               </section>
               {renderForm && (
-                <div>
-                  <FormUpdate onSubmit={handleFormSubmit} />
-                  <button onClick={cancelarForm}>Cancelar</button>
-                </div>
+                  <FormUpdate onCancel={cancelarForm} onSubmit={handleFormSubmit} />
               )}
             </>
           )}
@@ -132,7 +134,7 @@ const Perfil = ({ userData, getUser }) => {
               </div>
             {renderFormAnuncio && (
               <>
-              <FormAnuncio onCancel={cancelarFormAnuncio} onSubmit={handleFormSubmit}/>
+              <FormAnuncio onCancel={cancelarFormAnuncio} onSubmit={handleFormSubmitAnuncio}/>
               </>
             )}
           </div>
