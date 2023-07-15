@@ -1,8 +1,23 @@
-//este tipo de component es un down por que es un component presentacional, no tiene una carga como tal mas que solo mostrar algo, osea no maneja logica en si.
-//cada componente independientemente de su trabajo, tiene la posibilidad de manejar un estado local propio suyo, que es para trabajar su propio cuerpo.
 import style from "./CardPublication.module.css"
+import React, { useState,useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { updateAnuncio } from "../../Redux/actions";
 
-const CardPublication = ({ title, value, lesson, about_class, about_teacher, grade }) => {
+const CardPublication = ({ title, value, lesson, about_class, about_teacher, grade, status, id }) => {
+  const [isMostrar, setIsMostrar] = useState(status);
+  const dispatch = useDispatch();
+  const email = localStorage.getItem('currentUser');
+
+  useEffect(() => {
+    const aux = { status: isMostrar };
+    dispatch(updateAnuncio(id, aux));
+  }, [isMostrar , id]);
+
+  const click = (event) => {
+    event.preventDefault();
+    setIsMostrar(!isMostrar);
+  }
+
   return (
     <div className={style.card_publication}>
       <h4 className={style.title}>{title}</h4>
@@ -11,6 +26,7 @@ const CardPublication = ({ title, value, lesson, about_class, about_teacher, gra
       <h6 className={style.about_teacher}>{about_teacher}</h6>
       <h6 className={style.grade}>{grade}</h6>
       <h6 className={style.value}>💲{value}💸</h6>
+      <button onClick={click}>{isMostrar ? "Mostrar" : "No Mostrar"}</button>
     </div>
   );
 };

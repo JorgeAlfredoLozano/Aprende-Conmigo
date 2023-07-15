@@ -18,9 +18,9 @@ const PublicationUser = () => {
     <div className={style.publication_user_container}>
       {datoPublication.data &&
         datoPublication.data.map((card) =>
-          card.status && (
+          card.status ? (
             <div key={card.id} className={style.card_container}>
-               <NavLink to={`/detail/${card.id}`} className={style.details_link}>
+              <NavLink to={`/detail/${card.id}`} className={style.details_link}><button>Editar</button> </NavLink>
               <CardPublication
                 id={card.id}
                 title={card.title}
@@ -29,10 +29,30 @@ const PublicationUser = () => {
                 about_class={card.about_class}
                 about_teacher={card.about_teacher}
                 grade={card.grade}
+                status={card.status}
               />
-              </NavLink>
+             
+               
             </div>
-          )
+
+          ) 
+          : (
+            <div key={card.id} className={style.card_container}>
+              <CardPublication
+                id={card.id}
+                title={card.title}
+                value={card.value}
+                lesson={card.Lessons[0].lesson_name}
+                about_class={card.about_class}
+                about_teacher={card.about_teacher}
+                grade={card.grade}
+                status={card.status}
+              />
+             
+              
+            </div>
+
+          ) 
         )}
     </div>
   );
