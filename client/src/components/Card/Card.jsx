@@ -1,8 +1,5 @@
 import style from "./Cards.module.css";
-// import {Link} from "react-router-dom";
 
-//este tipo de component es un down por que es un component presentacional, no tiene una carga como tal mas que solo mostrar algo, osea no maneja logica en si.
-//cada componente independientemente de su trabajo, tiene la posibilidad de manejar un estado local propio suyo, que es para trabajar su propio cuerpo.
 const Card = ({title, value, lesson, about_class, about_teacher, grade}) => {
 
     return(

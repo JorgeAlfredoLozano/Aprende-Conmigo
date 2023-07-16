@@ -38,9 +38,8 @@ function GeneralFilters({ filtro, setFiltro, lesson, setLesson }) {
       <button onClick={() => handleClick('primaria')}>Primaria</button>
       <button onClick={() => handleClick('secundaria')}>Secundaria</button>
       <button onClick={() => handleClick('universidad')}>Universidad</button>
-      <button id='nivel' onClick={handleReset}>Eliminar Nivel</button>
-      <Select className={style.select} options={sortOptions} onChange={handleSelect}></Select>
-      <button id='materia' onClick={handleReset}>Eliminar Materia</button>
+      <Select placeholder={'¿Qué quieres aprender?'} className={style.select} options={sortOptions} onChange={handleSelect} components={{ DropdownIndicator: () => null }}></Select>
+      <button id='materia' onClick={handleReset}>Mostrar Todo</button>
     </div>
   );
 }
