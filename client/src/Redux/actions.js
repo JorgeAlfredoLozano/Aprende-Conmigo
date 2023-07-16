@@ -100,3 +100,14 @@ export const getUserById = (id) => {
    });  
   };
 }
+
+//Messages
+export const getAllMessages = (id)=>{ // Trae todos los mensajes del usuario ID
+  return async function(dispatch){
+     const response=await axios.get(`http://localhost:3001/message/getallmessage/${id}`)
+    return dispatch({
+      type:'GET_ALL_MESSAGES',
+      payload: response.data
+    });  
+   };
+};
