@@ -9,7 +9,7 @@ import Footer from '../Footer/Footer';
  const DetailAnuncio = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const navigate=useNavigate();
     useEffect(() => {
         dispatch(getAllAnuncios());
         dispatch(getUserById(filteredData[0].UserId))
@@ -21,7 +21,6 @@ import Footer from '../Footer/Footer';
     let filteredData = datoPublication.data;
 
     filteredData = filteredData.filter(card => card.id === id);
-
     const handleVolver=() => {
         navigate('/busqueda')
     }

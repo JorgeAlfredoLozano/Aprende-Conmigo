@@ -10,6 +10,7 @@ import SendPhoto from "../SendPhoto/SendPhoto";
 import PublicationUser from "../PublicationUser/PublicationUser";
 import Footer from '../Footer/Footer';
 import Favoritos from "../Favoritos/Favoritos";
+import Messages from "../Messages/Messages";
 
 const Perfil = ({ userData, getUser, getAllPublication }) => {
   useEffect(() => {
@@ -31,6 +32,7 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('currentUser'));
   const [renderFormAnuncio, setRenderFormAnuncio] = useState(false);
   const [submitFormAnuncio, setSubmitFormAnuncio] = useState(false);
+  const [renderMensajes, setRenderMensajes] = useState(false);
 
   const changeTab = (event) => {
     if (event.target.id === 'profile') {
@@ -50,6 +52,11 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
       setRenderHistorial(false);
     } else if (event.target.id === 'historial') {
       setRenderHistorial(true);
+      setRenderProfile(false);
+      setRenderAnuncios(false);
+      setRenderAnunciosFavoritos(false);
+    } else if (event.target.id === 'mensajes') {
+      setRenderMensajes(true);
       setRenderProfile(false);
       setRenderAnuncios(false);
       setRenderAnunciosFavoritos(false);
@@ -109,6 +116,7 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
           <p id='anuncios' onClick={changeTab} className={style.tabs}>Anuncios</p>
           <p id='anunciosfav' onClick={changeTab} className={style.tabs}>Anuncios Favoritos</p>
           <p id='historial' onClick={changeTab} className={style.tabs}>Historial</p>
+          <p id='mensajes' onClick={changeTab} className={style.tabs}>Mensajes</p>
         </div>
         <section className={style.contenedorInfo}>
           {renderProfile && (
@@ -154,6 +162,11 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
           {renderHistorial && (
             <>
               <p className={style.infoLabel}>Historial</p>
+            </>
+          )}
+          {renderMensajes && (
+            <>
+              <Messages/>
             </>
           )}
         </section>

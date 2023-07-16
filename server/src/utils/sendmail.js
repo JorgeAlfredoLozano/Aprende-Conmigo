@@ -8,8 +8,7 @@ let msg={}
 sgMail.setApiKey(SENDGRID);
 
 const sendmail = async(type,email,datos) => {
-  
- const template2=`
+    const template2=`
 <!DOCTYPE html>
 <html>
 
@@ -188,8 +187,9 @@ const sendmail = async(type,email,datos) => {
 </body>
 
 </html>
-`
-  
+`;
+ 
+  console.log(datos)
     if (type==="register") {
         msg = {
             to: email,
@@ -199,7 +199,7 @@ const sendmail = async(type,email,datos) => {
             html: template,
           };
     }
-    if (type==="payment") {
+   if (type==="payment") {
       msg = {
           to: email,
           from: 'aprendeconmigohenry@gmail.com',
@@ -207,6 +207,7 @@ const sendmail = async(type,email,datos) => {
           preheader: 'un pago ha sido realizado desde su cuenta',
           html: template2,
         };
+    
   }
       try {
         await sgMail.send(msg);

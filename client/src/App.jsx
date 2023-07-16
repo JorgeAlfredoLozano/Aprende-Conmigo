@@ -23,7 +23,7 @@ function App() {
           <Route path='/anuncios' element={<PublicationUser/>}/>
           <Route path='/detail/:id' element={<UpdatePubli/>}/>
           <Route path='/anuncio/:id' element={<DetailAnuncio/>}/>
-          <Route path='/message' element={<Messages/>}/>
+          <Route path='/messages' element={<Messages/>}/>
         </Routes>
       </div>
     </Router>
