@@ -7,6 +7,7 @@ import Checkout from './components/CheckoutForm/CheckoutForm'
 import PublicationUser from './components/PublicationUser/PublicationUser'
 import UpdatePubli from './components/UpdatePubli/UpdatePubli';
 import DetailAnuncio from './components/DetailAnuncio/DetailAnuncio';
+import PerfilPublic from './components/PublicPerfil/PerfilPublic';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path='/anuncios' element={<PublicationUser/>}/>
           <Route path='/detail/:id' element={<UpdatePubli/>}/>
           <Route path='/anuncio/:id' element={<DetailAnuncio/>}/>
+          <Route path='/perfilPublico/:id' element={<PerfilPublic/>}/>
         </Routes>
       </div>
     </Router>
