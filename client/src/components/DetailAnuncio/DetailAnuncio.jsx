@@ -5,7 +5,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllAnuncios, getUserById } from "../../Redux/actions";
 import Footer from '../Footer/Footer';
- 
+import { isUserLoggedIn } from "./authUtils.js"
+
  const DetailAnuncio = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
@@ -17,7 +18,8 @@ import Footer from '../Footer/Footer';
 
     const datoPublication = useSelector((state) => state.allAnuncios);
     const userTeacher = useSelector((state) => state.userID);
-
+    const [showLoginMessage, setShowLoginMessage] = useState(false);
+    
     let filteredData = datoPublication.data;
 
     filteredData = filteredData.filter(card => card.id === id);
@@ -29,20 +31,29 @@ import Footer from '../Footer/Footer';
             <NavBar/>
             <div className={style.container}>
             <div className={style.anuncio}>
-                <div className={style.infoAnuncio}>
-            <h1 className={style.label}>{filteredData[0].title}</h1>
-            <h3 className={style.label}>{filteredData[0].grade}</h3>
-            <h3 className={style.label}>{filteredData[0].about_class}</h3>
-            <h3 className={style.label}>{filteredData[0].about_teacher}</h3>
-            <h3 className={style.label}>💲{filteredData[0].value}💸</h3>
-                </div>
-                <div className={style.botonPago}>
-           
-            <Link to={`/pago/${filteredData[0].id}`}>
-            <button>Contratar este profesor</button>
-            </Link>
-            <button name='volver' type='submit' onClick={(event)=>handleVolver(event)}>Volver</button>
-                </div>
+            <h1>{filteredData[0].title}</h1>
+            <h3>{filteredData[0].grade}</h3>
+            <h3>{filteredData[0].about_class}</h3>
+            <h3>{filteredData[0].about_teacher}</h3>
+            <h3>💲{filteredData[0].value}💸</h3>
+           {isUserLoggedIn() ? (
+        <Link to='/pago'>
+          <button>Contratar este profesor</button>
+        </Link>
+      ) : (
+        // Mostrar el mensaje y el botón "Volver" si el usuario no está logueado.
+        <>
+          {showLoginMessage && (
+            <div>
+              <h5  style={{ color: 'red' }}>Tienes que estar logueado para contratar</h5>
+              <button onClick={() => setShowLoginMessage(false)}>continuar</button>
+            </div>
+          )}
+          <button onClick={() => setShowLoginMessage(true)}>
+            Contratar este profesor
+          </button>
+        </>
+      )}
             </div>
             {filteredData && userTeacher && (
             <section className={style.about}>
