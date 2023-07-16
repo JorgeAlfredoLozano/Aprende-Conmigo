@@ -5,6 +5,7 @@
     padding-bottom: 5%;
     align-items: center;
     background-color: rgb(228, 228, 228);
+    min-height: 80vh;
 }
 
 img{

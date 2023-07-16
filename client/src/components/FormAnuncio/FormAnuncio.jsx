@@ -111,32 +111,36 @@ const FormAnuncio = (props) => {
   };
 
   return (
-    <div className={style.x}>
+    <div className={`${style.x} ${props.isVisible ? style.fadeIn : style.fadeOut}`}>
       <form className={style.container} onSubmit={handleSubmit}>
-        <div>
+
+        <div className={style.boxa}>
+          <div className={style.titulo}>
           <label className={style.label}> Título: </label>
-          <input type="text" name="title" onChange={handleChange} />
+          <input placeholder=' Ej. Clases de inglés TOEFL...' type="text" name="title" onChange={handleChange} />
           {errors.title && <span className={style.error}>{errors.title}</span>}
-        </div>
-        <div>
+          </div>
+
+          <div className={style.aboutclass}>
           <label className={style.label}> Acerca De La Clase: </label>
-          <textarea className={style.textarea} name="about_class" onChange={handleChange} />
+          <textarea placeholder=' Ej. Taller de Álgebra Lineal para...' className={style.textarea} name="about_class" onChange={handleChange} />
           {errors.about_class && <span className={style.error}>{errors.about_class}</span>}
-        </div>
-        <div>
+          </div>
+
+          <div className={style.abouteacher}>
           <label className={style.label}> Acerca Del Profesor: </label>
-          <textarea className={style.textarea} name="about_teacher" onChange={handleChange} />
+          <textarea placeholder=' Ej. Estudiante avanzado de biología, ofrezco un enfoque actualizado...' className={style.textarea} name="about_teacher" onChange={handleChange} />
           {errors.about_teacher && <span className={style.error}>{errors.about_teacher}</span>}
-        </div>
-        <div>
-          <label className={style.label}> Precio(P/H): </label>
-          <input type="number" name="value" onChange={handleChange} />
-          {errors.value && <span className={style.error}>{errors.value}</span>}
+          </div>
         </div>
 
-        <div className="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+        <div className={style.boxb}>
+
+        <div className={style.grades} role="group" aria-label="Basic checkbox toggle button group">
           {/*CHECKBOX GRADE */}
           <label> Nivel: </label>
+          {errors.grade && <span className={style.error}>{errors.grade}</span>}
+          <div className={style.gradesbuttons}>
           <input type="checkbox" className="btn-check" id="btncheck1" autoComplete="off" onClick={() => seleccionarBoton("Primaria")} />
           <label className={"btn btn-outline-primary" + (selectedBtns.includes("Primaria") ? " seleccionado" : "")} htmlFor="btncheck1">Primaria</label>
 
@@ -145,18 +149,29 @@ const FormAnuncio = (props) => {
 
           <input type="checkbox" className="btn-check" id="btncheck3" autoComplete="off" onClick={() => seleccionarBoton("Universidad")} />
           <label className={"btn btn-outline-primary" + (selectedBtns.includes("Universidad") ? " seleccionado" : "")} htmlFor="btncheck3">Universidad</label>
-          {errors.grade && <span className={style.error}>{errors.grade}</span>}
+          </div>
         </div>
 
-        <div>
+        <div className={style.materias}>
           {/*SELECT MATERIAS */}
           <label className={style.label}> Materia: </label>
-          <Select className={style.select} options={sortOptions} isSearchable={true} onChange={handleSelect}></Select>
           {errors.lesson_name && <span className={style.error}>{errors.lesson_name}</span>}
+          <Select placeholder='Elije una materia...' className={style.select} options={sortOptions} isSearchable={true} onChange={handleSelect}></Select>
         </div>
-        <button className={style.submit} type="submit">Crear Anuncio</button>
+
+        <div className={style.price}>
+        <label className={style.label}> Precio: </label>
+        <input  placeholder='  $ por hora' type="number" name="value" onChange={handleChange} />
+        {errors.value && <span className={style.error}>{errors.value}</span>}
+        </div>
+
+        <div className={style.formbuttons}>
+        <button type="submit">Crear Anuncio</button>
+        <button type="button" className={style.cancelar} onClick={handleCancel}>Cancelar</button>
+        </div>
+        </div>
+
       </form>
-        <button className={style.cancelar} onClick={handleCancel}>Cancelar</button>
     </div>
   );
 };

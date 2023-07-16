@@ -1,0 +1,487 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprende Conmigo Back</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#aprende-conmigo-backend">Aprende Conmigo (BackEnd)</a></li>
+<li><a href="#rutas">Rutas</a>
+<ul>
+<li><a href="#user">/user</a></li>
+<li><a href="#publication">/publication</a></li>
+<li><a href="#lesson">/lesson</a></li>
+</ul>
+</li>
+<li><a href="#modelos">MODELOS</a>
+<ul>
+<li><a href="#lesson-1">/Lesson</a></li>
+<li><a href="#publication-1">/Publication</a></li>
+<li><a href="#user-1">/User</a></li>
+<li><a href="#relaciones">/RELACIONES</a></li>
+</ul>
+</li>
+<li><a href="#estructura-de-archivos">ESTRUCTURA DE ARCHIVOS</a></li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="aprende-conmigo-backend">Aprende Conmigo (BackEnd)</h1>
+<p><strong>Servidor</strong>:  Express y Sequellize.<br>
+<strong>BD</strong>: Postgres<br>
+<strong>URL</strong>: <a href="http://localhost:3001">http://localhost:3001</a></p>
+<h1 id="rutas">Rutas</h1>
+<h2 id="user">/user</h2>
+<p><strong>POST</strong>:  /login (CREAR USUARIO)<br>
+Descripción: Cuando el usuario se loguea verifica si no existe en la BD y lo almacena para su posterior consumo.<br>
+<em>URL</em>: /user/login<br>
+<em>Handler</em>: createUserLoginHandler<br>
+<em>Controller</em>: createUserLoginController<br>
+<em>Flujo</em>: mainRoute =&gt; userRoute =&gt; createUserLoginHandler =&gt; createUserLoginController<br>
+<em>Respuesta</em>: Usuario creado</p>
+
+<table>
+<thead>
+<tr>
+<th>Params</th>
+<th>Body</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>displayName</td>
+</tr>
+<tr>
+<td></td>
+<td>email</td>
+</tr>
+<tr>
+<td></td>
+<td>photoURL</td>
+</tr>
+</tbody>
+</table><hr>
+<p><strong>POST</strong>:  /api/checkout (PASARELA DE PAGO)<br>
+Descripción: Se utiliza para la pasarela de pagos “stripe”.<br>
+<em>URL</em>: /user/api/checkout<br>
+<em>Handler</em>: cheackoutApiHandler<br>
+<em>Controller</em>: cheackoutApiController<br>
+<em>Flujo</em>: mainRoute =&gt; userRoute =&gt; cheackoutApiHandler =&gt;cheackoutApiController<br>
+<em>Respuesta</em>: message:  ‘successfull payment’</p>
+
+<table>
+<thead>
+<tr>
+<th>Params</th>
+<th>Body</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>id</td>
+</tr>
+<tr>
+<td></td>
+<td>amount</td>
+</tr>
+</tbody>
+</table><hr>
+<p><strong>PUT</strong>:  /update/:email (ACTUALIZACION DATOS USUARIO)<br>
+Descripción: Acutaliza los datos del perfil de usuario.<br>
+<em>URL</em>: /user/update/:email<br>
+<em>Handler</em>: putUserHandler<br>
+<em>Controller</em>: putUserController<br>
+<em>Flujo</em>: mainRoute =&gt; userRoute =&gt; putUserHandler =&gt; putUserController<br>
+<em>Respuesta</em>: message:  '“usuario actualizado”</p>
+
+<table>
+<thead>
+<tr>
+<th>Params</th>
+<th>Body</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email</td>
+<td>name</td>
+</tr>
+<tr>
+<td></td>
+<td>gender</td>
+</tr>
+<tr>
+<td></td>
+<td>phone</td>
+</tr>
+<tr>
+<td></td>
+<td>date</td>
+</tr>
+</tbody>
+</table><hr>
+<p><strong>GET</strong>:  /update/:email ( DATOS DEL USUARIO)<br>
+Descripción: Se trae los datos del usuario.<br>
+<em>URL</em>: /user/update/:email<br>
+<em>Handler</em>: getUserHandler<br>
+<em>Controller</em>: getUserController<br>
+<em>Flujo</em>: mainRoute =&gt; userRoute =&gt; getUserHandler =&gt; getUserController<br>
+<em>Respuesta</em>: Datos de usuarios</p>
+
+<table>
+<thead>
+<tr>
+<th>Params</th>
+<th>Body</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email</td>
+<td></td>
+</tr>
+</tbody>
+</table><hr>
+<p><strong>PUT</strong>:  /update/img/:email ( IMAGEN DEL USUARIO)<br>
+Descripción: Permite actualizar la foto de perfil del usuario para cambiar la que viene por defecto de su cuenta google.<br>
+<em>URL</em>: /user/update/img/:email<br>
+<em>Handler</em>: putPhotoHandler<br>
+<em>Controller</em>: putPhotoController<br>
+<em>Flujo</em>: mainRoute =&gt; userRoute =&gt; putPhotoHandler =&gt; putPhotoController<br>
+<em>Respuesta</em>: “Photo actualizada”</p>
+
+<table>
+<thead>
+<tr>
+<th>Params</th>
+<th>Body</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email</td>
+<td>assets</td>
+</tr>
+</tbody>
+</table><h2 id="publication">/publication</h2>
+<p><strong>POST</strong>:  /save/:email (CREAR AVISO)<br>
+Descripción: Crea un aviso de clases de un usuario logueado. Guarda la publicacion en el modelo Publication, y relaciona User y Lesson para guardar usuario y materia.<br>
+<em>URL</em>: /publication/save/:email<br>
+<em>Handler</em>: postPublicationHandler<br>
+<em>Controller</em>: postPublicationController<br>
+<em>Flujo</em>: mainRoute =&gt; userRoute =&gt; postPublicationHandler =&gt; postPublicationController<br>
+<em>Respuesta</em>: “Publicación creada correctamente.”</p>
+
+<table>
+<thead>
+<tr>
+<th>Params</th>
+<th>Body</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email</td>
+<td>title: Título de la clase</td>
+</tr>
+<tr>
+<td></td>
+<td>about_class: Descripción de la clase</td>
+</tr>
+<tr>
+<td></td>
+<td>about_teacher: Descripción del profesor</td>
+</tr>
+<tr>
+<td></td>
+<td>value: Valor de la clase</td>
+</tr>
+<tr>
+<td></td>
+<td>grade: Nivel Primario, Secundario o Universitario</td>
+</tr>
+<tr>
+<td></td>
+<td>email: Email del profesor</td>
+</tr>
+<tr>
+<td></td>
+<td>lesson_name: Nombre de la materia</td>
+</tr>
+</tbody>
+</table><hr>
+<p><strong>PUT</strong>:  /save/:id (ACTUALIZACION/BORRADO AVISO)<br>
+Descripción: En esta ruta se puede tanto actualizar la información del aviso (campos permitidos) como realizar un borrado lógico del aviso.<br>
+<em>URL</em>: /publication/save/:id<br>
+<em>Handler</em>: putPublicationHandler<br>
+<em>Controller</em>: putPublicationController<br>
+<em>Flujo</em>: mainRoute =&gt; userRoute =&gt; putPublicationHandler =&gt; putPublicationController<br>
+<em>Respuesta</em>: Los datos actualizados</p>
+
+<table>
+<thead>
+<tr>
+<th>Params</th>
+<th>Body</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>title: Título de la clase</td>
+</tr>
+<tr>
+<td></td>
+<td>about_class: Descripción de la clase</td>
+</tr>
+<tr>
+<td></td>
+<td>about_teacher: Descripción del profesor</td>
+</tr>
+<tr>
+<td></td>
+<td>value: Valor de la clase</td>
+</tr>
+<tr>
+<td></td>
+<td>status: Booleano para borrado lógico</td>
+</tr>
+</tbody>
+</table><hr>
+<p><strong>GET</strong>:  /get/:email (Trae los avisos de un usuario)<br>
+Descripción: Trae todos los avisos de un usuario por su email.<br>
+<em>URL</em>: /publication/get/:email<br>
+<em>Handler</em>: getAllPublicationHandler<br>
+<em>Controller</em>: getAllPublicationController<br>
+<em>Flujo</em>: mainRoute =&gt; userRoute =&gt; getAllPublicationHandler =&gt; getAllPublicationController<br>
+<em>Respuesta</em>: Todos los avisos de un usuario</p>
+
+<table>
+<thead>
+<tr>
+<th>Params</th>
+<th>Body</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>email</td>
+<td></td>
+</tr>
+</tbody>
+</table><hr>
+<h2 id="lesson">/lesson</h2>
+<p><strong>GET</strong>:  /all (TRAER MATERIAS)<br>
+Descripción: Trae todas las materias para que puedan ser renderizadas en los select en el front.<br>
+<em>URL</em>: /lesson/all<br>
+<em>Handler</em>: getLessonHandler<br>
+<em>Controller</em>: getLessonController<br>
+<em>Flujo</em>: mainRoute =&gt; userRoute =&gt; getLessonHandler =&gt; getLessonController<br>
+<em>Respuesta</em>: Lista de materias.</p>
+
+<table>
+<thead>
+<tr>
+<th>Params</th>
+<th>Body</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table><hr>
+<h1 id="modelos">MODELOS</h1>
+<h2 id="lesson-1">/Lesson</h2>
+
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Propiedades</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INTEGER auto+ (PK)</td>
+</tr>
+<tr>
+<td>lesson_name</td>
+<td>STRING</td>
+</tr>
+</tbody>
+</table><h2 id="publication-1">/Publication</h2>
+
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Propiedades</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>UUID (PK)</td>
+</tr>
+<tr>
+<td>title</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>about_class</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>about_teacher</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>grade</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>status</td>
+<td>BOOLEAN</td>
+</tr>
+<tr>
+<td>UserId</td>
+<td>UUID (FK)</td>
+</tr>
+</tbody>
+</table><h2 id="user-1">/User</h2>
+
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Propiedades</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>UUID (PK)</td>
+</tr>
+<tr>
+<td>name</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>email</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>date</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>assets</td>
+<td>STRING</td>
+</tr>
+<tr>
+<td>certificate</td>
+<td>STRING</td>
+</tr>
+</tbody>
+</table><h2 id="relaciones">/RELACIONES</h2>
+<p>La publicación va a estar relacionada a un usuario y ademas esa publicación va a tener una materia.</p>
+<p>USER =&gt; PUBLICATION &lt;= LESSON</p>
+<p>#LessonPublication (Tabla Intermedia)</p>
+
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Propiedades</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PublicationId</td>
+<td>UUID (PK)</td>
+</tr>
+<tr>
+<td>LessonId</td>
+<td>UUID (PK)</td>
+</tr>
+</tbody>
+</table><hr>
+<h1 id="estructura-de-archivos">ESTRUCTURA DE ARCHIVOS</h1>
+<pre><code>server
+├─ .gitignore
+├─ index.js
+├─ package.json
+├─ server.js
+└─ src
+   ├─ app.js
+   ├─ controllers
+   │  ├─ lesson
+   │  │  ├─ getLessonController.js
+   │  │  └─ postLessonController.js
+   │  ├─ publication
+   │  │  ├─ getAllPublicationController.js
+   │  │  ├─ postPublicationController.js
+   │  │  └─ putPublicationController.js
+   │  └─ user
+   │     ├─ createUserLoginController.js
+   │     ├─ getUserController.js
+   │     ├─ putPhotoController.js
+   │     └─ putUserController.js
+   ├─ db.js
+   ├─ handlers
+   │  ├─ lesson
+   │  │  ├─ getLessonHandler.js
+   │  │  └─ postLessonHandler.js
+   │  ├─ publication
+   │  │  ├─ getAllPublicationHandler.js
+   │  │  ├─ postPublicationHandler.js
+   │  │  └─ putPublicationHandler.js
+   │  └─ user
+   │     ├─ ApiCheckout.js
+   │     ├─ createUserLoginHandler.js
+   │     ├─ getUserHandler.js
+   │     ├─ putPhotoHandler.js
+   │     └─ putUserHandler.js
+   ├─ models
+   │  ├─ Lesson.js
+   │  ├─ Publication.js
+   │  └─ User.js
+   ├─ routes
+   │  ├─ lessonRoute.js
+   │  ├─ mainRoute.js
+   │  ├─ publicationRoute.js
+   │  └─ userRoute.js
+   └─ utils
+      └─ lessons.json
+
+</code></pre>
+
+    </div>
+  </div>
+</body>
+
+</html>
