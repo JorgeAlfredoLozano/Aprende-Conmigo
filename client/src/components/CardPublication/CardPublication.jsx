@@ -19,13 +19,13 @@ const CardPublication = ({ title, value, lesson, about_class, about_teacher, gra
   }
 
   return (
-    <div className={style.card_publication}>
-      <h4 className={style.title}>{title}</h4>
-      <h5 className={style.lesson}>{lesson}</h5>
-      <h6 className={style.about_class}>{about_class}</h6>
-      <h6 className={style.about_teacher}>{about_teacher}</h6>
-      <h6 className={style.grade}>{grade}</h6>
-      <h6 className={style.value}>💲{value}💸</h6>
+    <div className={`${style.card_publication} ${status === false ? style.cardstatusfalse : style.card_publication}`}>
+      <h4 className={`${style.title} ${status === false ? style.titlefalse : style.title}`}>{title}</h4>
+      <h5 className={`${style.lesson} ${status === false ? style.lessonfalse : style.lesson}`}>{lesson}</h5>
+      <h6 className={`${style.about_class} ${status === false ? style.about_classfalse : style.about_class}`}>{about_class}</h6>
+      <h6 className={`${style.about_teacher} ${status === false ? style.about_teacherfalse : style.about_teacher}`}>{about_teacher}</h6>
+      <h6 className={`${style.grade} ${status === false ? style.gradefalse : style.grade}`}>{grade}</h6>
+      <h6 className={`${style.value} ${status === false ? style.valuefalse : style.value}`}>${value}</h6>
       <button onClick={click}>{isMostrar ? "Mostrar" : "No Mostrar"}</button>
     </div>
   );

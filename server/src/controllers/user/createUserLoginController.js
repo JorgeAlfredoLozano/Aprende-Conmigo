@@ -7,7 +7,7 @@ const createUserLoginController = async (name, email, assets) => {
     const newUser = await User.create({ name, email, assets });
 
     // Envía el correo de bienvenida utilizando SendGrid
-   
+
 
     if (newUser) {
       sendemail("register",email,datos='')

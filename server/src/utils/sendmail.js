@@ -9,6 +9,7 @@ sgMail.setApiKey(SENDGRID);
 
 const sendmail = async(type,email,datos) => {
     const template2=`
+    const template2=`
 <!DOCTYPE html>
 <html>
 
@@ -206,6 +207,7 @@ const sendmail = async(type,email,datos) => {
           preheader: 'un pago ha sido realizado desde su cuenta',
           html: template2,
         };
+    
     
   }
       try {

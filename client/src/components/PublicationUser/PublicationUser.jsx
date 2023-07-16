@@ -1,3 +1,4 @@
+// PublicationUser.jsx
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CardPublication from '../CardPublication/CardPublication';
@@ -5,14 +6,14 @@ import { getAllPublication } from '../../Redux/actions';
 import { NavLink } from 'react-router-dom';
 import style from "./Publication.module.css"
 
-const PublicationUser = () => {
+const PublicationUser = ({ submitFormAnuncio }) => {
   const dispatch = useDispatch();
   const email = localStorage.getItem('currentUser');
   const datoPublication = useSelector((state) => state.allPublication);
 
   useEffect(() => {
     dispatch(getAllPublication(email));
-  }, [dispatch]);
+  }, [dispatch, email, submitFormAnuncio]);
 
   return (
     <div className={style.publication_user_container}>
