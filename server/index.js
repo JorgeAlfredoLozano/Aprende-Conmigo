@@ -8,7 +8,7 @@ const postLessonHandler=require('./src/handlers/lesson/postLessonHandler.js')
 const cors = require('cors')
 server.use(cors({origin: 'http://localhost:5173'}))
 
-conn.sync({ alter: true })
+conn.sync({ alter: true })  //alter force
 .then(() => postLessonHandler(lessonsJson, Lesson))
 .then(() => {
     server.listen(3001, () => {
