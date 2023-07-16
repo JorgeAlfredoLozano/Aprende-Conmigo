@@ -35,9 +35,15 @@ import { isUserLoggedIn } from "./authUtils.js"
             <h3>{filteredData[0].about_class}</h3>
             <h3>{filteredData[0].about_teacher}</h3>
             <h3>💲{filteredData[0].value}💸</h3>
-            <Link to='/pago'>
-            <button>Contratar este profesor</button>
-            </Link>
+            {isUserLoggedIn() ? (
+        <Link to='/pago'>
+          <button>Contratar este profesor</button>
+        </Link>
+      ) : (
+        <button onClick={() => alert('Debes estar logueado para continuar.')}>
+          Contratar este profesor
+        </button>
+      )}
             </div>
             {filteredData && userTeacher && (
             <section className={style.about}>
