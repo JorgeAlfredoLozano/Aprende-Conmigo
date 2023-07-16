@@ -4,7 +4,8 @@
  import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllAnuncios, getUserById } from "../../Redux/actions";
- 
+import { isUserLoggedIn } from "./authUtils.js"
+
  const DetailAnuncio = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
@@ -31,9 +32,15 @@ import { getAllAnuncios, getUserById } from "../../Redux/actions";
             <h3>{filteredData[0].about_class}</h3>
             <h3>{filteredData[0].about_teacher}</h3>
             <h3>💲{filteredData[0].value}💸</h3>
-            <Link to='/pago'>
-            <button>Contratar este profesor</button>
-            </Link>
+            {isUserLoggedIn() ? (
+        <Link to='/pago'>
+          <button>Contratar este profesor</button>
+        </Link>
+      ) : (
+        <button onClick={() => alert('Debes estar logueado para continuar.')}>
+          Contratar este profesor
+        </button>
+      )}
             </div>
             {filteredData && userTeacher && (
             <div className={style.about}>
