@@ -189,7 +189,6 @@ const sendmail = async(type,email,datos) => {
 </html>
 `;
  
-  console.log(datos)
     if (type==="register") {
         msg = {
             to: email,
