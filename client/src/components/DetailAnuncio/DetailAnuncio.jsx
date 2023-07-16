@@ -18,7 +18,8 @@ import { isUserLoggedIn } from "./authUtils.js"
 
     const datoPublication = useSelector((state) => state.allAnuncios);
     const userTeacher = useSelector((state) => state.userID);
-
+    const [showLoginMessage, setShowLoginMessage] = useState(false);
+    
     let filteredData = datoPublication.data;
 
     filteredData = filteredData.filter(card => card.id === id);
@@ -35,14 +36,23 @@ import { isUserLoggedIn } from "./authUtils.js"
             <h3>{filteredData[0].about_class}</h3>
             <h3>{filteredData[0].about_teacher}</h3>
             <h3>💲{filteredData[0].value}💸</h3>
-            {isUserLoggedIn() ? (
+           {isUserLoggedIn() ? (
         <Link to='/pago'>
           <button>Contratar este profesor</button>
         </Link>
       ) : (
-        <button onClick={() => alert('Debes estar logueado para continuar.')}>
-          Contratar este profesor
-        </button>
+        // Mostrar el mensaje y el botón "Volver" si el usuario no está logueado.
+        <>
+          {showLoginMessage && (
+            <div>
+              <h5  style={{ color: 'red' }}>Tienes que estar logueado para contratar</h5>
+              <button onClick={() => setShowLoginMessage(false)}>continuar</button>
+            </div>
+          )}
+          <button onClick={() => setShowLoginMessage(true)}>
+            Contratar este profesor
+          </button>
+        </>
       )}
             </div>
             {filteredData && userTeacher && (
