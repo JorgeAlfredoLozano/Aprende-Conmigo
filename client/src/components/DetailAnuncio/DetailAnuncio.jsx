@@ -45,8 +45,8 @@ import { isUserLoggedIn } from "./authUtils.js"
         <>
           {showLoginMessage && (
             <div>
-              <h5  style={{ color: 'red' }}>Tienes que estar logueado para contratar</h5>
-              <button onClick={() => setShowLoginMessage(false)}>continuar</button>
+              <h5  style={{ color: 'red' }}>Para continuar debes Iniciar Sesión.</h5>
+              <button onClick={() => setShowLoginMessage(false)}>Continuar</button>
             </div>
           )}
           <button onClick={() => setShowLoginMessage(true)}>
