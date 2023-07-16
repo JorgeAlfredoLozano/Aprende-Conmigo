@@ -1,6 +1,6 @@
  import NavBar from "../NavBar/NavBar";
  import style from './DetailAnuncio.module.css';
- import { useParams, Link } from "react-router-dom";
+ import { useParams, Link, useNavigate } from "react-router-dom";
  import React, { useEffect,useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllAnuncios, getUserById } from "../../Redux/actions";
@@ -9,7 +9,7 @@ import Footer from '../Footer/Footer';
  const DetailAnuncio = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
-    
+    const navigate=useNavigate();
     useEffect(() => {
         dispatch(getAllAnuncios());
         dispatch(getUserById(filteredData[0].UserId))
@@ -21,7 +21,9 @@ import Footer from '../Footer/Footer';
     let filteredData = datoPublication.data;
 
     filteredData = filteredData.filter(card => card.id === id);
-
+    const handleVolver=() => {
+        navigate('/busqueda')
+    }
     return (
         <div>
             <NavBar/>
@@ -39,6 +41,7 @@ import Footer from '../Footer/Footer';
             <Link to={`/pago/${filteredData[0].id}`}>
             <button>Contratar este profesor</button>
             </Link>
+            <button name='volver' type='submit' onClick={(event)=>handleVolver(event)}>Volver</button>
                 </div>
             </div>
             {filteredData && userTeacher && (
