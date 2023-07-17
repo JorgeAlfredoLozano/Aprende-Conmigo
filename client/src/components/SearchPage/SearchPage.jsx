@@ -4,7 +4,7 @@ import Footer from '../Footer/Footer';
 import style from './SearchPage.module.css';
 import GeneralFilters from '../GeneralFilters/GeneralFilters';
 import CardsContainer from '../CardsContainer/CardsContainer';
-import SearchBar from '../SearchBar/SearchBar';
+
 
 const SearchPage = ({ searchValue }) => {
   const [filtro, setFiltro] = useState('');
@@ -14,8 +14,6 @@ const SearchPage = ({ searchValue }) => {
     <div className={style.body}>
       <NavBar />
       <div className={style.container}>
-        {/* <h1 className={style.titulo}>Ruta de búsqueda</h1> */}
-        <SearchBar/>
         <GeneralFilters className={style.filters} filtro={filtro} setFiltro={setFiltro} lesson={lesson} setLesson={setLesson}/>
         <div className={style.busqueda}>
           <CardsContainer filtro={filtro} lesson={lesson}/>
