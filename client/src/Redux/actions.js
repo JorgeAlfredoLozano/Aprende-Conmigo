@@ -102,3 +102,47 @@ export const getUserById = (id) => {
    });  
   };
 }
+
+//______________________________________
+//character  //{  {"name":"Morty"},{"status":"niidea"},{"gender": "femali"}.....}
+export const add_fav = (props, email)=>{
+    
+  const respuesta = `http://localhost:3001/publication/get/${email}`; //url que solo me trae lo que tiene la ruta como componente  
+  return async (dispatch) => {
+      try {
+          const {data} = await axios.post(respuesta, props)
+          
+          if(!data.length) throw new Error("No hay favoritos")
+
+          return dispatch({
+              type: "ADD_FAV",
+              payload: data,
+           });
+
+      } catch (error) {
+          console.log(error.message)
+      }
+  };
+}
+
+
+
+export const remove_fav= (id)=>{
+  // return{type: REMOVE_FAV, payload: id}
+  const endpoint = `http://localhost:3001/rickandmorty/fav/${id}`;
+  return async (dispatch) => {
+      try {
+          const {data}= await axios.delete(endpoint)
+          
+          // if(!data.length) throw new Error("No hay favoritos")
+
+          return dispatch({
+              type: REMOVE_FAV,
+              payload: data,
+        });
+      } catch (error) {
+          console.log(error.message)
+      }   
+  };
+}
+//_________________________________________

@@ -4,7 +4,8 @@ const initialState = {
   lesson:[],
   allPublication:[],
   allAnuncios:[],
-  userID: null
+  userID: null,
+  myFavorites: []
   };
 
 const reducer = (state = initialState, {type, payload}) => {
@@ -49,6 +50,14 @@ const reducer = (state = initialState, {type, payload}) => {
       ...state,
       userID: payload
     }
+
+    //____________________________
+    case "ADD_FAV": return{
+      ...state,
+      myFavorites:  payload,
+      allPublication:  payload
+   }
+    //____________________________
   default:
     return { ...state };
   }
