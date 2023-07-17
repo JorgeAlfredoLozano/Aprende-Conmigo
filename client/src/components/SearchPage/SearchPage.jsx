@@ -5,6 +5,7 @@ import style from './SearchPage.module.css';
 import GeneralFilters from '../GeneralFilters/GeneralFilters';
 import CardsContainer from '../CardsContainer/CardsContainer';
 
+
 const SearchPage = () => {
   const [filtro, setFiltro] = useState('');
   const [lesson, setLesson] = useState('')

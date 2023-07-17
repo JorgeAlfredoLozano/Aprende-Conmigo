@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    background-color: rgb(56, 56, 56);
+    top: 30%;
+    left: 5%;
+    min-height: 95vh;
+}
+
+.anuncio {
+    background-color: rgb(211, 211, 211);
+    flex: 1;
+    text-align: center;
+    padding-top: 5%;
+}
+
+.imgCont {
+    width: 160px;
+    height: 160px;
+    background-color: rgb(86, 86, 86);
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }

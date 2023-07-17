@@ -1,7 +1,8 @@
 // firebaseConfig.js
+const APIKEY = import.meta.env.VITE_APIKEY
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBPc-MzxHQVZwIt0TfRYEzgRbvzgsfhh4Q",
+  apiKey: APIKEY,
   authDomain: "aprende-conmigo-henry.firebaseapp.com",
   projectId: "aprende-conmigo-henry",
   storageBucket: "aprende-conmigo-henry.appspot.com",

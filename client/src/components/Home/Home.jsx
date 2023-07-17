@@ -1,10 +1,10 @@
-import SearchBar from "../SearchBar/SearchBar";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import style from './Home.module.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import Carrousel from "../carrousel/Carrousel";
 import Accordion from 'react-bootstrap/Accordion';
+import { NavLink } from "react-router-dom";
 
  const Home = () => {
 
@@ -14,7 +14,7 @@ import Accordion from 'react-bootstrap/Accordion';
             <div className={style.body}>
             <Carrousel/>
             <div className={style.search}>
-            <SearchBar/>
+             <NavLink to='/busqueda'><button>Ingresar </button></NavLink>
             </div>
             <Accordion className={style.acordeon} defaultActiveKey={['0']} alwaysOpen>
         <Accordion.Item eventKey="0">
