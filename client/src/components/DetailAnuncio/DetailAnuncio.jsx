@@ -37,7 +37,7 @@ import { isUserLoggedIn } from "./authUtils.js"
             <h3>{filteredData[0].about_teacher}</h3>
             <h3>💲{filteredData[0].value}💸</h3>
            {isUserLoggedIn() ? (
-        <Link to='/pago'>
+        <Link to={`/pago/${id}`}>
           <button>Contratar este profesor</button>
         </Link>
       ) : (
