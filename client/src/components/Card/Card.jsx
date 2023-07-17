@@ -1,26 +1,39 @@
 import style from "./Cards.module.css";
-// import {Link} from "react-router-dom";
+import { getAssetsById } from "../../Redux/actions";
+import { useEffect, useState } from "react";
 
-//este tipo de component es un down por que es un component presentacional, no tiene una carga como tal mas que solo mostrar algo, osea no maneja logica en si.
-//cada componente independientemente de su trabajo, tiene la posibilidad de manejar un estado local propio suyo, que es para trabajar su propio cuerpo.
-const Card = ({title, value, lesson, about_class, about_teacher, grade}) => {
+const Card = ({ title, value, lesson, grade, userId }) => {
+  const [data, setData] = useState();
 
-    return(
-      <div className={style.card_publication}>
-      <h4 className={style.title}>{title}</h4>
-      <h5 className={style.lesson}>{lesson}</h5>
-      <h6 className={style.grade}>{grade.split(',').join(' - ')}</h6>
-      <div className={style.abouts}>
-      <h6 className={style.about_class}>{about_class}</h6>
-      </div>
-      <div className={style.abouts}>
-      <h6 className={style.about_teacher}>{about_teacher}</h6>
-      </div>
-      <div className={style.contvalue}>
-      <h6 className={style.value}>💲{value}💸</h6>
+  useEffect(() => {
+    getAssetsById(userId)
+      .then((data) => {
+        setData(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
+  const containerStyle = {
+    backgroundImage: data ? `url(${data.assets})` : "none",
+  };
+
+  return (
+    <div className={style.card_publication}>
+      <div className={style.assets} style={containerStyle}></div>
+      <div className={style.texto}>
+        <div className={style.titlecont}>
+          <h4 className={style.title}>{title}</h4>
+        </div>
+        <div className={style.contlesson}>
+          <h5 className={style.lesson}>{lesson}</h5>
+          <h6 className={style.grade}>{grade.split(",").join(" - ")}</h6>
+          <h6 className={style.value}>💲{value}💸</h6>
+        </div>
       </div>
     </div>
-    )
-  }
-  
-  export default Card;
+  );
+};
+
+export default Card;

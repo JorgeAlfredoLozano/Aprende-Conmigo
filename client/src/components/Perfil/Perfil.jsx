@@ -31,6 +31,8 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('currentUser'));
   const [renderFormAnuncio, setRenderFormAnuncio] = useState(false);
   const [submitFormAnuncio, setSubmitFormAnuncio] = useState(false);
+  // const [renderUpdateAnuncio, setRenderUpdateAnuncio] = useState(false);
+  // const [submitUpdateAnuncio, setSubmitUpdateAnuncio] = useState(false);
 
   const changeTab = (event) => {
     if (event.target.id === 'profile') {

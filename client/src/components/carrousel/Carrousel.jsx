@@ -25,7 +25,9 @@ function Carrusel() {
 
   return (
     <div className={styles.carousel}>
-      <img className={styles.imagenes} src={images[currentImageIndex]} alt="Carousel" />
+      <div className={styles.carouselContainer}>
+        <img className={styles.imagenes} src={images[currentImageIndex]} alt="Carousel" />
+      </div>
     </div>
   );
 }
