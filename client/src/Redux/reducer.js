@@ -4,7 +4,8 @@ const initialState = {
   lesson:[],
   allPublication:[],
   allAnuncios:[],
-  userID: null
+  userID: null,
+  messages:[]
   };
 
 const reducer = (state = initialState, {type, payload}) => {
@@ -48,6 +49,11 @@ const reducer = (state = initialState, {type, payload}) => {
     return{
       ...state,
       userID: payload
+    }
+  case "GET_ALL_MESSAGES": 
+  return{
+    ...state,
+    messages: payload,
     }
   default:
     return { ...state };

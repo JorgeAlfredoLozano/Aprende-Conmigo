@@ -16,7 +16,7 @@ const cheackoutApi = async(req,res) => {
     await sendmail('payment',email,datos);
     res.send({message: 'successfull payment'})
     } catch (error) {
-        res.json({message:error.raw.message})
+        res.json({message:error.message})
     }
 
 }
