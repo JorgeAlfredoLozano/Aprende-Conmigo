@@ -34,7 +34,6 @@ const PerfilPublic = () => {
                 <h1>Nombre: {dataPublication.data.name}</h1>
                 <h1>Fecha de nacimiento{dataPublication.data.date}</h1>
                 <h1>email: {dataPublication.data.email}</h1>
-                <h1>Telefono:{dataPublication.data.phone}</h1>
                 <h1>Certificados: {dataPublication.data.certificate}</h1>
                 </div>
                 </div>
