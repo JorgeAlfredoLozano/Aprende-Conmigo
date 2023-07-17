@@ -26,6 +26,7 @@ function App() {
           <Route path='/anuncio/:id' element={<DetailAnuncio/>}/>
           <Route path='/messages' element={<Messages/>}/>
           <Route path='/perfilPublico/:id' element={<PerfilPublic/>}/>
+          <Route path='*' element={<Home/>}/>
         </Routes>
       </div>
     </Router>
