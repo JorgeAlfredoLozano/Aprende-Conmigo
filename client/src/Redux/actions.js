@@ -101,6 +101,17 @@ export const getUserById = (id) => {
   };
 }
 
+export const getAssetsById = async (id) => {
+  try {
+    const response = await axios
+      .get(`http://localhost:3001/user/get/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
 //Messages
 export const getAllMessages = (id)=>{ // Trae todos los mensajes del usuario ID
   return async function(dispatch){
@@ -111,3 +122,4 @@ export const getAllMessages = (id)=>{ // Trae todos los mensajes del usuario ID
     });  
    };
 };
+

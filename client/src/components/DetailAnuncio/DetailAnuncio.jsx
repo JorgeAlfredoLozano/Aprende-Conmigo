@@ -37,7 +37,7 @@ import { isUserLoggedIn } from "./authUtils.js"
             <h3>{filteredData[0].about_teacher}</h3>
             <h3>💲{filteredData[0].value}💸</h3>
            {isUserLoggedIn() ? (
-        <Link to='/pago'>
+        <Link to={`/pago/${id}`}>
           <button>Contratar este profesor</button>
         </Link>
       ) : (
@@ -45,8 +45,8 @@ import { isUserLoggedIn } from "./authUtils.js"
         <>
           {showLoginMessage && (
             <div>
-              <h5  style={{ color: 'red' }}>Tienes que estar logueado para contratar</h5>
-              <button onClick={() => setShowLoginMessage(false)}>continuar</button>
+              <h5  style={{ color: 'red' }}>Para continuar debes Iniciar Sesión.</h5>
+              <button onClick={() => setShowLoginMessage(false)}>Continuar</button>
             </div>
           )}
           <button onClick={() => setShowLoginMessage(true)}>
