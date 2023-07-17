@@ -82,6 +82,7 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   const handlePhotoSubmit = () => {
     getUser(currentUser);
     setRenderUser(userData);
+    window.location.reload()
   };
 
   const cancelarForm = () => {

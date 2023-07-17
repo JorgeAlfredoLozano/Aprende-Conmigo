@@ -52,6 +52,8 @@ const Login = ({ userData, getUser }) => {
           setCurrentUser(email);
           setLogged(true);
           localStorage.setItem('currentUser', email);
+          navigate('/');
+          window.location.reload()
         })
         .catch((error) => {
           console.error('Error al iniciar sesión:', error);
@@ -64,8 +66,9 @@ const Login = ({ userData, getUser }) => {
           setLogged(false);
           setShowLogoutButton(false);
           localStorage.removeItem('currentUser');
-          localStorage.removeItem('cachedUser');
+          localStorage.removeItem('cachedUser');         
           navigate('/');
+          window.location.reload()
         })
         .catch((error) => {
           console.error('Error al cerrar sesión:', error);
