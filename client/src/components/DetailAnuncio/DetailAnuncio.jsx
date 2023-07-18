@@ -7,7 +7,7 @@ import { getAllAnuncios, getUserById } from "../../Redux/actions";
 const DetailAnuncio = () => {
     const localStorageContent = localStorage.getItem("cachedUser"); //usuario principal
     const  parser  = JSON.parse(localStorageContent);
-    const  idLog  = parser.id
+    const  idLog  = parser.id;
     const { id } = useParams();
     const dispatch = useDispatch();
     const navigate = useNavigate(); // Utiliza useNavigate en lugar de useHistory
