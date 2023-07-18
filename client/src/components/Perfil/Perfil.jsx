@@ -13,15 +13,6 @@ import Favoritos from "../Favoritos/Favoritos";
 import Messages from "../Messages/Messages";
 
 const Perfil = ({ userData, getUser, getAllPublication }) => {
-  useEffect(() => {
-    setRenderUser(userData);
-  }, [userData]);
-
-  useEffect(() => {
-    if (currentUser) {
-      getUser(currentUser);
-    }
-  }, [getUser]);
 
   const [renderProfile, setRenderProfile] = useState(true);
   const [renderAnuncios, setRenderAnuncios] = useState(false);
@@ -34,32 +25,55 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   const [submitFormAnuncio, setSubmitFormAnuncio] = useState(false);
   const [renderMensajes, setRenderMensajes] = useState(false);
 
+  useEffect(() => {
+    setRenderUser(userData);
+  }, [userData]);
+
+  useEffect(() => {
+    if (currentUser) {
+      getUser(currentUser);
+    }
+  }, [getUser]);
+
+  useEffect(() => {
+    if (submitFormAnuncio) {
+      getAllPublication(currentUser);
+      setSubmitFormAnuncio(false);
+    }
+  }, [submitFormAnuncio, getAllPublication, currentUser]);
+
+
   const changeTab = (event) => {
     if (event.target.id === 'profile') {
       setRenderProfile(true);
       setRenderAnuncios(false);
       setRenderAnunciosFavoritos(false);
       setRenderHistorial(false);
+      setRenderMensajes(false);
     } else if (event.target.id === 'anuncios') {
       setRenderAnuncios(true);
       setRenderProfile(false);
       setRenderAnunciosFavoritos(false);
       setRenderHistorial(false);
+      setRenderMensajes(false);
     } else if (event.target.id === 'anunciosfav') {
       setRenderAnunciosFavoritos(true);
       setRenderProfile(false);
       setRenderAnuncios(false);
       setRenderHistorial(false);
+      setRenderMensajes(false);
     } else if (event.target.id === 'historial') {
       setRenderHistorial(true);
       setRenderProfile(false);
       setRenderAnuncios(false);
       setRenderAnunciosFavoritos(false);
+      setRenderMensajes(false);
     } else if (event.target.id === 'mensajes') {
       setRenderMensajes(true);
       setRenderProfile(false);
       setRenderAnuncios(false);
       setRenderAnunciosFavoritos(false);
+      setRenderHistorial(false);
     }
   };
 
@@ -100,13 +114,6 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   const containerStyle = {
     backgroundImage: `url(${renderUser.assets})`
   };
-
-  useEffect(() => {
-    if (submitFormAnuncio) {
-      getAllPublication(currentUser);
-      setSubmitFormAnuncio(false);
-    }
-  }, [submitFormAnuncio, getAllPublication, currentUser]);
 
   return (
     <div>
