@@ -107,7 +107,7 @@ const Login = ({ userData, getUser }) => {
           <div className={style.icon} ref={panelRef} style={containerStyle} onClick={() => setShowLogoutButton(!showLogoutButton)} ></div>
           {showLogoutButton && (
             <div className={style.panel}>
-              <div ref={panelRef} className={style.desplegable}>
+              <div ref={panelRef} className={style.desplegable} onClick={() => setShowLogoutButton(!showLogoutButton)} >
                 <Link to='/perfil/profile'><p className={style.botones}>Mi Perfil</p></Link>
                 <Link to='/perfil/anunciosfav'><p className={style.botones}>Favoritos</p></Link>
                 <p onClick={changeDidLog} className={style.botones}>Cerrar Sesión</p>
