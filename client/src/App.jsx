@@ -9,6 +9,7 @@ import DetailAnuncio from './components/DetailAnuncio/DetailAnuncio';
 import PerfilPublic from './components/PublicPerfil/PerfilPublic';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
+import WhatsAppButton from './components/WhatsappBtn/WhatsappBtn';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route path='/detail/:id' element={<UpdatePubli/>}/>
           <Route path='/anuncio/:id' element={<DetailAnuncio/>}/>
           <Route path='/perfilPublico/:id' element={<PerfilPublic/>}/>
+          <Route path='/Whatsapp' element={<WhatsAppButton/>}/>
           <Route path='*' element={<Home/>}/>
         </Routes>
         <Footer/>
