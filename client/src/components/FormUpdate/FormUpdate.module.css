@@ -22,10 +22,13 @@
 }
 
 .error {
-    color: red;
-    display: flex;
-
+  color: red;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  margin-left: -10.5%;
 }
+
 .date,
 .name,
 .phone,
