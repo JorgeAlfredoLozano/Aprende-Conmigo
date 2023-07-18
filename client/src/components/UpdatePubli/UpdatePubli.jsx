@@ -34,7 +34,7 @@ const UpdatePubli = (props) => {
         if (boton === 'actualizar') { 
             dispatch(updateAnuncio(id, input)) 
             alert("Aviso actualizada con exito!!")
-            navigate('/perfil/profile')
+            navigate('/perfil/anuncios')
         } else if (boton === 'volver') {
             navigate('/perfil/anuncios')
         };
