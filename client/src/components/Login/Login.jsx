@@ -93,10 +93,8 @@ const Login = ({ userData, getUser }) => {
           {showLogoutButton && (
             <div className={style.panel}>
               <div className={style.desplegable}>
-                <Link to='/perfil'>
-                  <p className={style.botones}>Mi Perfil</p>
-                </Link>
-                <p className={style.botones}>Favoritos</p>
+                <Link to='/perfil'><p className={style.botones}>Mi Perfil</p></Link>
+                <Link><p className={style.botones}>Favoritos</p></Link>
                 <p onClick={changeDidLog} className={style.botones}>Cerrar Sesión</p>
               </div>
             </div>
