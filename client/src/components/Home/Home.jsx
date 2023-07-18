@@ -1,5 +1,4 @@
-import NavBar from "../NavBar/NavBar";
-import Footer from "../Footer/Footer";
+// import Footer from "../Footer/Footer";
 import style from './Home.module.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import Carrousel from "../carrousel/Carrousel";
@@ -10,7 +9,6 @@ import { NavLink } from "react-router-dom";
 
     return (
         <div>
-            <NavBar/>
             <div className={style.body}>
             <Carrousel/>
             <div className={style.search}>
@@ -31,7 +29,7 @@ import { NavLink } from "react-router-dom";
       </Accordion.Item>
     </Accordion>
             </div>
-        <Footer/>
+        {/* <Footer/> */}
         </div>
     )
  }

@@ -1,4 +1,3 @@
-import NavBar from "../NavBar/NavBar";
 import style from './Perfil.module.css';
 import React, { useState, useEffect } from "react";
 import FormUpdate from "../FormUpdate/FormUpdate";
@@ -7,7 +6,6 @@ import { getUser, getAllPublication } from '../../Redux/actions';
 import { connect } from "react-redux";
 import SendPhoto from "../SendPhoto/SendPhoto";
 import PublicationUser from "../PublicationUser/PublicationUser";
-import Footer from '../Footer/Footer';
 import Favoritos from "../Favoritos/Favoritos";
 import Messages from "../Messages/Messages";
 import { useParams } from "react-router";
@@ -152,7 +150,6 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
 
   return (
     <div>
-      <NavBar />
       <div className={style.contenedorPerfil}>
         <div className={style.contenedorTabs}>
           <p id='profile' onClick={changeTab} className={renderProfile ? `${style.tabs} ${style.active}` : style.tabs}>
@@ -216,7 +213,6 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
           {renderMensajes && <Messages />}
         </section>
       </div>
-      <Footer />
     </div>
   );
 };

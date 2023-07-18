@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import NavBar from "../NavBar/NavBar";
 import style from './Faq.module.css';
 import dataFq from './dataFq';
-import Footer from '../Footer/Footer';
 
 const Faq = () => {
   const [expandedGroups, setExpandedGroups] = useState([]);
@@ -26,7 +24,6 @@ const Faq = () => {
 
   return (
     <div>
-      <NavBar />
       <div className={style.container}>
         <h1>Preguntas frecuentes</h1>
         {dataFq.map((mapeo, index) => (
@@ -61,7 +58,6 @@ const Faq = () => {
           </div>
         ))}
       </div>
-      <Footer/>
     </div>
   );
 };
