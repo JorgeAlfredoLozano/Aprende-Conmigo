@@ -5,6 +5,7 @@ import axios from 'axios'
 import { useParams,useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {useState} from 'react';
+import style from './CheckoutForm.module.css';
 const VITE_API_STRIPE=import.meta.env.VITE_API_STRIPE;
 
 const stripePromise = loadStripe(`${VITE_API_STRIPE}`);
@@ -50,7 +51,7 @@ else {
 }}
 return( 
 
-    <div>    
+    <div className={style.container}>    
     <form onSubmit={handleSubmit} className="card card-body">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Stripe_Logo%2C_revised_2016.svg/512px-Stripe_Logo%2C_revised_2016.svg.png" alt="imagenn" className="img-fluid"/>
     <h3 className="text-center my-2">Detalles de la compra: </h3>
@@ -74,7 +75,7 @@ function Checkout() {
 return (
     <>
     <Elements stripe={stripePromise}>
-    <div className="container p-4">
+    <div className={style.container}>
         <div className="row">
         <div className=".col-md-4.offset-md-4">
         <CheckoutForm/>

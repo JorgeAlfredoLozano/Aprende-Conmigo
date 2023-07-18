@@ -1,0 +1,7 @@
+.container {
+    display: flex;
+    min-height: 50vh;
+    justify-content: center;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
