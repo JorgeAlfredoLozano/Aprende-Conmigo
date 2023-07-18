@@ -81,7 +81,7 @@ const FormUpdate = (props) => {
             <option disabled value=''>Selecciona un género</option>
             <option value="male">Hombre</option>
             <option value="female">Mujer</option>
-            <option value="other">No binario</option>
+            {/* <option value="other">No binario</option> */}
             <option value="other">Otro</option>
           </select>
         </div>

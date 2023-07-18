@@ -52,6 +52,8 @@ const Login = ({ userData, getUser }) => {
           setCurrentUser(email);
           setLogged(true);
           localStorage.setItem('currentUser', email);
+          navigate('/');
+          window.location.reload()
         })
         .catch((error) => {
           console.error('Error al iniciar sesión:', error);
@@ -64,8 +66,9 @@ const Login = ({ userData, getUser }) => {
           setLogged(false);
           setShowLogoutButton(false);
           localStorage.removeItem('currentUser');
-          localStorage.removeItem('cachedUser');
+          localStorage.removeItem('cachedUser');         
           navigate('/');
+          window.location.reload()
         })
         .catch((error) => {
           console.error('Error al cerrar sesión:', error);
@@ -90,10 +93,8 @@ const Login = ({ userData, getUser }) => {
           {showLogoutButton && (
             <div className={style.panel}>
               <div className={style.desplegable}>
-                <Link to='/perfil'>
-                  <p className={style.botones}>Mi Perfil</p>
-                </Link>
-                <p className={style.botones}>Favoritos</p>
+                <Link to='/perfil/profile'><p className={style.botones}>Mi Perfil</p></Link>
+                <Link to='/perfil/anunciosfav'><p className={style.botones}>Favoritos</p></Link>
                 <p onClick={changeDidLog} className={style.botones}>Cerrar Sesión</p>
               </div>
             </div>

@@ -1,5 +1,3 @@
-// Perfil.jsx
-import NavBar from "../NavBar/NavBar";
 import style from './Perfil.module.css';
 import React, { useState, useEffect } from "react";
 import FormUpdate from "../FormUpdate/FormUpdate";
@@ -8,11 +6,13 @@ import { getUser, getAllPublication } from '../../Redux/actions';
 import { connect } from "react-redux";
 import SendPhoto from "../SendPhoto/SendPhoto";
 import PublicationUser from "../PublicationUser/PublicationUser";
-import Footer from '../Footer/Footer';
 import Favoritos from "../Favoritos/Favoritos";
 import Messages from "../Messages/Messages";
+import { useParams } from "react-router";
 
 const Perfil = ({ userData, getUser, getAllPublication }) => {
+  const { tab } = useParams();
+
   useEffect(() => {
     setRenderUser(userData);
   }, [userData]);
@@ -23,7 +23,7 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
     }
   }, [getUser]);
 
-  const [renderProfile, setRenderProfile] = useState(true);
+  const [renderProfile, setRenderProfile] = useState(false);
   const [renderAnuncios, setRenderAnuncios] = useState(false);
   const [renderAnunciosFavoritos, setRenderAnunciosFavoritos] = useState(false);
   const [renderHistorial, setRenderHistorial] = useState(false);
@@ -34,32 +34,72 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   const [submitFormAnuncio, setSubmitFormAnuncio] = useState(false);
   const [renderMensajes, setRenderMensajes] = useState(false);
 
-  const changeTab = (event) => {
-    if (event.target.id === 'profile') {
+  useEffect(() => {
+    if (tab === 'profile') {
       setRenderProfile(true);
       setRenderAnuncios(false);
       setRenderAnunciosFavoritos(false);
       setRenderHistorial(false);
-    } else if (event.target.id === 'anuncios') {
+      setRenderMensajes(false);
+    } else if (tab === 'anuncios') {
       setRenderAnuncios(true);
       setRenderProfile(false);
       setRenderAnunciosFavoritos(false);
       setRenderHistorial(false);
-    } else if (event.target.id === 'anunciosfav') {
+      setRenderMensajes(false);
+    } else if (tab === 'anunciosfav') {
       setRenderAnunciosFavoritos(true);
       setRenderProfile(false);
       setRenderAnuncios(false);
       setRenderHistorial(false);
-    } else if (event.target.id === 'historial') {
+      setRenderMensajes(false);
+    } else if (tab === 'historial') {
       setRenderHistorial(true);
       setRenderProfile(false);
       setRenderAnuncios(false);
       setRenderAnunciosFavoritos(false);
-    } else if (event.target.id === 'mensajes') {
+      setRenderMensajes(false);
+    } else if (tab === 'mensajes') {
       setRenderMensajes(true);
       setRenderProfile(false);
       setRenderAnuncios(false);
       setRenderAnunciosFavoritos(false);
+      setRenderHistorial(false);
+    }
+  }, [tab]);
+
+  const changeTab = (event) => {
+    const clickedTab = event.target.id;
+    if (clickedTab === 'profile') {
+      setRenderProfile(true);
+      setRenderAnuncios(false);
+      setRenderAnunciosFavoritos(false);
+      setRenderHistorial(false);
+      setRenderMensajes(false);
+    } else if (clickedTab === 'anuncios') {
+      setRenderAnuncios(true);
+      setRenderProfile(false);
+      setRenderAnunciosFavoritos(false);
+      setRenderHistorial(false);
+      setRenderMensajes(false);
+    } else if (clickedTab === 'anunciosfav') {
+      setRenderAnunciosFavoritos(true);
+      setRenderProfile(false);
+      setRenderAnuncios(false);
+      setRenderHistorial(false);
+      setRenderMensajes(false);
+    } else if (clickedTab === 'historial') {
+      setRenderHistorial(true);
+      setRenderProfile(false);
+      setRenderAnuncios(false);
+      setRenderAnunciosFavoritos(false);
+      setRenderMensajes(false);
+    } else if (clickedTab === 'mensajes') {
+      setRenderMensajes(true);
+      setRenderProfile(false);
+      setRenderAnuncios(false);
+      setRenderAnunciosFavoritos(false);
+      setRenderHistorial(false);
     }
   };
 
@@ -82,6 +122,7 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   const handlePhotoSubmit = () => {
     getUser(currentUser);
     setRenderUser(userData);
+    window.location.reload();
   };
 
   const cancelarForm = () => {
@@ -109,14 +150,27 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
 
   return (
     <div>
-      <NavBar />
       <div className={style.contenedorPerfil}>
         <div className={style.contenedorTabs}>
-          <p id='profile' onClick={changeTab} className={style.tabs}>Mi perfil</p>
-          <p id='anuncios' onClick={changeTab} className={style.tabs}>Anuncios</p>
-          <p id='anunciosfav' onClick={changeTab} className={style.tabs}>Anuncios Favoritos</p>
-          <p id='historial' onClick={changeTab} className={style.tabs}>Historial</p>
-          <p id='mensajes' onClick={changeTab} className={style.tabs}>Mensajes</p>
+          <p id='profile' onClick={changeTab} className={renderProfile ? `${style.tabs} ${style.active}` : style.tabs}>
+            Mi perfil
+          </p>
+          <p id='anuncios' onClick={changeTab} className={renderAnuncios ? `${style.tabs} ${style.active}` : style.tabs}>
+            Anuncios
+          </p>
+          <p
+            id='anunciosfav'
+            onClick={changeTab}
+            className={renderAnunciosFavoritos ? `${style.tabs} ${style.active}` : style.tabs}
+          >
+            Anuncios Favoritos
+          </p>
+          <p id='historial' onClick={changeTab} className={renderHistorial ? `${style.tabs} ${style.active}` : style.tabs}>
+            Historial
+          </p>
+          <p id='mensajes' onClick={changeTab} className={renderMensajes ? `${style.tabs} ${style.active}` : style.tabs}>
+            Mensajes
+          </p>
         </div>
         <section className={style.contenedorInfo}>
           {renderProfile && (
@@ -128,15 +182,15 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
                 <p className={style.infoLabel}>Género: {renderUser.gender}</p>
                 <p className={style.infoLabel}>Teléfono: {renderUser.phone}</p>
                 <p className={style.infoLabel}>Certificados: {renderUser.certificate}</p>
-                <button className={style.botonForm} onClick={updateData}>Modificar Perfil</button>
+                <button className={style.botonForm} onClick={updateData}>
+                  Modificar Perfil
+                </button>
               </section>
               <section className={style.imagen}>
                 <div className={style.imgCont} style={containerStyle}></div>
                 <SendPhoto className={style.send} onSubmit={handlePhotoSubmit} />
               </section>
-              {renderForm && (
-                <FormUpdate isVisible={renderForm} onCancel={cancelarForm} onSubmit={handleFormSubmit} />
-              )}
+              {renderForm && <FormUpdate isVisible={renderForm} onCancel={cancelarForm} onSubmit={handleFormSubmit} />}
             </>
           )}
           {renderAnuncios && (
@@ -154,24 +208,11 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
               )}
             </div>
           )}
-          {renderAnunciosFavoritos && (
-            <>
-              <Favoritos/>
-            </>
-          )}
-          {renderHistorial && (
-            <>
-              <p className={style.infoLabel}>Historial</p>
-            </>
-          )}
-          {renderMensajes && (
-            <>
-              <Messages/>
-            </>
-          )}
+          {renderAnunciosFavoritos && <Favoritos />}
+          {renderHistorial && <p className={style.infoLabel}>Historial</p>}
+          {renderMensajes && <Messages />}
         </section>
       </div>
-      <Footer />
     </div>
   );
 };

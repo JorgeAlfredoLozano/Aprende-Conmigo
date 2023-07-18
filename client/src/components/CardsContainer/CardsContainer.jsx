@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from '../Card/Card';
-import { getAllAnuncios } from '../../Redux/actions';
+import { getAllAnuncios} from '../../Redux/actions';
 import { NavLink } from 'react-router-dom';
-import style from "./CardsContainer.module.css"
+import style from "./CardsContainer.module.css";
 
 const CardsContainer = ({ filtro, lesson }) => {
   const dispatch = useDispatch();
@@ -43,6 +43,7 @@ const CardsContainer = ({ filtro, lesson }) => {
             about_class={card.about_class}
             about_teacher={card.about_teacher}
             grade={card.grade}
+            userId={card.UserId}
           />
         </NavLink>
       </div>

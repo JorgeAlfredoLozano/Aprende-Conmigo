@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import NavBar from '../NavBar/NavBar';
-import Footer from '../Footer/Footer';
 import style from './SearchPage.module.css';
 import GeneralFilters from '../GeneralFilters/GeneralFilters';
 import CardsContainer from '../CardsContainer/CardsContainer';
+
 
 const SearchPage = () => {
   const [filtro, setFiltro] = useState('');
@@ -11,7 +10,6 @@ const SearchPage = () => {
 
   return (
     <div className={style.body}>
-      <NavBar />
       <div className={style.container}>
         <div className={style.contenedorBusqueda}>
         <GeneralFilters className={style.filters} filtro={filtro} setFiltro={setFiltro} lesson={lesson} setLesson={setLesson}/>
@@ -20,7 +18,6 @@ const SearchPage = () => {
           <CardsContainer filtro={filtro} lesson={lesson}/>
         </div>
       </div>
-      <Footer/>
     </div>
   );
 };
