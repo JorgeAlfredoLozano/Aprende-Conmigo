@@ -8,15 +8,20 @@ import {useState} from 'react';
 import style from './CheckoutForm.module.css';
 const VITE_API_STRIPE=import.meta.env.VITE_API_STRIPE;
 
+let email = 'none';
+let idUs=0;
+
 const stripePromise = loadStripe(`${VITE_API_STRIPE}`);
 const localStorageContent = localStorage.getItem("cachedUser")
 const  parser  = JSON.parse(localStorageContent);
-const email=parser.email;
-const idUs=parser.id;
+
+if(parser)email=parser.email;
+if(parser)idUs=parser.id;
+
 const CheckoutForm = () => {
 const stripe = useStripe();
 const elements = useElements();
-const navigate=useNavigate();
+const navigate = useNavigate();
 
 const params = useParams();
 const idPub = params.id;
