@@ -33,6 +33,14 @@ sequelize.define('User', {
     },   
     certificate:{
         type:DataTypes.STRING,
-    }
+    },
+    admin:{
+        type:DataTypes.BOOLEAN,
+        defaultValue: false
+    },
+    status:{
+        type:DataTypes.BOOLEAN,
+        defaultValue: true
+    },
 },{timestamps:false,freezeTableName:true}
 )}
