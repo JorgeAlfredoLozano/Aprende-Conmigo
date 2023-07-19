@@ -34,14 +34,9 @@ const UpdatePubli = (props) => {
         if (boton === 'actualizar') { 
             dispatch(updateAnuncio(id, input)) 
             alert("Aviso actualizada con exito!!")
-            navigate('/perfil')
-        } else if (boton === 'eliminar') {
-            setInput(input.status=false)
-            dispatch(updateAnuncio(id, input )) 
-            alert("Aviso eliminado con exito!!")
-            navigate('/perfil')
+            navigate('/perfil/anuncios')
         } else if (boton === 'volver') {
-            navigate('/perfil')
+            navigate('/perfil/anuncios')
         };
   }
     
@@ -82,7 +77,6 @@ const UpdatePubli = (props) => {
 
              <div className={style.formbuttons}>
             <button className={style.submit} name='actualizar' type='submit' onClick={(event)=>handleSubmit(event)}>Actualizar</button>
-            <button className={style.submit} name='eliminar' type='submit' onClick={(event)=>handleSubmit(event)}>Eliminar</button>
             <button className={style.submit} name='volver' type='submit' onClick={(event)=>handleSubmit(event)}>Volver</button>
             </div>
             </div>
