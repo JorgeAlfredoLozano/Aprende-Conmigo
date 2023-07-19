@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import style from './Faq.module.css';
 import dataFq from './dataFq';
+import WhatsAppButton from '../WhatsappBtn/WhatsappBtn'
 
 const Faq = () => {
   const [expandedGroups, setExpandedGroups] = useState([]);
@@ -49,6 +50,7 @@ const Faq = () => {
                     {expandedResponses.includes(elemento.pregunta) && (
                       <div className="respuesta" style={{ marginLeft: '40px' }}>
                        <p> {elemento.respuesta}</p>
+                       
                       </div>
                     )}
                   </div>
@@ -58,6 +60,7 @@ const Faq = () => {
           </div>
         ))}
       </div>
+      <WhatsAppButton/>
     </div>
   );
 };
