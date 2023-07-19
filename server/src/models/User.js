@@ -11,12 +11,9 @@ sequelize.define('User', {
     },
     name:{
         type: DataTypes.STRING,
-      
-
     },    
     email:{
-        type:DataTypes.STRING,
-       
+        type:DataTypes.STRING,     
     },
     date:{
         type:DataTypes.DATEONLY,
