@@ -70,3 +70,48 @@
     justify-content: center;
     flex-direction: column;
   }
+
+  .contenedorHistorial {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: -3.6%;
+  }
+
+  .contenedorTabsHistorial {
+    display: flex;
+    flex-direction: row;
+    flex: 0.1;
+    place-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+    padding: 1%;
+  }
+
+  .contenedorInfoHistorial {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+  }
+
+  .tabHistorial {
+    margin: 0%;
+    padding: 1%;
+    border-radius: 10px;
+    font-weight: bolder;
+  }
+
+  .tabHistorial:hover {
+    border-radius: 10px;
+    background-color: rgba(151, 151, 151, 0.493);
+    transition: 0.2s linear;
+    cursor: pointer;
+  }
+
+  .hr {
+    padding: 0%;
+    margin: 0%;
+    border-width: thick;
+  }
