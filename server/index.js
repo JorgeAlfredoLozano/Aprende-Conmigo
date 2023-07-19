@@ -11,7 +11,7 @@ const whatsapp = require('../server/src/whatsapp.js')
 
 conn.sync({ alter: true })  //alter force
 .then(() => postLessonHandler(lessonsJson, Lesson))
-.then(() => whatsapp)
+// .then(() => whatsapp)
 .then(() => {
     server.listen(3001, () => {
       console.log('server listening at 3001'); // eslint-disable-line no-console
