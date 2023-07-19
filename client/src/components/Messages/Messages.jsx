@@ -1,54 +1,141 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllMessages, getUserById } from "../../Redux/actions";
+import { getAllMessages, getUserById, sendChat } from "../../Redux/actions";
+import axios from "axios";
 
 const Messages = () => {
-  const [selectedUser, setSelectedUser] = useState(null);
+  const [selectedUserId, setSelectedUserId] = useState(null);
+  const [userList, setUserList] = useState([]);
   const dispatch = useDispatch();
+  const [inputValue, setInputValue] = useState("");
   const messages = useSelector((state) => state.messages);
-  const userId = useSelector((state) => state.userId)
+  const localStorageContent = localStorage.getItem("cachedUser");
+  const { id } = JSON.parse(localStorageContent);
+  const textareaRef = useRef();
 
-  useEffect(() => {
-    const localStorageContent = localStorage.getItem("cachedUser");
-    const { id } = JSON.parse(localStorageContent);
-    dispatch(getAllMessages(id));
-  }, [dispatch]);
-
-  const userClickHandler = (user) => {
-    setSelectedUser(user);
+  const scrollChatToBottom = () => {
+    if (textareaRef.current) {
+      const textarea = textareaRef.current;
+      textarea.scrollTop = textarea.scrollHeight;
+    }
   };
 
-  const renderUserList = () => {
-    // Renderizar la lista de usuarios disponibles
-    const uniqueSenders = messages.reduce((sendersSet, messageGroup) => {
-      messageGroup.forEach((message) => {
-        dispatch(getUserById(message.idSend))
-         /////////////////////////////////////////////////////////////////
-         ////////////////////////////////////////////////////////////////
-         ///////////////////////////////////////////////////////////////
-        console.log(nombreId)
-        sendersSet.add(message.idSend);
-      });
-      return sendersSet;
-    }, new Set());
-    
-    const userList = Array.from(uniqueSenders);
+  useEffect(() => {
+    dispatch(getAllMessages(id));
 
+    const intervalId = setInterval(() => {
+      dispatch(getAllMessages(id));
+    }, 5000);
+
+    // Scroll al cargar los mensajes iniciales
+    scrollChatToBottom();
+
+    return () => clearInterval(intervalId);
+  }, [dispatch, id]);
+
+  useEffect(() => {
+    // Scroll cuando se actualizan los mensajes o se selecciona un usuario
+    scrollChatToBottom();
+  }, [messages, selectedUserId]);
+
+  const userClickHandler = (userId) => {
+    setSelectedUserId(userId);
+  };
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const uniqueSenders = new Set();
+
+      messages.forEach((messageGroup) => {
+        messageGroup.forEach((message) => {
+          if (message.idSend !== id) uniqueSenders.add(message.idSend);
+        });
+      });
+
+      const senderIds = Array.from(uniqueSenders);
+      const users = [];
+
+      for (const senderId of senderIds) {
+        try {
+          const response = await axios.get(
+            `http://localhost:3001/user/get/${senderId}`
+          );
+          users.push(response.data);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      setUserList(users);
+    };
+
+    fetchUsers();
+  }, [messages, id]);
+
+  const renderUserList = () => {
     return userList.map((user) => (
-      <li key={user} onClick={() => userClickHandler(user)}>
-        {user}
+      <li key={user.id} onClick={() => userClickHandler(user.id)}>
+        {user.name}
       </li>
     ));
   };
 
+  const handleChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
   const renderSelectedUserChat = () => {
-    // Renderizar los mensajes del usuario seleccionado
-    if (selectedUser && messages[selectedUser]) {
-      return messages[selectedUser].map((message) => (
-        <div key={message.id}>{message.message}</div>
-      ));
+    if (selectedUserId) {
+      const userMessages = messages.find((messageGroup) =>
+        messageGroup.some((message) => message.idSend === selectedUserId)
+      );
+
+      if (userMessages) {
+        return (
+          <div>
+            <textarea
+              ref={textareaRef}
+              className="chat-textarea"
+              style={{ width: "50%", height: "150px" }}
+              readOnly
+              value={userMessages
+                .map(
+                  (message) =>
+                    `${message.idSend !== id ? "Tu: " : "Yo: "}${message.message}`
+                )
+                .join("\n")}
+            ></textarea>
+            <br />
+
+            <input
+              type="text"
+              id="myInput"
+              value={inputValue}
+              onChange={handleChange}
+              style={{ width: "50%", height: "30px" }}
+            />
+            <button
+              style={{ width: "6%", height: "30px" }}
+              onClick={handleClick}
+            >
+              Enviar
+            </button>
+          </div>
+        );
+      }
     }
+
     return <p>Selecciona un usuario para ver los mensajes</p>;
+  };
+
+  const handleClick = () => {
+    const send = {
+      idSend: id,
+      idReceived: selectedUserId,
+      message: inputValue,
+    };
+    dispatch(sendChat(send));
+    setInputValue("");
   };
 
   return (
@@ -59,7 +146,11 @@ const Messages = () => {
       </div>
       <div className="message-container">
         <div className="chat">
-          <h2>Chat con {selectedUser}</h2>
+          <h2>
+            Chat con (
+            {selectedUserId &&
+              userList.find((user) => user.id === selectedUserId)?.name})
+          </h2>
           {renderSelectedUserChat()}
         </div>
       </div>
