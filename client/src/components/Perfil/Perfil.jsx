@@ -11,6 +11,7 @@ import Messages from "../Messages/Messages";
 import { useParams } from "react-router";
 import Purchases from '../Purchase/Purchase';
 import Sales from '../Sales/Sales';
+import UpdatePubli from '../UpdatePubli/UpdatePubli';
 
 const Perfil = ({ userData, getUser, getAllPublication }) => {
   const { tab } = useParams();
@@ -37,6 +38,8 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   const [renderMensajes, setRenderMensajes] = useState(false);
   const [renderCompras, setRenderCompras] = useState(true);
   const [renderVentas, setRenderVentas] = useState(false);
+  const [renderUpdatePubli, setRenderUpdatePubli] = useState(false);
+  const [updateId, setUpdateId] = useState(null)
 
   useEffect(() => {
     if (tab === 'profile') {
@@ -163,6 +166,11 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
     }
   }, [submitFormAnuncio, getAllPublication, currentUser]);
 
+  const formId = (data) => {
+    const id = data;
+    if (id) setUpdateId(id)
+  }
+  
   return (
     <div>
       <div className={style.contenedorPerfil}>
@@ -215,11 +223,14 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
                   <button onClick={createAnuncio}>Crear Anuncio</button>
                 </div>
                 <div className={style.cards}>
-                  <PublicationUser submitFormAnuncio={submitFormAnuncio} />
+                  <PublicationUser formId={formId} renderUpdatePubli={renderUpdatePubli} setRenderUpdatePubli={setRenderUpdatePubli} submitFormAnuncio={submitFormAnuncio} />
                 </div>
               </div>
               {renderFormAnuncio && (
                 <FormAnuncio isVisible={renderFormAnuncio} onCancel={cancelarFormAnuncio} onSubmit={handleFormSubmitAnuncio} />
+              )}
+              {renderUpdatePubli && (
+              <UpdatePubli isVisible={renderUpdatePubli} renderUpdatePubli={renderUpdatePubli} setRenderUpdatePubli={setRenderUpdatePubli} updateId={updateId}/>
               )}
             </div>
           )}

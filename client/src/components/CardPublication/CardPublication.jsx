@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { updateAnuncio } from "../../Redux/actions";
 import { NavLink } from "react-router-dom";
 
-const CardPublication = ({ title, value, lesson, about_class, about_teacher, grade, status, id }) => {
+const CardPublication = ({ title, value, lesson, about_class, about_teacher, grade, status, id, setRenderUpdatePubli, renderUpdatePubli, formId }) => {
   const [isMostrar, setIsMostrar] = useState(status);
   const dispatch = useDispatch();
   const email = localStorage.getItem('currentUser');
@@ -18,6 +18,17 @@ const CardPublication = ({ title, value, lesson, about_class, about_teacher, gra
     event.preventDefault();
     setIsMostrar(!isMostrar);
   }
+
+  const cardId = () => {
+    const data = id;
+    formId(data)
+  }
+
+  const renderFormUpdate = () => {
+  setRenderUpdatePubli(true);
+  cardId();
+  }
+
 
   return (
     <div className={`${style.card_publication} ${status === false ? style.cardstatusfalse : style.card_publication}`}>
@@ -36,7 +47,8 @@ const CardPublication = ({ title, value, lesson, about_class, about_teacher, gra
         </div>
       </div> */}
       <div className={style.buttons}>
-      <NavLink to={`/detail/${id}`} className={style.editar}><button>Editar</button></NavLink>
+      {/* <NavLink to={`/detail/${id}`} className={style.editar}><button>Editar</button></NavLink> */}
+      <button onClick={renderFormUpdate} className={style.editar}>Editar</button>
       <button onClick={click}>{isMostrar ? "Mostrar" : "No Mostrar"}</button>
       </div>
     </div>

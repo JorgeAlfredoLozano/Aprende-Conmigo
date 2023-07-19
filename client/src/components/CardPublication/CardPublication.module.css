@@ -9,12 +9,12 @@
 
 .card_publication:hover {
   transform: scale(1.05);
-  transition: 0.3s linear;
+  transition: 0.1s linear;
 }
 
 .card_publication:not(hover) {
   transform: scale(1);
-  transition: 0.3s linear;
+  transition: 0.1s linear;
 }
 
 .boxtitulo {

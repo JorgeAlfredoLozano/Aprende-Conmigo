@@ -4,7 +4,6 @@ import Perfil from './components/Perfil/Perfil';
 import Faq from './components/Faq/Faq';
 import SearchPage from './components/SearchPage/SearchPage';
 import Checkout from './components/CheckoutForm/CheckoutForm';
-import UpdatePubli from './components/UpdatePubli/UpdatePubli';
 import DetailAnuncio from './components/DetailAnuncio/DetailAnuncio';
 import PerfilPublic from './components/PublicPerfil/PerfilPublic';
 import NavBar from './components/NavBar/NavBar';
@@ -27,7 +26,6 @@ function App() {
           <Route path="/admin" element={<DashBoardAdmin/>}/>
           <Route path="/busqueda" element={<SearchPage/>}/>
           <Route path='/pago/:id' element={<Checkout/>}/>
-          <Route path='/detail/:id' element={<UpdatePubli/>}/>
           <Route path='/anuncio/:id' element={<DetailAnuncio/>}/>
           <Route path='/perfilPublico/:id' element={<PerfilPublic/>}/>
           {/* <Route path='/Whatsapp' element={<WhatsAppButton/>}/> */}
