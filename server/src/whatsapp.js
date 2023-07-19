@@ -1,16 +1,8 @@
 
-/**
- * Bot para whatsapp
- * web: https://kuatroestrellas.github.io/blog/
- * responde al hola mundo con un mensaje
- * requiere nodejs v12 o superior y las librerias qrcode-terminal y whatsapp-web.js
- * npm i qrcode-terminal whatsapp-web.js
-**/
-
 const qrcode = require('qrcode-terminal');
 
 //Crea una sesión con whatsapp-web y la guarda localmente para autenticarse solo una vez por QR
-const { Client, LocalAuth } = require('whatsapp-web.js');
+const { Client, LocalAuth, } = require('whatsapp-web.js');
 const client = new Client({
     authStrategy: new LocalAuth()
 });
@@ -29,9 +21,34 @@ client.on('ready', () => {
 //Aquí sucede la magia, escucha los mensajes y aquí es donde se manipula lo que queremos que haga el bot
 client.on('message', message => {
     console.log(message.body);
-	if(message.body === 'hola mundo') {
-		client.sendMessage(message.from, 'Hola soy un bot, mi creador esta ocupado ayudando a bachir a salvar la tierra');
+	if(message.body === 'necesito ayuda') {
+		client.sendMessage(message.from, 'Escibre caranalga si necesitas ayuda o escrie jorge para consejos de vida o escribe bachir para ver a una persona similar a un dios.');
+	}
+}); 
+
+client.on('message', message => {
+    console.log(message.body);
+	if(message.body === 'caranalga') {
+		client.sendMessage(message.from, 'aqui esta tu ayuda puta .l., escribe jorge ahora anda necesitas un consejo');
 	}
 });
+
+client.on('message', message => {
+    console.log(message.body);
+	if(message.body === 'bachir') {
+		client.sendMessage(message.from, 'https://www.linkedin.com/in/bachir-nasser-83b1b3263/');
+	}
+});
+
+client.on('message', message => {
+    console.log(message.body);
+	if(message.body === 'jorge') {
+		client.sendMessage(message.from, 'tomaa fernet. ');
+	}
+});
+
+
+
+
 
 client.initialize();
