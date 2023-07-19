@@ -9,37 +9,33 @@ const DashBoardAdmin = () => {
     
     console.log("this ", email);
     const dispatch = useDispatch();
-        
     const anuncios = useSelector((state) => state.allAnuncios)
     
     useEffect(() => {
         dispatch(getAllAnuncios());
     }, [dispatch]);
     
-    
-        return (  
-            <div>
-             {(email !== "aprendeconmigohenry@gmail.com") && <RestrictedAccess/> } 
-             <div>
-  <h1>DashBoardAdmin</h1>
-            <h4>anuncios generales</h4><hr/>
+    if (email !== "aprendeconmigohenry@gmail.com"){
+        return <RestrictedAccess />;
+    }
+
+    return (
+        <div>
+            <h1>DashBoardAdmin</h1>
+            <h4>anuncios generales</h4>
+            <hr />
             {anuncios.data && anuncios.data.map((anuncio) => {
-                return ( 
+                return (
                     <div key={anuncio.id}>
-                <h3>  anuncio: {anuncio.title}</h3>
-                <h3> Nivel: {anuncio.grade}</h3>
-                <hr/>
-                </div>
-                           
+                        <h3>anuncio: {anuncio.title}</h3>
+                        <h3>Nivel: {anuncio.grade}</h3>
+                        <hr />
+                    </div>
                 )
             })}
         </div>
-             </div>  )      
-          
-            
-        
+    )
 }
-
 
 export default DashBoardAdmin;
 

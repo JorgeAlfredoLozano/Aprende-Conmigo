@@ -7,7 +7,7 @@ import Select from 'react-select';
 function GeneralFilters({ filtro, setFiltro, lesson, setLesson }) {
   const [input, setInput] = useState({});
   const [selectedOption, setSelectedOption] = useState(null);
-  const [selectedNivel, setSelectedNivel] = useState(null);
+  const [selectedNiveles, setSelectedNiveles] = useState([]);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -24,51 +24,51 @@ function GeneralFilters({ filtro, setFiltro, lesson, setLesson }) {
   }
 
   const handleSelectNivel = (nivel) => {
-    if (selectedNivel === nivel) {
-      setSelectedNivel(null);
+    if (selectedNiveles.includes(nivel)) {
+      setSelectedNiveles(selectedNiveles.filter((item) => item !== nivel));
     } else {
-      setSelectedNivel(nivel);
+      setSelectedNiveles([...selectedNiveles, nivel]);
     }
   };
 
   const handleClick = (filtroSeleccionado) => {
-    if (selectedNivel === filtroSeleccionado) {
-      handleSelectNivel(null); // Si se presiona el mismo nivel, deseleccionamos
-      setFiltro(''); 
+    if (selectedNiveles.includes(filtroSeleccionado)) {
+      setSelectedNiveles(selectedNiveles.filter((item) => item !== filtroSeleccionado));
+      setFiltro(''); // Reiniciamos el filtro
     } else {
-      handleSelectNivel(filtroSeleccionado); 
-      setFiltro(filtroSeleccionado);
+      setSelectedNiveles([...selectedNiveles, filtroSeleccionado]);
+      setFiltro(filtroSeleccionado); // Establecemos el filtro seleccionado
     }
   };
-  
+
   const handleReset = (event) => {
     if (event.target.id === 'nivel') {
-      setSelectedNivel(null); // Reseteamos el nivel seleccionado
+      setSelectedNiveles([]); // Reiniciamos los niveles seleccionados
       setFiltro('');
     }
     if (event.target.id === 'materia') {
-      setSelectedOption(null); // Reseteamos la opción seleccionada
+      setSelectedOption(null); // Reiniciamos la opción seleccionada
       setLesson('');
     }
   };
- 
+
   return (
     <div className={style.container}>
       <button
-        className={selectedNivel === 'primaria' ? style.selected : ''}
-        onClick={() => seleccionarBoton('primaria')}
+        className={selectedNiveles.includes('primaria') ? style.selected : ''}
+        onClick={() => handleClick('primaria')}
       >
         Primaria
       </button>
       <button
-        className={selectedNivel === 'secundaria' ? style.selected : ''}
-        onClick={() => seleccionarBoton('secundaria')}
+        className={selectedNiveles.includes('secundaria') ? style.selected : ''}
+        onClick={() => handleClick('secundaria')}
       >
         Secundaria
       </button>
       <button
-        className={selectedNivel === 'universidad' ? style.selected : ''}
-        onClick={() => seleccionarBoton('universidad')}
+        className={selectedNiveles.includes('universidad') ? style.selected : ''}
+        onClick={() => handleClick('universidad')}
       >
         Universidad
       </button>
@@ -87,3 +87,4 @@ function GeneralFilters({ filtro, setFiltro, lesson, setLesson }) {
 }
 
 export default GeneralFilters;
+
