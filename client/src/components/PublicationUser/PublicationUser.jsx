@@ -1,9 +1,7 @@
-// PublicationUser.jsx
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CardPublication from '../CardPublication/CardPublication';
 import { getAllPublication } from '../../Redux/actions';
-import { NavLink } from 'react-router-dom';
 import style from "./Publication.module.css"
 
 const PublicationUser = ({ submitFormAnuncio }) => {
@@ -21,7 +19,6 @@ const PublicationUser = ({ submitFormAnuncio }) => {
         datoPublication.data.map((card) =>
           card.status ? (
             <div key={card.id} className={style.card_container}>
-              <NavLink to={`/detail/${card.id}`} className={style.details_link}><button>Editar</button> </NavLink>
               <CardPublication
                 id={card.id}
                 title={card.title}
@@ -30,10 +27,7 @@ const PublicationUser = ({ submitFormAnuncio }) => {
                 about_class={card.about_class}
                 about_teacher={card.about_teacher}
                 grade={card.grade}
-                status={card.status}
-              />
-             
-               
+                status={card.status}/>
             </div>
 
           ) 

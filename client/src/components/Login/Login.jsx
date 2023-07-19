@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import style from "./Login.module.css";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
@@ -17,6 +17,21 @@ const Login = ({ userData, getUser }) => {
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('currentUser'));
 
   const navigate = useNavigate();
+  const panelRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (panelRef.current && !panelRef.current.contains(event.target)) {
+        setShowLogoutButton(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     const cachedUser = JSON.parse(localStorage.getItem('cachedUser'));
@@ -89,14 +104,12 @@ const Login = ({ userData, getUser }) => {
       )}
       {logged && (
         <div className={style.container}>
-          <div className={style.icon} style={containerStyle} onClick={() => setShowLogoutButton(!showLogoutButton)} ></div>
+          <div className={style.icon} ref={panelRef} style={containerStyle} onClick={() => setShowLogoutButton(!showLogoutButton)} ></div>
           {showLogoutButton && (
             <div className={style.panel}>
-              <div className={style.desplegable}>
-                <Link to='/perfil'>
-                  <p className={style.botones}>Mi Perfil</p>
-                </Link>
-                <p className={style.botones}>Favoritos</p>
+              <div ref={panelRef} className={style.desplegable} onClick={() => setShowLogoutButton(!showLogoutButton)} >
+                <Link to='/perfil/profile'><p className={style.botones}>Mi Perfil</p></Link>
+                <Link to='/perfil/anunciosfav'><p className={style.botones}>Favoritos</p></Link>
                 <p onClick={changeDidLog} className={style.botones}>Cerrar Sesión</p>
               </div>
             </div>

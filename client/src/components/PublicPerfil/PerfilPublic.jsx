@@ -1,6 +1,4 @@
-import React from 'react'
-import NavBar from "../NavBar/NavBar";
-import Footer from '../Footer/Footer';
+import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import style from "../PublicPerfil/PerfilPublic.module.css"
 import { getUserById } from '../../Redux/actions';
@@ -26,7 +24,6 @@ const PerfilPublic = () => {
     console.log(dataPublication)
     return (
         <div>
-            <NavBar/>
             <div className={style.container}>
                 <div className={style.anuncio}>
                 <div className={style.imgCont} style={{
@@ -39,7 +36,6 @@ const PerfilPublic = () => {
                 </div>
             </div>
             <button onClick={handleGoBack}>Volver</button>
-        <Footer/>
     </div>
   )
 }
