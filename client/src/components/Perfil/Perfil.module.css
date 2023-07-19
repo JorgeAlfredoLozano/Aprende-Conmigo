@@ -63,12 +63,14 @@
 
   .containerAnuncios {
     margin-bottom: 5%;
+    width: 100%;
   }
 
   .crearAnuncio {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: 100%;
   }
 
   .contenedorHistorial {

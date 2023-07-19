@@ -35,7 +35,7 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   const [renderFormAnuncio, setRenderFormAnuncio] = useState(false);
   const [submitFormAnuncio, setSubmitFormAnuncio] = useState(false);
   const [renderMensajes, setRenderMensajes] = useState(false);
-  const [renderCompras, setRenderCompras] = useState(false);
+  const [renderCompras, setRenderCompras] = useState(true);
   const [renderVentas, setRenderVentas] = useState(false);
 
   useEffect(() => {
@@ -211,12 +211,12 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
           {renderAnuncios && (
             <div>
               <div className={style.containerAnuncios}>
-                <section className={style.crearAnuncio}>
+                <div className={style.crearAnuncio}>
                   <button onClick={createAnuncio}>Crear Anuncio</button>
-                </section>
-                <section className={style.cards}>
+                </div>
+                <div className={style.cards}>
                   <PublicationUser submitFormAnuncio={submitFormAnuncio} />
-                </section>
+                </div>
               </div>
               {renderFormAnuncio && (
                 <FormAnuncio isVisible={renderFormAnuncio} onCancel={cancelarFormAnuncio} onSubmit={handleFormSubmitAnuncio} />
