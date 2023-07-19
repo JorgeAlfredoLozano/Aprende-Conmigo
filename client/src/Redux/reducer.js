@@ -5,7 +5,8 @@ const initialState = {
   allPublication:[],
   allAnuncios:[],
   userID: null,
-  messages:[]
+  messages:[],
+  purchases:[]
   };
 
 const reducer = (state = initialState, {type, payload}) => {
@@ -55,6 +56,11 @@ const reducer = (state = initialState, {type, payload}) => {
     ...state,
     messages: payload,
     }
+  case 'GET_ALL_PURCHASES':
+    return{
+      ...state,
+      purchases: payload,
+    }  
   default:
     return { ...state };
   }

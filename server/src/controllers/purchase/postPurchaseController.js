@@ -1,4 +1,18 @@
 const {Purchase, Publication,User} = require('../../db');
+const Stripe = require('stripe')
+const {SENDSTRIPE}=process.env;
+const stripe = new Stripe(`${SENDSTRIPE}`)
+
+const cheackoutApi = async(id,amount,email,datos) => { 
+    const payment = await stripe.paymentIntents.create({
+        amount,
+        currency: "USD",
+        description: 'Description',
+        payment_method:id,
+        confirm:true
+    })
+    return payment;
+};
 
 const postPurchaseController = async (idUser,idPub,hora) => {
     const buy = await Purchase.create({hora});
@@ -7,6 +21,9 @@ const postPurchaseController = async (idUser,idPub,hora) => {
     await newName.addPurchase(buy);
     const newPub = await Publication.findOne({where:{id:idPub}});
     await newPub.addPurchase(buy);
-}
+};
 
-module.exports = postPurchaseController;
+module.exports = { 
+    cheackoutApi,
+    postPurchaseController
+}

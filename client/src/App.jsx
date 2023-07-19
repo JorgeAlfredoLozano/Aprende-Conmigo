@@ -10,7 +10,7 @@ import PerfilPublic from './components/PublicPerfil/PerfilPublic';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import WhatsAppButton from './components/WhatsappBtn/WhatsappBtn';
-
+import Purchases from './components/Purchase/Purchase';
 function App() {
 
   return (
@@ -27,6 +27,7 @@ function App() {
           <Route path='/anuncio/:id' element={<DetailAnuncio/>}/>
           <Route path='/perfilPublico/:id' element={<PerfilPublic/>}/>
           <Route path='/Whatsapp' element={<WhatsAppButton/>}/>
+          <Route path='/compras' element={<Purchases/>}/>
           <Route path='*' element={<Home/>}/>
         </Routes>
         <Footer/>
