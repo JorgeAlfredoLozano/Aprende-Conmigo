@@ -9,6 +9,8 @@ import PublicationUser from "../PublicationUser/PublicationUser";
 import Favoritos from "../Favoritos/Favoritos";
 import Messages from "../Messages/Messages";
 import { useParams } from "react-router";
+import Purchases from '../Purchase/Purchase';
+import Sales from '../Sales/Sales';
 
 const Perfil = ({ userData, getUser, getAllPublication }) => {
   const { tab } = useParams();
@@ -33,6 +35,8 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   const [renderFormAnuncio, setRenderFormAnuncio] = useState(false);
   const [submitFormAnuncio, setSubmitFormAnuncio] = useState(false);
   const [renderMensajes, setRenderMensajes] = useState(false);
+  const [renderCompras, setRenderCompras] = useState(false);
+  const [renderVentas, setRenderVentas] = useState(false);
 
   useEffect(() => {
     if (tab === 'profile') {
@@ -102,6 +106,17 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
       setRenderHistorial(false);
     }
   };
+
+  const changeHistorialTab = (event) => {
+    const clickedTab = event.target.id;
+    if (clickedTab === 'compras') {
+      setRenderCompras(true)
+      setRenderVentas(false)
+    } else if (clickedTab === 'ventas') {
+      setRenderVentas(true);
+      setRenderCompras(false);
+    }
+  }
 
   const updateData = () => {
     setRenderForm(true);
@@ -209,7 +224,20 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
             </div>
           )}
           {renderAnunciosFavoritos && <Favoritos />}
-          {renderHistorial && <p className={style.infoLabel}>Historial</p>}
+          {renderHistorial && 
+          (
+          <div className={style.contenedorHistorial}>
+          <div className={style.contenedorTabsHistorial}>
+          <p className={style.tabHistorial} id='compras' onClick={changeHistorialTab}>Compras</p>
+          <p className={style.tabHistorial} id='ventas' onClick={changeHistorialTab}>Ventas</p>
+          </div>
+          <hr className={style.hr}></hr>
+          <div className={style.contenedorInfoHistorial}>
+            {renderCompras && <Purchases/>}
+            {renderVentas && <Sales/>}
+          </div>
+          </div>
+          )}
           {renderMensajes && <Messages />}
         </section>
       </div>
