@@ -9,8 +9,10 @@ import DetailAnuncio from './components/DetailAnuncio/DetailAnuncio';
 import PerfilPublic from './components/PublicPerfil/PerfilPublic';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
+import DashBoardAdmin from './components/DashBoardAdmin/DashBoardAdmin';
 import WhatsAppButton from './components/WhatsappBtn/WhatsappBtn';
-
+import Purchases from './components/Purchase/Purchase';
+import Sales from './components/Sales/Sales'
 function App() {
 
   return (
@@ -21,13 +23,17 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/perfil/:tab" element={<Perfil/>}/>
           <Route path="/preguntas" element={<Faq/>}/>
+          <Route path="/admin" element={<DashBoardAdmin/>}/>
           <Route path="/busqueda" element={<SearchPage/>}/>
           <Route path='/pago/:id' element={<Checkout/>}/>
           <Route path='/detail/:id' element={<UpdatePubli/>}/>
           <Route path='/anuncio/:id' element={<DetailAnuncio/>}/>
           <Route path='/perfilPublico/:id' element={<PerfilPublic/>}/>
           <Route path='/Whatsapp' element={<WhatsAppButton/>}/>
+          <Route path='/compras' element={<Purchases/>}/>
+          <Route path='/sales' element={<Sales/>}/>
           <Route path='*' element={<Home/>}/>
+          <Route path='/user' element={<DashBoardAdmin/>}/>
         </Routes>
         <Footer/>
       </div>

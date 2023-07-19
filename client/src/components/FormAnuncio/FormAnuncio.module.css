@@ -89,6 +89,9 @@
 
 .error {
     color: red;
+    display: flex;
+    position: fixed;
+    margin-top: 1.4%;
 }
 
 /* 
