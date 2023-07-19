@@ -30,7 +30,7 @@ function App() {
           <Route path='/detail/:id' element={<UpdatePubli/>}/>
           <Route path='/anuncio/:id' element={<DetailAnuncio/>}/>
           <Route path='/perfilPublico/:id' element={<PerfilPublic/>}/>
-          <Route path='/Whatsapp' element={<WhatsAppButton/>}/>
+          {/* <Route path='/Whatsapp' element={<WhatsAppButton/>}/> */}
           <Route path='/compras' element={<Purchases/>}/>
           <Route path='/sales' element={<Sales/>}/>
           <Route path='*' element={<Home/>}/>
