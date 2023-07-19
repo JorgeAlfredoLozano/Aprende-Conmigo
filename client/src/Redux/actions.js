@@ -104,44 +104,54 @@ export const getUserById = (id) => {
 }
 
 //______________________________________
-//character  //{  {"name":"Morty"},{"status":"niidea"},{"gender": "femali"}.....}
-export const add_fav = (props, email)=>{
-    
-  const respuesta = `http://localhost:3001/publication/get/${email}`; //url que solo me trae lo que tiene la ruta como componente  
+export const  addFav = (UserId, PublicationId)=> { 
+  //deberia recibir los datos de quien hace el post, que usuario y a que publicacion
+
+    return async (dispatch) => {
+        try {
+          const favorito = {pepitoId: UserId, panchitoId: PublicationId}
+          const response = await axios.post(`http://localhost:3001/fav`, favorito);
+            return dispatch({
+                type: "ADDFAV",
+                payload: response.data
+             });
+
+        } catch (error) {
+          console.log(error)
+        }
+
+    };
+}
+//________________________________________
+export const getAllFav = (UserId)=> {
+  //recibe el id del usuario, sobre este id traeme todos los fav
   return async (dispatch) => {
       try {
-          const {data} = await axios.post(respuesta, props)
-          
-          if(!data.length) throw new Error("No hay favoritos")
-
+        const response = await axios.get(`http://localhost:3001/fav/${UserId}`);
           return dispatch({
-              type: "ADD_FAV",
-              payload: data,
+              type: "GETALLFAV",
+              payload: response,
            });
 
       } catch (error) {
-          console.log(error.message)
+        alert(error.response.data.error)
       }
+
   };
 }
-
-
-
-export const remove_fav= (id)=>{
-  // return{type: REMOVE_FAV, payload: id}
-  const endpoint = `http://localhost:3001/rickandmorty/fav/${id}`;
+//________________________________________
+export const remove_fav= (PublicationId)=>{
+  //recibe el id del favorito osea card a eliminar
   return async (dispatch) => {
       try {
-          const {data}= await axios.delete(endpoint)
-          
-          // if(!data.length) throw new Error("No hay favoritos")
+          const response= await axios.delete(`http://localhost:3001/fav/${PublicationId}`)
 
           return dispatch({
-              type: REMOVE_FAV,
-              payload: data,
+              type: "REMOVE_FAV",
+              payload: response.data
         });
       } catch (error) {
-          console.log(error.message)
+        alert(error.response.data.error)
       }   
   };
 }

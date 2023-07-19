@@ -5,7 +5,7 @@ const initialState = {
   allPublication:[],
   allAnuncios:[],
   userID: null,
-  myFavorites: []
+  myFavorites: [] //all favoritos
   };
 
 const reducer = (state = initialState, {type, payload}) => {
@@ -52,11 +52,20 @@ const reducer = (state = initialState, {type, payload}) => {
     }
 
     //____________________________
-    case "ADD_FAV": return{
+    case "ADDFAV": return{
       ...state,
-      myFavorites:  payload,
-      allPublication:  payload
-   }
+      myFavorites: payload,
+    }
+    //----------------
+    // case "GETALLFAV": return{
+    //   ...state,
+    //   myFavorites: payload,
+    // }
+    //-------------------
+    // case "REMOVE_FAV": return{
+    //   ...state,
+    //   myFavorites: payload,
+    // }
     //____________________________
   default:
     return { ...state };

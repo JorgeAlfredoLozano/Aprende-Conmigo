@@ -93,7 +93,9 @@ const Login = ({ userData, getUser }) => {
                 <Link to='/perfil'>
                   <p className={style.botones}>Mi Perfil</p>
                 </Link>
+               
                 <p className={style.botones}>Favoritos</p>
+                
                 <p onClick={changeDidLog} className={style.botones}>Cerrar Sesión</p>
               </div>
             </div>

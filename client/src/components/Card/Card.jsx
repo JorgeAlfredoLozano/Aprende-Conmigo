@@ -1,12 +1,56 @@
 import style from "./Cards.module.css";
-// import {Link} from "react-router-dom";
+import { addFav, remove_fav } from "../../Redux/actions";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { NavLink } from 'react-router-dom';
 
-//este tipo de component es un down por que es un component presentacional, no tiene una carga como tal mas que solo mostrar algo, osea no maneja logica en si.
-//cada componente independientemente de su trabajo, tiene la posibilidad de manejar un estado local propio suyo, que es para trabajar su propio cuerpo.
-const Card = ({title, value, lesson, about_class, about_teacher, grade}) => {
+
+
+
+const Card = ({id, title, value, lesson, about_class, about_teacher, grade}) => {
+
+  const localStorageContent = localStorage.getItem("cachedUser");
+  const  parser  = JSON.parse(localStorageContent);
+  const user_id = parser.id;
+
+  const dispatch= useDispatch()
+ //console.log("los aidis ->", "usuario ->", user_id, "publi ->", id)//todo oka
+    //_________________________________________________
+    const [isFav, setIsfav] = useState(false);
+
+    const handleFavorite= ()=>{  //esta fn maneja los botones click o no click?
+      //este id es el id de la card
+      
+      if (isFav) {
+        setIsfav(false) 
+        // remove_fav(id)}
+      }
+     else {
+        setIsfav(true) 
+        dispatch(addFav(id, user_id))
+     }
+      };
+      // console.log("estado local isFav ->", isFav)
+
+  // useEffect(() => {
+  //   if (isFav) {
+  //     dispatch(
+  //       addFav({ id, user_id})
+  //     );
+  //   }
+  // }, [dispatch, id, user_id]);
+   
+  
+    //________________________________________________ 
 
     return(
       <div className={style.card_publication}>
+
+      <div className={style.favoriteButton} onClick={handleFavorite}>
+        {isFav ? "❤️" : "🤍"}
+      </div>
+
+ <NavLink to={`/anuncio/${id}`} className={style.details_link}>
       <h4 className={style.title}>{title}</h4>
       <h5 className={style.lesson}>{lesson}</h5>
       <h6 className={style.grade}>{grade.split(',').join(' - ')}</h6>
@@ -19,6 +63,8 @@ const Card = ({title, value, lesson, about_class, about_teacher, grade}) => {
       <div className={style.contvalue}>
       <h6 className={style.value}>💲{value}💸</h6>
       </div>
+ </NavLink>
+
     </div>
     )
   }

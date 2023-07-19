@@ -8,6 +8,7 @@ import PublicationUser from './components/PublicationUser/PublicationUser'
 import UpdatePubli from './components/UpdatePubli/UpdatePubli';
 import DetailAnuncio from './components/DetailAnuncio/DetailAnuncio';
 
+
 function App() {
 
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path='/anuncios' element={<PublicationUser/>}/>
           <Route path='/detail/:id' element={<UpdatePubli/>}/>
           <Route path='/anuncio/:id' element={<DetailAnuncio/>}/>
+        
         </Routes>
       </div>
     </Router>

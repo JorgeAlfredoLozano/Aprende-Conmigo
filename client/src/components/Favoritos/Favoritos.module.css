@@ -1,0 +1,66 @@
+.card_publication {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    cursor: pointer; 
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out; 
+    background-color: #4b4b4b;
+    font-weight: bold;
+    color: #e9e9e9;
+    width: 350px;
+    height: 320px;
+  }
+  .card_publication:hover{
+    transform: scale(1.05);
+    transition: 0.5s ease;
+} 
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  max-width: 300px;
+}
+
+.lesson {
+  font-size: 16px;
+  margin-top: 5px;
+  color: rgb(149, 149, 149);
+  text-align: center;
+}
+
+.about_class,
+.about_teacher{
+  font-size: 12px;
+  margin-top: 3px;
+  color:rgb(255, 255, 255);
+  width: 250px;
+  height: 150px;
+  text-align: center;
+}
+
+.grade {
+  font-size: 9px;
+  margin-top: 3px;
+  color:rgb(149, 149, 149);
+}
+
+.value {
+  text-align: center;
+  color: white;
+}
+
+.abouts {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  margin-bottom: 5px;
+}
