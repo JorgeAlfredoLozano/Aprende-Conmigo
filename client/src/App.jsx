@@ -9,10 +9,7 @@ import DetailAnuncio from './components/DetailAnuncio/DetailAnuncio';
 import PerfilPublic from './components/PublicPerfil/PerfilPublic';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
-<<<<<<< HEAD
 import DashBoardAdmin from './components/DashBoardAdmin/DashBoardAdmin';
-
-=======
 import WhatsAppButton from './components/WhatsappBtn/WhatsappBtn';
 import Purchases from './components/Purchase/Purchase';
 import Sales from './components/Sales/Sales'
