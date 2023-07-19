@@ -1,4 +1,4 @@
-import style from "../CardPublication/CardPublication.module.css"
+import style from "./Sales.module.css"
 import {useEffect } from "react";
 import { useDispatch,useSelector } from "react-redux";
 import {getAllSales} from '../../Redux/actions';
@@ -18,9 +18,9 @@ const Sales =()=>{
     console.log(salesPubli,'1')  /////ELIMINAR CUANDO NO SE USE
     
     return(
-        <div>
-          {salesPubli[0] &&
-           salesPubli.map((pub)=> {
+        <div className={style.container}>
+          {salesPubli[0] ?
+           (salesPubli.map((pub)=> {
             return (<>
             <img src={`${pub.Publication.User.assets}`} alt="not found" />
             <h4 className={`${style.title}`}>{pub.Publication.title}</h4>
@@ -29,7 +29,7 @@ const Sales =()=>{
             <h6 className={`${style.value}`}>${pub.Publication.value}</h6>
       </>
       )}
-      )} 
+      )) : (<h4>Aún no se ha realizado ninguna venta.</h4>)} 
         </div>
  )
 }
