@@ -12,7 +12,8 @@ import Footer from './components/Footer/Footer';
 import DashBoardAdmin from './components/DashBoardAdmin/DashBoardAdmin';
 import WhatsAppButton from './components/WhatsappBtn/WhatsappBtn';
 import Purchases from './components/Purchase/Purchase';
-import Sales from './components/Sales/Sales'
+import Sales from './components/Sales/Sales';
+
 function App() {
 
   return (
