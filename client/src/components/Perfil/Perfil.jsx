@@ -9,6 +9,7 @@ import PublicationUser from "../PublicationUser/PublicationUser";
 import Favoritos from "../Favoritos/Favoritos";
 import Messages from "../Messages/Messages";
 import { useParams } from "react-router";
+import Purchases from '../Purchase/Purchase';
 
 const Perfil = ({ userData, getUser, getAllPublication }) => {
   const { tab } = useParams();
@@ -209,7 +210,7 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
             </div>
           )}
           {renderAnunciosFavoritos && <Favoritos />}
-          {renderHistorial && <p className={style.infoLabel}>Historial</p>}
+          {renderHistorial && <Purchases/>}
           {renderMensajes && <Messages />}
         </section>
       </div>
