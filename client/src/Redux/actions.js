@@ -123,3 +123,13 @@ export const getAllMessages = (id)=>{ // Trae todos los mensajes del usuario ID
    };
 };
 
+export const sendChat = ( send )=>{ // Enviar el chat a la bd
+  return async function(dispatch){
+     const response=await axios.post(`http://localhost:3001/message/sendmessage`, send)
+    return dispatch({
+      type:'SEND_CHAT',
+      payload: response
+    });  
+   };
+};
+
