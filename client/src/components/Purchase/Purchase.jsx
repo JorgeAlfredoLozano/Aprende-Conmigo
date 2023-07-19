@@ -4,8 +4,6 @@ import { useDispatch,useSelector } from "react-redux";
 import {getAllPurchases} from '../../Redux/actions';
 
 const Purchases =()=>{
-  const [renderCompras, setRenderCompras] = useState(false);
-  const [renderVentas, setRenderVentas] = useState(false);
   const localStorageContent = localStorage.getItem("cachedUser");
   const  parser  = JSON.parse(localStorageContent);
     const dispatch = useDispatch();
@@ -19,8 +17,6 @@ const Purchases =()=>{
     
     return(
         <div className={style.container}>
-          <div className={style.compras}>
-            <h3>Compras</h3>
           {boughtPubli[0] ?
            (boughtPubli.map((pub)=> {
             const containerStyle = {
@@ -36,11 +32,7 @@ const Purchases =()=>{
       </div>
       </>
       )}
-      )) : ( <h4>Aún no se ha realizado ninguna compra.</h4>)}</div>
-      <div className={style.ventas}>
-      <h3>Ventas</h3>
-      <h4>Aún no se ha realizado ninguna venta.</h4>
-      </div>
+      )) : ( <h4>Aún no se ha realizado ninguna compra.</h4>)}
         </div>
  )
 }
