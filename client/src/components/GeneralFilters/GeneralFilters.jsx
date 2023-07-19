@@ -26,21 +26,13 @@ function GeneralFilters({ filtro, setFiltro, lesson, setLesson }) {
   const handleSelectNivel = (nivel) => {
     if (selectedNivel === nivel) {
       setSelectedNivel(null);
+      setFiltro(''); // Si se presiona el mismo nivel, deseleccionamos y eliminamos el filtro
     } else {
       setSelectedNivel(nivel);
+      setFiltro(nivel); // Establecemos el filtro según el nivel seleccionado
     }
   };
 
-  const handleClick = (filtroSeleccionado) => {
-    if (selectedNivel === filtroSeleccionado) {
-      handleSelectNivel(null); // Si se presiona el mismo nivel, deseleccionamos
-      setFiltro(''); 
-    } else {
-      handleSelectNivel(filtroSeleccionado); 
-      setFiltro(filtroSeleccionado);
-    }
-  };
-  
   const handleReset = (event) => {
     if (event.target.id === 'nivel') {
       setSelectedNivel(null); // Reseteamos el nivel seleccionado
@@ -51,24 +43,24 @@ function GeneralFilters({ filtro, setFiltro, lesson, setLesson }) {
       setLesson('');
     }
   };
- 
+
   return (
     <div className={style.container}>
       <button
         className={selectedNivel === 'primaria' ? style.selected : ''}
-        onClick={() => seleccionarBoton('primaria')}
+        onClick={() => handleSelectNivel('primaria')}
       >
         Primaria
       </button>
       <button
         className={selectedNivel === 'secundaria' ? style.selected : ''}
-        onClick={() => seleccionarBoton('secundaria')}
+        onClick={() => handleSelectNivel('secundaria')}
       >
         Secundaria
       </button>
       <button
         className={selectedNivel === 'universidad' ? style.selected : ''}
-        onClick={() => seleccionarBoton('universidad')}
+        onClick={() => handleSelectNivel('universidad')}
       >
         Universidad
       </button>
@@ -80,7 +72,6 @@ function GeneralFilters({ filtro, setFiltro, lesson, setLesson }) {
         isSearchable
         placeholder="Busca una materia..."
       />
-
       <button id='materia' onClick={handleReset}>Eliminar Materia</button>
     </div>
   );

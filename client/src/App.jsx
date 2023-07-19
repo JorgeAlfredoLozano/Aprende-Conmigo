@@ -12,11 +12,7 @@ import Footer from './components/Footer/Footer';
 import DashBoardAdmin from './components/DashBoardAdmin/DashBoardAdmin';
 import WhatsAppButton from './components/WhatsappBtn/WhatsappBtn';
 import Purchases from './components/Purchase/Purchase';
-<<<<<<< HEAD
-import Sales from './components/Sales/Sales'
-=======
 import Sales from './components/Sales/Sales';
->>>>>>> 459f1e49fcd9532ed0cb56f555ab42e59da1a054
 
 function App() {
 
