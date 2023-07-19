@@ -9,6 +9,7 @@ import DetailAnuncio from './components/DetailAnuncio/DetailAnuncio';
 import PerfilPublic from './components/PublicPerfil/PerfilPublic';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
+import DashBoardAdmin from './components/DashBoardAdmin/DashBoardAdmin';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
           <Route path='/anuncio/:id' element={<DetailAnuncio/>}/>
           <Route path='/perfilPublico/:id' element={<PerfilPublic/>}/>
           <Route path='*' element={<Home/>}/>
+          <Route path='/user' element={<DashBoardAdmin/>}/>
         </Routes>
         <Footer/>
       </div>

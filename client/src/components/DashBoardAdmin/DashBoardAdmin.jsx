@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import NavBar from '../NavBar/NavBar';
-import Footer from '../Footer/Footer';
-import style from './DashBoardAdmin.module.css';
+import style from '../DashBoardAdmin/DashBoardAdmin.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllAnuncios } from '../../Redux/actions';
 import RestrictedAccess from "../RestrictedAccess/RestrictedAccess"

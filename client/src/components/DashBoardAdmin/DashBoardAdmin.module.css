@@ -1,8 +1,8 @@
-/* .container {
+.container {
   background-color: rgba(242, 242, 242, 0.675);
   flex-direction: column;
   padding: 20%;
-} */
+} 
 
 /* .card {
   border: 1px solid #ccc;
@@ -20,6 +20,6 @@
 
 .card p {
   margin-bottom: 4px;
-} */
+}
 
 /* Agrega más estilos según tus necesidades */
