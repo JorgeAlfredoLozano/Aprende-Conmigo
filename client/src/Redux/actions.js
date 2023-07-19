@@ -1,7 +1,7 @@
 import axios from 'axios';
 //users
 export const checkUserData = (user)=> {
-        axios.post('http://localhost:3001/user/login',  user )       
+  axios.post('http://localhost:3001/user/login',  user )       
 };
 export const putUser = (email, input) => {
    return async function (dispatch) {
@@ -82,6 +82,7 @@ export const getLesson = ()=>{
         });
   };
 };
+//cami
 export const getAllAnuncios = ()=>{
   return async function(dispatch){
      const response=await axios.get(`http://localhost:3001/publication/get/anouncements`)
@@ -100,7 +101,6 @@ export const getUserById = (id) => {
    });  
   };
 }
-
 export const getAssetsById = async (id) => {
   try {
     const response = await axios
@@ -111,7 +111,6 @@ export const getAssetsById = async (id) => {
     throw error;
   }
 };
-
 //Messages
 export const getAllMessages = (id)=>{ // Trae todos los mensajes del usuario ID
   return async function(dispatch){
@@ -122,4 +121,24 @@ export const getAllMessages = (id)=>{ // Trae todos los mensajes del usuario ID
     });  
    };
 };
+//Purchases
+export const sendPurchase = (info)=>{ // Trae todos los mensajes del usuario ID
+  return async function(dispatch){
+     const response=await axios.post(`http://localhost:3001/purchase/`,info)
+    return dispatch({
+      type:'SEND_PURCHASES',
+      payload: response.data
+    });  
+   };
+};
+export const getAllPurchases = (id)=>{ // Trae todos los mensajes del usuario ID
+  return async function(dispatch){
+     const response=await axios.get(`http://localhost:3001/purchase/getuser/${id}`)
+    return dispatch({
+      type:'GET_ALL_PURCHASES',
+      payload: response.data
+    });  
+   };
+};
+
 

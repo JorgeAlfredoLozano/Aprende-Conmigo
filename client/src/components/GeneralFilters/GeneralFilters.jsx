@@ -51,24 +51,24 @@ function GeneralFilters({ filtro, setFiltro, lesson, setLesson }) {
       setLesson('');
     }
   };
-
+ 
   return (
     <div className={style.container}>
       <button
         className={selectedNivel === 'primaria' ? style.selected : ''}
-        onClick={() => handleClick('primaria')}
+        onClick={() => seleccionarBoton('primaria')}
       >
         Primaria
       </button>
       <button
         className={selectedNivel === 'secundaria' ? style.selected : ''}
-        onClick={() => handleClick('secundaria')}
+        onClick={() => seleccionarBoton('secundaria')}
       >
         Secundaria
       </button>
       <button
         className={selectedNivel === 'universidad' ? style.selected : ''}
-        onClick={() => handleClick('universidad')}
+        onClick={() => seleccionarBoton('universidad')}
       >
         Universidad
       </button>
@@ -81,7 +81,6 @@ function GeneralFilters({ filtro, setFiltro, lesson, setLesson }) {
         placeholder="Busca una materia..."
       />
 
-      {/* <button id='nivel' onClick={handleReset}>Eliminar Nivel</button> */}
       <button id='materia' onClick={handleReset}>Eliminar Materia</button>
     </div>
   );
