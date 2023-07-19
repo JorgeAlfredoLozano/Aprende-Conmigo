@@ -28,7 +28,7 @@ const PerfilPublic = () => {
                 <div className={style.anuncio}>
                 <div className={style.imgCont} style={{
                     backgroundImage: `url(${dataPublication.data.assets})`}}>
-                <h1>Nombre: {dataPublication.data.name}</h1>
+                <h1>{dataPublication.data.name}</h1>
                 <h1>Fecha de nacimiento{dataPublication.data.date}</h1>
                 <h1>email: {dataPublication.data.email}</h1>
                 <h1>Certificados: {dataPublication.data.certificate}</h1>

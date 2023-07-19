@@ -1,8 +1,26 @@
-const {Purchase} = require('../../db')
+const {Purchase,Publication,User,Lesson} = require('../../db')
 
 const getBuyUserController = async (id) => {
-    const allPurchase = await Purchase.findAll({where:{UserId:id}})
-    return allPurchase;
-}
+    const allPurchases = await Purchase.findAll({
+        where: { UserId: id },
+        include: [
+            {
+                model: Publication,
+                include: [
+                    {
+                        model: Lesson,
+                        through: { attributes: [] }, // Para excluir los atributos de la tabla intermedia
+                    },
+                    {
+                        model: User, // Include the User model
+                        attributes: ['assets'], // Especifica los atributos que quieres incluir (por ejemplo, la foto)
+                    },
+                ],
+            }
+           
+        ],
+    });
 
+    return allPurchases;
+};
 module.exports = getBuyUserController;

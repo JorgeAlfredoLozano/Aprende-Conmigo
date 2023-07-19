@@ -1,13 +1,19 @@
-const postPurchaseController = require('../../controllers/purchase/postPurchaseController');
+const {postPurchaseController,cheackoutApi} = require('../../controllers/purchase/postPurchaseController');
+const sendmail=require('../../utils/sendmail')
 
-const postPurchaseHandler = async (req,res) => {
-    const {idUser,idPub,hora} = req.body;
+const postPurchaseHandler = async(req,res) => { 
     try {
-        const buy = await postPurchaseController(idUser,idPub,hora);
-        return res.status(200).send("Compra realizada con éxito")
+    const {id,amount,email,datos,idUser,idPub,hora} = req.body
+    const payStripe = await cheackoutApi(id,amount,email,datos);
+    const buy = await postPurchaseController(idUser,idPub,hora);
+    
+    await sendmail('payment',email,datos);
+    res.send({message: 'successfull payment'})
     } catch (error) {
-        return res.status(400).send(error)
+        res.json({message:error.message})
     }
-}
+
+};  
+
 
 module.exports = postPurchaseHandler;

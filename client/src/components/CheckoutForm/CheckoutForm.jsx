@@ -8,17 +8,27 @@ import {useState} from 'react';
 import style from './CheckoutForm.module.css';
 const VITE_API_STRIPE=import.meta.env.VITE_API_STRIPE;
 
+let email = 'none';
+let idUs=0;
+
 const stripePromise = loadStripe(`${VITE_API_STRIPE}`);
-const email = localStorage.getItem("currentUser");
+const localStorageContent = localStorage.getItem("cachedUser")
+const  parser  = JSON.parse(localStorageContent);
+
+if(parser)email=parser.email;
+if(parser)idUs=parser.id;
 
 const CheckoutForm = () => {
 const stripe = useStripe();
 const elements = useElements();
-const navigate=useNavigate();
+const navigate = useNavigate();
 
-const {id}= useParams();
+const params = useParams();
+const idPub = params.id;
 const info=useSelector((state)=>state.allAnuncios.data);
-const infoFiltered=info.filter((inf)=> inf.id===id);
+console.log(info,'1')
+const infoFiltered=info.filter((inf)=> inf.id===idPub);
+console.log(infoFiltered,'2')
 const [horas,setHoras]=useState(1);
 const number=[1,2,3,4,5,6,7,8,9,10];
 
@@ -34,11 +44,14 @@ const {error, paymentMethod} = await stripe.createPaymentMethod({
 })
 if(!error) { 
 const {id} = paymentMethod
-const {data} = await axios.post('http://localhost:3001/user/api/checkout', {
+const {data} = await axios.post('http://localhost:3001/purchase/', {
     id,
     amount:infoFiltered[0].value * horas * 100,
     email,
-    datos:infoFiltered[0]
+    datos: infoFiltered[0],
+    idUser: idUs,
+    idPub: idPub,
+    hora: horas
 })
 elements.getElement(CardElement).clear()
 if(data.message==="successfull payment"){
