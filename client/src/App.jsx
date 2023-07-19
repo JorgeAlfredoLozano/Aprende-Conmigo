@@ -12,7 +12,7 @@ import Footer from './components/Footer/Footer';
 import DashBoardAdmin from './components/DashBoardAdmin/DashBoardAdmin';
 import WhatsAppButton from './components/WhatsappBtn/WhatsappBtn';
 import Purchases from './components/Purchase/Purchase';
-
+import Sales from './components/Sales/Sales'
 function App() {
 
   return (
@@ -31,6 +31,7 @@ function App() {
           <Route path='/perfilPublico/:id' element={<PerfilPublic/>}/>
           <Route path='/Whatsapp' element={<WhatsAppButton/>}/>
           <Route path='/compras' element={<Purchases/>}/>
+          <Route path='/sales' element={<Sales/>}/>
           <Route path='*' element={<Home/>}/>
           <Route path='/user' element={<DashBoardAdmin/>}/>
         </Routes>
