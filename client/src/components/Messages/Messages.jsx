@@ -9,9 +9,16 @@ const Messages = () => {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState("");
   const messages = useSelector((state) => state.messages);
-  const localStorageContent = localStorage.getItem("cachedUser"); //usuario principal
+  const localStorageContent = localStorage.getItem("cachedUser");
   const { id } = JSON.parse(localStorageContent);
   const textareaRef = useRef();
+
+  const scrollChatToBottom = () => {
+    if (textareaRef.current) {
+      const textarea = textareaRef.current;
+      textarea.scrollTop = textarea.scrollHeight;
+    }
+  };
 
   useEffect(() => {
     dispatch(getAllMessages(id));
@@ -19,9 +26,17 @@ const Messages = () => {
     const intervalId = setInterval(() => {
       dispatch(getAllMessages(id));
     }, 5000);
+
+    // Scroll al cargar los mensajes iniciales
     scrollChatToBottom();
+
     return () => clearInterval(intervalId);
   }, [dispatch, id]);
+
+  useEffect(() => {
+    // Scroll cuando se actualizan los mensajes o se selecciona un usuario
+    scrollChatToBottom();
+  }, [messages, selectedUserId]);
 
   const userClickHandler = (userId) => {
     setSelectedUserId(userId);
@@ -79,6 +94,7 @@ const Messages = () => {
         return (
           <div>
             <textarea
+              ref={textareaRef}
               className="chat-textarea"
               style={{ width: "50%", height: "150px" }}
               readOnly
@@ -119,7 +135,6 @@ const Messages = () => {
       message: inputValue,
     };
     dispatch(sendChat(send));
-    scrollChatToBottom();
     setInputValue("");
   };
 
@@ -144,4 +159,3 @@ const Messages = () => {
 };
 
 export default Messages;
-
