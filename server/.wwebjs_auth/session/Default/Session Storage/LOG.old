@@ -1,3 +1,2 @@
-2023/07/19-08:08:26.566 24fc Reusing MANIFEST C:\Users\ramse\Aprende-Conmigo\server\.wwebjs_auth\session\Default\Session Storage/MANIFEST-000001
-2023/07/19-08:08:26.566 24fc Recovering log #3
-2023/07/19-08:08:26.566 24fc Reusing old log C:\Users\ramse\Aprende-Conmigo\server\.wwebjs_auth\session\Default\Session Storage/000003.log 
+2023/07/19-14:38:27.053 4a3c Creating DB C:\Users\prueb\Desktop\PruebaGit\Aprende-Conmigo\server\.wwebjs_auth\session\Default\Session Storage since it was missing.
+2023/07/19-14:38:27.095 4a3c Reusing MANIFEST C:\Users\prueb\Desktop\PruebaGit\Aprende-Conmigo\server\.wwebjs_auth\session\Default\Session Storage/MANIFEST-000001
