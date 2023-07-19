@@ -33,7 +33,7 @@ function GeneralFilters({ filtro, setFiltro, lesson, setLesson }) {
 
   const handleClick = (filtroSeleccionado) => {
     if (selectedNivel === filtroSeleccionado) {
-      handleSelectNivel(null); 
+      handleSelectNivel(null); // Si se presiona el mismo nivel, deseleccionamos
       setFiltro(''); 
     } else {
       handleSelectNivel(filtroSeleccionado); 

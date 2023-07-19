@@ -9,6 +9,7 @@ import UpdatePubli from './components/UpdatePubli/UpdatePubli';
 import DetailAnuncio from './components/DetailAnuncio/DetailAnuncio';
 import Messages from './components/Messages/Messages';
 import PerfilPublic from './components/PublicPerfil/PerfilPublic';
+import DashBoardAdmin from './components/DashBoardAdmin/DashBoardAdmin';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/perfil" element={<Perfil/>}/>
           <Route path="/preguntas" element={<Faq/>}/>
+          <Route path="/admin" element={<DashBoardAdmin/>}/>
           <Route path="/busqueda" element={<SearchPage/>}/>
           <Route path='/pago/:id' element={<Checkout/>}/>
           <Route path='/anuncios' element={<PublicationUser/>}/>
