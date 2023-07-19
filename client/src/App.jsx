@@ -9,13 +9,10 @@ import DetailAnuncio from './components/DetailAnuncio/DetailAnuncio';
 import PerfilPublic from './components/PublicPerfil/PerfilPublic';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
-<<<<<<< HEAD
 import DashBoardAdmin from './components/DashBoardAdmin/DashBoardAdmin';
-
-=======
 import WhatsAppButton from './components/WhatsappBtn/WhatsappBtn';
 import Purchases from './components/Purchase/Purchase';
->>>>>>> 5410da719aede93caec97e901711953c5f5b8383
+import Sales from './components/Sales/Sales'
 function App() {
 
   return (
@@ -34,6 +31,7 @@ function App() {
           <Route path='/perfilPublico/:id' element={<PerfilPublic/>}/>
           <Route path='/Whatsapp' element={<WhatsAppButton/>}/>
           <Route path='/compras' element={<Purchases/>}/>
+          <Route path='/sales' element={<Sales/>}/>
           <Route path='*' element={<Home/>}/>
           <Route path='/user' element={<DashBoardAdmin/>}/>
         </Routes>
