@@ -150,8 +150,6 @@ export const getAllSales = (id)=>{ // Trae todas las ventas de un usuario(profe)
     });  
    };
 };
-
-
 export const sendChat = ( send )=>{ // Enviar el chat a la bd
   return async function(dispatch){
      const response=await axios.post(`http://localhost:3001/message/sendmessage`, send)
@@ -161,4 +159,13 @@ export const sendChat = ( send )=>{ // Enviar el chat a la bd
     });  
    };
 };
-
+//Reviews
+export const getReviews = ( idPub )=>{ // traer las reviews de una publi
+  return async function(dispatch){
+     const response=await axios.get(`http://localhost:3001/review/get/`+ idPub)
+    return dispatch({
+      type:'GET_REVIEWS',
+      payload: response
+    });  
+   };
+};
