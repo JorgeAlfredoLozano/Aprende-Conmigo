@@ -70,4 +70,4 @@ process.on('SIGINT', () => {
 
 
 
-//client.initialize();
+client.initialize();
