@@ -67,7 +67,7 @@ process.on('SIGINT', () => {
     process.exit(0);
 });
 
->>>>>>> c1c50b7b9c5287950f9357f2e4a2b024aa4f3f1b
+// c1c50b7b9c5287950f9357f2e4a2b024aa4f3f1b
 
 
 
