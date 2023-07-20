@@ -15,6 +15,18 @@ const Login = ({ userData, getUser }) => {
   const [logged, setLogged] = useState(false);
   const [showLogoutButton, setShowLogoutButton] = useState(false);
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('currentUser'));
+  const [admin, setAdmin] = useState(false);
+
+  const user = localStorage.getItem('cachedUser');
+  const userObject = JSON.parse(user);
+  
+  useEffect(() => {
+    if (userObject && userObject.admin === true) {
+      setAdmin(true);
+    } else {
+      setAdmin(false);
+    }
+  }, [userObject]);
 
   const navigate = useNavigate();
   const panelRef = useRef(null);
@@ -108,6 +120,7 @@ const Login = ({ userData, getUser }) => {
           {showLogoutButton && (
             <div className={style.panel}>
               <div ref={panelRef} className={style.desplegable} onClick={() => setShowLogoutButton(!showLogoutButton)} >
+                {admin && <Link to='/admin'><p className={style.botones}>Panel de Control</p></Link>}
                 <Link to='/perfil/profile'><p className={style.botones}>Mi Perfil</p></Link>
                 <Link to='/perfil/anunciosfav'><p className={style.botones}>Favoritos</p></Link>
                 <p onClick={changeDidLog} className={style.botones}>Cerrar Sesión</p>

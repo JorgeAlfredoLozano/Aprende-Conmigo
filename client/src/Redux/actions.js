@@ -162,3 +162,12 @@ export const sendChat = ( send )=>{ // Enviar el chat a la bd
    };
 };
 
+export const getAllUser= ()=>{
+  return async function(dispatch){
+     const response=await axios.get(`http://localhost:3001/user/alluser`)
+    return dispatch({
+      type:'GET_ALL_USERS',
+      payload: response
+    });  
+   };
+};
