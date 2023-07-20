@@ -1,9 +1,7 @@
 const qrcode = require('qrcode-terminal');
 const tmp = require('tmp');
 const fs = require('fs');
-
 const { Client } = require('whatsapp-web.js');
-
 
 const tmpAuthFile = tmp.fileSync();
 let sessionData = {};

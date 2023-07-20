@@ -7,7 +7,6 @@ const Stars = ({ rating }) => {
     <div>
       {Array.from({ length: 5 }).map((_, index) => (
         <span key={index}>
-          {console.log(index)}
           {index + 1 <= rating ? (
             <i className="fas fa-star"  style={{color:' rgba(227, 209, 43, 0.94)'}}></i>
           ) : index < rating  ? (

@@ -4,7 +4,6 @@ import {useDispatch,useSelector} from 'react-redux';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Stars from './Stars';
 const Review =({idPub})=>{
-    console.log(idPub)
     const dispatch = useDispatch();
    
     useEffect(() => {
@@ -12,19 +11,15 @@ const Review =({idPub})=>{
     }, [dispatch]);
 
     const review = useSelector((state)=>state.reviews.data)
-    console.log(review)
         let promedio=0;
-    if(review){
-            
+    if(review){  
             for (let i = 0; i < review.length; i++) {
               promedio = promedio + review[i].rating
             }
             promedio /= review.length
             promedio.toFixed(1)
-            console.log(promedio)
-        }
-     
-     
+            
+        }   
     return(
        
         <div >
@@ -42,8 +37,7 @@ const Review =({idPub})=>{
                  <Stars rating={rev.rating}/> 
                 <p>{rev.comment}</p>
             </div> 
-            )
-           
+            )   
             })}
         </div>
  )

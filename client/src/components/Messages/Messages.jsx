@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllMessages, getUserById, sendChat } from "../../Redux/actions";
+import { getAllMessages, sendChat, putSeen } from "../../Redux/actions";
 import axios from "axios";
 
 const Messages = () => {
@@ -39,6 +39,7 @@ const Messages = () => {
   }, [messages, selectedUserId]);
 
   const userClickHandler = (userId) => {
+    dispatch(putSeen(userId, id));
     setSelectedUserId(userId);
   };
 
@@ -50,28 +51,32 @@ const Messages = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const uniqueReceiverIds = new Set();
-
+      const users = {};
+      
       messages.forEach((messageGroup) => {
         const userReceiverId = getUserReceiverId(messageGroup);
-        if (userReceiverId) uniqueReceiverIds.add(userReceiverId);
+        if (userReceiverId) {
+          users[userReceiverId] = users[userReceiverId] || { count: 0, info: null };
+          if (!messageGroup.some((message) => message.seen)) {
+            users[userReceiverId].count++;
+          }
+        }
       });
 
-      const receiverIds = Array.from(uniqueReceiverIds);
-      const users = [];
+      const receiverIds = Object.keys(users);
+      const usersInfo = [];
 
       for (const receiverId of receiverIds) {
         try {
-          const response = await axios.get(
-            `http://localhost:3001/user/get/${receiverId}`
-          );
-          users.push(response.data);
+          const response = await axios.get(`http://localhost:3001/user/get/${receiverId}`);
+          const user = response.data;
+          usersInfo.push({ ...user, unreadMessages: users[receiverId].count });
         } catch (error) {
           console.log(error);
         }
       }
 
-      setUserList(users);
+      setUserList(usersInfo);
     };
 
     fetchUsers();
@@ -83,7 +88,7 @@ const Messages = () => {
     }
     return userList.map((user) => (
       <li key={user.id} onClick={() => userClickHandler(user.id)}>
-        {user.name}
+        {user.name} {user.unreadMessages > 0 && <span>({user.unreadMessages} mensajes no leídos)</span>}
       </li>
     ));
   };
