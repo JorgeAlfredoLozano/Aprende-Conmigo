@@ -1,22 +1,37 @@
-
 const qrcode = require('qrcode-terminal');
+const tmp = require('tmp');
+const fs = require('fs');
 
-//Crea una sesión con whatsapp-web y la guarda localmente para autenticarse solo una vez por QR
-const { Client, LocalAuth, } = require('whatsapp-web.js');
+const { Client, LocalAuth } = require('whatsapp-web.js');
+
+const tmpAuthFile = tmp.fileSync();
+let sessionData = {};
+
+if (fs.existsSync(tmpAuthFile.name)) {
+  const fileContent = fs.readFileSync(tmpAuthFile.name, 'utf8');
+  if (fileContent) {
+    try {
+      sessionData = JSON.parse(fileContent);
+    } catch (err) {
+      console.error('Error al analizar el archivo JSON:', err);
+    }
+  }
+}
+
 const client = new Client({
-    authStrategy: new LocalAuth()
+  sessionData,
+  authStrategy: new LocalAuth({ sessionData })
 });
 
 //Genera el código qr para conectarse a whatsapp-web
 client.on('qr', qr => {
-    qrcode.generate(qr, {small: true});
+  qrcode.generate(qr, { small: true });
 });
 
 //Si la conexión es exitosa muestra el mensaje de conexión exitosa
 client.on('ready', () => {
-    console.log('Conexion exitosa nenes');
+  console.log('Conexion exitosa nenes');
 });
-
 
 //Aquí sucede la magia, escucha los mensajes y aquí es donde se manipula lo que queremos que haga el bot
 client.on('message', message => {
@@ -47,6 +62,10 @@ client.on('message', message => {
 	}
 });
 
+process.on('SIGINT', () => {
+    fs.writeFileSync(tmpAuthFile.name, JSON.stringify(client.options.sessionData), 'utf8');
+    process.exit(0);
+});
 
 
 
