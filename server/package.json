@@ -4,9 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "nodemon -L &&  node src/whatsapp.js" ,  
+        "start": "nodemon -L &&  node src/whatsapp.js",
         "deploy": "node ./index.js",
-        "startcomentarioestovaenelstartparaelchat" : " && node src/whatsapp.js "
+        "startcomentarioestovaenelstartparaelchat": " && node src/whatsapp.js "
     },
     "dependencies": {
         "@sendgrid/mail": "^7.7.0",
