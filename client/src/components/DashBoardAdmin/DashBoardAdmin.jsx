@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import style from '../DashBoardAdmin/DashBoardAdmin.module.css';
-//import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 //import { getAllAnuncios } from '../../Redux/actions';
 import RestrictedAccess from "../RestrictedAccess/RestrictedAccess"
 
@@ -9,6 +9,8 @@ const DashBoardAdmin = () => {
 const [admin, setAdmin] = useState(false);
 const user = localStorage.getItem('cachedUser');
 const userObject = JSON.parse(user);
+
+const dispatch = useDispatch();
 
 useEffect(() => {
     if (userObject && userObject.admin === true) {
@@ -22,9 +24,10 @@ useEffect(() => {
         <div>
         {admin ? (
             <div className={style.container}>
-            <h1>DashBoardAdmin</h1>
+            <h1>Panel de control</h1>
             <h4>anuncios generales</h4>
             <hr />
+
         </div>
         ) : (<RestrictedAccess/>) }
       </div>  
