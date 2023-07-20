@@ -42,23 +42,28 @@ const Messages = () => {
     setSelectedUserId(userId);
   };
 
+  // Función para obtener el ID del remitente o destinatario dependiendo del mensaje
+  const getUserReceiverId = (messageGroup) => {
+    const userReceiver = messageGroup.find((message) => message.idSend !== id);
+    return userReceiver ? userReceiver.idSend : messageGroup[0].idReceived;
+  };
+
   useEffect(() => {
     const fetchUsers = async () => {
-      const uniqueSenders = new Set();
+      const uniqueReceiverIds = new Set();
 
       messages.forEach((messageGroup) => {
-        messageGroup.forEach((message) => {
-          if (message.idSend !== id) uniqueSenders.add(message.idSend);
-        });
+        const userReceiverId = getUserReceiverId(messageGroup);
+        if (userReceiverId) uniqueReceiverIds.add(userReceiverId);
       });
 
-      const senderIds = Array.from(uniqueSenders);
+      const receiverIds = Array.from(uniqueReceiverIds);
       const users = [];
 
-      for (const senderId of senderIds) {
+      for (const receiverId of receiverIds) {
         try {
           const response = await axios.get(
-            `http://localhost:3001/user/get/${senderId}`
+            `http://localhost:3001/user/get/${receiverId}`
           );
           users.push(response.data);
         } catch (error) {
@@ -73,6 +78,9 @@ const Messages = () => {
   }, [messages, id]);
 
   const renderUserList = () => {
+    if (userList.length === 0) {
+      return <p>No hay usuarios con mensajes</p>;
+    }
     return userList.map((user) => (
       <li key={user.id} onClick={() => userClickHandler(user.id)}>
         {user.name}
@@ -85,9 +93,12 @@ const Messages = () => {
   };
 
   const renderSelectedUserChat = () => {
+    if (messages.length === 0) {
+      return <p>No hay mensajes disponibles</p>;
+    }
     if (selectedUserId) {
-      const userMessages = messages.find((messageGroup) =>
-        messageGroup.some((message) => message.idSend === selectedUserId)
+      const userMessages = messages.find(
+        (messageGroup) => getUserReceiverId(messageGroup) === selectedUserId
       );
 
       if (userMessages) {
@@ -147,9 +158,9 @@ const Messages = () => {
       <div className="message-container">
         <div className="chat">
           <h2>
-            Chat con (
+            Chat con{" "}
             {selectedUserId &&
-              userList.find((user) => user.id === selectedUserId)?.name})
+              userList.find((user) => user.id === selectedUserId)?.name}
           </h2>
           {renderSelectedUserChat()}
         </div>
