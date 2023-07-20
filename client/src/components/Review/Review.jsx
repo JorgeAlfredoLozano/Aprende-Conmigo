@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import {useDispatch,useSelector} from 'react-redux';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Stars from './Stars';
+import style from './Review.module.css';
+
 const Review =({idPub})=>{
     const usuario = localStorage.getItem('cachedUser')
     const idUser = JSON.parse(usuario).id;
@@ -70,13 +72,34 @@ const Review =({idPub})=>{
      
     return(
        
-        <div >
+        <div className={style.container}>
          
-           {review && <div>
-                <h1>Reseñas del anuncio:</h1>
+           {review && <div className={style.boxa}>
+                <h4>Valoración</h4>
                 <Stars editable={false} rating={promedio}/>
                 <span>{review.length} opiniones</span>
-                <button id='renderizar' onClick={(event) => handleReviewComment(event)}>Añadir reseña</button>
+            </div>}
+            {review && review.map((rev)=>{  
+            return (
+            <div className={style.reviewsContainer}>
+              <h4>Reseñas</h4>
+              <div className={style.commentContainer}>
+                <div className={style.cardComment}>
+                  <div className={style.imageContainer}>
+                <img className={style.image} src={rev.User.assets} alt="no image..." />
+                </div>
+                <div className={style.textoContainer}>
+                <p className={style.name}>{rev.User.name}</p>
+                 <Stars editable={false} rating={rev.rating}/> 
+                <p className={style.comment}>{rev.comment}</p>
+                </div>
+                </div>
+                </div>
+            </div> 
+            )
+           
+            })}
+            <button className={style.botonReseña} id='renderizar' onClick={(event) => handleReviewComment(event)}>Añadir reseña</button>
                 {renderReviewInput && (
                     <div>
                         <textarea placeholder='Escribe tu reseña...' id='comment' value={comment} onChange={(event) => handleComment(event)}/>
@@ -85,18 +108,6 @@ const Review =({idPub})=>{
                         <button id='cancelar' onClick={(event) => handleReviewComment(event)}>Cancelar</button>
                     </div>
                 )}
-            </div>}
-            {review && review.map((rev)=>{  
-            return (
-            <div>
-                <img src={rev.User.assets} alt="no image..." />
-                <strong>{rev.User.name}</strong>
-                 <Stars editable={false} rating={rev.rating}/> 
-                <p>{rev.comment}</p>
-            </div> 
-            )
-           
-            })}
         </div>
  )
 }
