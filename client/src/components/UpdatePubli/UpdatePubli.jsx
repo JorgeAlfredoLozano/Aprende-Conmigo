@@ -1,14 +1,12 @@
 import { useState,useEffect } from "react";
 import { useDispatch,useSelector } from "react-redux";
 import {updateAnuncio,getLesson} from '../../Redux/actions';
-import { useParams, useNavigate} from 'react-router-dom';
 import style from './UpdatePubli.module.css';
 
 const UpdatePubli = (props) => {
   const dispatch=useDispatch();
-  const navigate=useNavigate();
   const datoPublication = useSelector((state) => state.allPublication); //Estado de todas la publicaciones
-  const {id}=useParams();
+  const id = props.updateId;
   const datoId=datoPublication.data.filter((el)=>el.id===id)[0] //Avisos del usuario ID
   useEffect(()=>{
     dispatch(getLesson());    
@@ -33,10 +31,10 @@ const UpdatePubli = (props) => {
         const boton = event.target.name
         if (boton === 'actualizar') { 
             dispatch(updateAnuncio(id, input)) 
-            alert("Aviso actualizada con exito!!")
-            navigate('/perfil/anuncios')
+            alert("¡Publicación actualizada con éxito!")
+            props.setRenderUpdatePubli(false)
         } else if (boton === 'volver') {
-            navigate('/perfil/anuncios')
+          props.setRenderUpdatePubli(false)
         };
   }
     

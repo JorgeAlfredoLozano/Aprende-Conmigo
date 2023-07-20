@@ -11,6 +11,7 @@ import Messages from "../Messages/Messages";
 import { useParams } from "react-router";
 import Purchases from '../Purchase/Purchase';
 import Sales from '../Sales/Sales';
+import UpdatePubli from '../UpdatePubli/UpdatePubli';
 
 const Perfil = ({ userData, getUser, getAllPublication }) => {
   const { tab } = useParams();
@@ -35,8 +36,10 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   const [renderFormAnuncio, setRenderFormAnuncio] = useState(false);
   const [submitFormAnuncio, setSubmitFormAnuncio] = useState(false);
   const [renderMensajes, setRenderMensajes] = useState(false);
-  const [renderCompras, setRenderCompras] = useState(false);
+  const [renderCompras, setRenderCompras] = useState(true);
   const [renderVentas, setRenderVentas] = useState(false);
+  const [renderUpdatePubli, setRenderUpdatePubli] = useState(false);
+  const [updateId, setUpdateId] = useState(null)
 
   useEffect(() => {
     if (tab === 'profile') {
@@ -163,16 +166,17 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
     }
   }, [submitFormAnuncio, getAllPublication, currentUser]);
 
+  const formId = (data) => {
+    const id = data;
+    if (id) setUpdateId(id)
+  }
+  
   return (
     <div>
       <div className={style.contenedorPerfil}>
         <div className={style.contenedorTabs}>
-          <p id='profile' onClick={changeTab} className={renderProfile ? `${style.tabs} ${style.active}` : style.tabs}>
-            Mi perfil
-          </p>
-          <p id='anuncios' onClick={changeTab} className={renderAnuncios ? `${style.tabs} ${style.active}` : style.tabs}>
-            Anuncios
-          </p>
+          <p id='profile' onClick={changeTab} className={renderProfile ? `${style.tabs} ${style.active}` : style.tabs}>Mi perfil</p>
+          <p id='anuncios' onClick={changeTab} className={renderAnuncios ? `${style.tabs} ${style.active}` : style.tabs}>Anuncios</p>
           <p
             id='anunciosfav'
             onClick={changeTab}
@@ -211,15 +215,19 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
           {renderAnuncios && (
             <div>
               <div className={style.containerAnuncios}>
-                <section className={style.crearAnuncio}>
-                  <button onClick={createAnuncio}>Crear Anuncio</button>
-                </section>
-                <section className={style.cards}>
-                  <PublicationUser submitFormAnuncio={submitFormAnuncio} />
-                </section>
+                <div className={style.crearAnuncio}>
+                  <p className={style.panuncio} onClick={createAnuncio}>Crear Anuncio</p>
+                </div>
+                <hr className={style.hr}></hr>
+                <div className={style.cards}>
+                  <PublicationUser formId={formId} renderUpdatePubli={renderUpdatePubli} setRenderUpdatePubli={setRenderUpdatePubli} submitFormAnuncio={submitFormAnuncio} />
+                </div>
               </div>
               {renderFormAnuncio && (
                 <FormAnuncio isVisible={renderFormAnuncio} onCancel={cancelarFormAnuncio} onSubmit={handleFormSubmitAnuncio} />
+              )}
+              {renderUpdatePubli && (
+              <UpdatePubli isVisible={renderUpdatePubli} renderUpdatePubli={renderUpdatePubli} setRenderUpdatePubli={setRenderUpdatePubli} updateId={updateId}/>
               )}
             </div>
           )}

@@ -1,9 +1,0 @@
-[0719/181111.138:ERROR:backend_impl.cc(1041)] Critical error found -8
-[0719/181111.139:ERROR:entry_impl.cc(1076)] No file for c103002e
-[0719/181111.185:WARNING:storage_block-inl.h(147)] Failed data load.
-[0719/181114.205:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.", source:  (0)
-[0719/181114.205:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
-[0719/181121.171:INFO:CONSOLE(7)] "Another connection wants to delete database 'wawc'. Closing db now to resume the delete request.", source: https://web.whatsapp.com/vendor1~app.be50aaad33253076fc3f.js (7)
-[0719/181121.218:ERROR:sandbox_origin_database.cc(190)] SandboxOriginDatabase failed at: Init@storage/browser/file_system/sandbox_origin_database.cc:94 with error: Corruption: 1 missing files; e.g.: C:\Users\punto\Aprende-Conmigo\server\.wwebjs_auth\session\Default\File System\Origins/000004.ldb
-[0719/181121.218:WARNING:sandbox_origin_database.cc(106)] Attempting to repair SandboxOriginDatabase.
-[0719/181124.369:WARNING:sandbox_origin_database.cc(113)] Repairing SandboxOriginDatabase completed.

@@ -1,7 +1,7 @@
 .x {
     position: fixed;
     top: 20%;
-    left: 12%;
+    left: 20%;
     background-color: rgba(242, 242, 242, 0.675);
     backdrop-filter: blur(4px);
     display: flex;
@@ -31,7 +31,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 500px;
+    width: 290px;
     gap: 25px;
 }
 
@@ -103,7 +103,7 @@ cancelar */
 
 /*////////////////////////animaciones//////////////////////////*/
 
-/* .fadeIn {
+.fadeIn {
     animation: fadeInAnimation 0.3s ease-in-out;
   }
   
@@ -119,4 +119,4 @@ cancelar */
   @keyframes fadeOutAnimation {
     0% { opacity: 1; transform: translateY(0); }
     100% { opacity: 0; transform: translateY(-10px); }
-  } */
+  }

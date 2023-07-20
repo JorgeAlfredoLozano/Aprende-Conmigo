@@ -32,6 +32,7 @@
 // 		client.sendMessage(message.from, 'aqui esta tu ayuda puta .l., escribe jorge ahora anda necesitas un consejo');
 // 	}
 // });
+<<<<<<< HEAD
 
 // client.on('message', message => {
 //     console.log(message.body);
@@ -48,6 +49,28 @@
 // });
 
 
+=======
+
+// client.on('message', message => {
+//     console.log(message.body);
+// 	if(message.body === 'bachir') {
+// 		client.sendMessage(message.from, 'https://www.linkedin.com/in/bachir-nasser-83b1b3263/');
+// 	}
+// });
+
+// client.on('message', message => {
+//     console.log(message.body);
+// 	if(message.body === 'jorge') {
+// 		client.sendMessage(message.from, 'tomaa fernet. ');
+// 	}
+// });
+
+process.on('SIGINT', () => {
+    fs.writeFileSync(tmpAuthFile.name, JSON.stringify(client.options.sessionData), 'utf8');
+    process.exit(0);
+});
+
+>>>>>>> c1c50b7b9c5287950f9357f2e4a2b024aa4f3f1b
 
 
 

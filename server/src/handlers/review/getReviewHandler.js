@@ -1,7 +1,7 @@
 const getReviewController = require('../../controllers/review/getReviewController');
 
 const getReviewHandler = async (req,res) => { 
-        const {idPub}=req.body
+        const {idPub}=req.params
     try {
         const review = await getReviewController(idPub);
         return res.status(200).send(review)

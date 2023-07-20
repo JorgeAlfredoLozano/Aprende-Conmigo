@@ -34,15 +34,22 @@
   .imagen {
     flex-direction: column;
     align-items: center;
-    gap: 3em;
+    gap: 1em;
   }
 
   .contenedorInfo {
     flex: 1.5;
     background-color: rgb(189, 189, 189);
     justify-content: center;
-    padding-top: 3%;
+    padding-top: 5%;
     gap: 5em;
+    max-height: 100vh;
+    overflow: scroll;
+    -ms-overflow-style: none;
+  }
+
+  .contenedorInfo::-webkit-scrollbar {
+    display: none;
   }
 
   .infoLabel {
@@ -62,20 +69,30 @@
   }
 
   .containerAnuncios {
-    margin-bottom: 5%;
-  }
-
-  .crearAnuncio {
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  .contenedorHistorial {
+    margin-top: -3.3%;
     display: flex;
     flex-direction: column;
     width: 100%;
+    padding-bottom: 5%;
+  }
+
+  .crearAnuncio {
+    display: flex;
+    flex-direction: row;
+    flex: 0.1;
+    place-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+    padding: 1%;
+  }
+
+  .contenedorHistorial {
     margin-top: -3.6%;
+    display: flex;
+    flex-direction: column;
+    width: 99.4%;
+    padding-bottom: 5%;
   }
 
   .contenedorTabsHistorial {
@@ -90,6 +107,13 @@
   }
 
   .contenedorInfoHistorial {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+  }
+
+  .cards {
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -114,4 +138,18 @@
     padding: 0%;
     margin: 0%;
     border-width: thick;
+  }
+
+  .panuncio {
+    margin: 0%;
+    padding: 1%;
+    border-radius: 10px;
+    font-weight: bolder;
+  }
+
+  .panuncio:hover {
+    border-radius: 10px;
+    background-color: rgba(151, 151, 151, 0.493);
+    transition: 0.2s linear;
+    cursor: pointer;
   }

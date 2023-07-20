@@ -2,8 +2,8 @@ import style from './DetailAnuncio.module.css';
 import { useParams, Link, useNavigate } from "react-router-dom"; // Importa useNavigate
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllAnuncios, getUserById, sendChat } from "../../Redux/actions";
-
+import { getAllAnuncios, getUserById } from "../../Redux/actions";
+import Review from '../Review/Review'
 const DetailAnuncio = () => {
     const localStorageContent = localStorage.getItem("cachedUser"); //usuario principal
     const  parser  = JSON.parse(localStorageContent);
@@ -66,32 +66,19 @@ const DetailAnuncio = () => {
          {idLog ? 
          (
           idLog !== filteredData[0].UserId ? 
-              ( <>
-                                <Link to={`/pago/${id}`}>
-                                    <button>Contratar este profesor</button>
-                                </Link>
-                                
-                                {showInput ? (
-                                    <>
-                                        <input type="text" placeholder="Escribe tu mensaje" value={inputValue} onChange={handleChange}/>
-                                        <button onClick={handleEnviarMensaje}>Enviar</button>
-                                        {messageSent ? (
-                                            <p>Mensaje enviado correctamente.</p>
-                                            
-                                        ) : (
-                                            <p>No se pudo enviar el mensaje vacío.</p>
-                                        )}
-                                    </>
-                                ) : (
-                                    <button onClick={() => setShowInput(true)}>Enviar Mensaje</button>
-                                )}
-                </>
+  (
+    <Link to={`/pago/${id}`}>
+      <button>Contratar este profesor</button>
+    </Link>
+    
     ) : (
       <p>No puedes comprarte a ti mismo.</p>
    )
 ) : (
   <p>No puedes contratar a este profesor. Debes estar logueado.</p>
 )}
+<Review idPub={id}/>
+
             </div>
             {filteredData && userTeacher && (
             <section className={style.about}>

@@ -9,28 +9,33 @@ const Sales =()=>{
   const  parser  = JSON.parse(localStorageContent);
     const dispatch = useDispatch();
     const {id}=parser;
-    console.log(id)
+    
     useEffect(() => {
       dispatch(getAllSales(id));
   }, [dispatch]);
 
     const salesPubli = useSelector((state) => state.sales);
-    console.log(salesPubli,'1')  /////ELIMINAR CUANDO NO SE USE
     
     return(
-        <div className={style.container}>
-          {salesPubli[0] ?
-           (salesPubli.map((pub)=> {
-            return (<>
-            <img src={`${pub.Publication.User.assets}`} alt="not found" />
-            <h4 className={`${style.title}`}>{pub.Publication.title}</h4>
-            <h5 className={`${style.lesson}`}>{pub.Publication.Lessons[0].lesson_name}</h5>
-            <h6 className={`${style.grade}`}>{pub.Publication.grade}</h6>
-            <h6 className={`${style.value}`}>${pub.Publication.value}</h6>
-      </>
-      )}
-      )) : (<h4>Aún no se ha realizado ninguna venta.</h4>)} 
-        </div>
+      <div className={style.container}>
+      {salesPubli[0] ?
+       (salesPubli.map((pub)=> {
+        return (<>
+        <div className={style.card_publication}>
+          <div className={style.boxfecha}>
+          <p className={style.fecha}>{pub.datePurchase}</p>
+          </div>
+        <div className={style.boxtitulo}>
+     <h4 className={`${style.title}`}>{pub.Publication.title}</h4>
+  <h5 className={`${style.lesson}`}>{pub.Publication.Lessons[0].lesson_name}</h5>
+  </div>
+  {/* <h6 className={`${style.grade}`}>{pub.Publication.grade.split(",").join(" - ")}</h6> */}
+  <h6 className={`${style.value}`}>${pub.Publication.value}</h6>
+  </div>
+  </>
+  )}
+  )) : ( <h4 className={style.none}>Aún no se ha realizado ninguna venta.</h4>)}
+    </div>
  )
 }
 export default Sales;

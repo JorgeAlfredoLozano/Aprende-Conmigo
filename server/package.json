@@ -4,8 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "nodemon -L && node src/whatsapp.js",
-        "deploy": "node ./index.js"
+        "start": "nodemon -L",  
+        "deploy": "node ./index.js",
+        "startcomentarioestovaenelstartparaelchat" : " && node src/whatsapp.js "
     },
     "dependencies": {
         "@sendgrid/mail": "^7.7.0",
@@ -26,6 +27,7 @@
         "qrcode-terminal": "^0.12.0",
         "sequelize": "^6.32.1",
         "stripe": "^12.12.0",
+        "tmp": "^0.2.1",
         "whatsapp-web.js": "^1.21.0"
     }
 }

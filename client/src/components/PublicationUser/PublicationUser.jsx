@@ -4,7 +4,7 @@ import CardPublication from '../CardPublication/CardPublication';
 import { getAllPublication } from '../../Redux/actions';
 import style from "./Publication.module.css"
 
-const PublicationUser = ({ submitFormAnuncio }) => {
+const PublicationUser = ({ submitFormAnuncio, renderUpdatePubli, setRenderUpdatePubli, formId }) => {
   const dispatch = useDispatch();
   const email = localStorage.getItem('currentUser');
   const datoPublication = useSelector((state) => state.allPublication);
@@ -27,7 +27,11 @@ const PublicationUser = ({ submitFormAnuncio }) => {
                 about_class={card.about_class}
                 about_teacher={card.about_teacher}
                 grade={card.grade}
-                status={card.status}/>
+                status={card.status}
+                renderUpdatePubli={renderUpdatePubli}
+                setRenderUpdatePubli={setRenderUpdatePubli}
+                formId={formId}
+                />
             </div>
 
           ) 
