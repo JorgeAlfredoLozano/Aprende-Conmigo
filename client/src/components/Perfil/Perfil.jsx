@@ -220,8 +220,9 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
             <div>
               <div className={style.containerAnuncios}>
                 <div className={style.crearAnuncio}>
-                  <button onClick={createAnuncio}>Crear Anuncio</button>
+                  <p className={style.panuncio} onClick={createAnuncio}>Crear Anuncio</p>
                 </div>
+                <hr className={style.hr}></hr>
                 <div className={style.cards}>
                   <PublicationUser formId={formId} renderUpdatePubli={renderUpdatePubli} setRenderUpdatePubli={setRenderUpdatePubli} submitFormAnuncio={submitFormAnuncio} />
                 </div>
