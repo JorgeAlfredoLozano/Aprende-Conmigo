@@ -17,7 +17,7 @@ const Review =({idPub})=>{
         dispatch(getAllPurchases(idUser))
     }, [dispatch]);
 
-    const review = useSelector((state)=>state.reviews.data);
+    const review = useSelector((state)=>state.reviews.data); console.log(review);
     const purchases = useSelector((state)=>state.purchases);
 
     let promedio = 0;
@@ -36,8 +36,11 @@ const Review =({idPub})=>{
         const boton = event.target.id;
 
         if (boton === 'renderizar') {
-        if (review.map(item => item.UserId.includes(idUser))) {
+        if (review.map(item => item.UserId.includes(idUser)) === true) {
             alert('Ya has creado una reseña para esta publicación.')
+        } else if (purchases.map(item => item.PublicationId).includes(idPub) === false) {
+            alert('Debes comprar la clase para dejar una reseña.')
+            setRenderReviewInput(false);
         } else {
             setRenderReviewInput(true);
         }
@@ -49,9 +52,6 @@ const Review =({idPub})=>{
                 const puntos = rating.toString()
                 dispatch(postReview(comment, puntos, idPub, idUser));
                 alert('¡Reseña creada con éxito!');
-                setRenderReviewInput(false);
-            } else {
-                alert('Debes comprar la clase para dejar una reseña.')
                 setRenderReviewInput(false);
             }
 
