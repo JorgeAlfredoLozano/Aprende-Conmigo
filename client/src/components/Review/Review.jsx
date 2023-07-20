@@ -17,12 +17,12 @@ const Review =({idPub})=>{
         dispatch(getAllPurchases(idUser))
     }, [dispatch]);
 
-    const review = useSelector((state)=>state.reviews.data); console.log(review);
+    const review = useSelector((state)=>state.reviews.data);
     const purchases = useSelector((state)=>state.purchases);
 
     let promedio = 0;
 
-    if(review){
+        if(review){
             
             for (let i = 0; i < review.length; i++) {
               promedio = promedio + review[i].rating
@@ -34,29 +34,31 @@ const Review =({idPub})=>{
     const handleReviewComment = (event) => {
         event.preventDefault();
         const boton = event.target.id;
-
+    
         if (boton === 'renderizar') {
-        if (review.map(item => item.UserId.includes(idUser)) === true) {
-            alert('Ya has creado una reseña para esta publicación.')
-        } else if (purchases.map(item => item.PublicationId).includes(idPub) === false) {
-            alert('Debes comprar la clase para dejar una reseña.')
+          const hasUserReviewed = review.some(
+            (item) => item.UserId === idUser && item.PublicationId === idPub
+          );
+    
+          if (hasUserReviewed) {
+            alert('Ya has creado una reseña para esta publicación.');
+          } else if (!purchases.some((item) => item.PublicationId === idPub)) {
+            alert('Debes comprar la clase para dejar una reseña.');
             setRenderReviewInput(false);
-        } else {
+          } else {
             setRenderReviewInput(true);
-        }
+          }
         } else if (boton === 'cancelar') {
-            setRenderReviewInput(false)
+          setRenderReviewInput(false);
         } else if (boton === 'comentar') {
-
-            if (purchases.map(item => item.PublicationId).includes(idPub)) {
-                const puntos = rating.toString()
-                dispatch(postReview(comment, puntos, idPub, idUser));
-                alert('¡Reseña creada con éxito!');
-                setRenderReviewInput(false);
-            }
-
+          if (purchases.some((item) => item.PublicationId === idPub)) {
+            const puntos = rating.toString();
+            dispatch(postReview(comment, puntos, idPub, idUser));
+            alert('¡Reseña creada con éxito!');
+            setRenderReviewInput(false);
+          }
         }
-    }
+      };
 
     const handleRatingChange = (newRating) => {
         setRating(newRating);
