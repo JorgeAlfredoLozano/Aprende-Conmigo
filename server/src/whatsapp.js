@@ -2,7 +2,7 @@ const qrcode = require('qrcode-terminal');
 const tmp = require('tmp');
 const fs = require('fs');
 
-const { Client, LocalAuth } = require('whatsapp-web.js');
+const { Client } = require('whatsapp-web.js');
 
 const tmpAuthFile = tmp.fileSync();
 let sessionData = {};
@@ -20,8 +20,7 @@ if (fs.existsSync(tmpAuthFile.name)) {
 
 const client = new Client({
   sessionData,
-  authStrategy: new LocalAuth({ sessionData })
-});
+})
 
 //Genera el código qr para conectarse a whatsapp-web
 client.on('qr', qr => {
