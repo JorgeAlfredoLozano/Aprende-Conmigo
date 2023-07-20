@@ -1,21 +1,21 @@
 
-// const qrcode = require('qrcode-terminal');
+const qrcode = require('qrcode-terminal');
 
-// //Crea una sesión con whatsapp-web y la guarda localmente para autenticarse solo una vez por QR
-// const { Client, LocalAuth, } = require('whatsapp-web.js');
-// const client = new Client({
-//     authStrategy: new LocalAuth()
-// });
+//Crea una sesión con whatsapp-web y la guarda localmente para autenticarse solo una vez por QR
+const { Client, LocalAuth, } = require('whatsapp-web.js');
+const client = new Client({
+    authStrategy: new LocalAuth()
+});
 
-// //Genera el código qr para conectarse a whatsapp-web
-// client.on('qr', qr => {
-//     qrcode.generate(qr, {small: true});
-// });
+//Genera el código qr para conectarse a whatsapp-web
+client.on('qr', qr => {
+    qrcode.generate(qr, {small: true});
+});
 
-// //Si la conexión es exitosa muestra el mensaje de conexión exitosa
-// client.on('ready', () => {
-//     console.log('Conexion exitosa nenes');
-// });
+//Si la conexión es exitosa muestra el mensaje de conexión exitosa
+client.on('ready', () => {
+    console.log('Conexion exitosa nenes');
+});
 
 
 // //Aquí sucede la magia, escucha los mensajes y aquí es donde se manipula lo que queremos que haga el bot
@@ -47,8 +47,12 @@
 // 	}
 // });
 
+process.on('SIGINT', () => {
+    fs.writeFileSync(tmpAuthFile.name, JSON.stringify(client.options.sessionData), 'utf8');
+    process.exit(0);
+});
 
 
 
 
-// client.initialize();
+client.initialize();

@@ -4,6 +4,7 @@ const publicationRoute=require("./publicationRoute")
 const lessonRoute=require("./lessonRoute");
 const messageRoute=require("./messageRoute");
 const purchaseRoute=require("./purchaseRoute");
+const reviewRoute=require("./reviewRoute");
 const route = Router();
 
 // Asociamos la ruta userRoute a la ruta /user
@@ -12,6 +13,6 @@ route.use("/publication",publicationRoute); //manejo de rutas de publicaciones/a
 route.use("/lesson",lessonRoute); //manejo de rutas de las materias
 route.use("/message",messageRoute); //manejo de rutas de las materias
 route.use("/purchase",purchaseRoute); //ruta para manejar los pagos
-
+route.use("/review",reviewRoute); 
 
 module.exports = route;

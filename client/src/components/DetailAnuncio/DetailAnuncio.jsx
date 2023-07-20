@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom"; // Importa useN
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllAnuncios, getUserById } from "../../Redux/actions";
-
+import Review from '../Review/Review'
 const DetailAnuncio = () => {
     const localStorageContent = localStorage.getItem("cachedUser"); //usuario principal
     const  parser  = JSON.parse(localStorageContent);
@@ -46,12 +46,15 @@ const DetailAnuncio = () => {
     <Link to={`/pago/${id}`}>
       <button>Contratar este profesor</button>
     </Link>
+    
     ) : (
       <p>No puedes comprarte a ti mismo.</p>
    )
 ) : (
   <p>No puedes contratar a este profesor. Debes estar logueado.</p>
 )}
+<Review idPub={id}/>
+
             </div>
             {filteredData && userTeacher && (
             <section className={style.about}>
