@@ -52,7 +52,7 @@ const DetailAnuncio = () => {
       <p></p>
    )
 ) : (
-  <p>Debes Iniciar Sesión para contratar este profesor.</p>
+  <p>Debes Iniciar Sesión para contratar.</p>
 )}
 <Review idPub={id}/>
 
