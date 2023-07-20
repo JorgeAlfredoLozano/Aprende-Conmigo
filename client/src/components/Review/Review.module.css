@@ -17,7 +17,6 @@
     flex-direction: column;
     gap: 1em;
     padding-top: 5%;
-    padding-bottom: 5%;
     max-height: 50em;
     overflow: scroll;
     -ms-overflow-style: none;
@@ -69,6 +68,7 @@
 
 .botonReseña {
     margin-bottom: 5%;
+    margin-top: 5%
 }
 
 .boxa {
