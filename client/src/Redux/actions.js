@@ -121,6 +121,24 @@ export const getAllMessages = (id)=>{ // Trae todos los mensajes del usuario ID
     });  
    };
 };
+export const sendChat = ( send )=>{ // Enviar el chat a la bd
+  return async function(dispatch){
+     const response=await axios.post(`http://localhost:3001/message/sendmessage`, send)
+    return dispatch({
+      type:'SEND_CHAT',
+      payload: response
+    });  
+   };
+};
+export const putSeen = ( idSend,idReceived )=>{ // Enviar el chat a la bd
+  return async function(dispatch){
+     const response=await axios.put(`http://localhost:3001/message/seen/` + idSend + '/' + idReceived)
+    return dispatch({
+      type:'PUT_SEEN',
+      payload: response
+    });  
+   };
+};
 //Purchases
 export const sendPurchase = (info)=>{ // Trae todos los mensajes del usuario ID
   return async function(dispatch){
@@ -140,7 +158,6 @@ export const getAllPurchases = (id)=>{ // Trae todos los mensajes del usuario ID
     });  
    };
 };
-
 export const getAllSales = (id)=>{ // Trae todas las ventas de un usuario(profe)
   return async function(dispatch){
      const response=await axios.get(`http://localhost:3001/purchase/getsale/${id}`)
@@ -150,15 +167,9 @@ export const getAllSales = (id)=>{ // Trae todas las ventas de un usuario(profe)
     });  
    };
 };
-export const sendChat = ( send )=>{ // Enviar el chat a la bd
-  return async function(dispatch){
-     const response=await axios.post(`http://localhost:3001/message/sendmessage`, send)
-    return dispatch({
-      type:'SEND_CHAT',
-      payload: response
-    });  
-   };
-};
+
+
+
 //Reviews
 export const getReviews = ( idPub )=>{ // traer las reviews de una publi
   return async function(dispatch){

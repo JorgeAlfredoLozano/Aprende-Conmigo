@@ -21,6 +21,10 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    seen: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
     createdAt: {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,

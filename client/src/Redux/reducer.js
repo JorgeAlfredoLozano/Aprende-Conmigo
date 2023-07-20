@@ -58,6 +58,10 @@ const reducer = (state = initialState, {type, payload}) => {
     ...state,
     messages: payload,
     }
+  case "PUT_SEEN": 
+  return{
+    ...state,
+      }
   case 'GET_ALL_PURCHASES':
     return{
       ...state,

@@ -3,7 +3,7 @@ const Stripe = require('stripe')
 const {SENDSTRIPE}=process.env;
 const stripe = new Stripe(`${SENDSTRIPE}`)
 
-const cheackoutApi = async(id,amount,email,datos) => { 
+const cheackoutApi = async(id,amount) => { 
     const payment = await stripe.paymentIntents.create({
         amount,
         currency: "USD",

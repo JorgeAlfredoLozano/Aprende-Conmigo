@@ -1,9 +1,7 @@
 const qrcode = require('qrcode-terminal');
 const tmp = require('tmp');
 const fs = require('fs');
-
 const { Client } = require('whatsapp-web.js');
-
 
 const tmpAuthFile = tmp.fileSync();
 let sessionData = {};
@@ -66,9 +64,5 @@ process.on('SIGINT', () => {
     fs.writeFileSync(tmpAuthFile.name, JSON.stringify(client.options.sessionData), 'utf8');
     process.exit(0);
 });
-
->>>>>>> c1c50b7b9c5287950f9357f2e4a2b024aa4f3f1b
-
-
 
 //client.initialize();
