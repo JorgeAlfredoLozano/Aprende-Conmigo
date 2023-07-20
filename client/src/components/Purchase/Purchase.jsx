@@ -13,7 +13,7 @@ const Purchases =()=>{
   }, [dispatch]);
 
     const boughtPubli = useSelector((state) => state.purchases);
-    
+    console.log(boughtPubli)
     return(
         <div className={style.container}>
           {boughtPubli[0] ?
@@ -28,7 +28,7 @@ const Purchases =()=>{
       <h5 className={`${style.lesson}`}>{pub.Publication.Lessons[0].lesson_name}</h5>
       </div>
       {/* <h6 className={`${style.grade}`}>{pub.Publication.grade.split(",").join(" - ")}</h6> */}
-      <h6 className={`${style.value}`}>${pub.Publication.value}</h6>
+      <h6 className={`${style.value}`}>${pub.Publication.value * pub.hora}</h6>
       </div>
       </>
       )}
