@@ -24,7 +24,7 @@ const DetailAnuncio = () => {
 
     let filteredData = datoPublication.data;
 
-    filteredData = filteredData.filter(card => card.id === id);    
+    filteredData = filteredData.filter(card => card.id === id);
    
     const handleVolver = () => {
         navigate('/busqueda'); // Utiliza navigate en lugar de history.push

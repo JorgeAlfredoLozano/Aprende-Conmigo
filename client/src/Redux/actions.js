@@ -169,3 +169,19 @@ export const getReviews = ( idPub )=>{ // traer las reviews de una publi
     });  
    };
 };
+
+export const postReview = ( comment, rating, idPub, idUser ) => { // postea una review
+  return async function (dispatch) {
+    const data = {
+      comment,
+      rating,
+      idPub,
+      idUser
+    }
+    const response = await axios.post(`http://localhost:3001/review`, data)
+    return dispatch ({
+      type: 'POST_REVIEW',
+      payload: response
+    })
+  }
+}
