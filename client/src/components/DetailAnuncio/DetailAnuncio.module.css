@@ -76,7 +76,12 @@
   }
 
   .title {
+    margin-top: 5%;
     margin-bottom: 5%;
     font-size: 45px;
     max-width: 90vh;
+  }
+
+  .grade {
+    margin-top: 3%;
   }

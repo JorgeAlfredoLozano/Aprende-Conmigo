@@ -54,18 +54,23 @@ const DetailAnuncio = () => {
       setInputValue(event.target.value);
     };
 
+    const handleGoBack = () => {
+      navigate(-1);
+  };
+
     return (
         <div>
             <div className={style.container}>
             <div className={style.anuncio}>
+          <button onClick={handleGoBack}>Volver</button>
             <h1 className={style.title}>{filteredData[0].title}</h1>
             <div className={style.claseContainer}>
               <h1>Acerca de la clase</h1>
-            <h5>Nivel: {filteredData[0].grade}</h5>
+            <h5 className={style.grade}>Nivel: {filteredData[0].grade.split(',').join(' - ')}</h5>
             <p className={style.aboutWea}>{filteredData[0].about_class}</p>
             </div>
             <div className={style.teacherContainer}>
-              <h1>Sobre {userTeacher.data.name}</h1>
+              <h1>Sobre {userTeacher && userTeacher.data.name}</h1>
             <p className={style.aboutWea}>{filteredData[0].about_teacher}</p>
             </div>
             

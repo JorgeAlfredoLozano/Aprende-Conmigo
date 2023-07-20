@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import style from "../PublicPerfil/PerfilPublic.module.css"
 import { getUserById } from '../../Redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
