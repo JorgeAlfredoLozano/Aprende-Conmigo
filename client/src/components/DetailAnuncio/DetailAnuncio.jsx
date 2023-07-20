@@ -48,10 +48,11 @@ const DetailAnuncio = () => {
     </Link>
     
     ) : (
-      <p>No puedes comprarte a ti mismo.</p>
+      // <p>No puedes comprarte a ti mismo.</p>
+      <p></p>
    )
 ) : (
-  <p>No puedes contratar a este profesor. Debes estar logueado.</p>
+  <p>Debes Iniciar Sesión para contratar este profesor.</p>
 )}
 <Review idPub={id}/>
 
@@ -66,7 +67,7 @@ const DetailAnuncio = () => {
                 <h3>{userTeacher.data.gender}</h3>
                 {idLog ? (
                     <Link to={`/perfilPublico/${userTeacher.data.id}`}>
-                        <button>+info</button>
+                        <button>+ info</button>
                     </Link> ) : (
                         <> 
                         {showLoginMessage && (
@@ -74,7 +75,7 @@ const DetailAnuncio = () => {
               <button onClick={() => setShowLoginMessage(false)}>continuar</button>
             </div>
           )}<button onClick={() => setShowLoginMessage(true)}>
-        +info
+        + info
         </button>
                         </>
                     )}
