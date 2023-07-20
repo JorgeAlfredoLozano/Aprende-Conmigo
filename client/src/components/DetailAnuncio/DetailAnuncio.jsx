@@ -29,7 +29,7 @@ const DetailAnuncio = () => {
     
     filteredData = filteredData.filter(card => card.id === id);    
     const handleVolver = () => {
-        navigate('/busqueda'); // Utiliza navigate en lugar de history.push
+        navigate('/busqueda');
     };   
     
     const handleEnviarMensaje = () => {
@@ -72,10 +72,10 @@ const DetailAnuncio = () => {
     </Link>
     
     ) : (
-      <p>No puedes comprarte a ti mismo.</p>
+      <p></p>
    )
 ) : (
-  <p>No puedes contratar a este profesor. Debes estar logueado.</p>
+  <p>Para contratar debes iniciar sesión.</p>
 )}
 <Review idPub={id}/>
 
