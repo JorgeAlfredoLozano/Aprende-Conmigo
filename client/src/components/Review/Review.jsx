@@ -23,7 +23,7 @@ const Review =({idPub})=>{
             promedio.toFixed(1)
             console.log(promedio)
         }
-     
+    
      
     return(
        
