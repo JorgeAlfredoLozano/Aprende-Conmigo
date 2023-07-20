@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllMessages, getUserById, sendChat } from "../../Redux/actions";
+import { getAllMessages, sendChat } from "../../Redux/actions";
 import axios from "axios";
 
 const Messages = () => {
