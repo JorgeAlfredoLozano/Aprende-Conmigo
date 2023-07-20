@@ -29,42 +29,36 @@ client.on('qr', qr => {
 
 //Si la conexión es exitosa muestra el mensaje de conexión exitosa
 client.on('ready', () => {
-    console.log('Conexion exitosa nenes');
+  console.log('Conexion exitosa nenes');
 });
 
+//Aquí sucede la magia, escucha los mensajes y aquí es donde se manipula lo que queremos que haga el bot
+client.on('message', message => {
+    console.log(message.body);
+	if(message.body === 'necesito ayuda') {
+		client.sendMessage(message.from, 'Escibre caranalga si necesitas ayuda o escrie jorge para consejos de vida o escribe bachir para ver a una persona similar a un dios.');
+	}
+}); 
 
-// //Aquí sucede la magia, escucha los mensajes y aquí es donde se manipula lo que queremos que haga el bot
-// client.on('message', message => {
-//     console.log(message.body);
-// 	if(message.body === 'necesito ayuda') {
-// 		client.sendMessage(message.from, 'Escibre caranalga si necesitas ayuda o escrie jorge para consejos de vida o escribe bachir para ver a una persona similar a un dios.');
-// 	}
-// }); 
+client.on('message', message => {
+    console.log(message.body);
+	if(message.body === 'caranalga') {
+		client.sendMessage(message.from, 'aqui esta tu ayuda puta .l., escribe jorge ahora anda necesitas un consejo');
+	}
+});
 
-// client.on('message', message => {
-//     console.log(message.body);
-// 	if(message.body === 'caranalga') {
-// 		client.sendMessage(message.from, 'aqui esta tu ayuda puta .l., escribe jorge ahora anda necesitas un consejo');
-// 	}
-// });
+client.on('message', message => {
+    console.log(message.body);
+	if(message.body === 'bachir') {
+		client.sendMessage(message.from, 'https://www.linkedin.com/in/bachir-nasser-83b1b3263/');
+	}
+});
 
-// client.on('message', message => {
-//     console.log(message.body);
-// 	if(message.body === 'bachir') {
-// 		client.sendMessage(message.from, 'https://www.linkedin.com/in/bachir-nasser-83b1b3263/');
-// 	}
-// });
-
-// client.on('message', message => {
-//     console.log(message.body);
-// 	if(message.body === 'jorge') {
-// 		client.sendMessage(message.from, 'tomaa fernet. ');
-// 	}
-// });
-
-process.on('SIGINT', () => {
-    fs.writeFileSync(tmpAuthFile.name, JSON.stringify(client.options.sessionData), 'utf8');
-    process.exit(0);
+client.on('message', message => {
+    console.log(message.body);
+	if(message.body === 'jorge') {
+		client.sendMessage(message.from, 'tomaa fernet. ');
+	}
 });
 
 process.on('SIGINT', () => {
@@ -75,4 +69,4 @@ process.on('SIGINT', () => {
 
 
 
-client.initialize();
+//client.initialize();

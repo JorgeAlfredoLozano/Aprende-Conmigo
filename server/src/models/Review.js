@@ -14,7 +14,8 @@ sequelize.define('Review', {
         allowNull:false     
     },    
     rating:{
-        type:DataTypes.INTEGER,   
+        type:DataTypes.INTEGER,
+        defaultValue:5,   
     }, 
     date:{
         type:DataTypes.DATEONLY,
