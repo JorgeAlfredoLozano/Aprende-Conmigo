@@ -1,104 +1,110 @@
 import style from './DetailAnuncio.module.css';
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom"; // Importa useNavigate
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllAnuncios, getUserById } from "../../Redux/actions";
-import Review from '../Review/Review';
-
+import Review from '../Review/Review'
 const DetailAnuncio = () => {
-  const localStorageContent = localStorage.getItem("cachedUser");
-  const parser = JSON.parse(localStorageContent);
-  const idLog = parser.id;
-  const { id } = useParams();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+    const localStorageContent = localStorage.getItem("cachedUser"); //usuario principal
+    const  parser  = JSON.parse(localStorageContent);
+    const  idLog  = parser.id;
+    const { id } = useParams();
+    const dispatch = useDispatch();
+    const navigate = useNavigate(); // Utiliza useNavigate en lugar de useHistory
+    const [showInput, setShowInput] = useState(false);
+    const [inputValue, setInputValue] = useState("");
+    const [messageSent, setMessageSent] = useState(false);
 
-  useEffect(() => {
-    dispatch(getAllAnuncios());
-    dispatch(getUserById(filteredData[0].UserId));
-  }, [dispatch]);
+    useEffect(() => {
+        dispatch(getAllAnuncios());
+        dispatch(getUserById(filteredData[0].UserId));
+    }, [dispatch]);
+    
+    const datoPublication = useSelector((state) => state.allAnuncios);  
+    const userTeacher = useSelector((state) => state.userID);  
+   
+    const [showLoginMessage, setShowLoginMessage] = useState(false);
 
-  const datoPublication = useSelector((state) => state.allAnuncios);
-  const userTeacher = useSelector((state) => state.userID);
-
-  const [showLoginMessage, setShowLoginMessage] = useState(false);
-
-  let filteredData = datoPublication.data;
-  filteredData = filteredData.filter(card => card.id === id);
-
-  const handleVolver = () => {
-    navigate('/busqueda');
+    let filteredData = datoPublication.data;
+    
+    filteredData = filteredData.filter(card => card.id === id);    
+    const handleVolver = () => {
+        navigate('/busqueda'); // Utiliza navigate en lugar de history.push
+    };   
+    
+    const handleEnviarMensaje = () => {
+      if (showInput) {
+          if (inputValue.trim()) { 
+              const send = {
+                  idSend: idLog,
+                  idReceived: filteredData[0].UserId,
+                  message: inputValue,
+              };
+              dispatch(sendChat(send));
+              setMessageSent(true); 
+          } else {
+              setMessageSent(false); 
+          }
+      }
+      setShowInput(!showInput);
+      setInputValue(""); 
   };
 
-  return (
-    <div>
-      <div className={style.container}>
-        <div className={style.anuncio}>
-          <h1 className={style.title}>{filteredData[0].title}</h1>
-          <div className={style.claseContainer}>
-          <h3>Acerca de la clase</h3>
-          <h5 className={style.grade}>Nivel: {filteredData[0].grade}</h5>
-          <h5 className={style.aboutWea}>{filteredData[0].about_class}</h5>
-          </div>
-          <div className={style.teacherContainer}>
-          <h3>Sobre {userTeacher.data.name}</h3>
-          <h5 className={style.aboutWea}>{filteredData[0].about_teacher}</h5>
-          </div>
-          
-          {/* {idLog ? (
-            idLog !== filteredData[0].UserId ? (
-              <Link to={`/pago/${id}`}>
-                <button>Contratar este profesor</button>
-              </Link>
-            ) : (
-              <p></p>
-            )
-          ) : (
-            <p>Debes Iniciar Sesión para contratar.</p>
-          )} */}
-          <Review idPub={id} />
-        </div>
+    const handleChange = (event) => {
+      setInputValue(event.target.value);
+    };
 
-        {filteredData && userTeacher && (
-          <section className={style.about}>
-            <div className={style.boxAbout}>
-            <div className={style.imgCont} style={{ backgroundImage: `url(${userTeacher.data.assets})` }}>
+    return (
+        <div>
+            <div className={style.container}>
+            <div className={style.anuncio}>
+            <h1>{filteredData[0].title}</h1>
+            <h3>{filteredData[0].grade}</h3>
+            <h3>{filteredData[0].about_class}</h3>
+            <h3>{filteredData[0].about_teacher}</h3>
+            <h3>💲{filteredData[0].value}💸</h3>
+         {idLog ? 
+         (
+          idLog !== filteredData[0].UserId ? 
+  (
+    <Link to={`/pago/${id}`}>
+      <button>Contratar este profesor</button>
+    </Link>
+    
+    ) : (
+      <p>No puedes comprarte a ti mismo.</p>
+   )
+) : (
+  <p>No puedes contratar a este profesor. Debes estar logueado.</p>
+)}
+<Review idPub={id}/>
+
             </div>
-            <h4>{userTeacher.data.name}</h4>
-            <h5>{userTeacher.data.gender}</h5>
-            
-            {idLog ? (
-              <Link to={`/perfilPublico/${userTeacher.data.id}`}>
-                <button>+ info</button>
-              </Link>
-            ) : (
-              <>
-                {showLoginMessage && (
-                  <div>
-                    <button onClick={() => setShowLoginMessage(false)}>continuar</button>
-                  </div>
-                )}
-                <button onClick={() => setShowLoginMessage(true)}>+ info</button>
-              </>
-            )}
-            <h5 className={style.value}>💲{filteredData[0].value}💸</h5>
-            {idLog ? (
-            idLog !== filteredData[0].UserId ? (
-              <Link to={`/pago/${id}`}>
-                <button>Contratar este profesor</button>
-              </Link>
-            ) : (
-              <p></p>
-            )
-          ) : (
-            <p>Debes Iniciar Sesión para contratar.</p>
-          )}
-          </div>
-          </section>
-        )}
-      </div>
-    </div>
-  );
-};
+            {filteredData && userTeacher && (
+            <section className={style.about}>
+                    <div className={style.imgCont} style={{
+                    backgroundImage: `url(${userTeacher.data.assets})`}}>
 
-export default DetailAnuncio;
+                    </div>
+                <h1>{userTeacher.data.name}</h1>
+                <h3>{userTeacher.data.gender}</h3>
+                {idLog ? (
+                    <Link to={`/perfilPublico/${userTeacher.data.id}`}>
+                        <button>+info</button>
+                    </Link> ) : (
+                        <> 
+                        {showLoginMessage && (
+            <div>              
+              <button onClick={() => setShowLoginMessage(false)}>continuar</button>
+            </div>
+          )}<button onClick={() => setShowLoginMessage(true)}>
+        +info
+        </button>
+                        </>
+                    )}
+            </section>)}
+            </div>
+        </div>
+    )}
+
+ export default DetailAnuncio;
