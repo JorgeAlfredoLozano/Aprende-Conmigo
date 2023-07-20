@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import imagen from '../assets/imagenes/matematicas.jpg';
-import imagen2 from '../assets/imagenes/estudiantes-universitarios.png';
-import imagen3 from '../assets/imagenes/clases.png';
+import imagen from '../../assets/imagenes/matematicas.jpg';
+import imagen2 from '../../assets/imagenes/estudiantes-universitarios.png';
+import imagen3 from '../../assets/imagenes/clases.png';
 import styles from './Carrusel.module.css';
 
 function Carrusel() {

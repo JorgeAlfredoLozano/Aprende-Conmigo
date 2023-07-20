@@ -29,7 +29,7 @@ const DetailAnuncio = () => {
     
     filteredData = filteredData.filter(card => card.id === id);    
     const handleVolver = () => {
-        navigate('/busqueda'); // Utiliza navigate en lugar de history.push
+        navigate('/busqueda');
     };   
   
     const handleEnviarMensaje = () => {
@@ -57,66 +57,72 @@ const DetailAnuncio = () => {
       setInputValue(event.target.value);
     };
 
+    const handleGoBack = () => {
+      navigate(-1);
+  };
+
     return (
         <div>
             <div className={style.container}>
             <div className={style.anuncio}>
-            <h1>{filteredData[0].title}</h1>
-            <h3>{filteredData[0].grade}</h3>
-            <h3>{filteredData[0].about_class}</h3>
-            <h3>{filteredData[0].about_teacher}</h3>
-            <h3>💲{filteredData[0].value}💸</h3>
-            {idLog ? (
-            idLog !== filteredData[0].UserId ?
-      (<>
-     <Link to={`/pago/${id}`}>
-        <button>Contratar este profesor</button>
-      </Link>
-     {showInput ? (
-       <>
-        <input type="text" placeholder="Escribe tu mensaje"
-        value={inputValue} onChange={handleChange} />
-        <button onClick={handleEnviarMensaje}>Enviar</button>
-         
-         </>   
-         ) : (
-          <button onClick={() => setShowInput(true)}>Enviar Mensaje</button>
-           )}
-        </>
-         ) : (
-        <p>No puedes comprarte a ti mismo.</p>
-         )
-         ) : (
-         <p>No puedes contratar a este profesor. Debes estar logueado.</p>
-)}
-
-<Review idPub={id}/>
+          <button onClick={handleGoBack}>Volver</button>
+            <h1 className={style.title}>{filteredData[0].title}</h1>
+            <div className={style.claseContainer}>
+              <h1>Acerca de la clase</h1>
+            <h5 className={style.grade}>Nivel: {filteredData[0].grade.split(',').join(' - ')}</h5>
+            <p className={style.aboutWea}>{filteredData[0].about_class}</p>
+            </div>
+            <div className={style.teacherContainer}>
+              <h1>Sobre {userTeacher && userTeacher.data.name}</h1>
+            <p className={style.aboutWea}>{filteredData[0].about_teacher}</p>
+            </div>
+            
+            <Review idPub={id}/>
 
             </div>
             {filteredData && userTeacher && (
             <section className={style.about}>
-             <div className={style.imgCont} style={{
-             backgroundImage: `url(${userTeacher.data.assets})`}}>
-            </div>
-            <h1>{userTeacher.data.name}</h1>
-            <h3>{userTeacher.data.gender}</h3>
-            {idLog ? (
-             <Link to={`/perfilPublico/${userTeacher.data.id}`}>
-              <button>+info</button>
-             </Link> ) : (
-              <> 
-             {showLoginMessage && (
+              <div className={style.boxAbout}>
+                    <div className={style.imgCont} style={{
+                    backgroundImage: `url(${userTeacher.data.assets})`}}>
+
+                    </div>
+                <h1>{userTeacher.data.name}</h1>
+                <h3>{userTeacher.data.gender}</h3>
+                {idLog ? (
+                    <Link to={`/perfilPublico/${userTeacher.data.id}`}>
+                        <button>+info</button>
+                    </Link> ) : (
+                        <> 
+                        {showLoginMessage && (
             <div>              
               <button onClick={() => setShowLoginMessage(false)}>continuar</button>
             </div>
           )}<button onClick={() => setShowLoginMessage(true)}>
         +info
         </button>
-          </>
-         )}
-          </section>)}
+                        </>
+                    )}
+                    <h3>💲{filteredData[0].value}💸</h3>
+                    {idLog ? 
+         (
+          idLog !== filteredData[0].UserId ? 
+  (
+    <Link to={`/pago/${id}`}>
+      <button>Contratar este profesor</button>
+    </Link>
+    
+    ) : (
+      <p></p>
+   )
+) : (
+  <p>Para contratar debes iniciar sesión.</p>
+)}
+</div>
+            </section>)}
+            
+            </div>
         </div>
-      </div>
     )}
 
  export default DetailAnuncio;

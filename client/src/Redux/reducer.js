@@ -77,6 +77,11 @@ const reducer = (state = initialState, {type, payload}) => {
         ...state,
         reviews: payload,
       }
+    case 'POST_REVIEW':
+      return {
+        ...state,
+        reviews: payload,
+      }
   default:
     return { ...state };
   }

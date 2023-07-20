@@ -5,16 +5,15 @@
     align-items: center;
     gap: 1.5em;
     right: 16%;
-    top: 0.6%;
 }
 
 .greet {
-    max-width: 150px;
+    width: 250px;
     color: rgb(255, 255, 255);
     font-weight: bolder;
     font-size: 1.2vw;
-    text-align: left;
-    margin-top: 9%;
+    text-align: right;
+    margin-top: 5%;
 }
 
 .icon {
