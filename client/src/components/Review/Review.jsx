@@ -100,11 +100,14 @@ const Review =({idPub})=>{
             })}
             <button className={style.botonReseña} id='renderizar' onClick={(event) => handleReviewComment(event)}>Añadir reseña</button>
                 {renderReviewInput && (
-                    <div>
-                        <textarea placeholder='Escribe tu reseña...' id='comment' value={comment} onChange={(event) => handleComment(event)}/>
+                    <div className={style.ratingContainer}>
+                        <span>¡Recuerda puntuar con unas estrellas!</span>
                         <Stars rating={rating} editable={true} onRatingChange={handleRatingChange}/>
+                        <textarea className={style.textareaComment} placeholder='Escribe tu reseña...' id='comment' value={comment} onChange={(event) => handleComment(event)}/>
+                        <div className={style.botones}>
                         <button id='comentar' onClick={(event) => handleReviewComment(event)}>Comentar</button>
                         <button id='cancelar' onClick={(event) => handleReviewComment(event)}>Cancelar</button>
+                        </div>
                     </div>
                 )}
         </div>

@@ -46,7 +46,7 @@ function GeneralFilters({ filtro, setFiltro, lesson, setLesson }) {
 
   return (
     <div className={style.container}>
-      <div>
+      <div className={style.botones}>
       <button
         className={selectedNivel === 'primaria' ? style.selected : ''}
         onClick={() => handleSelectNivel('primaria')}

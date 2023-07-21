@@ -87,8 +87,8 @@ const DetailAnuncio = () => {
                     backgroundImage: `url(${userTeacher.data.assets})`}}>
 
                     </div>
-                <h1>{userTeacher.data.name}</h1>
-                <h3>{userTeacher.data.gender}</h3>
+                <h3>{userTeacher.data.name}</h3>
+                <h5>{userTeacher.data.gender}</h5>
                 {idLog ? (
                     <Link to={`/perfilPublico/${userTeacher.data.id}`}>
                         <button>+info</button>
