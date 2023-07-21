@@ -8,7 +8,11 @@ const initialState = {
   messages:[],
   purchases:[],
   sales:[],
+<<<<<<< HEAD
   allUsers:[],
+=======
+  reviews:[]
+>>>>>>> 3101101519b1a58f68243c5752676d74959d3c9e
   };
 
 const reducer = (state = initialState, {type, payload}) => {
@@ -63,6 +67,10 @@ const reducer = (state = initialState, {type, payload}) => {
     ...state,
     messages: payload,
     }
+  case "PUT_SEEN": 
+  return{
+    ...state,
+      }
   case 'GET_ALL_PURCHASES':
     return{
       ...state,
@@ -72,7 +80,17 @@ const reducer = (state = initialState, {type, payload}) => {
     return{
       ...state,
       sales: payload,
-    }    
+    }  
+    case 'GET_REVIEWS':
+      return{
+        ...state,
+        reviews: payload,
+      }
+    case 'POST_REVIEW':
+      return {
+        ...state,
+        reviews: payload,
+      }
   default:
     return { ...state };
   }

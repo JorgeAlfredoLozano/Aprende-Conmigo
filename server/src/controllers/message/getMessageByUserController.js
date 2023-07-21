@@ -34,8 +34,6 @@ const getMessageByUserController = async (id) => {
       );
       groupedMessages.push(userMessages);
     });
-  
-    console.log(groupedMessages);
     return groupedMessages;
   };
   

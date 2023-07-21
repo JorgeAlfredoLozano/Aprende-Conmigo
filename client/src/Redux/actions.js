@@ -121,6 +121,24 @@ export const getAllMessages = (id)=>{ // Trae todos los mensajes del usuario ID
     });  
    };
 };
+export const sendChat = ( send )=>{ // Enviar el chat a la bd
+  return async function(dispatch){
+     const response=await axios.post(`http://localhost:3001/message/sendmessage`, send)
+    return dispatch({
+      type:'SEND_CHAT',
+      payload: response
+    });  
+   };
+};
+export const putSeen = ( idSend,idReceived )=>{ // Enviar el chat a la bd
+  return async function(dispatch){
+     const response=await axios.put(`http://localhost:3001/message/seen/` + idSend + '/' + idReceived)
+    return dispatch({
+      type:'PUT_SEEN',
+      payload: response
+    });  
+   };
+};
 //Purchases
 export const sendPurchase = (info)=>{ // Trae todos los mensajes del usuario ID
   return async function(dispatch){
@@ -140,7 +158,6 @@ export const getAllPurchases = (id)=>{ // Trae todos los mensajes del usuario ID
     });  
    };
 };
-
 export const getAllSales = (id)=>{ // Trae todas las ventas de un usuario(profe)
   return async function(dispatch){
      const response=await axios.get(`http://localhost:3001/purchase/getsale/${id}`)
@@ -152,16 +169,19 @@ export const getAllSales = (id)=>{ // Trae todas las ventas de un usuario(profe)
 };
 
 
-export const sendChat = ( send )=>{ // Enviar el chat a la bd
+
+//Reviews
+export const getReviews = ( idPub )=>{ // traer las reviews de una publi
   return async function(dispatch){
-     const response=await axios.post(`http://localhost:3001/message/sendmessage`, send)
+     const response=await axios.get(`http://localhost:3001/review/get/`+ idPub)
     return dispatch({
-      type:'SEND_CHAT',
+      type:'GET_REVIEWS',
       payload: response
     });  
    };
 };
 
+<<<<<<< HEAD
 export const getAllUser= ()=>{
   return async function(dispatch){
      const response=await axios.get(`http://localhost:3001/user/alluser`)
@@ -171,3 +191,20 @@ export const getAllUser= ()=>{
     });  
    };
 };
+=======
+export const postReview = ( comment, rating, idPub, idUser ) => { // postea una review
+  return async function (dispatch) {
+    const data = {
+      comment,
+      rating,
+      idPub,
+      idUser
+    }
+    const response = await axios.post(`http://localhost:3001/review`, data)
+    return dispatch ({
+      type: 'POST_REVIEW',
+      payload: response
+    })
+  }
+}
+>>>>>>> 3101101519b1a58f68243c5752676d74959d3c9e

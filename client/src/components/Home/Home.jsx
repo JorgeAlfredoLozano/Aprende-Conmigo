@@ -1,7 +1,7 @@
 // import Footer from "../Footer/Footer";
 import style from './Home.module.css'
 import 'bootstrap/dist/css/bootstrap.css';
-import Carrousel from "../carrousel/Carrousel";
+import Carrousel from "../Carrousel/Carrousel";
 import Accordion from 'react-bootstrap/Accordion';
 import { NavLink } from "react-router-dom";
 

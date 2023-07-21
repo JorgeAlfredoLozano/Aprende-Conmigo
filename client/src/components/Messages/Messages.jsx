@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllMessages, getUserById, sendChat } from "../../Redux/actions";
+import { getAllMessages, sendChat, putSeen } from "../../Redux/actions";
 import axios from "axios";
 
 const Messages = () => {
@@ -39,43 +39,56 @@ const Messages = () => {
   }, [messages, selectedUserId]);
 
   const userClickHandler = (userId) => {
+    dispatch(putSeen(userId, id));
     setSelectedUserId(userId);
+  };
+
+  // Función para obtener el ID del remitente o destinatario dependiendo del mensaje
+  const getUserReceiverId = (messageGroup) => {
+    const userReceiver = messageGroup.find((message) => message.idSend !== id);
+    return userReceiver ? userReceiver.idSend : messageGroup[0].idReceived;
   };
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const uniqueSenders = new Set();
-
+      const users = {};
+      
       messages.forEach((messageGroup) => {
-        messageGroup.forEach((message) => {
-          if (message.idSend !== id) uniqueSenders.add(message.idSend);
-        });
+        const userReceiverId = getUserReceiverId(messageGroup);
+        if (userReceiverId) {
+          users[userReceiverId] = users[userReceiverId] || { count: 0, info: null };
+          if (!messageGroup.some((message) => message.seen)) {
+            users[userReceiverId].count++;
+          }
+        }
       });
 
-      const senderIds = Array.from(uniqueSenders);
-      const users = [];
+      const receiverIds = Object.keys(users);
+      const usersInfo = [];
 
-      for (const senderId of senderIds) {
+      for (const receiverId of receiverIds) {
         try {
-          const response = await axios.get(
-            `http://localhost:3001/user/get/${senderId}`
-          );
-          users.push(response.data);
+          const response = await axios.get(`http://localhost:3001/user/get/${receiverId}`);
+          const user = response.data;
+          usersInfo.push({ ...user, unreadMessages: users[receiverId].count });
         } catch (error) {
           console.log(error);
         }
       }
 
-      setUserList(users);
+      setUserList(usersInfo);
     };
 
     fetchUsers();
   }, [messages, id]);
 
   const renderUserList = () => {
+    if (userList.length === 0) {
+      return <p>No hay usuarios con mensajes</p>;
+    }
     return userList.map((user) => (
       <li key={user.id} onClick={() => userClickHandler(user.id)}>
-        {user.name}
+        {user.name} {user.unreadMessages > 0 && <span>({user.unreadMessages} mensajes no leídos)</span>}
       </li>
     ));
   };
@@ -85,9 +98,12 @@ const Messages = () => {
   };
 
   const renderSelectedUserChat = () => {
+    if (messages.length === 0) {
+      return <p>No hay mensajes disponibles</p>;
+    }
     if (selectedUserId) {
-      const userMessages = messages.find((messageGroup) =>
-        messageGroup.some((message) => message.idSend === selectedUserId)
+      const userMessages = messages.find(
+        (messageGroup) => getUserReceiverId(messageGroup) === selectedUserId
       );
 
       if (userMessages) {
@@ -147,9 +163,9 @@ const Messages = () => {
       <div className="message-container">
         <div className="chat">
           <h2>
-            Chat con (
+            Chat con{" "}
             {selectedUserId &&
-              userList.find((user) => user.id === selectedUserId)?.name})
+              userList.find((user) => user.id === selectedUserId)?.name}
           </h2>
           {renderSelectedUserChat()}
         </div>
