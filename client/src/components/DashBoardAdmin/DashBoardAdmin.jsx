@@ -6,7 +6,7 @@ import RestrictedAccess from "../RestrictedAccess/RestrictedAccess"
 
 const DashBoardAdmin = () => {
   const [admin, setAdmin] = useState(false);
-  const [selectedAnuncio, setSelectedAnuncio] = useState(null); // Estado local para almacenar el anuncio seleccionado
+  const [selectedAnuncio, setSelectedAnuncio] = useState(null);
   const user = localStorage.getItem('cachedUser');
   const userObject = JSON.parse(user);
   const dispatch = useDispatch();
@@ -24,29 +24,21 @@ const DashBoardAdmin = () => {
     }
   }, [userObject]);
 
-  useEffect(() => {
-    // Asegurarse de que selectedAnuncio no sea null antes de intentar actualizar el anuncio
-    if (selectedAnuncio) {
-      dispatch(updateAnuncio(selectedAnuncio.id, { status: !selectedAnuncio.status }));
-    }
-  }, [dispatch, selectedAnuncio]);
-
-
-//   useEffect(() => {
-//     dispatch(updateAnuncio(id));
-//   }, [dispatch]);
-
   const handleAnuncioClick = (anuncio) => {
     setSelectedAnuncio(anuncio); // Actualizar el estado local con el anuncio seleccionado
   };
   
   const handleToggleStatus = () => {
-    setSelectedAnuncio((prevAnuncio) => ({
-      ...prevAnuncio,
-      status: !prevAnuncio.status,
-    }));
-  };;
-
+    // Actualizar el estado del anuncio en la base de datos mediante la acción Redux
+    if (selectedAnuncio) {
+      const updatedStatus = !selectedAnuncio.status;
+      dispatch(updateAnuncio(selectedAnuncio.id, { status: updatedStatus }));
+      setSelectedAnuncio((prevAnuncio) => ({
+        ...prevAnuncio,
+        status: updatedStatus,
+      }));
+    }
+  };
 
   return (
     <div>
@@ -60,7 +52,7 @@ const DashBoardAdmin = () => {
               anuncios.data.map((anuncio) => (
                 <li
                   key={anuncio.id}
-                  onClick={() => handleAnuncioClick(anuncio)} // Llamar a la función de selección cuando se haga clic en un anuncio
+                  onClick={() => handleAnuncioClick(anuncio)}
                 >
                   {anuncio.title}
                 </li>
