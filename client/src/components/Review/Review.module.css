@@ -95,3 +95,7 @@
     width: 40em;
     height: 5em;
 }
+
+.star:hover {
+    cursor: pointer
+}

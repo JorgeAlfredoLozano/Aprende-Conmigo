@@ -52,6 +52,8 @@ const Review =({idPub})=>{
           }
         } else if (boton === 'cancelar') {
           setRenderReviewInput(false);
+          setRating(0);
+          setComment('')
         } else if (boton === 'comentar') {
           if (purchases.some((item) => item.PublicationId === idPub)) {
             const puntos = rating.toString();
@@ -103,7 +105,7 @@ const Review =({idPub})=>{
                     <div className={style.ratingContainer}>
                         <span>¡Recuerda puntuar con unas estrellas!</span>
                         <Stars rating={rating} editable={true} onRatingChange={handleRatingChange}/>
-                        <textarea className={style.textareaComment} placeholder='Escribe tu reseña...' id='comment' value={comment} onChange={(event) => handleComment(event)}/>
+                        <textarea className={style.textareaComment} placeholder=' Escribe tu reseña...' id='comment' value={comment} onChange={(event) => handleComment(event)}/>
                         <div className={style.botones}>
                         <button id='comentar' onClick={(event) => handleReviewComment(event)}>Comentar</button>
                         <button id='cancelar' onClick={(event) => handleReviewComment(event)}>Cancelar</button>
