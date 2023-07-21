@@ -46,6 +46,7 @@ function GeneralFilters({ filtro, setFiltro, lesson, setLesson }) {
 
   return (
     <div className={style.container}>
+      <div className={style.botones}>
       <button
         className={selectedNivel === 'primaria' ? style.selected : ''}
         onClick={() => handleSelectNivel('primaria')}
@@ -64,6 +65,7 @@ function GeneralFilters({ filtro, setFiltro, lesson, setLesson }) {
       >
         Universidad
       </button>
+      </div>
       <Select
         className={style.select}
         value={selectedOption}
@@ -72,7 +74,7 @@ function GeneralFilters({ filtro, setFiltro, lesson, setLesson }) {
         isSearchable
         placeholder="Busca una materia..."
       />
-      <button id='materia' onClick={handleReset}>Eliminar Materia</button>
+      <button id='materia' onClick={handleReset}>Limpiar filtro</button>
     </div>
   );
 }

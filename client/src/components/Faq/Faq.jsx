@@ -59,8 +59,10 @@ const Faq = () => {
             )}
           </div>
         ))}
+        <div className={style.wasap}>
+        <WhatsAppButton />
+        </div>
       </div>
-      <WhatsAppButton/>
     </div>
   );
 };

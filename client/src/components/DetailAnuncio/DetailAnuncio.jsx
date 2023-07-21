@@ -1,19 +1,21 @@
 import style from './DetailAnuncio.module.css';
-import { useParams, Link, useNavigate } from "react-router-dom"; // Importa useNavigate
-import React, { useEffect, useState } from 'react';
+import { useParams, Link, useNavigate } from "react-router-dom"; 
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllAnuncios, getUserById, sendChat } from "../../Redux/actions";
-import Review from '../Review/Review'
+import Review from '../Review/Review';
+import { useEffect, useState } from 'react';
+
 const DetailAnuncio = () => {
-    const localStorageContent = localStorage.getItem("cachedUser"); //usuario principal
+  
+    const localStorageContent = localStorage.getItem("cachedUser"); 
     const  parser  = JSON.parse(localStorageContent);
     const  idLog  = parser.id;
     const { id } = useParams();
     const dispatch = useDispatch();
-    const navigate = useNavigate(); // Utiliza useNavigate en lugar de useHistory
+    const navigate = useNavigate(); 
     const [showInput, setShowInput] = useState(false);
     const [inputValue, setInputValue] = useState("");
-
+    const [renderMessage, setRenderMessage] = useState(false);
 
     useEffect(() => {
         dispatch(getAllAnuncios());
@@ -27,13 +29,10 @@ const DetailAnuncio = () => {
 
     let filteredData = datoPublication.data;
     
-    filteredData = filteredData.filter(card => card.id === id);    
-    const handleVolver = () => {
-        navigate('/busqueda'); // Utiliza navigate en lugar de history.push
-    };   
+    filteredData = filteredData.filter(card => card.id === id);      
   
     const handleEnviarMensaje = () => {
-      if (showInput) {
+      if (renderMessage) {
           if (inputValue.trim()) { 
               const send = {
                   idSend: idLog,
@@ -42,14 +41,14 @@ const DetailAnuncio = () => {
               };
               dispatch(sendChat(send));
             
-             alert('Mensaje enviado correctamente.')
+             alert('¡Mensaje enviado!')
 
           } else {
              
-              alert('no se puede enviar un mensaje vacio')
+              alert('No puedes enviar un mensaje vacío.')
           }
       }
-      setShowInput(!showInput);
+      setRenderMessage(!renderMessage);
       setInputValue(""); 
   };
 
@@ -57,66 +56,100 @@ const DetailAnuncio = () => {
       setInputValue(event.target.value);
     };
 
+    const handleGoBack = () => {
+      navigate(-1);
+  };
+
+  const handleRenderMessage = (event) => {
+    event.preventDefault();
+    const boton = event.target.id;
+
+    if (boton === 'notLogged') {
+      alert(`Debes iniciar sesión para contactar a ${userTeacher && userTeacher.data.name}.`)
+    } else if(boton === 'renderMessage'){
+      setRenderMessage(true);
+    } else if (boton === 'enviar') {
+      handleEnviarMensaje();
+      setRenderMessage(false);
+    } else if (boton === 'cancelar') {
+      setRenderMessage(false);
+    }
+  }
+
     return (
         <div>
             <div className={style.container}>
             <div className={style.anuncio}>
-            <h1>{filteredData[0].title}</h1>
-            <h3>{filteredData[0].grade}</h3>
-            <h3>{filteredData[0].about_class}</h3>
-            <h3>{filteredData[0].about_teacher}</h3>
-            <h3>💲{filteredData[0].value}💸</h3>
-            {idLog ? (
-            idLog !== filteredData[0].UserId ?
-      (<>
-     <Link to={`/pago/${id}`}>
-        <button>Contratar este profesor</button>
-      </Link>
-     {showInput ? (
-       <>
-        <input type="text" placeholder="Escribe tu mensaje"
-        value={inputValue} onChange={handleChange} />
-        <button onClick={handleEnviarMensaje}>Enviar</button>
-         
-         </>   
-         ) : (
-          <button onClick={() => setShowInput(true)}>Enviar Mensaje</button>
-           )}
-        </>
-         ) : (
-        <p>No puedes comprarte a ti mismo.</p>
-         )
-         ) : (
-         <p>No puedes contratar a este profesor. Debes estar logueado.</p>
-)}
-
-<Review idPub={id}/>
+          <button onClick={handleGoBack}>Volver</button>
+            <h1 className={style.title}>{filteredData[0].title}</h1>
+            <div className={style.claseContainer}>
+              <h1>Acerca de la clase</h1>
+            <h5 className={style.grade}>Nivel: {filteredData[0].grade.split(',').join(' - ')}</h5>
+            <p className={style.aboutWea}>{filteredData[0].about_class}</p>
+            </div>
+            <div className={style.teacherContainer}>
+              <h1>Sobre {userTeacher && userTeacher.data.name}</h1>
+            <p className={style.aboutWea}>{filteredData[0].about_teacher}</p>
+            </div>
+            {idLog ? (<><button id='renderMessage' onClick={(event) => handleRenderMessage(event)} className={style.botonMensaje}>Enviar mensaje a {userTeacher && userTeacher.data.name}</button>
+            {renderMessage && (
+            <div className={style.messageContainer}>
+              <textarea className={style.textareaComment} placeholder=' Escribe tu mensaje...' id='message' value={inputValue} onChange={(event) => handleChange(event)}/>
+              <div className={style.botones}>
+              <button id='enviar' onClick={(event) => handleRenderMessage(event)}>Comentar</button>
+              <button id='cancelar' onClick={(event) => handleRenderMessage(event)}>Cancelar</button>
+              </div>
+            </div>
+                    )}</>) : 
+                    (<>
+                    <button id='notLogged' onClick={(event) => handleRenderMessage(event)} className={style.botonMensaje}>Enviar mensaje a {userTeacher && userTeacher.data.name}</button>
+                    </>)}
+            <Review idPub={id}/>
 
             </div>
             {filteredData && userTeacher && (
             <section className={style.about}>
-             <div className={style.imgCont} style={{
-             backgroundImage: `url(${userTeacher.data.assets})`}}>
-            </div>
-            <h1>{userTeacher.data.name}</h1>
-            <h3>{userTeacher.data.gender}</h3>
-            {idLog ? (
-             <Link to={`/perfilPublico/${userTeacher.data.id}`}>
-              <button>+info</button>
-             </Link> ) : (
-              <> 
-             {showLoginMessage && (
+              <div className={style.boxAbout}>
+                    <div className={style.imgCont} style={{
+                    backgroundImage: `url(${userTeacher.data.assets})`}}>
+
+                    </div>
+                <h3>{userTeacher.data.name}</h3>
+                <h5>{userTeacher.data.gender}</h5>
+                {idLog ? (
+                    <Link to={`/perfilPublico/${userTeacher.data.id}`}>
+                        <button>+info</button>
+                    </Link> ) : (
+                        <> 
+                        {showLoginMessage && (
             <div>              
               <button onClick={() => setShowLoginMessage(false)}>continuar</button>
             </div>
           )}<button onClick={() => setShowLoginMessage(true)}>
         +info
         </button>
-          </>
-         )}
-          </section>)}
+                        </>
+                    )}
+                    <h3>💲{filteredData[0].value}💸</h3>
+                    {idLog ? 
+         (
+          idLog !== filteredData[0].UserId ? 
+  (
+    <Link to={`/pago/${id}`}>
+      <button>Contratar este profesor</button>
+    </Link>
+    
+    ) : (
+      <p></p>
+   )
+) : (
+  <p>Para contratar debes iniciar sesión.</p>
+)}
+</div>
+            </section>)}
+            
+            </div>
         </div>
-      </div>
     )}
 
  export default DetailAnuncio;

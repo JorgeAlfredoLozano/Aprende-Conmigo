@@ -26,6 +26,7 @@ const navigate = useNavigate();
 const params = useParams();
 const idPub = params.id;
 const info=useSelector((state)=>state.allAnuncios.data);
+
 const infoFiltered=info.filter((inf)=> inf.id===idPub);
 const [horas,setHoras]=useState(1);
 const number=[1,2,3,4,5,6,7,8,9,10];
