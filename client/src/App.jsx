@@ -11,7 +11,7 @@ import Footer from './components/Footer/Footer';
 import DashBoardAdmin from './components/DashBoardAdmin/DashBoardAdmin';
 import Purchases from './components/Purchase/Purchase';
 import Sales from './components/Sales/Sales';
-
+import ReviewPerfil from './components/Review/ReviewPerfil'
 function App() {
 
   return (
@@ -31,6 +31,7 @@ function App() {
           <Route path='/sales' element={<Sales/>}/>
           <Route path='*' element={<Home/>}/>
           <Route path='/user' element={<DashBoardAdmin/>}/>
+          <Route path='/rev' element={<ReviewPerfil/>}/>
         </Routes>
         <Footer/>
       </div>
