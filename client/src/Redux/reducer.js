@@ -8,11 +8,7 @@ const initialState = {
   messages:[],
   purchases:[],
   sales:[],
-<<<<<<< HEAD
-  allUsers:[],
-=======
   reviews:[]
->>>>>>> 3101101519b1a58f68243c5752676d74959d3c9e
   };
 
 const reducer = (state = initialState, {type, payload}) => {

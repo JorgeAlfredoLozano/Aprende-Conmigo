@@ -181,17 +181,6 @@ export const getReviews = ( idPub )=>{ // traer las reviews de una publi
    };
 };
 
-<<<<<<< HEAD
-export const getAllUser= ()=>{
-  return async function(dispatch){
-     const response=await axios.get(`http://localhost:3001/user/alluser`)
-    return dispatch({
-      type:'GET_ALL_USERS',
-      payload: response
-    });  
-   };
-};
-=======
 export const postReview = ( comment, rating, idPub, idUser ) => { // postea una review
   return async function (dispatch) {
     const data = {
@@ -207,4 +196,3 @@ export const postReview = ( comment, rating, idPub, idUser ) => { // postea una 
     })
   }
 }
->>>>>>> 3101101519b1a58f68243c5752676d74959d3c9e
