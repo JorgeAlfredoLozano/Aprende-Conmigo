@@ -1,5 +1,6 @@
 import React from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import style from './Review.module.css';
 
 const Stars = ({ rating, editable, onRatingChange }) => {
   const handleStarClick = (newRating) => {
@@ -9,15 +10,15 @@ const Stars = ({ rating, editable, onRatingChange }) => {
   };
 
   return (
-    <div>
+    <div className={editable ? `${style.star}` : style.starnot}>
       {Array.from({ length: 5 }).map((_, index) => (
         <span key={index} onClick={() => handleStarClick(index + 1)}>
           {index + 1 <= rating ? (
             <i className="fas fa-star" style={{ color: 'rgba(227, 209, 43, 0.94)' }}></i>
           ) : index < rating ? (
-            <i className="fas fa-star-half-alt" style={{ color: 'rgba(227, 209, 43, 0.94)' }}></i>
+            <i className="fas fa-star-half-alt" style={{ color: 'gray' }}></i>
           ) : (
-            <i className="far fa-star"></i>
+            <i className="far fa-star" style={{ color: 'gray' }}></i>
           )}
         </span>
       ))}

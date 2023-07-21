@@ -6,6 +6,7 @@ const initialState = {
   allAnuncios:[],
   userID: null,
   messages:[],
+  messagesNR:[],
   purchases:[],
   sales:[],
   reviews:[]
@@ -58,6 +59,11 @@ const reducer = (state = initialState, {type, payload}) => {
     ...state,
     messages: payload,
     }
+  case "GET_NOT_READ": 
+  return{
+    ...state,
+    messagesNR: payload,
+    }  
   case "PUT_SEEN": 
   return{
     ...state,
