@@ -5,6 +5,7 @@ const getMessageByUserHandler=async(req,res)=>{
     
     try{
         const allMessage = await getMessageByUserController(id)
+
         return res.status(200).send(allMessage);
         }catch(error){
         return res.status(404).send(error);

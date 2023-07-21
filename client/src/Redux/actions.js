@@ -121,6 +121,15 @@ export const getAllMessages = (id)=>{ // Trae todos los mensajes del usuario ID
     });  
    };
 };
+export const getNotReadMessages = (idSend,idReceived)=>{ // Trae todos los mensajes del usuario ID
+  return async function(dispatch){
+     const response=await axios.get(`http://localhost:3001/message/notread/${idSend}/${idReceived}`)
+    return dispatch({
+      type:'GET_NOT_READ',
+      payload: response.data
+    });  
+   };
+};
 export const sendChat = ( send )=>{ // Enviar el chat a la bd
   return async function(dispatch){
      const response=await axios.post(`http://localhost:3001/message/sendmessage`, send)
