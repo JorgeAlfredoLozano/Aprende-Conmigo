@@ -85,3 +85,27 @@
   .grade {
     margin-top: 3%;
   }
+
+  .botonMensaje {
+    margin: 0%;
+    margin-top: 3%;
+  }
+
+  .textareaComment {
+    width: 40em;
+    height: 5em;
+  }
+
+  .messageContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+    place-content: center;
+  }
+
+  .botones {
+    display: flex;
+    gap: 1em;
+  }

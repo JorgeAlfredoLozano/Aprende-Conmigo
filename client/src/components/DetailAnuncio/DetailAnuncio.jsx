@@ -1,19 +1,21 @@
 import style from './DetailAnuncio.module.css';
-import { useParams, Link, useNavigate } from "react-router-dom"; // Importa useNavigate
-import React, { useEffect, useState } from 'react';
+import { useParams, Link, useNavigate } from "react-router-dom"; 
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllAnuncios, getUserById, sendChat } from "../../Redux/actions";
-import Review from '../Review/Review'
+import Review from '../Review/Review';
+import { useEffect, useState } from 'react';
+
 const DetailAnuncio = () => {
-    const localStorageContent = localStorage.getItem("cachedUser"); //usuario principal
+  
+    const localStorageContent = localStorage.getItem("cachedUser"); 
     const  parser  = JSON.parse(localStorageContent);
     const  idLog  = parser.id;
     const { id } = useParams();
     const dispatch = useDispatch();
-    const navigate = useNavigate(); // Utiliza useNavigate en lugar de useHistory
+    const navigate = useNavigate(); 
     const [showInput, setShowInput] = useState(false);
     const [inputValue, setInputValue] = useState("");
-
+    const [renderMessage, setRenderMessage] = useState(false);
 
     useEffect(() => {
         dispatch(getAllAnuncios());
@@ -27,13 +29,10 @@ const DetailAnuncio = () => {
 
     let filteredData = datoPublication.data;
     
-    filteredData = filteredData.filter(card => card.id === id);    
-    const handleVolver = () => {
-        navigate('/busqueda');
-    };   
+    filteredData = filteredData.filter(card => card.id === id);      
   
     const handleEnviarMensaje = () => {
-      if (showInput) {
+      if (renderMessage) {
           if (inputValue.trim()) { 
               const send = {
                   idSend: idLog,
@@ -42,14 +41,14 @@ const DetailAnuncio = () => {
               };
               dispatch(sendChat(send));
             
-             alert('Mensaje enviado correctamente.')
+             alert('¡Mensaje enviado!')
 
           } else {
              
-              alert('no se puede enviar un mensaje vacio')
+              alert('No puedes enviar un mensaje vacío.')
           }
       }
-      setShowInput(!showInput);
+      setRenderMessage(!renderMessage);
       setInputValue(""); 
   };
 
@@ -60,6 +59,22 @@ const DetailAnuncio = () => {
     const handleGoBack = () => {
       navigate(-1);
   };
+
+  const handleRenderMessage = (event) => {
+    event.preventDefault();
+    const boton = event.target.id;
+
+    if (boton === 'notLogged') {
+      alert(`Debes iniciar sesión para contactar a ${userTeacher && userTeacher.data.name}.`)
+    } else if(boton === 'renderMessage'){
+      setRenderMessage(true);
+    } else if (boton === 'enviar') {
+      handleEnviarMensaje();
+      setRenderMessage(false);
+    } else if (boton === 'cancelar') {
+      setRenderMessage(false);
+    }
+  }
 
     return (
         <div>
@@ -76,7 +91,19 @@ const DetailAnuncio = () => {
               <h1>Sobre {userTeacher && userTeacher.data.name}</h1>
             <p className={style.aboutWea}>{filteredData[0].about_teacher}</p>
             </div>
-            
+            {idLog ? (<><button id='renderMessage' onClick={(event) => handleRenderMessage(event)} className={style.botonMensaje}>Enviar mensaje a {userTeacher && userTeacher.data.name}</button>
+            {renderMessage && (
+            <div className={style.messageContainer}>
+              <textarea className={style.textareaComment} placeholder=' Escribe tu mensaje...' id='message' value={inputValue} onChange={(event) => handleChange(event)}/>
+              <div className={style.botones}>
+              <button id='enviar' onClick={(event) => handleRenderMessage(event)}>Comentar</button>
+              <button id='cancelar' onClick={(event) => handleRenderMessage(event)}>Cancelar</button>
+              </div>
+            </div>
+                    )}</>) : 
+                    (<>
+                    <button id='notLogged' onClick={(event) => handleRenderMessage(event)} className={style.botonMensaje}>Enviar mensaje a {userTeacher && userTeacher.data.name}</button>
+                    </>)}
             <Review idPub={id}/>
 
             </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllMessages, sendChat, putSeen } from "../../Redux/actions";
 import axios from "axios";
+import style from './Messages.module.css';
 
 const Messages = () => {
   const [selectedUserId, setSelectedUserId] = useState(null);
@@ -87,9 +88,11 @@ const Messages = () => {
       return <p>No hay usuarios con mensajes</p>;
     }
     return userList.map((user) => (
-      <li key={user.id} onClick={() => userClickHandler(user.id)}>
-        {user.name} {user.unreadMessages > 0 && <span>({user.unreadMessages} mensajes no leídos)</span>}
-      </li>
+      <div  className={style.userMessage}>
+      <p className={style.notReadMessage} key={user.id} onClick={() => userClickHandler(user.id)}>
+        {user.name}</p>
+        <span className={style.spanMessage}>{user.unreadMessages > 0 && <span>({user.unreadMessages} mensajes no leídos)</span>}</span>
+        </div>
     ));
   };
 
@@ -111,8 +114,8 @@ const Messages = () => {
           <div>
             <textarea
               ref={textareaRef}
-              className="chat-textarea"
-              style={{ width: "50%", height: "150px" }}
+              className={style.chatArea}
+              style={{ width: "40em", height: "150px" }}
               readOnly
               value={userMessages
                 .map(
@@ -128,10 +131,11 @@ const Messages = () => {
               id="myInput"
               value={inputValue}
               onChange={handleChange}
-              style={{ width: "50%", height: "30px" }}
+              style={{ width: "31em", height: "30px" }}
             />
             <button
-              style={{ width: "6%", height: "30px" }}
+              className={style.enviar}
+              style={{ width: "8em", height: "30px"}}
               onClick={handleClick}
             >
               Enviar
@@ -155,7 +159,7 @@ const Messages = () => {
   };
 
   return (
-    <div className="container">
+    <div className={style.container}>
       <h1>Centro de mensajes</h1>
       <div className="sidebar">
         <ul className="user-list">{renderUserList()}</ul>
