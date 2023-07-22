@@ -88,7 +88,7 @@ const ReviewPerfil =(props)=>{
                 </div>
             </div> 
             )   
-            })}{review.length === 0 && <div className={style.reviewsContainer}>
+            })}{review && review.length === 0 && <div className={style.reviewsContainer}>
               <h4>Reseña</h4>
               <div className={style.commentContainer}>
               <div className={style.cardComment}>
