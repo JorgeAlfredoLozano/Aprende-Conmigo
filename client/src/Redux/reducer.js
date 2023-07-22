@@ -4,6 +4,7 @@ const initialState = {
   lesson:[],
   allPublication:[],
   allAnuncios:[],
+  todos:[],
   userID: null,
   messages:[],
   messagesNR:[],
@@ -48,6 +49,7 @@ const reducer = (state = initialState, {type, payload}) => {
   return{
     ...state,
     allAnuncios: payload,
+    // todos:[...allAnuncios]
     }
   case 'GET_USER_BY_ID':
     return{
