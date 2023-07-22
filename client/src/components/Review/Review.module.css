@@ -42,12 +42,16 @@
 }
 
 .image {
+    width: 70px;
     height: 70px;
-    width: auto;
-    border-radius: 100%;
-    margin-top: 1em;
-    margin-left: 1em;
-    margin-right: 1em;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.imageContainer{
+    padding: 2%;
 }
 
 .textoContainer {
