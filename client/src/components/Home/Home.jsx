@@ -6,7 +6,6 @@ import Accordion from 'react-bootstrap/Accordion';
 import { NavLink } from "react-router-dom";
 
  const Home = () => {
-
     return (
         <div>
             <div className={style.body}>
