@@ -1,6 +1,6 @@
 .container{
     height: 10%;
-    background-color: rgb(36, 36, 36);
+    background-color: rgb(35, 128, 211);
     position: fixed;
     width: 100%;
     top:0%;
@@ -23,9 +23,6 @@
 
 .logo:hover {
     cursor: pointer;
-    height: 7.2%;
-    top: 1.3%;
-    transition: 0.3s ease;
 }
 
 .faq{
@@ -38,7 +35,8 @@
 
 .faq:hover {
     cursor: pointer;
-    height: 23px;
-    top: 3.4%;
-    transition: 0.3s ease;
+}
+
+.notis:hover {
+    cursor: pointer;
 }

@@ -77,9 +77,9 @@ const Review =({idPub})=>{
         <div className={style.container}>
          
            {review && <div className={style.boxa}>
-                <h4>Valoración</h4>
+                <h4 className={style.valoracion}>Valoración</h4>
                 <Stars editable={false} rating={promedio}/>
-                <span>{review.length} opiniones</span>
+                <span className={style.opiniones}>{review.length} opiniones</span>
             </div>}
             {review && review.map((rev)=>{
               const containerStyle = {

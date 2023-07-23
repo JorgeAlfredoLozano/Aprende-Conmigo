@@ -73,7 +73,7 @@ const ReviewPerfil =(props)=>{
               }; 
             return (
             <div className={style.reviewsContainer}>
-              <h4>Reseña</h4>
+              <h4 className={style.texto}>Reseña</h4>
               <div className={style.commentContainer}>
                 <div className={style.cardComment}>
                   <div className={style.imageContainer}>
@@ -89,7 +89,7 @@ const ReviewPerfil =(props)=>{
             </div> 
             )   
             })}{review && review.length === 0 && <div className={style.reviewsContainer}>
-              <h4>Reseña</h4>
+              <h4 className={style.texto}>Reseña</h4>
               <div className={style.commentContainer}>
               <div className={style.cardComment}>
               <p className={style.noReview}>Aún no has creado una reseña para este anuncio.</p>

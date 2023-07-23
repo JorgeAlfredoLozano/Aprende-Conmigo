@@ -1,5 +1,5 @@
 .container {
-    background-color: rgb(26, 26, 26);
+    background-color: rgb(238, 246, 255);
     margin-right: -5px;
     margin-bottom: -2%;
     text-align: center;
@@ -7,5 +7,5 @@
     padding-top: 5%;
     padding-bottom: 5%;
     width: 100%;
-    color: white;
+    color: rgb(117, 117, 117);
 }

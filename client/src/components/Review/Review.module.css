@@ -1,5 +1,5 @@
 .container {
-    background-color: rgb(220, 220, 220);
+    background-color: rgb(143, 175, 230);
     padding-top: 5%;
     margin-top: 5%;
     display: flex;
@@ -10,6 +10,14 @@
 
 .colores{
     color: rgba(227, 209, 43, 0.94)
+}
+
+.valoracion {
+    color: white;
+}
+
+.opiniones {
+    color: rgb(194, 209, 228);
 }
 
 .reviewsContainer {
@@ -76,10 +84,13 @@
 }
 
 .boxa {
-    background-color: rgb(184, 184, 184);
+    background-color: rgb(68, 138, 255);
     width: 40em;
     padding: 2%;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
 }
 
 .ratingContainer {
