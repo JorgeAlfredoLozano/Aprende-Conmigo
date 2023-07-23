@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import NavBar from "../NavBar/NavBar";
 import style from './Faq.module.css';
 import dataFq from './dataFq';
-import Footer from '../Footer/Footer';
+import WhatsAppButton from '../WhatsappBtn/WhatsappBtn'
 
 const Faq = () => {
   const [expandedGroups, setExpandedGroups] = useState([]);
@@ -26,7 +25,6 @@ const Faq = () => {
 
   return (
     <div>
-      <NavBar />
       <div className={style.container}>
         <h1>Preguntas frecuentes</h1>
         {dataFq.map((mapeo, index) => (
@@ -52,6 +50,7 @@ const Faq = () => {
                     {expandedResponses.includes(elemento.pregunta) && (
                       <div className="respuesta" style={{ marginLeft: '40px' }}>
                        <p> {elemento.respuesta}</p>
+                       
                       </div>
                     )}
                   </div>
@@ -60,8 +59,10 @@ const Faq = () => {
             )}
           </div>
         ))}
+        <div className={style.wasap}>
+        <WhatsAppButton />
+        </div>
       </div>
-      <Footer/>
     </div>
   );
 };

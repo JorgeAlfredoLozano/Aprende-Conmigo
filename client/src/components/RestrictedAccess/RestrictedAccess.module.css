@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8d7da; /* Color de fondo de advertencia */
+  }
+  
+  .message {
+    font-size: 32px;
+    color: #721c24; /* Color del texto de advertencia */
+    padding: 20px;
+    border: 2px solid #f5c6cb; /* Color del borde de advertencia */
+    border-radius: 8px;
+  }
+  

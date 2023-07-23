@@ -111,7 +111,7 @@ const FormAnuncio = (props) => {
   };
 
   return (
-    <div className={style.x}>
+    <div className={`${style.x} ${props.isVisible ? style.fadeIn : style.fadeOut}`}>
       <form className={style.container} onSubmit={handleSubmit}>
 
         <div className={style.boxa}>

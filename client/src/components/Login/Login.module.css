@@ -5,16 +5,15 @@
     align-items: center;
     gap: 1.5em;
     right: 16%;
-    top: 1.2%;
 }
 
 .greet {
-    max-width: 150px;
+    width: 250px;
     color: rgb(255, 255, 255);
     font-weight: bolder;
     font-size: 1.2vw;
-    text-align: left;
-    padding-top: 7%;
+    text-align: right;
+    margin-top: 5%;
 }
 
 .icon {
@@ -51,7 +50,7 @@
 }
 
 .botones:hover {
-    background-color: yellow;
+    background-color: rgb(173, 173, 173);
     cursor: pointer;
     transition: 0.5s ease;
 }

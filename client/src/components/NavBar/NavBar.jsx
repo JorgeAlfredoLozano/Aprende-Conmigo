@@ -6,11 +6,13 @@ import faqicon from '../../assets/faq-icon.png'
 
 const NavBar = () =>{
     return(
-           
+         
         <div  className={style.container}>
+            
             <Link to='/'>
             <img className={style.logo} src={loguito}/>
             </Link>
+            
           <Link to="/Preguntas" >
            <img src={faqicon} className={style.faq}/>
           </Link>

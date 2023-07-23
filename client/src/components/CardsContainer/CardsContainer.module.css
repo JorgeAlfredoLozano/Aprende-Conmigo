@@ -1,5 +1,10 @@
 .cardContainer {
     display: grid;
-    grid-template-columns: repeat(3, 300px);
-    grid-gap: 5rem;
+    grid-template-columns: repeat(3, 350px);
+    grid-gap: 3rem;
 }
+.paginadoContainer {
+    display: flex;
+    justify-content: center;
+ 
+  }

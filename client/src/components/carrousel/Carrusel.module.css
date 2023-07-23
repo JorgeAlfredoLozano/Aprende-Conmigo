@@ -6,7 +6,6 @@
     max-width: 1500px;
     overflow: hidden;
     width: 100%;
-    background-color: aqua;
     margin-bottom: 5%;
     margin-top: -1%;
     z-index: -1;
@@ -15,4 +14,8 @@
   .imagenes {
     height: auto;
     width: 100%;
+  }
+
+  .carouselContainer {
+    height: 400px;
   }

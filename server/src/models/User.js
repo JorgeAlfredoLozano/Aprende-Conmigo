@@ -11,12 +11,9 @@ sequelize.define('User', {
     },
     name:{
         type: DataTypes.STRING,
-      
-
     },    
     email:{
-        type:DataTypes.STRING,
-       
+        type:DataTypes.STRING,     
     },
     date:{
         type:DataTypes.DATEONLY,
@@ -33,6 +30,14 @@ sequelize.define('User', {
     },   
     certificate:{
         type:DataTypes.STRING,
-    }
+    },
+    admin:{
+        type:DataTypes.BOOLEAN,
+        defaultValue: false
+    },
+    status:{
+        type:DataTypes.BOOLEAN,
+        defaultValue: true
+    },
 },{timestamps:false,freezeTableName:true}
 )}

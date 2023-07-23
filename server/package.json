@@ -4,8 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "nodemon -L",
-        "deploy": "node ./index.js"
+        "start": "nodemon -L &&  node src/whatsapp.js",
+        "deploy": "node ./index.js",
+        "startcomentarioestovaenelstartparaelchat": " && node src/whatsapp.js "
     },
     "dependencies": {
         "@sendgrid/mail": "^7.7.0",
@@ -17,12 +18,16 @@
         "cors": "^2.8.5",
         "dotenv": "^16.3.1",
         "express": "^4.18.2",
+        "fs": "^0.0.1-security",
         "morgan": "^1.10.0",
         "multer": "^1.4.5-lts.1",
         "nodemon": "^2.0.22",
         "pg": "^8.11.1",
         "pg-hstore": "^2.3.4",
+        "qrcode-terminal": "^0.12.0",
         "sequelize": "^6.32.1",
-        "stripe": "^12.12.0"
+        "stripe": "^12.12.0",
+        "tmp": "^0.2.1",
+        "whatsapp-web.js": "^1.21.0"
     }
 }

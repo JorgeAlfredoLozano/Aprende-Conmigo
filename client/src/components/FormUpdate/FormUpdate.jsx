@@ -6,13 +6,16 @@ import ValidationsPerfil from '../Validations/ValidationsPerfil';
 
 const FormUpdate = (props) => {
   const email = localStorage.getItem("currentUser");
+  const parser=localStorage.getItem("cachedUser");
+  const infoUser=JSON.parse(parser)
+  console.log(infoUser)
   const dispatch = useDispatch();
   
   const [input, setInput] = useState({
-    name: '',
-    date: '',
-    gender: '',
-    phone: ''
+    name: infoUser.name || '',
+    date: infoUser.date || '',
+    gender: infoUser.gender || '',
+    phone: infoUser.phone || ''
   });
   const [errors, setErrors] = useState({});
 
@@ -67,10 +70,10 @@ const FormUpdate = (props) => {
   };
 
   return (
-    <div className={style.formu}>
+    <div className={`${style.formu} ${props.isVisible ? style.fadeIn : style.fadeOut}`}>
       <form className={style.weas} onSubmit={(event) => handleSubmit(event)}>
         <div>
-          <input className={style.name} type="text" name='name' value={input.name} onChange={(event) => handleChange(event)} placeholder="  Nombre"/>
+          <input className={style.name} type="text" name='name'  value={input.name} onChange={(event) => handleChange(event)} placeholder="  Nombre"/>
           {errors.name && <span className={style.error}>{errors.name}</span>}
         </div>
         <div>
@@ -81,7 +84,7 @@ const FormUpdate = (props) => {
             <option disabled value=''>Selecciona un género</option>
             <option value="male">Hombre</option>
             <option value="female">Mujer</option>
-            <option value="other">No binario</option>
+            {/* <option value="other">No binario</option> */}
             <option value="other">Otro</option>
           </select>
         </div>

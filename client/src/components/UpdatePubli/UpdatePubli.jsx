@@ -1,8 +1,13 @@
 import { useState,useEffect } from "react";
 import { useDispatch,useSelector } from "react-redux";
+<<<<<<< HEAD
 import {updateAnuncio,getLesson, sendAnuncio} from '../../Redux/actions';
 import { useParams, useNavigate} from 'react-router-dom';
 import style from '../FormAnuncio/FormAnuncio.module.css';
+=======
+import {updateAnuncio,getLesson} from '../../Redux/actions';
+import style from './UpdatePubli.module.css';
+>>>>>>> 08f8fb3887a8a9be75856b43f2ffb5dac651cee8
 
 //traer action que hace el posteo 
 
@@ -10,6 +15,7 @@ const UpdatePubli = (props) => {
   const email = localStorage.getItem('currentUser');
   
   const dispatch=useDispatch();
+<<<<<<< HEAD
   const navigate=useNavigate();
  //me traigo el state global allPublication
   const datoPublication = useSelector((state) => state.allPublication); //Estado de todas la publicaciones
@@ -20,6 +26,11 @@ const UpdatePubli = (props) => {
   const datoId =datoPublication.data.filter((el)=>el.id===id)[0] //Avisos del usuario ID
  
   //cuando se monta este comp quiero que de despache esta action
+=======
+  const datoPublication = useSelector((state) => state.allPublication); //Estado de todas la publicaciones
+  const id = props.updateId;
+  const datoId=datoPublication.data.filter((el)=>el.id===id)[0] //Avisos del usuario ID
+>>>>>>> 08f8fb3887a8a9be75856b43f2ffb5dac651cee8
   useEffect(()=>{
     dispatch(getLesson()); //despacha nombre de las materias
   },[dispatch]);
@@ -82,21 +93,17 @@ const [errors, setErrors] = useState({}); //maneja error de las validaciones inp
         const boton = event.target.name
         if (boton === 'actualizar') { 
             dispatch(updateAnuncio(id, input)) 
-            alert("Aviso actualizada con exito!!")
-            navigate('/perfil')
-        } else if (boton === 'eliminar') {
-            setInput(input.status=false)
-            dispatch(updateAnuncio(id, input )) 
-            alert("Aviso eliminado con exito!!")
-            navigate('/perfil')
+            alert("¡Publicación actualizada con éxito!")
+            props.setRenderUpdatePubli(false)
         } else if (boton === 'volver') {
-            navigate('/perfil')
+          props.setRenderUpdatePubli(false)
         };
 
         submitObject(event)
   }
 
   return (
+<<<<<<< HEAD
         <div className={style.x}>
 
 
@@ -109,21 +116,51 @@ const [errors, setErrors] = useState({}); //maneja error de las validaciones inp
             </div>        
 
             <div>
+=======
+    <div className={`${style.x} ${props.isVisible ? style.fadeIn : style.fadeOut}`}>
+            <form className={style.container} onSubmit={(event)=>handleSubmit(event)}>
+
+            <div className={style.boxa}>
+            <div className={style.titulo}>
+                <label className={style.label}> Título: </label>
+                <input  type="text" name='title' value={input.title} onChange={(event)=>handleChange(event)}/>                 
+            </div>              
+            <div className={style.aboutclass}>
+>>>>>>> 08f8fb3887a8a9be75856b43f2ffb5dac651cee8
                  <label className={style.label}> Acerca De La Clase: </label> 
                 <textarea className={style.textarea} name='about_class' value={input.about_class} onChange={(event)=>handleChange(event)}/>
              </div>
-            <div>
+             <div className={style.abouteacher}>
                 <label className={style.label}> Acerca Del Profesor: </label> 
+<<<<<<< HEAD
                 <textarea className={style.textarea} name='about_teacher' value={input.about_teacher} onChange={(event)=>handleChange(event)}/>  
                 {errors.about_teacher && <span className={style.error}>{errors.about_teacher}</span>}   
              </div>    
 
             <div>
+=======
+                <textarea className={style.textarea} name='about_teacher' value={input.about_teacher} onChange={(event)=>handleChange(event)}/>    
+             </div>   
+             </div>
+
+              <div className={style.boxb}> 
+
+              <div className={style.grades} role="group" aria-label="Basic checkbox toggle button group">
+              <label > Nivel: {datoId.grade} </label>
+            </div>
+
+            <div className={style.materias}>
+              <label>Materia: {datoId.Lessons[0].lesson_name}</label>
+            </div>
+            
+            <div className={style.price}>
+>>>>>>> 08f8fb3887a8a9be75856b43f2ffb5dac651cee8
                 <label className={style.label}> Precio(C/H): </label> 
                 <input type='number' name='value' value={input.value} onChange={(event)=>handleChange(event)}/>  
                 {errors.value && <span className={style.error}>{errors.value}</span>} 
              </div> 
 
+<<<<<<< HEAD
              <div> 
               <label > Nivel: {datoId.grade} </label>
               
@@ -134,10 +171,17 @@ const [errors, setErrors] = useState({}); //maneja error de las validaciones inp
             </div>
 
 
+=======
+             <div className={style.formbuttons}>
+>>>>>>> 08f8fb3887a8a9be75856b43f2ffb5dac651cee8
             <button className={style.submit} name='actualizar' type='submit' onClick={(event)=>handleSubmit(event)}>Actualizar</button>
-            <button className={style.submit} name='eliminar' type='submit' onClick={(event)=>handleSubmit(event)}>Eliminar</button>
             <button className={style.submit} name='volver' type='submit' onClick={(event)=>handleSubmit(event)}>Volver</button>
+<<<<<<< HEAD
              
+=======
+            </div>
+            </div>
+>>>>>>> 08f8fb3887a8a9be75856b43f2ffb5dac651cee8
              </form>
 
 

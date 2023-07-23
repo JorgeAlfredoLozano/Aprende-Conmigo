@@ -6,9 +6,12 @@ const postPublicationController=async(title, about_class, about_teacher, value, 
     const newName = await User.findOne({where: {email: email}});
     // RELACION UNO-MUCHOS
     await newName.addPublication(newPub);
-    const newLesson = await Lesson.create({lesson_name});
+    const newLesson = await Lesson.findOne({where:{lesson_name:lesson_name}});
     // RELACION MUCHOS-MUCHOS tabla: PublicationLesson
+    if(newLesson){
     await newPub.addLesson(newLesson);
+    }
+    
 
     return ("Publicación creada");
 }
