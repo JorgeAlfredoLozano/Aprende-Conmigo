@@ -6,7 +6,8 @@ import { NavLink } from 'react-router-dom';
 import style from './CardsContainer.module.css';
 import Paginado from '../Paginado/Paginado';
 
-const CardsContainer = ({ filtro, lesson }) => {
+const CardsContainer = ({ filtro, lesson, precio }) => {
+
   const dispatch = useDispatch();
   const datoPublication = useSelector((state) => state.allAnuncios);
   const [filteredCards, setFilteredCards] = useState([]);
@@ -20,9 +21,17 @@ const CardsContainer = ({ filtro, lesson }) => {
   useEffect(() => {
     dispatch(getAllAnuncios());
   }, [dispatch]);
-
+  let filteredData = datoPublication.data || [];
   useEffect(() => {
-    let filteredData = datoPublication.data;
+  
+    if(precio.value === 'ASC'){
+      filteredData = filteredData.sort((a, b) => a.value - b.value);
+      console.log(filteredData)
+    }
+    else if(precio.value === 'DESC'){
+      filteredData = filteredData.sort((a, b) => b.value - a.value);
+      console.log(filteredData)
+    }
 
     if (filtro) {
       filteredData = filteredData.filter((card) =>
@@ -39,8 +48,8 @@ const CardsContainer = ({ filtro, lesson }) => {
     }
 
     setFilteredCards(filteredData);
-  }, [filtro, lesson, datoPublication.data]);
-
+  }, [filtro, lesson, precio, datoPublication.data,filteredData]);
+  console.log(precio);
   /* PAGINADO */
   useEffect(() => {
     const storedCurrentPage = localStorage.getItem('currentPage');
