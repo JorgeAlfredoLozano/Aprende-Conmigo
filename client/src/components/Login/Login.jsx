@@ -20,26 +20,27 @@ const Login = ({ userData, getUser }) => {
   const user = localStorage.getItem('cachedUser');
   const userObject = JSON.parse(user);
   
+  
   useEffect(() => {
-    if (userObject && userObject.admin === true) {
+    if (userObject && userObject.admin === true && userObject.status === true) {
       setAdmin(true);
     } else {
       setAdmin(false);
     }
   }, [userObject]);
-
+  
   const navigate = useNavigate();
   const panelRef = useRef(null);
-
+  
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (panelRef.current && !panelRef.current.contains(event.target)) {
         setShowLogoutButton(false);
       }
     };
-
+    
     document.addEventListener("mousedown", handleClickOutside);
-
+    
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -51,7 +52,7 @@ const Login = ({ userData, getUser }) => {
       setLogged(true);
     }
   }, []);
-
+  
   useEffect(() => {
     if (currentUser) {
       setLogged(true);
@@ -60,28 +61,43 @@ const Login = ({ userData, getUser }) => {
       setLogged(false);
     }
   }, [currentUser, getUser]);
-
+  
   useEffect(() => {
+    
     if (userData) {
       localStorage.setItem('cachedUser', JSON.stringify(userData));
-    }
+    } 
   }, [userData]);
+  // Verificar el estado del usuario antes de permitir el inicio de sesión
+  if ( userObject && userObject.status === false ) {
+      setLogged(false);
+      setShowLogoutButton(false);
+      localStorage.removeItem('currentUser');
+      localStorage.removeItem('cachedUser');         
+      navigate('/');
+      window.location.reload();navigate('/');
+      alert("usuario Bloqueado");
+      navigate('/');
+      window.location.reload();
+    }  
+    
 
   const changeDidLog = () => {
     if (!logged) {
       firebase
-        .auth()
-        .signInWithPopup(provider)
-        .then((result) => {
-          const user = result.user;
+      .auth()
+      .signInWithPopup(provider)
+      .then((result) => {
+        const user = result.user;
           checkUserData(user);
           const email = user.email;
           setCurrentUser(email);
-          setLogged(true);
-          localStorage.setItem('currentUser', email);
-          navigate('/');
-          window.location.reload()
-        })
+            setLogged(true);
+            localStorage.setItem('currentUser', email);
+            navigate('/');
+            window.location.reload()
+          }
+          )
         .catch((error) => {
           console.error('Error al iniciar sesión:', error);
         });

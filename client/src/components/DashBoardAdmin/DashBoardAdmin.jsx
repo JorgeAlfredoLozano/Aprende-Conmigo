@@ -14,9 +14,9 @@ const DashBoardAdmin = () => {
   const anuncios = useSelector((state) => state.allAnuncios); 
   const usuarios = useSelector((state) => state.allUsers);
   
-  console.log(userObject ,"usuario logueado");
+  
   useEffect(() => {
-      if (userObject && userObject.admin === true) {
+      if (userObject && userObject.admin === true && userObject.status === true) {
           setAdmin(true);
         } else {
             setAdmin(false);
