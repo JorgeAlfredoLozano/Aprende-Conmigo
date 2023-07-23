@@ -1,35 +1,52 @@
 import React, { useState, useEffect } from 'react';
 import style from '../DashBoardAdmin/DashBoardAdmin.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllAnuncios, updateAnuncio } from '../../Redux/actions';
+import { getAllAnuncios, updateAnuncio , getAllUsers, putUserEmail } from '../../Redux/actions';
 import RestrictedAccess from "../RestrictedAccess/RestrictedAccess"
 
 const DashBoardAdmin = () => {
   const [admin, setAdmin] = useState(false);
   const [selectedAnuncio, setSelectedAnuncio] = useState(null);
+  const [selectedUsuario, setSelectedUsuario] = useState(null);
   const user = localStorage.getItem('cachedUser');
   const userObject = JSON.parse(user);
   const dispatch = useDispatch();
   const anuncios = useSelector((state) => state.allAnuncios); 
-
+  const usuarios = useSelector((state) => state.allUsers);
+  
+  console.log(userObject ,"usuario logueado");
   useEffect(() => {
-    dispatch(getAllAnuncios());
-  }, [dispatch]);
+      if (userObject && userObject.admin === true) {
+          setAdmin(true);
+        } else {
+            setAdmin(false);
+        }
+    }, [userObject]);
+    
+    useEffect(() => {
+        dispatch(getAllAnuncios());
+    }, [dispatch]);
+    
+    useEffect(() => {
+        dispatch(getAllUsers());
+    }, [dispatch]);
+    
+    if (usuarios) {console.log(usuarios, "usuarios")} 
 
-  useEffect(() => {
-    if (userObject && userObject.admin === true) {
-      setAdmin(true);
-    } else {
-      setAdmin(false);
-    }
-  }, [userObject]);
+    
+    console.log(anuncios.data ,"anuncios")
 
-  const handleAnuncioClick = (anuncio) => {
-    setSelectedAnuncio(anuncio); // Actualizar el estado local con el anuncio seleccionado
+
+
+    const handleAnuncioClick = (anuncio) => {
+    setSelectedAnuncio(anuncio);
   };
   
-  const handleToggleStatus = () => {
-    // Actualizar el estado del anuncio en la base de datos mediante la acción Redux
+const handleUsuarioClick = (usuario) => {
+    setSelectedUsuario(usuario);
+  };
+
+const handleToggleStatus = () => {
     if (selectedAnuncio) {
       const updatedStatus = !selectedAnuncio.status;
       dispatch(updateAnuncio(selectedAnuncio.id, { status: updatedStatus }));
@@ -40,12 +57,34 @@ const DashBoardAdmin = () => {
     }
   };
 
+  const handleUserStatus = () => {
+    if (selectedUsuario) {
+      const updatedStatus = !selectedUsuario.status;
+      dispatch(putUserEmail(selectedUsuario.email, { status: updatedStatus }));
+      setSelectedUsuario((prevUsuario) => ({
+        ...prevUsuario,
+        status: updatedStatus,
+      }));
+    }
+  };
+
+  const handleUserAdmin = () => {
+    if (selectedUsuario) {
+      const updatedStatus = !selectedUsuario.admin;
+      dispatch(putUserEmail(selectedUsuario.email, { admin: updatedStatus }));
+      setSelectedUsuario((prevUsuarioAdmin) => ({
+        ...prevUsuarioAdmin,
+        admin: updatedStatus,
+      }));
+    }
+  };
+  
   return (
     <div>
       {admin ? (
         <div className={style.container}>
           <h1>Panel de control</h1>
-          <h4>anuncios generales</h4>
+          <h4>habilitar / deshabilitar anuncios</h4>
           <hr />
           <ul>
             {anuncios.data && Array.isArray(anuncios.data) ? (
@@ -72,6 +111,39 @@ const DashBoardAdmin = () => {
               </button>
             </div>
           )}
+          <div>
+            <h4>habilitar / deshabilitar Usuarios</h4>
+            <hr />
+            <ul>
+              {usuarios.data && Array.isArray(usuarios.data) ? (
+                usuarios.data.map((usuario) => (
+                  <li
+                    key={usuario.id}
+                    onClick={() => handleUsuarioClick(usuario)}
+                  >
+                    {usuario.name}
+                  </li>
+                ))
+              ) : (
+                <p>No hay usuarios disponibles.</p>
+              )}
+            </ul>
+            {selectedUsuario && (
+              <div>
+                <h2>Información adicional del usuario:</h2>
+                <p>Nombre: {selectedUsuario.name}</p>
+                <p>Fecha de nacimiento: {selectedUsuario.date}</p>
+                {selectedUsuario.status === true ? <p>Estado: activo</p> : <p>Estado: desactivado</p>}
+                <button onClick={handleUserStatus}>
+                  {selectedUsuario.status === true ? "Desactivar" : "Activar"}
+                </button>
+                {selectedUsuario.admin === true ? <p>Administrador: activo</p> : <p>Administrador: desactivado</p>}
+                <button onClick={handleUserAdmin}>
+                  {selectedUsuario.admin === true ? "Desactivar" : "Activar"}
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       ) : (<RestrictedAccess/>) }
     </div>
@@ -79,6 +151,7 @@ const DashBoardAdmin = () => {
 };
 
 export default DashBoardAdmin;
+
 
 
 

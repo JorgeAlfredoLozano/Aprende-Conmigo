@@ -196,3 +196,23 @@ export const postReview = ( comment, rating, idPub, idUser ) => { // postea una 
     })
   }
 }
+
+export const getAllUsers = ()=>{
+  return async function(dispatch){
+     const response= await axios.get(`http://localhost:3001/user/alluser`)
+    return dispatch({
+      type:'GET_ALL_USERS',
+      payload: response
+    });  
+   };
+};
+
+export const putUserEmail = (email, aux )=>{
+  return async function(dispatch){
+     const response=await axios.put(`http://localhost:3001/user/update/${email}`, aux)
+    return dispatch({
+      type:'PUT_USER_EMAIL',
+      payload: response
+    });  
+   };
+};
