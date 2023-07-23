@@ -1,38 +1,48 @@
 import Card from "../Card/Card";
-// import { connect } from "react-redux";
+import { getAllFav} from "../../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./Favoritos.module.css";
 
 
 
 const Favoritos = () => {
+  const dispatch= useDispatch()
+  const localStorageContent = localStorage.getItem("cachedUser");
+  const  parser  = JSON.parse(localStorageContent);
+  const user_id = parser.id;
    
-    const fav = useSelector(state=>state.myFavorites )
-    console.log("conponenete FAVORITOS que tiene mi estado global -->", fav)
- //aca si si renderizo todos los favoritos selecionados y los puedo eliminar
+  const myFavorites = useSelector((state) => state.myFavorites);
 
-
+  useEffect(()=>{
+    dispatch(getAllFav(user_id))
+  },[dispatch])
+  
     return (
-        
+        <div className={style.cardContainer}>
+         
+      {myFavorites.length === 0 ? (
+        <p>No tienes favoritos seleccionados.</p>
+      ) : (
         <div className={style.card_publication}>
-        <p>pepito</p>
-                {/* <h4 className={style.title}>{fav.title}</h4>
-                <h5 className={style.lesson}>{fav.lesson}</h5>
-                <h6 className={style.grade}>{fav.grade}</h6>
-                <div className={style.abouts}>
-                <h6 className={style.about_class}>{fav.about_class}</h6>
-                </div>
-                <div className={style.abouts}>
-                <h6 className={style.about_teacher}>{fav.about_teacher}</h6>
-                </div>
-                <div className={style.contvalue}>
-                <h6 className={style.value}>💲{fav.value}💸</h6>
-                </div>
-   */}
-      </div>
+          {myFavorites?.map((fav) => (
+            (fav.Publication &&
+            <Card
+              key={fav.Publication.id}
+              id={fav.Publication.id}
+              title={fav.Publication.title}
+              about_class={fav.Publication.about_class}
+              about_teacher={fav.Publication.about_teacher}
+              grade={fav.Publication.grade}
+              lesson={fav.Publication.lesson_name}  
+              value={fav.Publication.value}
+              isFavo={true}
+            />
+          ) ))}
+        </div>
+      )}
       
-        
+      </div>
     )
 }
 

@@ -7,20 +7,25 @@ const postFavController= async (UserId, PublicationId)=>{
     UserId: UserId,
     PublicationId: PublicationId
  });
-
- return postFav;
    
-//    const user = await User.findOne(
-//     {where: {id:UserId}}
-//    )
+   // const user = await Favorite.findOne(
+   //  {where: {id:UserId},
+   //  include:{
+   //    model: User
+   //   }}
+   // )
    
-//    await user.addFavorite(postFav)
+   // await user.addFavorite(postFav)
 
 
-//    const pub= await Publication.findOne(
-//     {where: {id:PublicationId}}
-//    )
-//    await pub.addFavorite(postFav)
+   // const pub= await Publication.findOne(
+   //  {where: {id:PublicationId},
+   //  include:{
+   //    model: Publication
+   //   }
+   // })
+   // await pub.addFavorite(postFav)
+   return postFav;
 }
 
 module.exports= postFavController;

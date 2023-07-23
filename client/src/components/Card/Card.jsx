@@ -1,52 +1,60 @@
 import style from "./Cards.module.css";
-import { addFav, remove_fav } from "../../Redux/actions";
+import { addFav, remove_fav, getAllFav } from "../../Redux/actions";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from 'react-router-dom';
 
 
 
 
-const Card = ({id, title, value, lesson, about_class, about_teacher, grade}) => {
-
+const Card = ({id, title, value, lesson, about_class, about_teacher, grade,isFavo}) => {
+  
   const localStorageContent = localStorage.getItem("cachedUser");
   const  parser  = JSON.parse(localStorageContent);
   const user_id = parser.id;
 
   const dispatch= useDispatch()
- //console.log("los aidis ->", "usuario ->", user_id, "publi ->", id)//todo oka
-    //_________________________________________________
-    const [isFav, setIsfav] = useState(false);
+  const myFavorites = useSelector((state) => state.myFavorites);
+  
+  const [isFav, setIsfav] = useState(false);
 
-    const handleFavorite= ()=>{  //esta fn maneja los botones click o no click?
-      //este id es el id de la card
-      
-      if (isFav) {
-        setIsfav(false) 
-        // remove_fav(id)}
+
+    //MANEJA LOS FAVORITOS PARA QUE AL INGRESAR NUEVAMENTE ESTE CLICKEADOS LOS FAVORITOS QUE ESTABAN
+    useEffect(() => {
+      if (!isFavo) {
+        setIsfav( myFavorites.some((fav) =>  fav.PublicationId === id ))
+      } else {
+        setIsfav(true)
       }
-     else {
-        setIsfav(true) 
-        dispatch(addFav(id, user_id))
-     }
-      };
-      // console.log("estado local isFav ->", isFav)
+      
+   }, [myFavorites, id, isFav]);
+ 
+  
 
-  // useEffect(() => {
-  //   if (isFav) {
-  //     dispatch(
-  //       addFav({ id, user_id})
-  //     );
-  //   }
-  // }, [dispatch, id, user_id]);
-   
+    const handleFavorite= (event)=>{
+        
+        if(id){
+        if (isFav === true) {
+          setIsfav(false) 
+          dispatch(remove_fav(id) )
+          
+        }
+      else if (isFav === false) {
+          setIsfav(true) 
+          dispatch(addFav(id, user_id))}
+         
+      }
+    }
+
+
+    
   
     //________________________________________________ 
 
     return(
       <div className={style.card_publication}>
 
-      <div className={style.favoriteButton} onClick={handleFavorite}>
+      <div className={style.favoriteButton} onClick={(event) =>handleFavorite(event)}>
         {isFav ? "❤️" : "🤍"}
       </div>
 
@@ -68,5 +76,7 @@ const Card = ({id, title, value, lesson, about_class, about_teacher, grade}) => 
     </div>
     )
   }
+
+ 
   
   export default Card;

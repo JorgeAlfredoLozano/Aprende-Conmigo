@@ -1,17 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from '../Card/Card';
-import { getAllAnuncios } from '../../Redux/actions';
+import { getAllAnuncios, getAllFav } from '../../Redux/actions';
 import style from "./CardsContainer.module.css"
 
 const CardsContainer = ({ filtro, lesson }) => {
+
+  const localStorageContent = localStorage.getItem("cachedUser");
+  const  parser  = JSON.parse(localStorageContent);
+  const user_id = parser.id;
+
   const dispatch = useDispatch();
   const datoPublication = useSelector((state) => state.allAnuncios);
   const [filteredCards, setFilteredCards] = useState([]);
-
+  
+  const myFavorites = useSelector((state) => state.myFavorites);
   useEffect(() => {
     dispatch(getAllAnuncios());
+    dispatch(getAllFav(user_id))
   }, [dispatch]);
+
+
 
   useEffect(() => {
     let filteredData = datoPublication.data;
