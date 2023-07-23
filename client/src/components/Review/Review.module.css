@@ -95,3 +95,25 @@
     width: 40em;
     height: 5em;
 }
+
+.ratingContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    padding-bottom: 5%;
+}
+
+.botones {
+    display: flex;
+    gap: 1em;
+}
+
+.textareaComment {
+    width: 40em;
+    height: 5em;
+}
+
+.star:hover {
+    cursor: pointer
+}

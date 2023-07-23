@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllMessages, sendChat, putSeen } from "../../Redux/actions";
+import { getAllMessages, sendChat,getNotReadMessages, putSeen } from "../../Redux/actions";
 import axios from "axios";
+import style from './Messages.module.css';
+
 
 const Messages = () => {
   const [selectedUserId, setSelectedUserId] = useState(null);
@@ -9,6 +11,7 @@ const Messages = () => {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState("");
   const messages = useSelector((state) => state.messages);
+  const messagesNR = useSelector((state) => state.messagesNR)
   const localStorageContent = localStorage.getItem("cachedUser");
   const { id } = JSON.parse(localStorageContent);
   const textareaRef = useRef();
@@ -22,7 +25,8 @@ const Messages = () => {
 
   useEffect(() => {
     dispatch(getAllMessages(id));
-
+    dispatch(getNotReadMessages("all",id))
+    
     const intervalId = setInterval(() => {
       dispatch(getAllMessages(id));
     }, 5000);
@@ -32,54 +36,45 @@ const Messages = () => {
 
     return () => clearInterval(intervalId);
   }, [dispatch, id]);
-
+console.log(messagesNR)
   useEffect(() => {
     // Scroll cuando se actualizan los mensajes o se selecciona un usuario
     scrollChatToBottom();
   }, [messages, selectedUserId]);
 
-  const userClickHandler = (userId) => {
-    dispatch(putSeen(userId, id));
+  const userClickHandler = async (userId) => {
+    await dispatch(putSeen(userId, id));
+    await dispatch(getNotReadMessages("all",id))
     setSelectedUserId(userId);
+    
   };
 
-  // Función para obtener el ID del remitente o destinatario dependiendo del mensaje
-  const getUserReceiverId = (messageGroup) => {
-    const userReceiver = messageGroup.find((message) => message.idSend !== id);
-    return userReceiver ? userReceiver.idSend : messageGroup[0].idReceived;
+  const fetchUserListWithMessages = async () => {
+    const uniqueUserIds = new Set();
+    messages.forEach((messageGroup) => {
+      uniqueUserIds.add(messageGroup[0].idSend);
+      uniqueUserIds.add(messageGroup[0].idReceived);
+    });
+
+    const users = [];
+
+    for (const userId of uniqueUserIds) {
+      try {
+        if (userId !== id) {
+          const response = await axios.get(`http://localhost:3001/user/get/${userId}`);
+          const user = response.data;
+          users.push(user);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    setUserList(users);
   };
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      const users = {};
-      
-      messages.forEach((messageGroup) => {
-        const userReceiverId = getUserReceiverId(messageGroup);
-        if (userReceiverId) {
-          users[userReceiverId] = users[userReceiverId] || { count: 0, info: null };
-          if (!messageGroup.some((message) => message.seen)) {
-            users[userReceiverId].count++;
-          }
-        }
-      });
-
-      const receiverIds = Object.keys(users);
-      const usersInfo = [];
-
-      for (const receiverId of receiverIds) {
-        try {
-          const response = await axios.get(`http://localhost:3001/user/get/${receiverId}`);
-          const user = response.data;
-          usersInfo.push({ ...user, unreadMessages: users[receiverId].count });
-        } catch (error) {
-          console.log(error);
-        }
-      }
-
-      setUserList(usersInfo);
-    };
-
-    fetchUsers();
+    fetchUserListWithMessages();
   }, [messages, id]);
 
   const renderUserList = () => {
@@ -87,11 +82,14 @@ const Messages = () => {
       return <p>No hay usuarios con mensajes</p>;
     }
     return userList.map((user) => (
-      <li key={user.id} onClick={() => userClickHandler(user.id)}>
-        {user.name} {user.unreadMessages > 0 && <span>({user.unreadMessages} mensajes no leídos)</span>}
-      </li>
+      <div  className={style.userMessage}>
+      <p className={style.notReadMessage} key={user.id} onClick={() => userClickHandler(user.id)}>
+        {user.name}</p>
+        <span className={style.spanMessage}>{user.unreadMessages > 0 && <span>({user.unreadMessages} mensajes no leídos)</span>}</span>
+        </div>
     ));
   };
+  
 
   const handleChange = (event) => {
     setInputValue(event.target.value);
@@ -103,7 +101,8 @@ const Messages = () => {
     }
     if (selectedUserId) {
       const userMessages = messages.find(
-        (messageGroup) => getUserReceiverId(messageGroup) === selectedUserId
+        (messageGroup) =>
+          messageGroup[0].idReceived === selectedUserId || messageGroup[0].idSend === selectedUserId
       );
 
       if (userMessages) {
@@ -111,13 +110,13 @@ const Messages = () => {
           <div>
             <textarea
               ref={textareaRef}
-              className="chat-textarea"
-              style={{ width: "50%", height: "150px" }}
+              className={style.chatArea}
+              style={{ width: "40em", height: "150px" }}
               readOnly
               value={userMessages
                 .map(
                   (message) =>
-                    `${message.idSend !== id ? "Tu: " : "Yo: "}${message.message}`
+                    `${message.idSend === id ? "Yo" : "Tu"}: ${message.message}`
                 )
                 .join("\n")}
             ></textarea>
@@ -128,10 +127,11 @@ const Messages = () => {
               id="myInput"
               value={inputValue}
               onChange={handleChange}
-              style={{ width: "50%", height: "30px" }}
+              style={{ width: "31em", height: "30px" }}
             />
             <button
-              style={{ width: "6%", height: "30px" }}
+              className={style.enviar}
+              style={{ width: "8em", height: "30px"}}
               onClick={handleClick}
             >
               Enviar
@@ -155,7 +155,7 @@ const Messages = () => {
   };
 
   return (
-    <div className="container">
+    <div className={style.container}>
       <h1>Centro de mensajes</h1>
       <div className="sidebar">
         <ul className="user-list">{renderUserList()}</ul>

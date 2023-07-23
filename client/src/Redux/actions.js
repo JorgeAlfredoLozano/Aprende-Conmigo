@@ -83,9 +83,10 @@ export const getLesson = ()=>{
   };
 };
 //cami
-export const getAllAnuncios = ()=>{
+export const getAllAnuncios = (page=0)=>{
+
   return async function(dispatch){
-     const response=await axios.get(`http://localhost:3001/publication/get/anouncements`)
+     const response=await axios.get(`http://localhost:3001/publication/get/anouncements?page=${page}`)
     return dispatch({
       type:'GET_ALL_ANUNCIOS',
       payload: response
@@ -117,6 +118,15 @@ export const getAllMessages = (id)=>{ // Trae todos los mensajes del usuario ID
      const response=await axios.get(`http://localhost:3001/message/getallmessage/${id}`)
     return dispatch({
       type:'GET_ALL_MESSAGES',
+      payload: response.data
+    });  
+   };
+};
+export const getNotReadMessages = (idSend,idReceived)=>{ // Trae todos los mensajes del usuario ID
+  return async function(dispatch){
+     const response=await axios.get(`http://localhost:3001/message/notread/${idSend}/${idReceived}`)
+    return dispatch({
+      type:'GET_NOT_READ',
       payload: response.data
     });  
    };
@@ -167,9 +177,6 @@ export const getAllSales = (id)=>{ // Trae todas las ventas de un usuario(profe)
     });  
    };
 };
-
-
-
 //Reviews
 export const getReviews = ( idPub )=>{ // traer las reviews de una publi
   return async function(dispatch){
@@ -180,7 +187,6 @@ export const getReviews = ( idPub )=>{ // traer las reviews de una publi
     });  
    };
 };
-
 export const postReview = ( comment, rating, idPub, idUser ) => { // postea una review
   return async function (dispatch) {
     const data = {

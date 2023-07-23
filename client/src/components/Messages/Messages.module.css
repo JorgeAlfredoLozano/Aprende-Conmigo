@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.enviar {
+    margin-left: 1em;
+}
+
+.chatArea {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+.notReadMessage {
+    background-color: white;
+    padding: 2%;
+    width: 10em;
+    text-overflow: ellipsis;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0%;
+}
+
+.notReadMessage:hover {
+    cursor: pointer;
+}
+
+.userMessage {
+    display: flex;
+    place-content: center;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.spanMessage {
+    margin: 0%;
+}
