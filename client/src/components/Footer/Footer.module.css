@@ -1,11 +1,47 @@
 .container {
     background-color: rgb(26, 26, 26);
-    margin-right: -5px;
-    margin-bottom: -2%;
     text-align: center;
-    flex-direction: column;
     padding-top: 5%;
     padding-bottom: 5%;
     width: 100%;
     color: white;
-}
+  }
+  
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .column {
+    padding: 10px;
+    /* border: 1px solid #ccc;
+    border-radius: 8px; */
+  }
+  
+  .column h3 {
+    margin-bottom: 5px;
+    color: #fff;
+    font-size: 18px;
+  }
+  
+  .column p {
+    margin-bottom: 3px;
+    cursor: pointer; /* Agregamos esto para que el cursor se transforme en una mano al pasar sobre los nombres */
+    transition: transform 1s; /* Agregamos transición para suavizar el efecto de rotación */
+  }
+  
+  .column p:hover {
+    transform: rotateX(360deg); /* Hacemos que los nombres roten 360 grados verticalmente al pasar sobre ellos */
+  }
+  .link {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .link:hover {
+    transform: rotate(360deg);
+    transition: transform 1s;
+  }
+  
