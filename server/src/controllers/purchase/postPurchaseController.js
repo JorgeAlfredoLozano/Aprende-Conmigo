@@ -12,7 +12,7 @@ const cheackoutApi = async(id,amount) => {
         confirm:true
     })
     return payment;
-};
+ };
 
 const postPurchaseController = async (idUser,idPub,hora) => {
     const buy = await Purchase.create({hora});

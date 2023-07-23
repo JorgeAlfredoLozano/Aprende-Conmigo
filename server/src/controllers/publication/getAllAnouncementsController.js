@@ -1,18 +1,29 @@
 const { Publication, Lesson } = require('../../db');
 
-const getAllAnouncementsController = async (req, res) => {
-  try {
-    const allAnuncios = await Publication.findAll({
+const getAllAnouncementsController = async (page) => {
+  let allAnuncios = [];
+  
+  if (page == 0) {
+    allAnuncios = await Publication.findAll({
       include: [Lesson], // Incluir las Lessons relacionadas
     });
-
     if (allAnuncios) {
       return allAnuncios;
     } else {
       return "No existen anuncios";
     }
-  } catch (error) {
-    throw new Error('Error en ruta getAnuncios');
+  } else {
+    const offset = (page - 1) * 4;
+    allAnuncios = await Publication.findAll({
+      include: [Lesson], // Incluir las Lessons relacionadas
+      offset: offset,
+      limit: 4,
+    });
+    if (allAnuncios) {
+      return allAnuncios;
+    } else {
+      return "No existen anuncios";
+    }
   }
 };
 
