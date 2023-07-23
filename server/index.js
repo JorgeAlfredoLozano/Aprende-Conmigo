@@ -9,7 +9,7 @@ const cors = require('cors')
 server.use(cors({origin: 'http://localhost:5173'}))
 const whatsapp = require('../server/src/whatsapp.js')
 
-conn.sync({ alter: true })  //alter force
+conn.sync({ Altern: true })  //alter force
 .then(() => postLessonHandler(lessonsJson, Lesson))
 .then(() => whatsapp)
 .then(() => {
