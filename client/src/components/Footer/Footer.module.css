@@ -8,3 +8,8 @@
     width: 100%;
     color: rgb(117, 117, 117);
 }
+
+.columns {
+    display: flex;
+    justify-content: center ;
+}

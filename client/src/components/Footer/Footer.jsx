@@ -22,14 +22,14 @@ const Footer = () => {
         </div>
         <div className={styles.column}>
           <h3>Acerca de Aprende Conmigo</h3>
-          <p><a href="https://aprende-one.vercel.app/Preguntas" target="_blank" rel="noopener noreferrer" className={styles.link}>¿Quienes Somos?</a></p>
+          <p><a href="/about" target="_blank" rel="noopener noreferrer" className={styles.link}>¿Quienes Somos?</a></p>
           <p>Nuestros valores</p>
           <p>Política de Privacidad</p>
         </div>
         <div className={styles.column}>
           <h3>Asistencia</h3>
           <a className={styles.link} href="mailto:aprendeconmigohenry@gmail.com?subject=Contacto%20desde%20mi%20sitio%20web&amp;body=Hola,%0D%0A%0D%0AQuería contactar con ustedes para obtener más información.%0D%0A%0D%0AGracias.%0D%0A%0D%0ASaludos">¿Necesitas ayuda?</a>
-          <p><a href="https://aprende-one.vercel.app/Preguntas" target="_blank" rel="noopener noreferrer" className={styles.link}>Preguntas Frecuentes</a></p>
+          <p><a href="/Preguntas" target="_blank" rel="noopener noreferrer" className={styles.link}>Preguntas Frecuentes</a></p>
         </div>
       </div>
       <footer className={styles.nav}>
