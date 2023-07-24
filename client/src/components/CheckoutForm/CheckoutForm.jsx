@@ -9,6 +9,8 @@ import style from './CheckoutForm.module.css';
 const VITE_API_STRIPE=import.meta.env.VITE_API_STRIPE;
 
 let email = 'none';
+let email2 = 'none';
+let userName ='none';
 let idUs=0;
 
 const stripePromise = loadStripe(`${VITE_API_STRIPE}`);
@@ -16,6 +18,10 @@ const localStorageContent = localStorage.getItem("cachedUser")
 const  parser  = JSON.parse(localStorageContent);
 
 if(parser)email=parser.email;
+console.log(parser)
+if(parser)userName=parser.name;
+console.log(userName)
+
 if(parser)idUs=parser.id;
 
 const CheckoutForm = () => {
@@ -26,8 +32,10 @@ const navigate = useNavigate();
 const params = useParams();
 const idPub = params.id;
 const info=useSelector((state)=>state.allAnuncios.data);
-
+console.log(info,'infoooo')
 const infoFiltered=info.filter((inf)=> inf.id===idPub);
+
+email2=infoFiltered[0].User.email; //email profesor
 const [horas,setHoras]=useState(1);
 const number=[1,2,3,4,5,6,7,8,9,10];
 
@@ -42,16 +50,21 @@ const {error, paymentMethod} = await stripe.createPaymentMethod({
     card:elements.getElement(CardElement)
 })
 if(!error) { 
-const {id} = paymentMethod
+
+const {id} = paymentMethod || 0
 const {data} = await axios.post('http://localhost:3001/purchase/', {
     id,
     amount:infoFiltered[0].value * horas * 100,
     email,
+    email2,
     datos: infoFiltered[0],
     idUser: idUs,
     idPub: idPub,
-    hora: horas
+    hora: horas,
+    userName,
 })
+
+console.log(data)
 elements.getElement(CardElement).clear()
 if(data.message==="successfull payment"){
     alert('pago realizado con exito')
