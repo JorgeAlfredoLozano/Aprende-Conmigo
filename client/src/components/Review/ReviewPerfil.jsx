@@ -15,9 +15,9 @@ const ReviewPerfil =(props)=>{
     const dispatch = useDispatch();
    
     useEffect(() => {
-        dispatch(getReviews(props.reviewId));
+        dispatch(getReviews(props.idPub));
         dispatch(getAllPurchases(idUser))
-    }, [dispatch]);
+    }, [dispatch],props.idPub,idUser);
 
     const review = useSelector((state)=>state.reviews.data);
     const purchases = useSelector((state)=>state.purchases);

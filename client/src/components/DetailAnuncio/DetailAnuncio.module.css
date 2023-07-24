@@ -108,3 +108,12 @@
     display: flex;
     gap: 1em;
   }
+
+  .payment {
+    background-color: white;
+    position: fixed;
+    top:20%;
+    z-index: 4;
+    padding: 2%;
+    left: 30%;
+  }

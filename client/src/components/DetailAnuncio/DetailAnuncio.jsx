@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllAnuncios, getUserById, sendChat } from "../../Redux/actions";
 import Review from '../Review/Review';
 import { useEffect, useState } from 'react';
+import CheckoutForm from '../CheckoutForm/CheckoutForm';
 
 const DetailAnuncio = () => {
   
@@ -16,6 +17,7 @@ const DetailAnuncio = () => {
     const [showInput, setShowInput] = useState(false);
     const [inputValue, setInputValue] = useState("");
     const [renderMessage, setRenderMessage] = useState(false);
+    const [showCheckoutForm, setShowCheckoutForm] = useState(false);
 
     useEffect(() => {
         dispatch(getAllAnuncios());
@@ -76,6 +78,14 @@ const DetailAnuncio = () => {
     }
   }
 
+  const handleRenderCheckoutForm = () => {
+    setShowCheckoutForm(true);
+  };
+
+  const handleCancelPayment = () => {
+    setShowCheckoutForm(false)
+  }
+
     return (
         <div>
             <div className={style.container}>
@@ -103,7 +113,12 @@ const DetailAnuncio = () => {
                     )}</>) : 
                     (<>
                     <button id='notLogged' onClick={(event) => handleRenderMessage(event)} className={style.botonMensaje}>Enviar mensaje a {userTeacher && userTeacher.data.name}</button>
-                    </>)}
+                    </>)}{showCheckoutForm && (
+            <div className={style.payment}>
+              <CheckoutForm showCheckoutForm={showCheckoutForm} setShowCheckoutForm={setShowCheckoutForm} />
+              <button onClick={handleCancelPayment}>Cancelar</button>
+            </div>
+          )}
             <Review idPub={id}/>
 
             </div>
@@ -134,11 +149,9 @@ const DetailAnuncio = () => {
                     {idLog ? 
          (
           idLog !== filteredData[0].UserId ? 
-  (
-    <Link to={`/pago/${id}`}>
-      <button>Contratar este profesor</button>
-    </Link>
-    
+  (<div>
+      <button onClick={handleRenderCheckoutForm}>Contratar este profesor</button>
+    </div>
     ) : (
       <p></p>
    )

@@ -3,7 +3,6 @@ import Home from './components/Home/Home';
 import Perfil from './components/Perfil/Perfil';
 import Faq from './components/Faq/Faq';
 import SearchPage from './components/SearchPage/SearchPage';
-import Checkout from './components/CheckoutForm/CheckoutForm';
 import DetailAnuncio from './components/DetailAnuncio/DetailAnuncio';
 import PerfilPublic from './components/PublicPerfil/PerfilPublic';
 import NavBar from './components/NavBar/NavBar';
@@ -25,7 +24,6 @@ function App() {
           <Route path="/preguntas" element={<Faq/>}/>
           <Route path="/admin" element={<DashBoardAdmin/>}/>
           <Route path="/busqueda" element={<SearchPage/>}/>
-          <Route path='/pago/:id' element={<Checkout/>}/>
           <Route path='/anuncio/:id' element={<DetailAnuncio/>}/>
           <Route path='/perfilPublico/:id' element={<PerfilPublic/>}/>
           <Route path='/compras' element={<Purchases/>}/>
