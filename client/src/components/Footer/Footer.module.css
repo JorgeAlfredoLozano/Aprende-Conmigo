@@ -12,5 +12,10 @@
 .columns {
     display: flex;
     justify-content: center ;
-    gap:1em;
+    font-size: 14px;
+    gap: 3em;
+}
+
+.titulo {
+    font-size: 18px;
 }
