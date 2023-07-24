@@ -19,8 +19,7 @@ let msg2={}
 sgMail.setApiKey(SENDGRID);
 
 const sendmail = async(type,email,datos,email2,userName,hora) => {
-    
-     userName=userName.toUpperCase();
+     
      if (type==="register") {
         const saludo=templateRegister(datos,contactar,pagina,publicar)
         msg1 = {
@@ -32,8 +31,8 @@ const sendmail = async(type,email,datos,email2,userName,hora) => {
           };
      }
    if (type==="payment") {
-      const buy=templateUserBuy(userName,datos.title,contactar)
-      const sale=templateUserSale(userName,datos.User.name.toUpperCase(), datos.title, hora, contactar)
+      const buy=templateUserBuy(userName.toUpperCase(),datos.title,contactar)
+      const sale=templateUserSale(userName.toUpperCase(),datos.User.name.toUpperCase(), datos.title, hora, contactar)
       msg1 = {
           to: email,
           from: 'aprendeconmigohenry@gmail.com',
