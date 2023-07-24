@@ -11,6 +11,7 @@ import DashBoardAdmin from './components/DashBoardAdmin/DashBoardAdmin';
 import Purchases from './components/Purchase/Purchase';
 import Sales from './components/Sales/Sales';
 import Notifications from './components/NavBar/Notifications';
+import About from './components/About/About'
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
           <Route path='*' element={<Home/>}/>
           <Route path='/user' element={<DashBoardAdmin/>}/>
           <Route path='/not' element={<Notifications/>}/>
+          <Route path='/about' element={<About/>}/>
         </Routes>
         <Footer/>
       </div>

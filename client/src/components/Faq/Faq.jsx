@@ -42,13 +42,13 @@ const Faq = () => {
                   <div key={index}>
                     <div
                       className="pregunta"
-                      style={{ marginLeft: '20px', cursor: 'pointer',fontWeight: 'bold' }}
+                      style={{ marginLeft: '50px', cursor: 'pointer',fontWeight: 'bold' }}
                       onClick={() => handleQuestionClick(elemento.pregunta)}
                     >
                       <h3><img src="https://cdn-icons-png.flaticon.com/128/545/545678.png"/>{elemento.pregunta} </h3>
                     </div>
                     {expandedResponses.includes(elemento.pregunta) && (
-                      <div className="respuesta" style={{ marginLeft: '40px' }}>
+                      <div className="respuesta" style={{ marginLeft: '20%', marginRight: '20%', fontSize : '30px' }}>
                        <p> {elemento.respuesta}</p>
                        
                       </div>

@@ -1,0 +1,84 @@
+/* Estilos para todo el componente */
+.about-container {
+  text-align: center;
+  background-color: white;
+}
+
+.about-container h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.about-container p {
+  font-size: 16px;
+  color: #666;
+}
+
+.participants-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Estilo para cada columna de participante */
+.participant-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+  padding: 20px; /* Aumentar el padding para hacer el contenedor más grande */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Configuración para el flip */
+  perspective: 1000px;
+  cursor: pointer;
+  width: 200px; /* Puedes ajustar el ancho según tus necesidades */
+  height: 300px; /* Puedes ajustar la altura según tus necesidades */
+}
+
+.participant-column:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.participant-column img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.participant-column strong {
+  font-weight: bold; /* Estilo para los nombres en negrita */
+}
+
+.participant-column em {
+  font-style: italic; /* Estilo para los lugares en cursiva */
+}
+
+.contact-icons img {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+}
+
+.contact-icons img:hover {
+  transform: scale(1.5);
+}
+
+/* Estilo para el efecto de flip */
+.participant-column.flipped {
+  transform: rotateY(180deg);
+  background-color: rgb(58, 58, 58);
+}
+
+.posterior-text {
+  transform: rotateY(180deg);
+  color: rgb(226, 226, 103);
+ 
+}
+
+.paragraph-container {
+  width: 80%;
+  margin: 0 auto;
+}

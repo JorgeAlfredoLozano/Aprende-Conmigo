@@ -81,6 +81,7 @@ console.log(messagesNR)
     if (userList.length === 0) {
       return <p>No hay usuarios con mensajes</p>;
     }
+<<<<<<< HEAD
   
     return userList.map((user) => {
       // Filtrar los mensajes no leídos para el usuario actual
@@ -97,6 +98,15 @@ console.log(messagesNR)
         </li>
       );
     });
+=======
+    return userList.map((user) => (
+      <div  className={style.userMessage}>
+      <p className={style.notReadMessage} key={user.id} onClick={() => userClickHandler(user.id)}>
+        {user.name}</p>
+        <span className={style.spanMessage}>{user.unreadMessages > 0 && <span>({user.unreadMessages} mensajes no leídos)</span>}</span>
+        </div>
+    ));
+>>>>>>> 5d2bd4a1990c24eb236fd9a450ae06f8cbf31189
   };
   
 
