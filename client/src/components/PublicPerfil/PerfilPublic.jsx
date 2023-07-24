@@ -26,9 +26,8 @@ const PerfilPublic = () => {
             <div className={style.container}>
                 <img className={style.imgCont} src={dataPublication.data.assets}/>
                 <h1>{dataPublication.data.name}</h1>
-                <h1>Logros:</h1>
-                <h1>Valoración como profe:</h1>
-                <h1>Certificados:</h1>
+                <h1>Todos los cursos:</h1>
+                
                 <button onClick={handleGoBack}>Volver</button>
             </div>
     </div>

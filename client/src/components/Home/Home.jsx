@@ -11,7 +11,7 @@ import { NavLink } from "react-router-dom";
             <div className={style.body}>
             <Carrousel/>
             <div className={style.search}>
-             <NavLink to='/busqueda'><button>Ingresar </button></NavLink>
+             <NavLink to='/busqueda'><button>Cursos </button></NavLink>
             </div>
             <Accordion className={style.acordeon} defaultActiveKey={['0']} alwaysOpen>
         <Accordion.Item eventKey="0">

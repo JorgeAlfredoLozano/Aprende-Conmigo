@@ -12,6 +12,7 @@ import { useParams } from "react-router";
 import Purchases from '../Purchase/Purchase';
 import Sales from '../Sales/Sales';
 import UpdatePubli from '../UpdatePubli/UpdatePubli';
+import ReviewPerfil from '../Review/ReviewPerfil';
 
 const Perfil = ({ userData, getUser, getAllPublication }) => {
   const { tab } = useParams();
@@ -39,7 +40,9 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   const [renderCompras, setRenderCompras] = useState(true);
   const [renderVentas, setRenderVentas] = useState(false);
   const [renderUpdatePubli, setRenderUpdatePubli] = useState(false);
-  const [updateId, setUpdateId] = useState(null)
+  const [updateId, setUpdateId] = useState(null);
+  const [renderReview, setRenderReview] = useState(false);
+  const [reviewId, setReviewId] = useState(null);
 
   useEffect(() => {
     if (tab === 'profile') {
@@ -170,6 +173,11 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
     const id = data;
     if (id) setUpdateId(id)
   }
+
+  const receiveReviewId = (data) => {
+    const id = data;
+    if (id) setReviewId(id);
+  }
   
   return (
     <div>
@@ -247,7 +255,8 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
           </div>
           <hr className={style.hr}></hr>
           <div className={style.contenedorInfoHistorial}>
-            {renderCompras && <Purchases/>}
+            {renderCompras && <Purchases receiveReviewId={receiveReviewId} renderReview={renderReview} setRenderReview={setRenderReview}/>}
+            {renderReview && <ReviewPerfil reviewId={reviewId} isVisible={renderReview} renderReview={renderReview} setRenderReview={setRenderReview}/>}
             {renderVentas && <Sales/>}
           </div>
           </div>

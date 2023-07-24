@@ -77,18 +77,21 @@ const Review =({idPub})=>{
         <div className={style.container}>
          
            {review && <div className={style.boxa}>
-                <h4>Valoración</h4>
+                <h4 className={style.valoracion}>Valoración</h4>
                 <Stars editable={false} rating={promedio}/>
-                <span>{review.length} opiniones</span>
+                <span className={style.opiniones}>{review.length} opiniones</span>
             </div>}
-            {review && review.map((rev)=>{  
+            {review && review.map((rev)=>{
+              const containerStyle = {
+                backgroundImage: `url(${rev && rev.User.assets})`,
+              };   
             return (
             <div className={style.reviewsContainer}>
               <h4>Reseñas</h4>
               <div className={style.commentContainer}>
                 <div className={style.cardComment}>
                   <div className={style.imageContainer}>
-                <img className={style.image} src={rev.User.assets} alt="no image..." />
+                  <div className={style.image} style={containerStyle}></div>
                 </div>
                 <div className={style.textoContainer}>
                 <p className={style.name}>{rev.User.name}</p>

@@ -15,19 +15,32 @@ const Login = ({ userData, getUser }) => {
   const [logged, setLogged] = useState(false);
   const [showLogoutButton, setShowLogoutButton] = useState(false);
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('currentUser'));
+  const [admin, setAdmin] = useState(false);
 
+  const user = localStorage.getItem('cachedUser');
+  const userObject = JSON.parse(user);
+  
+  
+  useEffect(() => {
+    if (userObject && userObject.admin === true && userObject.status === true) {
+      setAdmin(true);
+    } else {
+      setAdmin(false);
+    }
+  }, [userObject]);
+  
   const navigate = useNavigate();
   const panelRef = useRef(null);
-
+  
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (panelRef.current && !panelRef.current.contains(event.target)) {
         setShowLogoutButton(false);
       }
     };
-
+    
     document.addEventListener("mousedown", handleClickOutside);
-
+    
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -35,11 +48,11 @@ const Login = ({ userData, getUser }) => {
 
   useEffect(() => {
     const cachedUser = JSON.parse(localStorage.getItem('cachedUser'));
-    if (cachedUser) {
+    if (cachedUser && cachedUser.length !==0) {
       setLogged(true);
     }
   }, []);
-
+  
   useEffect(() => {
     if (currentUser) {
       setLogged(true);
@@ -48,28 +61,43 @@ const Login = ({ userData, getUser }) => {
       setLogged(false);
     }
   }, [currentUser, getUser]);
-
+  
   useEffect(() => {
+    
     if (userData) {
       localStorage.setItem('cachedUser', JSON.stringify(userData));
-    }
+    } 
   }, [userData]);
+  // Verificar el estado del usuario antes de permitir el inicio de sesión
+  if ( userObject && userObject.status === false ) {
+      setLogged(false);
+      setShowLogoutButton(false);
+      localStorage.removeItem('currentUser');
+      localStorage.removeItem('cachedUser');         
+      navigate('/');
+      window.location.reload();navigate('/');
+      alert("usuario Bloqueado");
+      navigate('/');
+      window.location.reload();
+    }  
+    
 
   const changeDidLog = () => {
     if (!logged) {
       firebase
-        .auth()
-        .signInWithPopup(provider)
-        .then((result) => {
-          const user = result.user;
+      .auth()
+      .signInWithPopup(provider)
+      .then((result) => {
+        const user = result.user;
           checkUserData(user);
           const email = user.email;
           setCurrentUser(email);
-          setLogged(true);
-          localStorage.setItem('currentUser', email);
-          navigate('/');
-          window.location.reload()
-        })
+            setLogged(true);
+            localStorage.setItem('currentUser', email);
+            navigate('/');
+            window.location.reload()
+          }
+          )
         .catch((error) => {
           console.error('Error al iniciar sesión:', error);
         });
@@ -108,6 +136,7 @@ const Login = ({ userData, getUser }) => {
           {showLogoutButton && (
             <div className={style.panel}>
               <div ref={panelRef} className={style.desplegable} onClick={() => setShowLogoutButton(!showLogoutButton)} >
+                {admin && <Link to='/admin'><p className={style.botones}>Panel de Control</p></Link>}
                 <Link to='/perfil/profile'><p className={style.botones}>Mi Perfil</p></Link>
                 <Link to='/perfil/anunciosfav'><p className={style.botones}>Favoritos</p></Link>
                 <p onClick={changeDidLog} className={style.botones}>Cerrar Sesión</p>

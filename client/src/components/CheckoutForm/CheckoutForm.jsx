@@ -21,7 +21,7 @@ if(parser)email=parser.email;
 if(parser)userName=parser.name;
 if(parser)idUs=parser.id;
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ setShowCheckoutForm }) => {
 const stripe = useStripe();
 const elements = useElements();
 const navigate = useNavigate();
@@ -62,8 +62,9 @@ const {data} = await axios.post('http://localhost:3001/purchase/', {
 
 elements.getElement(CardElement).clear()
 if(data.message==="successfull payment"){
-    alert('pago realizado con exito')
-    navigate('/')
+    alert('pago realizado con exito');
+    setShowCheckoutForm(false);
+    // navigate('/')
 }
 else {
     alert('pago rechazado')
@@ -85,7 +86,7 @@ return(
     <div className="form-group">
         <CardElement className="form-control" options={{ style: { base: { fontSize: '16px' } } }}/> 
     </div>   
-    <button  className="btn btn-success" disabled={!stripe}>buy</button>
+    <button  className="btn btn-success" disabled={!stripe}>Comprar</button>
     </form>
     </div>
 )}

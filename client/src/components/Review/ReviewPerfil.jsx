@@ -17,21 +17,10 @@ const ReviewPerfil =(props)=>{
     useEffect(() => {
         dispatch(getReviews(props.idPub));
         dispatch(getAllPurchases(idUser))
-    }, [dispatch]);
+    }, [dispatch],props.idPub,idUser);
 
     const review = useSelector((state)=>state.reviews.data);
     const purchases = useSelector((state)=>state.purchases);
-
-    // let promedio = 0;
-
-        // if(review){
-            
-        //     for (let i = 0; i < review.length; i++) {
-        //       promedio = promedio + review[i].rating
-        //     }
-        //     promedio /= review.length
-        //     promedio.toFixed(1)
-        // }
     
     const handleReviewComment = (event) => {
         event.preventDefault();
@@ -62,6 +51,8 @@ const ReviewPerfil =(props)=>{
             setRenderReviewInput(false);
             props.onSubmit();
           }
+        } else if (boton === 'volver') {
+          props.setRenderReview(false);
         }
       };
 
@@ -74,22 +65,19 @@ const ReviewPerfil =(props)=>{
     }
      
     return(
-       
         <div className={`${style.container} ${props.isVisible ? style.fadeIn : style.fadeOut}`} >
          
-           {/* {review && <div className={style.boxa}>
-                <h4>Valoración</h4>
-                <Stars editable={false} rating={promedio}/>
-                <span>{review.length} opiniones</span>
-            </div>} */}
-            {review && review.map((rev)=>{  
+            {review && review.map((rev)=>{
+              const containerStyle = {
+                backgroundImage: `url(${rev && rev.User.assets})`,
+              }; 
             return (
             <div className={style.reviewsContainer}>
-              <h4>Reseñas</h4>
+              <h4 className={style.texto}>Reseña</h4>
               <div className={style.commentContainer}>
                 <div className={style.cardComment}>
                   <div className={style.imageContainer}>
-                <img className={style.image} src={rev.User.assets} alt="no image..." />
+                <div className={style.image} style={containerStyle}></div>
                 </div>
                 <div className={style.textoContainer}>
                 <p className={style.name}>{rev.User.name}</p>
@@ -100,8 +88,18 @@ const ReviewPerfil =(props)=>{
                 </div>
             </div> 
             )   
-            })}
+            })}{review && review.length === 0 && <div className={style.reviewsContainer}>
+              <h4 className={style.texto}>Reseña</h4>
+              <div className={style.commentContainer}>
+              <div className={style.cardComment}>
+              <p className={style.noReview}>Aún no has creado una reseña para este anuncio.</p>
+              </div>
+              </div>
+              </div>}
+              <div className={style.buttonsContainer}>
             <button className={style.botonReseña} id='renderizar' onClick={(event) => handleReviewComment(event)}>Añadir reseña</button>
+            <button id='volver' onClick={(event) => handleReviewComment(event)}>Volver</button>
+            </div>
                 {renderReviewInput && (
                     <div>
                         <textarea placeholder='Escribe tu reseña...' id='comment' value={comment} onChange={(event) => handleComment(event)}/>

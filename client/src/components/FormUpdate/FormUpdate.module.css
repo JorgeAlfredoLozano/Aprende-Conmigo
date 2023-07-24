@@ -1,7 +1,7 @@
 .formu {
     position: fixed;
     display: flex;
-    background-color: rgba(242, 242, 242, 0.675);
+    background-color: rgb(255, 255, 255);
     flex-direction: column;
     gap: 2em;
     padding: 4%;
@@ -11,6 +11,7 @@
     left: 40%;
     top: 15%;
     border-radius: 1em;
+    box-shadow: 0px 5px 10px rgba(37, 37, 37, 0.294);
 }
 
 .weas {

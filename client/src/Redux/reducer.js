@@ -10,7 +10,9 @@ const initialState = {
   messagesNR:[],
   purchases:[],
   sales:[],
-  reviews:[]
+  reviews:[],
+  allUsers:[],
+  allUserEmail:[]
   };
 
 const reducer = (state = initialState, {type, payload}) => {
@@ -51,13 +53,13 @@ const reducer = (state = initialState, {type, payload}) => {
     allAnuncios: payload,
     // todos:[...allAnuncios]
     }
-  case 'GET_USER_BY_ID':
-    return{
-      ...state,
-      userID: payload
-    }
-  case "GET_ALL_MESSAGES": 
-  return{
+    case 'GET_USER_BY_ID':
+      return{
+        ...state,
+        userID: payload
+      }
+      case "GET_ALL_MESSAGES": 
+      return{
     ...state,
     messages: payload,
     }
@@ -90,6 +92,15 @@ const reducer = (state = initialState, {type, payload}) => {
         ...state,
         reviews: payload,
       }
+      case "PUT_USER_EMAIL": 
+      return{
+        ...state,
+          }
+      case "GET_ALL_USERS": 
+          return{
+            ...state,
+            allUsers: payload,
+            }
   default:
     return { ...state };
   }
