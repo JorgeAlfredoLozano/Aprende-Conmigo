@@ -64,7 +64,7 @@ elements.getElement(CardElement).clear()
 if(data.message==="successfull payment"){
     alert('pago realizado con exito');
     setShowCheckoutForm(false);
-    // navigate('/')
+    navigate('/')
 }
 else {
     alert('pago rechazado')
