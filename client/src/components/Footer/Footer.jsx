@@ -17,19 +17,19 @@ const Footer = () => {
         </div>
         <div className={styles.column}>
           <h3>Contacto</h3>
-          <p>aprendeconmigohenry@gmail.com</p>
+          <a className={styles.link} href="mailto:aprendeconmigohenry@gmail.com?subject=Contacto%20desde%20mi%20sitio%20web&amp;body=Hola,%0D%0A%0D%0AQuería contactar con ustedes para obtener más información.%0D%0A%0D%0AGracias.%0D%0A%0D%0ASaludos">aprendeconmigohenry@gmail.com</a>
           <p>(+54) 0800-APRENDE</p>
         </div>
         <div className={styles.column}>
           <h3>Acerca de Aprende Conmigo</h3>
-          <p>¿Quiens somos?</p>
+          <p><a href="https://aprende-one.vercel.app/Preguntas" target="_blank" rel="noopener noreferrer" className={styles.link}>¿Quienes Somos?</a></p>
           <p>Nuestros valores</p>
           <p>Política de Privacidad</p>
         </div>
         <div className={styles.column}>
           <h3>Asistencia</h3>
-          <p>¿Necesitas ayuda?</p>
-          <p>Preguntas Frecuentes</p>
+          <a className={styles.link} href="mailto:aprendeconmigohenry@gmail.com?subject=Contacto%20desde%20mi%20sitio%20web&amp;body=Hola,%0D%0A%0D%0AQuería contactar con ustedes para obtener más información.%0D%0A%0D%0AGracias.%0D%0A%0D%0ASaludos">¿Necesitas ayuda?</a>
+          <p><a href="https://aprende-one.vercel.app/Preguntas" target="_blank" rel="noopener noreferrer" className={styles.link}>Preguntas Frecuentes</a></p>
         </div>
       </div>
       <footer className={styles.nav}>
