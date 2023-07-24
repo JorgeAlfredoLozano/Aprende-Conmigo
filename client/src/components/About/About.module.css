@@ -30,16 +30,20 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Configuración para el flip */
+  perspective: 1000px;
+  cursor: pointer;
+  width: 200px; /* Puedes ajustar el ancho según tus necesidades */
+  height: 300px; /* Puedes ajustar la altura según tus necesidades */
 }
 
 .participant-column:hover {
-  transform: translateY(-5px);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .participant-column img {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   margin-bottom: 10px;
 }
@@ -60,4 +64,21 @@
 
 .contact-icons img:hover {
   transform: scale(1.5);
+}
+
+/* Estilo para el efecto de flip */
+.participant-column.flipped {
+  transform: rotateY(180deg);
+  background-color: rgb(58, 58, 58);
+}
+
+.posterior-text {
+  transform: rotateY(180deg);
+  color: rgb(226, 226, 103);
+ 
+}
+
+.paragraph-container {
+  width: 80%;
+  margin: 0 auto;
 }
