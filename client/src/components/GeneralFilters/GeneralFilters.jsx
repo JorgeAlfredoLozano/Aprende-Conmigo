@@ -4,10 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getLesson } from '../../Redux/actions';
 import Select from 'react-select';
 
-function GeneralFilters({ filtro, setFiltro, lesson, setLesson }) {
+function GeneralFilters({ filtro, setFiltro, lesson, setLesson, setPrecio, precio }) {
   const [input, setInput] = useState({});
   const [selectedOption, setSelectedOption] = useState(null);
   const [selectedNivel, setSelectedNivel] = useState(null);
+  const [selectedPrecio, setSelectedPrecio] = useState(null); // seteamos el estado para el select
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -17,6 +18,9 @@ function GeneralFilters({ filtro, setFiltro, lesson, setLesson }) {
   const materias = useSelector((state) => state.lesson);
   const options = materias.map((aux) => ({ value: aux.id, label: aux.lesson_name }));
   const sortOptions = options.sort((a, b) => a.label.localeCompare(b.label));
+  const optionPrecio = [{ value: 'ASC', label: 'Ascendente' },{ value: 'DESC', label: 'Descendente'}]
+  
+
 
   function handleSelect(selectedOption) {
     setSelectedOption(selectedOption);
@@ -32,6 +36,11 @@ function GeneralFilters({ filtro, setFiltro, lesson, setLesson }) {
       setFiltro(nivel); // Establecemos el filtro según el nivel seleccionado
     }
   };
+
+  const handlePrecio = (selectedPrecio)=>{
+    setSelectedPrecio(selectedPrecio)
+    setPrecio(selectedPrecio)
+  }
 
   const handleReset = (event) => {
     if (event.target.id === 'nivel') {
@@ -73,6 +82,13 @@ function GeneralFilters({ filtro, setFiltro, lesson, setLesson }) {
         options={sortOptions}
         isSearchable
         placeholder="Busca una materia..."
+      />
+      <Select
+      className={style.select}
+      value={selectedPrecio}
+      onChange={handlePrecio}
+      options={optionPrecio}
+      placeholder="Ordenar por precio..."
       />
       <button id='materia' onClick={handleReset}>Limpiar filtro</button>
     </div>

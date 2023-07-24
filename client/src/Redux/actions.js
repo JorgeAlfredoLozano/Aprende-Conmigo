@@ -83,9 +83,10 @@ export const getLesson = ()=>{
   };
 };
 //cami
-export const getAllAnuncios = ()=>{
+export const getAllAnuncios = (page=0)=>{
+
   return async function(dispatch){
-     const response=await axios.get(`http://localhost:3001/publication/get/anouncements`)
+     const response=await axios.get(`http://localhost:3001/publication/get/anouncements?page=${page}`)
     return dispatch({
       type:'GET_ALL_ANUNCIOS',
       payload: response
@@ -176,9 +177,6 @@ export const getAllSales = (id)=>{ // Trae todas las ventas de un usuario(profe)
     });  
    };
 };
-
-
-
 //Reviews
 export const getReviews = ( idPub )=>{ // traer las reviews de una publi
   return async function(dispatch){
@@ -189,7 +187,6 @@ export const getReviews = ( idPub )=>{ // traer las reviews de una publi
     });  
    };
 };
-
 export const postReview = ( comment, rating, idPub, idUser ) => { // postea una review
   return async function (dispatch) {
     const data = {
@@ -205,3 +202,23 @@ export const postReview = ( comment, rating, idPub, idUser ) => { // postea una 
     })
   }
 }
+
+export const getAllUsers = ()=>{
+  return async function(dispatch){
+     const response= await axios.get(`http://localhost:3001/user/alluser`)
+    return dispatch({
+      type:'GET_ALL_USERS',
+      payload: response
+    });  
+   };
+};
+
+export const putUserEmail = (email, aux )=>{
+  return async function(dispatch){
+     const response=await axios.put(`http://localhost:3001/user/update/${email}`, aux)
+    return dispatch({
+      type:'PUT_USER_EMAIL',
+      payload: response
+    });  
+   };
+};

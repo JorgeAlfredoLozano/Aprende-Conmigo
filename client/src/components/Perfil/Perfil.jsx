@@ -198,7 +198,13 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
                 <p className={style.infoLabel}>Nombre: {renderUser.name}</p>
                 <p className={style.infoLabel}>Email: {renderUser.email}</p>
                 <p className={style.infoLabel}>Fecha de Nacimiento: {renderUser.date}</p>
-                <p className={style.infoLabel}>Género: {renderUser.gender}</p>
+                <p className={style.infoLabel}>Género: {
+                renderUser.gender === 'male'
+                ? 'Hombre' 
+                :renderUser.gender === 'female'
+                  ? 'Mujer'
+                  : 'Otro'  
+                }</p>
                 <p className={style.infoLabel}>Teléfono: {renderUser.phone}</p>
                 <p className={style.infoLabel}>Certificados: {renderUser.certificate}</p>
                 <button className={style.botonForm} onClick={updateData}>
