@@ -10,6 +10,7 @@
     justify-content: center;
     place-content: center;
     gap:30px;
+    padding-top: 3%;
   }
 
   .botones {

@@ -17,7 +17,7 @@ const Footer = () => {
         </div>
         <div className={styles.column}>
           <h3 className={styles.titulo}>Contacto</h3>
-          <a className={styles.link} href="mailto:aprendeconmigohenry@gmail.com?subject=Contacto%20desde%20mi%20sitio%20web&amp;body=Hola,%0D%0A%0D%0AQuería contactar con ustedes para obtener más información.%0D%0A%0D%0AGracias.%0D%0A%0D%0ASaludos">aprendeconmigohenry@gmail.com</a>
+          <p><a className={styles.link} href="mailto:aprendeconmigohenry@gmail.com?subject=Contacto%20desde%20mi%20sitio%20web&amp;body=Hola,%0D%0A%0D%0AQuería contactar con ustedes para obtener más información.%0D%0A%0D%0AGracias.%0D%0A%0D%0ASaludos">aprendeconmigohenry@gmail.com</a></p>
           <p>(+54) 0800-APRENDE</p>
         </div>
         <div className={styles.column}>

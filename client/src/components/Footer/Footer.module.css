@@ -18,4 +18,10 @@
 
 .titulo {
     font-size: 18px;
+    color: rgb(154, 154, 154);
 }
+
+.column p {
+    cursor: pointer; /* Agregamos esto para que el cursor se transforme en una mano al pasar sobre los nombres */
+    transition: transform 0.85s; /* Agregamos transición para suavizar el efecto de rotación */
+  }
