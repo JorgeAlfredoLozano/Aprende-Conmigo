@@ -170,12 +170,12 @@ const Messages = () => {
       {/* <h1 className={style.centro}>Mensajes</h1> */}
       <div className={style.tabContainer}>
       <div className={style.sidebar}>
-        <h2 style={{color:"white", fontFamily:"Roboto", fontWeight:"900", marginBottom:"5%"}}>Chats</h2>
+        <h2 style={{color:"rgb(63, 81, 181)", fontFamily:"Roboto", fontWeight:"900", marginBottom:"5%"}}>Chats</h2>
         <ul className={style.userList}>{renderUserList()}</ul>
       </div>
       <div className={style.messageContainer}>
         <div className={style.chat}>
-          <h2 style={{color:"rgb(216, 233, 253)", fontFamily:"Roboto", fontWeight:"900"}}>
+          <h2 style={{color:"rgb(63, 81, 181)", fontFamily:"Roboto", fontWeight:"900"}}>
             {/* Mensajes con{" "} */}
             {selectedUserId &&
               userList.find((user) => user.id === selectedUserId)?.name}
