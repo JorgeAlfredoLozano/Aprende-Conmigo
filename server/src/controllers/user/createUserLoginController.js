@@ -10,7 +10,7 @@ const createUserLoginController = async (name, email, assets) => {
 
 
     if (newUser) {
-      sendemail("register",email,datos='')
+      sendemail("register",email,datos=name)
       return newUser;
     }
   }
@@ -19,4 +19,5 @@ const createUserLoginController = async (name, email, assets) => {
 };
 
 module.exports = createUserLoginController;
+
 

@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CardPublication from '../CardPublication/CardPublication';
 import { getAllPublication } from '../../Redux/actions';
-import style from "./Publication.module.css"
+import style from "./Publication.module.css";
 
 const PublicationUser = ({ submitFormAnuncio, renderUpdatePubli, setRenderUpdatePubli, formId }) => {
   const dispatch = useDispatch();
   const email = localStorage.getItem('currentUser');
-  const datoPublication = useSelector((state) => state.allPublication); //estado global
+  const datoPublication = useSelector((state) => state.allPublication);
 
   useEffect(() => {
     dispatch(getAllPublication(email));
@@ -54,8 +54,6 @@ const PublicationUser = ({ submitFormAnuncio, renderUpdatePubli, setRenderUpdate
           ) 
         )}
     </div>
-
-    
   );
 };
 

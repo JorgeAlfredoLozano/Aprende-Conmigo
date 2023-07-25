@@ -31,12 +31,6 @@ const DashBoardAdmin = () => {
         dispatch(getAllUsers());
     }, [dispatch]);
     
-    if (usuarios) {console.log(usuarios, "usuarios")} 
-
-    
-    console.log(anuncios.data ,"anuncios")
-
-
 
     const handleAnuncioClick = (anuncio) => {
     setSelectedAnuncio(anuncio);
@@ -49,7 +43,7 @@ const handleUsuarioClick = (usuario) => {
 const handleToggleStatus = () => {
     if (selectedAnuncio) {
       const updatedStatus = !selectedAnuncio.status;
-      dispatch(updateAnuncio(selectedAnuncio.id, { status: updatedStatus }));
+      dispatch(updateAnuncio(selectedAnuncio.id, { status: updatedStatus, title: selectedAnuncio.title, nombre:selectedAnuncio.User.name, email: selectedAnuncio.User.email}));
       setSelectedAnuncio((prevAnuncio) => ({
         ...prevAnuncio,
         status: updatedStatus,
@@ -60,7 +54,8 @@ const handleToggleStatus = () => {
   const handleUserStatus = () => {
     if (selectedUsuario) {
       const updatedStatus = !selectedUsuario.status;
-      dispatch(putUserEmail(selectedUsuario.email, { status: updatedStatus }));
+      console.log(selectedUsuario)
+      dispatch(putUserEmail(selectedUsuario.email, { status: updatedStatus, name: selectedUsuario.name }));
       setSelectedUsuario((prevUsuario) => ({
         ...prevUsuario,
         status: updatedStatus,

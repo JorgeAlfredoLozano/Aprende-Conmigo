@@ -2,12 +2,13 @@
     position: fixed;
     top: 20%;
     left: 20%;
-    background-color: rgba(242, 242, 242, 0.675);
+    background-color: rgb(255, 255, 255);
     backdrop-filter: blur(4px);
     display: flex;
     padding-top: 3%;
     padding-bottom: 3%;
     border-radius: 1em;
+    box-shadow: 0px 5px 10px rgba(37, 37, 37, 0.294);
     /* align-items: center;
     justify-content: center; */
 }
@@ -40,6 +41,7 @@
     flex-direction: column;
     gap: 10px;
     width: 400px;
+    color: rgb(117, 117, 117);
 }
 
 .aboutclass {
@@ -48,6 +50,7 @@
     gap: 10px;
     width: 400px;
     height: 100px;
+    color: rgb(117, 117, 117);
 }
 
 .abouteacher {
@@ -56,12 +59,14 @@
     gap: 10px;
     width: 400px;
     height: 100px;
+    color: rgb(117, 117, 117);
 }
 
 .grades {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    color: rgb(117, 117, 117);
 }
 
 .materias {
@@ -69,12 +74,14 @@
     flex-direction: column;
     gap: 10px;
     width: 400px;
+    color: rgb(117, 117, 117);
 }
 
 .price {
     display: flex;
     flex-direction: column;
         gap: 10px;
+        color: rgb(117, 117, 117);
 }
 
 .gradesbuttons {

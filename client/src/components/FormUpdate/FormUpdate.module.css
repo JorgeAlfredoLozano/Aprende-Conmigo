@@ -1,57 +1,58 @@
 .formu {
-    position: fixed;
-    display: flex;
-    background-color: rgba(242, 242, 242, 0.675);
-    flex-direction: column;
-    gap: 2em;
-    padding: 4%;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(4px);
-    left: 40%;
-    top: 15%;
-    border-radius: 1em;
+  position: fixed;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  flex-direction: column;
+  gap: 2em;
+  padding: 4%;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  left: 40%;
+  top: 15%;
+  border-radius: 1em;
+  box-shadow: 0px 5px 10px rgba(37, 37, 37, 0.294);
 }
 
 .weas {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
 }
 
 .error {
-  color: red;
-  display: flex;
-  position: fixed;
-  width: 100%;
-  margin-left: -10.5%;
+color: red;
+display: flex;
+position: fixed;
+width: 100%;
+margin-left: -10.5%;
 }
 
 .date,
 .name,
 .phone,
 .gender {
-    width: 200px;
+  width: 200px;
 }
 
 /*////////////////////////animaciones//////////////////////////*/
 
 .fadeIn {
-    animation: fadeInAnimation 0.3s ease-in-out;
-  }
-  
-  @keyframes fadeInAnimation {
-    0% { opacity: 0; transform: translateY(-10px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
-  
-  .fadeOut {
-    animation: fadeOutAnimation 0.3s ease-in-out;
-  }
-  
-  @keyframes fadeOutAnimation {
-    0% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 0; transform: translateY(-10px); }
-  }
+  animation: fadeInAnimation 0.3s ease-in-out;
+}
+
+@keyframes fadeInAnimation {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.fadeOut {
+  animation: fadeOutAnimation 0.3s ease-in-out;
+}
+
+@keyframes fadeOutAnimation {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}

@@ -1,11 +1,11 @@
-const { Publication, Lesson } = require('../../db');
+const { Publication, Lesson,User } = require('../../db');
 
 const getAllAnouncementsController = async (page) => {
   let allAnuncios = [];
   
   if (page == 0) {
     allAnuncios = await Publication.findAll({
-      include: [Lesson], // Incluir las Lessons relacionadas
+      include: [Lesson,User], // Incluir las Lessons relacionadas
     });
     if (allAnuncios) {
       return allAnuncios;
@@ -28,4 +28,5 @@ const getAllAnouncementsController = async (page) => {
 };
 
 module.exports = getAllAnouncementsController;
+
 

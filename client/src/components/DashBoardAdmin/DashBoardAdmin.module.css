@@ -1,7 +1,8 @@
 .container {
   background-color: rgba(242, 242, 242, 0.675);
   flex-direction: column;
-  padding: 20%;
+  padding: 5%;
+  padding-left: 25%;
 } 
 
 /* .card {

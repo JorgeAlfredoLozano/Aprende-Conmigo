@@ -11,7 +11,7 @@ const getFavController = async(UserId)=>{
     })
     
    if(allFav) return allFav;
-   return "No se encotro favorito"
+   return "No se encontro favorito"
 }
 
 module.exports= getFavController;

@@ -1,32 +1,38 @@
-// import Footer from "../Footer/Footer";
 import style from './Home.module.css'
 import 'bootstrap/dist/css/bootstrap.css';
-import Carrousel from "../Carrousel/Carrousel";
-import Accordion from 'react-bootstrap/Accordion';
 import { NavLink } from "react-router-dom";
+import img1 from '../../assets/imagenes/estudiantes-universitarios.png';
+import img2 from '../../assets/imagenes/matematicas.jpg';
+import img3 from '../../assets/imagenes/clases.png';
+import ToSearchPage from './TosearchPage';
 
  const Home = () => {
+
+  const containerStyle1 = {
+    backgroundImage: `url(${img1})`
+  };
+
+  const containerStyle2 = {
+    backgroundImage: `url(${img2})`
+  };
+
+  const containerStyle3 = {
+    backgroundImage: `url(${img3})`
+  }
+
     return (
         <div>
             <div className={style.body}>
-            <Carrousel/>
-            <div className={style.search}>
-             <NavLink to='/busqueda'><button>Ingresar </button></NavLink>
+            <div className={style.imagenes}>
+              <div style={containerStyle1} className={style.img1}></div>
+              <div style={containerStyle2} className={style.img2}></div>
+              <div style={containerStyle3} className={style.img3}></div>
             </div>
-            <Accordion className={style.acordeon} defaultActiveKey={['0']} alwaysOpen>
-        <Accordion.Item eventKey="0">
-        <Accordion.Header>La importancia de la educación</Accordion.Header>
-        <Accordion.Body>
-        La educación en los niveles primario, secundario y universitario desempeña un papel crucial en el desarrollo de las personas y en el progreso de la sociedad. En el nivel primario, se establecen las bases fundamentales para el aprendizaje. En la educación secundaria, se profundiza en diferentes áreas y se prepara a los jóvenes para la vida adulta. En el ámbito universitario, se adquieren conocimientos especializados y se fomenta el pensamiento crítico. Estos niveles educativos brindan herramientas, habilidades y oportunidades para el crecimiento personal y profesional. Invertir en educación es invertir en el potencial de las personas y en el desarrollo sostenible de las comunidades.
-        </Accordion.Body>
-      </Accordion.Item>
-      <Accordion.Item eventKey="1">
-        <Accordion.Header>Acerca de nosotros</Accordion.Header>
-        <Accordion.Body>
-        Hemos creado una página web innovadora para buscar profesores en diferentes niveles educativos: primario, secundario y universitario. Nuestro equipo se ha unido con el objetivo de facilitar el acceso a la educación de calidad, brindando a los estudiantes una plataforma confiable para encontrar profesionales capacitados en diversas materias. Estamos comprometidos en promover el aprendizaje y el desarrollo académico, fomentando la excelencia educativa y el crecimiento de la comunidad estudiantil. Los integrantes de nuestro equipo son: Ramses Garay, Bachir Nasser, Camila Cufre, Ivana Carmona, Jorge Lozano, Alejandro Garcia y Marcelo Diaz.
-        </Accordion.Body>
-      </Accordion.Item>
-    </Accordion>
+            <div className={style.search}>
+              <p className={style.texto} style={{ fontSize:"50px", textAlign:"center", color:"black", fontFamily:"Roboto", fontWeight:"900"}}>¡Encuentra la clase que buscas entre nuestros profesores online!</p>
+             {/* <NavLink to='/busqueda'><button style={{marginBottom:"500px"}}>Cursos</button></NavLink> */}
+             <ToSearchPage/>
+            </div>
             </div>
         {/* <Footer/> */}
         </div>

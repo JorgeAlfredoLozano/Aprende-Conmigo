@@ -4,8 +4,6 @@ const initialState = {
   lesson:[],
   allPublication:[],
   allAnuncios:[],
-  userID: null,
-  myFavorites: [], //all favoritos
   todos:[],
   userID: null,
   messages:[],
@@ -14,7 +12,8 @@ const initialState = {
   sales:[],
   reviews:[],
   allUsers:[],
-  allUserEmail:[]
+  allUserEmail:[],
+  myFavorites: [] 
   };
 
 const reducer = (state = initialState, {type, payload}) => {
@@ -77,37 +76,8 @@ const reducer = (state = initialState, {type, payload}) => {
   case 'GET_ALL_PURCHASES':
     return{
       ...state,
-      userID: payload,
       purchases: payload,
-    
-    }
-
-    //____________________________
-    case "ADDFAV": return{
-      ...state,
-      myFavorites: [...state.myFavorites, payload]
-    }
-    //----------------
-    case "GETALLFAV":
-       return{
-      ...state,
-      myFavorites:  payload
-    }
-    //-------------------
-    case "REMOVE_FAV":
-
-      // Encuentra el índice del favorito en myFavorites que tiene el PublicationId igual al payload
-      const favIndex = state.myFavorites.findIndex((fav) => fav.PublicationId === payload)
-      if (favIndex !== -1) {
-        // Crea una nueva copia de myFavorites sin el favorito que coincide con el PublicationId
-        const newFavorites = [...state.myFavorites.slice(0, favIndex), ...state.myFavorites.slice(favIndex + 1)];
-    return{
-      ...state,
-      myFavorites: newFavorites
-    }
-  }
-   
-       
+    } 
     case 'GET_ALL_SALES':
     return{
       ...state,
@@ -132,6 +102,30 @@ const reducer = (state = initialState, {type, payload}) => {
             ...state,
             allUsers: payload,
             }
+
+            case "ADDFAV": return{
+              ...state,
+              myFavorites: [...state.myFavorites, payload]
+            }
+            //----------------
+            case "GETALLFAV":
+               return{
+              ...state,
+              myFavorites:  payload
+            }
+            //-------------------
+            case "REMOVE_FAV":
+        
+              // Encuentra el índice del favorito en myFavorites que tiene el PublicationId igual al payload
+              const favIndex = state.myFavorites.findIndex((fav) => fav.PublicationId === payload)
+              if (favIndex !== -1) {
+                // Crea una nueva copia de myFavorites sin el favorito que coincide con el PublicationId
+                const newFavorites = [...state.myFavorites.slice(0, favIndex), ...state.myFavorites.slice(favIndex + 1)];
+            return{
+              ...state,
+              myFavorites: newFavorites
+            }
+          }        
   default:
     return { ...state };
   }
