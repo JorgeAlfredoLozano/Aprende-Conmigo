@@ -44,8 +44,6 @@ const SearchPage = () => {
         </div>
         <div className={style.busqueda}>
           {isLoading ? <LoadingAnimation /> : <CardsContainer filtro={filtro} lesson={lesson} precio={precio} />}
-          {/* Mostramos LoadingAnimation mientras isLoading sea true,
-              y CardsContainer (contenido real) cuando isLoading sea false */}
         </div>
       </div>
     </div>

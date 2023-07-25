@@ -1,20 +1,17 @@
 .container {
-    height: 300px;
-    width: 600px;
+    height: 100vh;
+    width: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     place-content: center;
-    padding: 5%;
-    background: -webkit-radial-gradient(rgb(255, 255, 255),white, rgba(255, 255, 255, 0.619), transparent, transparent, transparent);
-    background: radial-gradient(rgb(255, 255, 255), white, rgba(255, 255, 255, 0.618), transparent, transparent, transparent);
+    padding-top: 15%;
   }
 
 .img {
     flex-direction: column;
     width: 20vh;
     height: 20vh;
-    background-color: rgb(81, 81, 81);
     border-radius: 50%;
     background-size: cover;
     background-position: center;
