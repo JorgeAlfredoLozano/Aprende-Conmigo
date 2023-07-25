@@ -1,7 +1,8 @@
 import style from "./Cards.module.css";
-import { getAssetsById } from "../../Redux/actions";
+import { getAssetsById , remove_fav, addFav} from "../../Redux/actions";
 import { useEffect, useState } from "react";
 import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 const Card = ({id, title, value, lesson, grade, userId , isFavo}) => {
@@ -53,11 +54,12 @@ const Card = ({id, title, value, lesson, grade, userId , isFavo}) => {
 
   return (
     <div className={style.card_publication}>
-      <div className={style.assets} style={containerStyle}></div>
-      
+
       <div className={style.favoriteButton} onClick={(event) =>handleFavorite(event)}>
         {isFav ? "❤️" : "🤍"}
       </div>
+
+      <div className={style.assets} style={containerStyle}></div>
 
       <NavLink to={`/anuncio/${id}`} className={style.details_link}>
 
