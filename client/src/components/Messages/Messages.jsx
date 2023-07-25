@@ -61,7 +61,7 @@ const Messages = () => {
     for (const userId of uniqueUserIds) {
       try {
         if (userId !== id) {
-          const response = await axios.get(`http://localhost:3001/user/get/${userId}`);
+          const response = await axios.get(`aprende-conmigo-production.up.railway.app/user/get/${userId}`);
           const user = response.data;
           users.push(user);
         }
