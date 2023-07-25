@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('./assets/fonts/Roboto-Black.ttf') format('truetype');
+
+  font-family: 'Roboto-bold';
+  src: url('./assets/fonts/Roboto-Bold.ttf') format('truetype');
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif, Roboto;
   line-height: 1.5;
@@ -33,19 +41,21 @@ a {
 }
 
 button {
+  font-family: "Roboto";
+  font-weight: 900;
   border-radius: 0.8em;
   height: 7vh;
   border-color: transparent;
   padding-left: 2vh;
   padding-right: 2vh;
-  background-color: white;
-  transition: 0.2s linear;
+  background-color: rgb(63, 81, 181);
+  transition: 0.1s linear;
   position: relative;
-  color: rgb(117, 117, 117);
+  color: white;
 }
 
 button:hover {
-  background-color: rgb(63, 81, 181);
+  background-color: rgb(0, 0, 0);
   color: white;
   transition: 0.3s linear
 }

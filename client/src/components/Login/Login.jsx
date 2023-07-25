@@ -128,7 +128,7 @@ const Login = ({ userData, getUser }) => {
     <div className={style.container}>
       {!logged && (
         <button className={style.boton} onClick={changeDidLog}>
-          Iniciar Sesión
+          Conéctate
         </button>
       )}
       {logged && (
@@ -138,7 +138,7 @@ const Login = ({ userData, getUser }) => {
             <div className={style.panel}>
               <div ref={panelRef} className={style.desplegable} onClick={() => setShowLogoutButton(!showLogoutButton)} >
                 {admin && <Link to='/admin'><p className={style.botones}>Panel de Control</p></Link>}
-                <Link to='/perfil/profile'><p className={style.botones}>Mi Perfil</p></Link>
+                <Link to='/perfil/usuario'><p className={style.botones}>Mi Perfil</p></Link>
                 <Link to='/perfil/anunciosfav'><p className={style.botones}>Favoritos</p></Link>
                 <p onClick={changeDidLog} className={style.botones}>Cerrar Sesión</p>
               </div>

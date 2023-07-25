@@ -11,6 +11,7 @@
     display: flex;
     align-items: center;
     place-content: center;
+    margin: 0%;
   }
 
   .tabs {
@@ -20,12 +21,19 @@
   padding: 20px;
   padding-left: 3%;
   padding-right: 3%;
+  padding-top: 2%;
   }
 
-  /* .tabs .active {
-    background-color: rgb(63, 81, 181);
-    color: white;
-  } */
+  .active {
+    margin: 0%;
+    text-align: center;
+    padding: 20px;
+    padding-left: 3%;
+    padding-right: 3%;
+    background-color: rgb(255, 255, 255);
+    color: rgb(63, 81, 181);
+    padding-top: 2%;
+  }
 
   .tabs:hover {
     background-color: rgb(255, 255, 255);
@@ -160,4 +168,11 @@
     background-color: rgba(208, 225, 255, 0.493);
     transition: 0.2s linear;
     cursor: pointer;
+  }
+
+  .container {
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+    justify-content: center;
   }

@@ -87,6 +87,7 @@ return(
         <CardElement className="form-control" options={{ style: { base: { fontSize: '16px' } } }}/> 
     </div>   
     <button  className="btn btn-success" disabled={!stripe}>Comprar</button>
+    {/* <button>Cancelar</button> */}
     </form>
     </div>
 )}
