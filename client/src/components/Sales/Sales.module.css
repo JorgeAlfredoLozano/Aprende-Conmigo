@@ -6,11 +6,19 @@
 }
 
 .card_publication {
+<<<<<<< HEAD
   background-color: rgb(210, 210, 210);
   display: flex;
   gap: 2em;
   padding-left: 1.5%;
   padding-right: 1.5%;
+=======
+    background-color: rgb(216, 233, 253);
+    display: flex;
+    gap: 2em;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+>>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
 }
 
 .boxtitulo {

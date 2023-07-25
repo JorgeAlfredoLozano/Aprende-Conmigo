@@ -92,9 +92,16 @@ const Messages = () => {
       });
   
       return (
+<<<<<<< HEAD
         <li key={user.id} onClick={() => userClickHandler(user.id)}>
           {user.name} - {userNotRead.length} mensajes no leídos
         </li>
+=======
+        <p className={style.user} style={{margin:"0%", paddingBottom:"20px", color:"rgb(63, 81, 181)", display:"flex", flexDirection:"column", alignItems:"center"}} key={user.id} onClick={() => userClickHandler(user.id)}>
+          <span style={{fontFamily:"Roboto", fontWeight:"600"}}>{user.name}</span> 
+          <span>({userNotRead.length} mensajes no leídos)</span>
+        </p>
+>>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
       );
     });
   };
@@ -116,11 +123,11 @@ const Messages = () => {
 
       if (userMessages) {
         return (
-          <div>
+          <div className={style.containerChatArea}>
             <textarea
               ref={textareaRef}
               className={style.chatArea}
-              style={{ width: "40em", height: "150px" }}
+              style={{ width: "45em", height: "280px", borderColor:"rgb(216, 233, 253)", borderStyle:"solid", borderWidth:"5px", borderRadius:"1em" }}
               readOnly
               value={userMessages
                 .map(
@@ -136,7 +143,8 @@ const Messages = () => {
               id="myInput"
               value={inputValue}
               onChange={handleChange}
-              style={{ width: "31em", height: "30px" }}
+              style={{ width: "36em", height: "35px", outline:"none", borderColor:"rgb(216, 233, 253)", borderStyle:"solid", borderWidth:"5px", borderRadius:"1em"}}
+              className={style.inputChat}
             />
             <button
               className={style.enviar}
@@ -150,7 +158,7 @@ const Messages = () => {
       }
     }
 
-    return <p>Selecciona un usuario para ver los mensajes</p>;
+    return <p style={{textAlign:"center", color:"rgb(63, 81, 181)"}}>Selecciona un chat para ver los mensajes.</p>;
   };
 
   const handleClick = () => {
@@ -165,20 +173,23 @@ const Messages = () => {
 
   return (
     <div className={style.container}>
-      <h1>Centro de mensajes</h1>
-      <div className="sidebar">
-        <ul className="user-list">{renderUserList()}</ul>
+      {/* <h1 className={style.centro}>Mensajes</h1> */}
+      <div className={style.tabContainer}>
+      <div className={style.sidebar}>
+        <h2 style={{color:"rgb(63, 81, 181)", fontFamily:"Roboto", fontWeight:"900", marginBottom:"5%"}}>Chats</h2>
+        <ul className={style.userList}>{renderUserList()}</ul>
       </div>
-      <div className="message-container">
-        <div className="chat">
-          <h2>
-            Chat con{" "}
+      <div className={style.messageContainer}>
+        <div className={style.chat}>
+          <h2 style={{color:"rgb(63, 81, 181)", fontFamily:"Roboto", fontWeight:"900"}}>
+            {/* Mensajes con{" "} */}
             {selectedUserId &&
               userList.find((user) => user.id === selectedUserId)?.name}
           </h2>
           {renderSelectedUserChat()}
         </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import style from './Home.module.css'
 import 'bootstrap/dist/css/bootstrap.css';
+<<<<<<< HEAD
 import { NavLink } from "react-router-dom";
 import img1 from '../../assets/imagenes/estudiantes-universitarios.png';
 import img2 from '../../assets/imagenes/matematicas.jpg';
@@ -8,6 +9,18 @@ import ToSearchPage from './TosearchPage';
 
  const Home = () => {
 
+=======
+import img1 from '../../assets/imagenes/estudiantes-universitarios.png';
+import img2 from '../../assets/imagenes/matematicas.jpg';
+import img3 from '../../assets/imagenes/clases.png';
+import ToSearchPage from './ToSearchPage';
+import { useNavigate } from 'react-router';
+
+ const Home = () => {
+
+  const navigate = useNavigate()
+
+>>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
   const containerStyle1 = {
     backgroundImage: `url(${img1})`
   };
@@ -20,6 +33,13 @@ import ToSearchPage from './TosearchPage';
     backgroundImage: `url(${img3})`
   }
 
+<<<<<<< HEAD
+=======
+  const handleNavigateSearchPage = () => {
+    navigate(`/busqueda/todo`);
+  }
+
+>>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
     return (
         <div>
             <div className={style.body}>
@@ -32,6 +52,10 @@ import ToSearchPage from './TosearchPage';
               <p className={style.texto} style={{ fontSize:"50px", textAlign:"center", color:"black", fontFamily:"Roboto", fontWeight:"900"}}>¡Encuentra la clase que buscas entre nuestros profesores online!</p>
              {/* <NavLink to='/busqueda'><button style={{marginBottom:"500px"}}>Cursos</button></NavLink> */}
              <ToSearchPage/>
+<<<<<<< HEAD
+=======
+             <button onClick={handleNavigateSearchPage}>Ver todos los cursos</button>
+>>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
             </div>
             </div>
         {/* <Footer/> */}

@@ -5,6 +5,11 @@
   border-radius: 10px;
   backdrop-filter: blur(4px);
   background-color: rgb(255, 255, 255);
+<<<<<<< HEAD
+=======
+  display: flex;
+  flex-direction: column;
+>>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
   align-items: center;
   place-content: center;
   justify-content: center;
@@ -84,6 +89,35 @@
   place-content: center;
   gap:1em;
   padding: 1em;
+<<<<<<< HEAD
+=======
+}
+
+.contenedorComentarioNuevo {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  align-items: center;
+  gap: 1.5em;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  top:0%;
+  left:0%;
+  border-radius: 10px;
+  width: 40em;
+  box-shadow: 0px 5px 10px rgba(37, 37, 37, 0.294);
+}
+
+.textareaComentario {
+  width: 30em;
+  height: 5em;
+}
+
+.botonesComentarioNuevo {
+  display: flex;
+  gap: 1em;
+>>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
 }
 
 /*////////////////////////animaciones//////////////////////////*/
