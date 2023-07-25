@@ -21,7 +21,7 @@ const Footer = () => {
           <p>(+54) 0800-APRENDE</p>
         </div>
         <div className={styles.column}>
-          <h3 className={styles.titulo}>Acerca de Aprende Conmigo</h3>
+          <h3 className={styles.titulo}>Acerca de</h3>
           <p><a href="/about" target="_blank" rel="noopener noreferrer" className={styles.link}>¿Quienes Somos?</a></p>
           <p>Nuestros valores</p>
           <p>Política de Privacidad</p>
