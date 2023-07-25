@@ -152,6 +152,7 @@
     padding: 1%;
     border-radius: 10px;
     font-weight: bolder;
+    text-align: center;
   }
 
   .panuncio:hover {

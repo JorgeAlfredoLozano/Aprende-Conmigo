@@ -13,11 +13,11 @@
 }
 
 .valoracion {
-    color: white;
+    color: rgb(154, 154, 154);
 }
 
 .opiniones {
-    color: rgb(194, 209, 228);
+    color: rgb(154, 154, 154);
 }
 
 .reviewsContainer {
@@ -84,7 +84,7 @@
 }
 
 .boxa {
-    background-color: rgb(68, 138, 255);
+    background-color: rgb(255, 255, 255);
     width: 40em;
     padding: 2%;
     border-radius: 5px;

@@ -49,7 +49,7 @@ const CardsContainer = ({ filtro, lesson, precio }) => {
 
     setFilteredCards(filteredData);
   }, [filtro, lesson, precio, datoPublication.data,filteredData]);
-  console.log(precio);
+
   /* PAGINADO */
   useEffect(() => {
     const storedCurrentPage = localStorage.getItem('currentPage');
@@ -81,7 +81,7 @@ const CardsContainer = ({ filtro, lesson, precio }) => {
 
       {/* CARDS */}
       <div className={style.cardContainer}>
-        {filteredCards ? (
+        {filteredCards.length !== 0 ? (
           filteredCards
             .slice(indexOfFirstAnuncio, indexLastAnuncio) // Mostrar solo las cartas de la página actual
             .map((card) =>
@@ -103,7 +103,9 @@ const CardsContainer = ({ filtro, lesson, precio }) => {
               )
             )
         ) : (
-          <p>No se encontraron resultados</p>
+          <>
+          <p style={{paddingTop:"25%", paddingBottom:"15%", gridColumn:"2", display:"flex", justifyContent:"center"}}>No se encontraron resultados.</p>
+          </>
         )}
       </div>
     </div>
