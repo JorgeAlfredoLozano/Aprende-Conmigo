@@ -45,7 +45,7 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   const [reviewId, setReviewId] = useState(null);
 
   useEffect(() => {
-    if (tab === 'profile') {
+    if (tab === 'usuario') {
       setRenderProfile(true);
       setRenderAnuncios(false);
       setRenderAnunciosFavoritos(false);
@@ -80,36 +80,41 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
 
   const changeTab = (event) => {
     const clickedTab = event.target.id;
-    if (clickedTab === 'profile') {
+    if (clickedTab === 'usuario') {
       setRenderProfile(true);
       setRenderAnuncios(false);
       setRenderAnunciosFavoritos(false);
       setRenderHistorial(false);
       setRenderMensajes(false);
+      window.history.pushState(null, null, `/perfil/usuario`);
     } else if (clickedTab === 'anuncios') {
       setRenderAnuncios(true);
       setRenderProfile(false);
       setRenderAnunciosFavoritos(false);
       setRenderHistorial(false);
       setRenderMensajes(false);
+      window.history.pushState(null, null, `/perfil/anuncios`);
     } else if (clickedTab === 'anunciosfav') {
       setRenderAnunciosFavoritos(true);
       setRenderProfile(false);
       setRenderAnuncios(false);
       setRenderHistorial(false);
       setRenderMensajes(false);
+      window.history.pushState(null, null, `/perfil/anunciosfav`);
     } else if (clickedTab === 'historial') {
       setRenderHistorial(true);
       setRenderProfile(false);
       setRenderAnuncios(false);
       setRenderAnunciosFavoritos(false);
       setRenderMensajes(false);
+      window.history.pushState(null, null, `/perfil/historial`);
     } else if (clickedTab === 'mensajes') {
       setRenderMensajes(true);
       setRenderProfile(false);
       setRenderAnuncios(false);
       setRenderAnunciosFavoritos(false);
       setRenderHistorial(false);
+      window.history.pushState(null, null, `/perfil/mensajes`);
     }
   };
 
@@ -180,10 +185,10 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   }
   
   return (
-    <div>
+    <div className={style.container}>
       <div className={style.contenedorPerfil}>
         <div className={style.contenedorTabs}>
-          <p id='profile' onClick={changeTab} className={renderProfile ? `${style.tabs} ${style.active}` : style.tabs}>Mi perfil</p>
+          <p id='usuario' onClick={changeTab} className={renderProfile ? `${style.tabs} ${style.active}` : style.tabs}>Mi perfil</p>
           <p id='anuncios' onClick={changeTab} className={renderAnuncios ? `${style.tabs} ${style.active}` : style.tabs}>Anuncios</p>
           <p
             id='anunciosfav'

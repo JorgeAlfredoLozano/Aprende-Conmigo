@@ -36,7 +36,7 @@ const Messages = () => {
 
     return () => clearInterval(intervalId);
   }, [dispatch, id]);
-console.log(messagesNR)
+  
   useEffect(() => {
     // Scroll cuando se actualizan los mensajes o se selecciona un usuario
     scrollChatToBottom();

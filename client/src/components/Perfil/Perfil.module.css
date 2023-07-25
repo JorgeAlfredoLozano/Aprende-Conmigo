@@ -1,7 +1,7 @@
 .contenedorPerfil {
     display: flex;
     flex-direction: column;
-    margin: 0%;
+    margin: -1%;
     width: 100%;
     min-height: 100vh;
   }
@@ -11,6 +11,7 @@
     display: flex;
     align-items: center;
     place-content: center;
+    padding-top: 1%;
   }
 
   .tabs {
@@ -160,4 +161,11 @@
     background-color: rgba(208, 225, 255, 0.493);
     transition: 0.2s linear;
     cursor: pointer;
+  }
+
+  .container {
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+    justify-content: center;
   }
