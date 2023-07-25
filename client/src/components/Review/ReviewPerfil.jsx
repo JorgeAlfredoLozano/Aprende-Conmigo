@@ -13,11 +13,11 @@ const ReviewPerfil =(props)=>{
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState('');
     const dispatch = useDispatch();
-   
+   console.log(props.reviewId);
     useEffect(() => {
-        dispatch(getReviews(props.idPub));
+        dispatch(getReviews(props.reviewId));
         dispatch(getAllPurchases(idUser))
-    }, [dispatch],props.idPub,idUser);
+    }, [dispatch],props.reviewId,idUser);
 
     const review = useSelector((state)=>state.reviews.data);
     const purchases = useSelector((state)=>state.purchases);
@@ -28,12 +28,12 @@ const ReviewPerfil =(props)=>{
     
         if (boton === 'renderizar') {
           const hasUserReviewed = review.some(
-            (item) => item.UserId === idUser && item.PublicationId === props.idPub
+            (item) => item.UserId === idUser && item.PublicationId === props.reviewId
           );
     
           if (hasUserReviewed) {
             alert('Ya has creado una reseña para esta publicación.');
-          } else if (!purchases.some((item) => item.PublicationId === props.idPub)) {
+          } else if (!purchases.some((item) => item.PublicationId === props.reviewId)) {
             alert('Debes comprar la clase para dejar una reseña.');
             setRenderReviewInput(false);
           } else {
@@ -43,9 +43,9 @@ const ReviewPerfil =(props)=>{
           setRenderReviewInput(false);
           props.onCancel();
         } else if (boton === 'comentar') {
-          if (purchases.some((item) => item.PublicationId === props.idPub)) {
+          if (purchases.some((item) => item.PublicationId === props.reviewId)) {
             const puntos = rating.toString();
-            let idPub=props.idPub;
+            let idPub=props.reviewId;
             dispatch(postReview(comment, puntos, idPub, idUser));
             alert('¡Reseña creada con éxito!');
             setRenderReviewInput(false);
