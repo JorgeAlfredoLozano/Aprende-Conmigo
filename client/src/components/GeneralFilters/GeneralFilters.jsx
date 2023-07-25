@@ -90,7 +90,7 @@ function GeneralFilters({ filtro, setFiltro, lesson, setLesson, setPrecio, preci
       options={optionPrecio}
       placeholder="Ordenar por precio..."
       />
-      <button id='materia' onClick={handleReset}>Limpiar filtro</button>
+      <button id='materia' onClick={handleReset}>Mostrar todo</button>
     </div>
   );
 }
