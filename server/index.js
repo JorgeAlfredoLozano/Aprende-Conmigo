@@ -7,7 +7,7 @@ const {Lesson}=require('./src/db.js')
 const postLessonHandler=require('./src/handlers/lesson/postLessonHandler.js')
 const cors = require('cors')
 server.use(cors({origin: 'http://localhost:5173'}))
-const whatsapp = require('../server/src/whatsapp.js')
+const whatsapp = require('./src/whatsapp.js')
 
 conn.sync({ Altern: true })  //alter force
 .then(() => postLessonHandler(lessonsJson, Lesson))
