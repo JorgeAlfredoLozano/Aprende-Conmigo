@@ -11,17 +11,15 @@ const templatePublicationBann = require('./templates/templatePublicationBann')
 const publicar = ''
 const pagina = ''
 const contactar = `https://wa.me/+523311023777?text=${encodeURIComponent('Necesito ayuda')}`
-// logo https://imgur.com/2uc1BnP.jpg
-// beer https://imgur.com/Q5E1Zsj.jpg
 
 let msg1={}
 let msg2={}
 sgMail.setApiKey(SENDGRID);
 
-const sendmail = async(type,email,datos,email2,userName,hora) => {
-     
-     if (type==="register") {
-        const saludo=templateRegister(datos,contactar,pagina,publicar)
+const sendmail = async(type, email, datos, email2, userName, hora, nombre, title) => {
+     console.log(type,title,nombre,'tyyyypeee')
+  if (type==="register") {
+      const saludo=templateRegister(datos,contactar,pagina,publicar)
         msg1 = {
             to: email,
             from: 'aprendeconmigohenry@gmail.com',
@@ -29,8 +27,8 @@ const sendmail = async(type,email,datos,email2,userName,hora) => {
             preheader: 'Su usuario ha sido creado',
             html: saludo,
           };
-     }
-   if (type==="payment") {
+  }
+  if (type==="payment") {
       const buy=templateUserBuy(userName.toUpperCase(),datos.title,contactar)
       const sale=templateUserSale(userName.toUpperCase(),datos.User.name.toUpperCase(), datos.title, hora, contactar)
       msg1 = {
@@ -48,12 +46,37 @@ const sendmail = async(type,email,datos,email2,userName,hora) => {
             html: sale,
         };
   }
+  if (type==="publiOff") {
+    const publiOff=templatePublicationBann(nombre.toUpperCase(),contactar,title)
+    msg1 = {
+      to: email,
+      from: 'aprendeconmigohenry@gmail.com',
+      subject: '¡Tu publicacion ha sido bloqueada!',
+      preheader: 'nawuebonaa',
+      html: publiOff,
+    };
+  };
+  if (type==="userOff") {
+    const userOff=templatePublicationBann(nombre.toUpperCase(),contactar)
+    msg1 = {
+      to: email,
+      from: 'aprendeconmigohenry@gmail.com',
+      subject: '¡Tu usuario ha sido bloqueada!',
+      preheader: 'tu cuenta ha sido bloqueada',
+      html: userOff,
+    };
+  };
+
       try {
         if (type === "register") {
             await sgMail.send(msg1);
         } else if (type === "payment") {
             await sgMail.send(msg1);
             await sgMail.send(msg2);
+        } else if (type==="publiOff"){
+          await sgMail.send(msg1);
+        } else if (type==="userOff"){
+          await sgMail.send(msg1);
         }
         console.log('Correo electrónico enviado correctamente');
       } catch (error) {

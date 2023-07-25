@@ -1,7 +1,7 @@
 import axios from 'axios';
 //users
 export const checkUserData = (user)=> {
-  axios.post('http://localhost:3001/user/login',  user )       
+  axios.post('http://localhost:3001/user/login', user )       
 };
 export const putUser = (email, input) => {
    return async function (dispatch) {

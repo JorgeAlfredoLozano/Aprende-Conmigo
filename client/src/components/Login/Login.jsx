@@ -75,7 +75,8 @@ const Login = ({ userData, getUser }) => {
       localStorage.removeItem('currentUser');
       localStorage.removeItem('cachedUser');         
       navigate('/');
-      window.location.reload();navigate('/');
+      window.location.reload();
+      navigate('/');
       alert("usuario Bloqueado");
       navigate('/');
       window.location.reload();
