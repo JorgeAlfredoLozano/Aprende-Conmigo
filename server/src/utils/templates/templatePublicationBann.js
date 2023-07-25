@@ -1,4 +1,4 @@
-const templatePublicationBann=(nombre,contactar)=>{
+const templatePublicationBann=(nombre,contactar,title)=>{
     return(
         `<!DOCTYPE html>
 
@@ -102,7 +102,7 @@ const templatePublicationBann=(nombre,contactar)=>{
         <td class="pad" style="vertical-align: middle; color: #000000; font-family: inherit; font-size: 14px; text-align: center;">
         <table align="center" cellpadding="0" cellspacing="0" class="alignment" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
         <tr>
-        <td style="vertical-align: middle; text-align: center; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px;"><img align="center" alt="Company Logo" class="icon" height="64" src="images/isologo.png" style="height: auto; display: block; margin: 0 auto; border: 0;" width="179"/></td>
+        <td style="vertical-align: middle; text-align: center; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px;"><img align="center" alt="Company Logo" class="icon" height="64" src="https://imgur.com/2uc1BnP.jpg" style="height: auto; display: block; margin: 0 auto; border: 0;" width="179"/></td>
         </tr>
         </table>
         </td>
@@ -160,14 +160,14 @@ const templatePublicationBann=(nombre,contactar)=>{
         <table border="0" cellpadding="0" cellspacing="0" class="image_block block-1" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
         <tr>
         <td class="pad" style="width:100%;">
-        <div align="center" class="alignment" style="line-height:10px"><img src="images/pubBanned.jpg" style="height: auto; display: block; border: 0; max-width: 615px; width: 100%;" width="615"/></div>
+        <div align="center" class="alignment" style="line-height:10px"><img src="https://imgur.com/dRLMuNu.jpg" style="height: auto; display: block; border: 0; max-width: 615px; width: 100%;" width="615"/></div>
         </td>
         </tr>
         </table>
         <table border="0" cellpadding="0" cellspacing="0" class="heading_block block-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
         <tr>
         <td class="pad" style="padding-left:10px;padding-right:10px;padding-top:40px;text-align:center;width:100%;">
-        <h3 style="margin: 0; color: #8a3c90; direction: ltr; font-family: 'Lato', Tahoma, Verdana, Segoe, sans-serif; font-size: 24px; font-weight: 700; letter-spacing: normal; line-height: 120%; text-align: justify; margin-top: 0; margin-bottom: 0;"><span style="color: #ffffff;">"Lamentamos informarte que tu curso de titulo ha sido bloqueado por infringir las normas. Te agradecemos tu comprensión y esperamos que tomes las medidas necesarias para cumplir con las normas en el futuro. Si tienes alguna duda o necesitas más información, no dudes en contactarnos. ¡Gracias por utilizar nuestro servicio!"</span></h3>
+        <h3 style="margin: 0; color: #8a3c90; direction: ltr; font-family: 'Lato', Tahoma, Verdana, Segoe, sans-serif; font-size: 24px; font-weight: 700; letter-spacing: normal; line-height: 120%; text-align: justify; margin-top: 0; margin-bottom: 0;"><span style="color: #ffffff;">"Lamentamos informarte que tu curso de ${title} ha sido bloqueado por infringir las normas. Te agradecemos tu comprensión y esperamos que tomes las medidas necesarias para cumplir con las normas en el futuro. Si tienes alguna duda o necesitas más información, no dudes en contactarnos. ¡Gracias por utilizar nuestro servicio!"</span></h3>
         </td>
         </tr>
         </table>
@@ -192,7 +192,7 @@ const templatePublicationBann=(nombre,contactar)=>{
         <table border="0" cellpadding="0" cellspacing="0" class="image_block block-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
         <tr>
         <td class="pad" style="width:100%;padding-right:0px;padding-left:0px;">
-        <div align="left" class="alignment" style="line-height:10px"><img src="images/isologo.png" style="height: auto; display: block; border: 0; max-width: 229.60000000000002px; width: 100%;" width="229.60000000000002"/></div>
+        <div align="left" class="alignment" style="line-height:10px"><img src="https://imgur.com/2uc1BnP.jpg" style="height: auto; display: block; border: 0; max-width: 229.60000000000002px; width: 100%;" width="229.60000000000002"/></div>
         </td>
         </tr>
         </table>
@@ -213,7 +213,7 @@ const templatePublicationBann=(nombre,contactar)=>{
         <tr>
         <td class="pad">
         <div align="center" class="alignment"><!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="height:42px;width:110px;v-text-anchor:middle;" arcsize="10%" stroke="false" fillcolor="#4b4df9"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Tahoma, Verdana, sans-serif; font-size:16px"><![endif]-->
-        <div style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#4b4df9;border-radius:4px;width:auto;border-top:0px solid transparent;font-weight:400;border-right:0px solid transparent;border-bottom:0px solid transparent;border-left:0px solid transparent;padding-top:5px;padding-bottom:5px;font-family:'Lato', Tahoma, Verdana, Segoe, sans-serif;font-size:16px;text-align:center;mso-border-alt:none;word-break:keep-all;"><a href='${contactar}'><span style="padding-left:20px;padding-right:20px;font-size:16px;display:inline-block;letter-spacing:normal;"><span style="word-break: break-word; line-height: 32px;">Contactar</span></span></a></div><!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
+        <div style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#4b4df9;border-radius:4px;width:auto;border-top:0px solid transparent;font-weight:400;border-right:0px solid transparent;border-bottom:0px solid transparent;border-left:0px solid transparent;padding-top:5px;padding-bottom:5px;font-family:'Lato', Tahoma, Verdana, Segoe, sans-serif;font-size:16px;text-align:center;mso-border-alt:none;word-break:keep-all;"><a href='${contactar}'><span style="padding-left:20px;padding-right:20px;font-size:16px;display:inline-block;letter-spacing:normal;"><span style="word-break: break-word; line-height: 32px; color:white">Contactar</span></span></a></div><!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
         </div>
         </td>
         </tr>
@@ -243,7 +243,7 @@ const templatePublicationBann=(nombre,contactar)=>{
         <!--[if !vml]><!-->
         <table cellpadding="0" cellspacing="0" class="icons-inner" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; display: inline-block; margin-right: -4px; padding-left: 0px; padding-right: 0px;"><!--<![endif]-->
         <tr>
-        <td style="vertical-align: middle; text-align: center; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 6px;"><a href="https://www.designedwithbee.com/?utm_source=editor&utm_medium=bee_pro&utm_campaign=free_footer_link" style="text-decoration: none;" target="_blank"><img align="center" alt="Designed with BEE" class="icon" height="32" src="images/bee.png" style="height: auto; display: block; margin: 0 auto; border: 0;" width="34"/></a></td>
+        <td style="vertical-align: middle; text-align: center; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 6px;"><a href="https://www.designedwithbee.com/?utm_source=editor&utm_medium=bee_pro&utm_campaign=free_footer_link" style="text-decoration: none;" target="_blank"><img align="center" alt="Designed with BEE" class="icon" height="32" src="https://imgur.com/Q5E1Zsj.jpg" style="height: auto; display: block; margin: 0 auto; border: 0;" width="34"/></a></td>
         <td style="font-family: 'Lato', Tahoma, Verdana, Segoe, sans-serif; font-size: 15px; color: #9d9d9d; vertical-align: middle; letter-spacing: undefined; text-align: center;"><a href="https://www.designedwithbee.com/?utm_source=editor&utm_medium=bee_pro&utm_campaign=free_footer_link" style="color: #9d9d9d; text-decoration: none;" target="_blank">Designed with BEE</a></td>
         </tr>
         </table>
