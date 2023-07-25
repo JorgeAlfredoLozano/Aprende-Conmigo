@@ -6,7 +6,7 @@ const fs = require('fs'); // Módulo de manejo de archivos del sistema
 const path = require('path');  // Módulo para trabajar con rutas de archivos y directorios
 
 
-const sequelize = new Sequelize('postgresql://postgres:ASyTjdIydd1wZozycHVD@containers-us-west-158.railway.app:6774/railway', // => localhost
+const sequelize = new Sequelize('postgresql://postgres:2B4rBjmcr93Jv2uv2zZE@containers-us-west-71.railway.app:7241/railway', // => localhost
 {logging: false, native: false}
 )
 
