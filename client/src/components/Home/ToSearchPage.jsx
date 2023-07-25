@@ -55,6 +55,13 @@ function ToSearchPage() {
     }
   };
 
+  const customStyles = {
+    placeholder: (provided, state) => ({
+      ...provided,
+      textAlign: 'center',
+    }),
+  };
+
   return (
     <div>
       <Select
@@ -71,6 +78,7 @@ function ToSearchPage() {
         menuIsOpen={isMenuOpen}
         components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }}
         onKeyDown={handleKeyDown} // Añadimos el evento onKeyDown para capturar la tecla ENTER
+        styles={customStyles}
       />
     </div>
   );
