@@ -1,12 +1,10 @@
-// PublicationUser.jsx
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CardPublication from '../CardPublication/CardPublication';
 import { getAllPublication } from '../../Redux/actions';
-import { NavLink } from 'react-router-dom';
-import style from "./Publication.module.css"
+import style from "./Publication.module.css";
 
-const PublicationUser = ({ submitFormAnuncio }) => {
+const PublicationUser = ({ submitFormAnuncio, renderUpdatePubli, setRenderUpdatePubli, formId }) => {
   const dispatch = useDispatch();
   const email = localStorage.getItem('currentUser');
   const datoPublication = useSelector((state) => state.allPublication);
@@ -21,7 +19,6 @@ const PublicationUser = ({ submitFormAnuncio }) => {
         datoPublication.data.map((card) =>
           card.status ? (
             <div key={card.id} className={style.card_container}>
-              <NavLink to={`/detail/${card.id}`} className={style.details_link}><button>Editar</button> </NavLink>
               <CardPublication
                 id={card.id}
                 title={card.title}
@@ -31,9 +28,10 @@ const PublicationUser = ({ submitFormAnuncio }) => {
                 about_teacher={card.about_teacher}
                 grade={card.grade}
                 status={card.status}
-              />
-             
-               
+                renderUpdatePubli={renderUpdatePubli}
+                setRenderUpdatePubli={setRenderUpdatePubli}
+                formId={formId}
+                />
             </div>
 
           ) 

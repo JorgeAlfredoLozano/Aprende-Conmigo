@@ -1,7 +1,7 @@
 import axios from 'axios';
 //users
 export const checkUserData = (user)=> {
-        axios.post('http://localhost:3001/user/login',  user )       
+  axios.post('http://localhost:3001/user/login', user )       
 };
 export const putUser = (email, input) => {
    return async function (dispatch) {
@@ -82,9 +82,11 @@ export const getLesson = ()=>{
         });
   };
 };
-export const getAllAnuncios = ()=>{
+//cami
+export const getAllAnuncios = (page=0)=>{
+
   return async function(dispatch){
-     const response=await axios.get(`http://localhost:3001/publication/get/anouncements`)
+     const response=await axios.get(`http://localhost:3001/publication/get/anouncements?page=${page}`)
     return dispatch({
       type:'GET_ALL_ANUNCIOS',
       payload: response
@@ -100,7 +102,6 @@ export const getUserById = (id) => {
    });  
   };
 }
-
 export const getAssetsById = async (id) => {
   try {
     const response = await axios
@@ -111,7 +112,6 @@ export const getAssetsById = async (id) => {
     throw error;
   }
 };
-
 //Messages
 export const getAllMessages = (id)=>{ // Trae todos los mensajes del usuario ID
   return async function(dispatch){
@@ -122,4 +122,103 @@ export const getAllMessages = (id)=>{ // Trae todos los mensajes del usuario ID
     });  
    };
 };
+export const getNotReadMessages = (idSend,idReceived)=>{ // Trae todos los mensajes del usuario ID
+  return async function(dispatch){
+     const response=await axios.get(`http://localhost:3001/message/notread/${idSend}/${idReceived}`)
+    return dispatch({
+      type:'GET_NOT_READ',
+      payload: response.data
+    });  
+   };
+};
+export const sendChat = ( send )=>{ // Enviar el chat a la bd
+  return async function(dispatch){
+     const response=await axios.post(`http://localhost:3001/message/sendmessage`, send)
+    return dispatch({
+      type:'SEND_CHAT',
+      payload: response
+    });  
+   };
+};
+export const putSeen = ( idSend,idReceived )=>{ // Enviar el chat a la bd
+  return async function(dispatch){
+     const response=await axios.put(`http://localhost:3001/message/seen/` + idSend + '/' + idReceived)
+    return dispatch({
+      type:'PUT_SEEN',
+      payload: response
+    });  
+   };
+};
+//Purchases
+export const sendPurchase = (info)=>{ // Trae todos los mensajes del usuario ID
+  return async function(dispatch){
+     const response=await axios.post(`http://localhost:3001/purchase/`,info)
+    return dispatch({
+      type:'SEND_PURCHASES',
+      payload: response.data
+    });  
+   };
+};
+export const getAllPurchases = (id)=>{ // Trae todos los mensajes del usuario ID
+  return async function(dispatch){
+     const response=await axios.get(`http://localhost:3001/purchase/getuser/${id}`)
+    return dispatch({
+      type:'GET_ALL_PURCHASES',
+      payload: response.data
+    });  
+   };
+};
+export const getAllSales = (id)=>{ // Trae todas las ventas de un usuario(profe)
+  return async function(dispatch){
+     const response=await axios.get(`http://localhost:3001/purchase/getsale/${id}`)
+    return dispatch({
+      type:'GET_ALL_SALES',
+      payload: response.data
+    });  
+   };
+};
+//Reviews
+export const getReviews = ( idPub )=>{ // traer las reviews de una publi
+  return async function(dispatch){
+     const response=await axios.get(`http://localhost:3001/review/get/`+ idPub)
+    return dispatch({
+      type:'GET_REVIEWS',
+      payload: response
+    });  
+   };
+};
+export const postReview = ( comment, rating, idPub, idUser ) => { // postea una review
+  return async function (dispatch) {
+    const data = {
+      comment,
+      rating,
+      idPub,
+      idUser
+    }
+    const response = await axios.post(`http://localhost:3001/review`, data)
+    return dispatch ({
+      type: 'POST_REVIEW',
+      payload: response
+    })
+  }
+}
 
+export const getAllUsers = ()=>{
+  return async function(dispatch){
+     const response= await axios.get(`http://localhost:3001/user/alluser`)
+    return dispatch({
+      type:'GET_ALL_USERS',
+      payload: response
+    });  
+   };
+};
+
+export const putUserEmail = (email, aux )=>{
+  return async function(dispatch){
+     const response=await axios.put(`http://localhost:3001/user/update/${email}`, aux)
+    return dispatch({
+      type:'PUT_USER_EMAIL',
+      payload: response
+    });  
+   };
+};

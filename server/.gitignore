@@ -4,5 +4,243 @@ node_modules
 # env
 .env
 
+.wwebjs_auth/session/Default/
+.wwebjs_auth/session/Default/IndexedDB/
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/
+.wwebjs_auth/session/Default/Service Worker/CacheStorage/
+.wwebjs_auth/session/Default/Service Worker/ScriptCache/
+
+.wwebjs_auth/session/Default/Cache/Cache_Data/data_0
+.wwebjs_auth/session/Default/Cache/Cache_Data/data_1
+.wwebjs_auth/session/Default/Cache/Cache_Data/data_3
+.wwebjs_auth/session/Default/Cache/Cache_Data/f_00007e
+.wwebjs_auth/session/Default/Code Cache/js/index-dir/the-real-index
+.wwebjs_auth/session/Default/File System/Origins/LOG
+.wwebjs_auth/session/Default/File System/Origins/LOG.old
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000807.ldb
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001044.ldb
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001105.ldb
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001197.ldb
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001283.ldb
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001290.ldb
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001418.ldb
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001476.log
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001480.ldb
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001481.ldb
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001482.ldb
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001483.ldb
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001484.ldb
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001485.ldb
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001486.ldb
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001487.ldb
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001488.ldb
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001489.ldb
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001490.ldb
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001491.ldb
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001492.ldb
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001493.ldb
+.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001494.ldb
+    .wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001495.ldb
+    .wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001496.ldb
+    .wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001497.ldb
+    .wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001498.ldb
+    .wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001499.ldb
+       .wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/LOG
+       .wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/LOG.old
+       .wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+       .wwebjs_auth/session/Default/Local Storage/leveldb/000003.log
+       .wwebjs_auth/session/Default/Local Storage/leveldb/LOG
+       .wwebjs_auth/session/Default/Local Storage/leveldb/LOG.old
+       .wwebjs_auth/session/Default/Platform Notifications/LOG
+       .wwebjs_auth/session/Default/Platform Notifications/LOG.old
+       .wwebjs_auth/session/Default/QuotaManager      
+       .wwebjs_auth/session/Default/QuotaManager-journal
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/2f83f078-5480-4568-9bb4-e9c573dfc46c/6ea66fa5b36b4157_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/2f83f078-5480-4568-9bb4-e9c573dfc46c/92172a9e586cee2a_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/2f83f078-5480-4568-9bb4-e9c573dfc46c/e6039a61e4d2a504_0
+          .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/2f83f078-5480-4568-9bb4-e9c573dfc46c/index-dir/the-real-index
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/317b2f8c-5daa-4d35-bbb3-f9c58119f2a7/7f5ec8d09b92c79b_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/317b2f8c-5daa-4d35-bbb3-f9c58119f2a7/index-dir/the-real-index
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/09b46c3aca286c41_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/0b866e4dcec2185b_0
+   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/0c5f3c098a2bae3b_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/0cf5d516ed49cf0a_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/0e07263165af804e_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/0efd2c77a03001c8_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/0f1b84252e365d7a_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/111da91a51da5814_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/12e9f77636a3c9f2_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/12f48d6beb2c0379_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/1d91e15e8586ef4b_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/1e1fbfc4a52bd533_0
+          .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/1f665b2ed7102faf_0
+          .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/24d9069da2ecd6ae_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/25b068e8d3fe3bbc_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/26262a70021bbd77_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/2638c0b5ada90c9d_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/275b2d7b114e3c6b_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/2942f5695264b0bc_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/2a70d5bac6c9bbfe_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/2ba73653d198644f_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/2be470b49a0e911b_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/2de8a84765ae4997_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/2e63b40e0773e2fc_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/2ebf8b3361b31cba_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/2f4789d4aa630f7a_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/306c757a1b857b15_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/3490e0ca66637197_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/3602d5c58c21605c_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/36ec60da60e6211d_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/37042340ada4ceb9_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/39337b8b586bf59b_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/3e9d75e4b8b3181f_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/418ff5951e3ac195_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/41e643724ac517f3_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/46d5f35fca5f6793_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/4827e178306e6656_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/4a272101b338e9d4_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/4f0d04c8ccd6cfe1_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/5014aba0c4b8b121_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/5291047acb355d5d_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/558b868dfef3b084_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/567b4579ab0d6b05_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/567b517cdb2973ab_0
+   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/5756539ca87866e5_0
+   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/57b188f2d8c2661f_0
+   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/5a1d1654051eaec3_0
+   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/5d77ed538cf6c784_0
+   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/5e87fc2340ba1bbb_0
+         .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/62fc354831ce888a_0
+   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/64450a5ba3b2d2c2_0
+      .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/6688c92b0e9b8687_0
+   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/6748242425063bb1_0
+      .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/68e916c4f766c157_0
+      .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/6a8c545667fcae64_0
+      .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/6c41f9208a1d82f9_0
+      .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/6f84beff2b7cc232_0
+      .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/6fb8ea85972a93e8_0
+      .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/7194baf57174dbd7_0
+      .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/71a6b3903dafaa8a_0
+   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/72fb2830206f4655_0
+   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/73a7c5b835910e8f_0
+   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/779b81ee532a17b0_0
+   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/792c87aee089bf07_0
+   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/7a071e1f6e   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/7b89087935   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/7d4f384518   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/7e82a01f32   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/7f478e4e7b   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/823e9d8e5d   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/841f7e6f27   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/84f1c8f8fe   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/875de9f188   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/876abc2c39   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/89bceb54cd   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/8c97e3e408   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/8da9bc5dd0   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/8f64204957   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/93c18566e9   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/945f51132c   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/96e9c0e86b   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/9757e46f0f   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/97dc81e9fb   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/97f78c4b26   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/9a10ebf5f3   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/9e84f5f446   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/9e8d0541e1   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/a07d22d609a1184c_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/a745496d096bf47b_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/a82a5f9f7eb791ba_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/a875491c4d9b86a8_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/aa953e825113e48a_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/aaac530e315be16a_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/ad4ea32f77cba139_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/aed54b8c31825d48_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/afebe061f3aeca53_0
+       .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/b0884db52172c1f3_0
+   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/b382a140a00945c1_0
+   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/b488fa695232ec1e_0
+   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/bbefdc6b4e9113b0_0
+   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/bc78c975f6645987_0   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/bec8849791c2296d_0
+   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/becc030fc665b8f9_0
+   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/bf7468fbd7  .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/c28e22438   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/c7f5336d6   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/cc2ca3a00   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/cc4155794   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/cc9b12c37   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/cdeef7f75   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/ce7a13263   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/cf6828112   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/cfd9f8238   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/d2989bda2   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/d368cf53d   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/d8bd530b7   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/da5a3eede   .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/def1f15a3cbdcab8_0
+    .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/e2788daad4cbee22_0
+    .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/e28a66b93fdad230_0
+    .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/e3591aa68e086d19_0
+    .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/e422aeb28541d0c4_0
+    .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/e5a47bc7d979a61e_0
+    .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/e8eda7fac2338d5e_0
+    .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/e91aca4e0dc1d539_0
+    .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/e9ab37964f995213_0
+.wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/e9cb6396f007e2cb_0
+.wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/ede873688e624f8b_0
+.wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/ee1305bf33977e44_0
+.wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/ef37e4af7415ded3_0
+.wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/efed2cee8b79169b_0
+.wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/f1cb46d17d52677d_0
+.wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/f22393cfcd80c159_0
+.wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/f27ae800088fbe18_0
+.wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/f54955c2a224648f_0
+.wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/f81ddaa6a1c3da1f_0
+.wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/f88a8ebf163c8109_0
+.wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/fb2a03a7d0ff4774_0
+.wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/fc504495df00720e_0
+.wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/7fd99971-85bd-4e5e-b950-6f8003e1183b/index-dir/the-real-index    .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/d53740e7-4459-4a96-b657-703f62a63ec6/0d6cf9a6c63c7170_0    .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/d53740e7-4459-4a96-b657-703f62a63ec6/4d7e2cccafa7e425_0    .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/d53740e7-4459-4a96-b657-703f62a63ec6/8494f39a831c8b82_0    .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/d53740e7-4459-4a96-b657-703f62a63ec6/index    .wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/d53740e7-4459-4a96-b657-703f62a63ec6/index-dir/the-real-index
+.wwebjs_auth/session/Default/Service Worker/CacheStorage/0bf6ab7f94a21cdc9c1649f884333ec20f40a544/index.txt       
+.wwebjs_auth/session/Default/Service Worker/Database/000003.log
+.wwebjs_auth/session/Default/Service Worker/Database/LOG
+.wwebjs_auth/session/Default/Service Worker/Database/LOG.old    .wwebjs_auth/session/Default/Service Worker/ScriptCache/7b4fd8111178d5b1_0    .wwebjs_auth/session/Default/Service Worker/ScriptCache/7b4fd8111178d5b1_1
+.wwebjs_auth/session/Default/Service Worker/ScriptCache/index-dir/the-real-index
+.wwebjs_auth/session/Default/Session Storage/000003.log
+.wwebjs_auth/session/Default/Session Storage/LOG
+.wwebjs_auth/session/Default/Session Storage/LOG.old
+.wwebjs_auth/session/Default/chrome_debug.log  
+.wwebjs_auth/session/DevToolsActivePort  
+server/.wwebjs_auth/session/Default/Session Storage/LOG.old
+server/.wwebjs_auth/session/Default/Session Storage/LOG.old
+server/.wwebjs_auth/session/DevToolsActivePort
+server/.wwebjs_auth/session/Default/chrome_debug.log
+server/.wwebjs_auth/session/Default/QuotaManager
+server/.wwebjs_auth/session/Default/QuotaManager-journal
+server/.wwebjs_auth/session/Default/Cache/Cache_Data/data_0
+server/.wwebjs_auth/session/Default/Cache/Cache_Data/data_1
+server/.wwebjs_auth/session/Default/Cache/Cache_Data/data_3
+server/.wwebjs_auth/session/Default/Cache/Cache_Data/f_00007e
+server/.wwebjs_auth/session/Default/Code Cache/js/index-dir/the-real-index
+server/.wwebjs_auth/session/Default/File System/Origins/LOG
+server/.wwebjs_auth/session/Default/File System/Origins/LOG.old
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000807.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001044.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001105.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001197.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001283.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001290.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001418.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001476.log
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001480.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001481.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001482.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001483.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001484.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001485.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001486.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001487.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001488.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001489.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001490.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001491.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001492.ldb
+server/.wwebjs_auth/session/DevToolsActivePort
+server/.wwebjs_auth/session/DevToolsActivePort
+server/.wwebjs_auth/session/Default/chrome_debug.log
+server/.wwebjs_auth/session/Default/QuotaManager
+server/.wwebjs_auth/session/Default/QuotaManager-journal
+server/.wwebjs_auth/session/Default/Cache/Cache_Data/data_0
+server/.wwebjs_auth/session/Default/Cache/Cache_Data/data_1
+server/.wwebjs_auth/session/Default/Cache/Cache_Data/data_3
+server/.wwebjs_auth/session/Default/Cache/Cache_Data/f_00007e
+server/.wwebjs_auth/session/Default/Code Cache/js/index-dir/the-real-index
+server/.wwebjs_auth/session/Default/File System/Origins/LOG
+server/.wwebjs_auth/session/Default/File System/Origins/LOG.old
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000807.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001044.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001105.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001197.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001283.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001290.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001418.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001476.log
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001480.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001481.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001482.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001483.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001484.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001485.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001486.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001487.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001489.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001488.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001490.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001491.ldb
+server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/001492.ldb
+
+
 # lock files
 package-lock.json

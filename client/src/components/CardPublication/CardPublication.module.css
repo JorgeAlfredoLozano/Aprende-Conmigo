@@ -1,62 +1,118 @@
 .card_publication {
-    background-color: #4d4d4d;
-    border-radius: 1em;
-    padding: 5%;
-    width: 60vh;
-    max-height: 300px;
-  }
-  
-  .title {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-  }
-  
-  .lesson {
-    font-size: 16px;
-    margin-top: 5px;
-    color: rgb(206, 206, 206); 
-  }
-  
-  .about_class,
-  .about_teacher,
-  .grade,
-  .value {
-    font-size: 12px;
-    margin-top: 3px;
-    color:rgb(193, 193, 193)
-  }
-  
-  .cardstatusfalse {
-    background-color: #4d4d4d;
-    border-radius: 1em;
-    padding: 5%;
-    width: 60vh;
-    max-height: 300px;
-  }
+  background-color: rgb(208, 225, 255);
+  border-radius: 10px;
+  display: flex;
+  gap: 2em;
+  width: 100%;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+}
 
-  .titlefalse {
-    font-size: 20px;
-    font-weight: bold;
-    color: rgb(119, 119, 119);
-    text-align: center;
-  }
+.card_publication:hover {
+  transform: scale(1.05);
+  transition: 0.1s linear;
+  box-shadow: 0px 4px 6px rgba(37, 37, 37, 0.294);
+}
 
-  .lessonfalse {
-    font-size: 16px;
-    margin-top: 5px;
-    color: rgb(119, 119, 119)
-  }
-  
-  .about_classfalse,
-  .about_teacherfalse,
-  .gradefalse,
-  .valuefalse {
-    font-size: 12px;
-    margin-top: 3px;
-    color:rgb(119, 119, 119)
-  }
-  
-  
-  
+.card_publication:not(hover) {
+  transform: scale(1);
+  transition: 0.1s linear;
+}
+
+.boxtitulo {
+  width: 110vh;
+  height: 15vh;
+  display: flex;
+  gap: 1em;
+}
+
+.title {
+  width: 70vh;
+  display: flex;
+  font-size: 15px;
+  text-overflow: ellipsis;
+  text-align: center;
+  align-items: center;
+  place-content: center;
+  margin: 0%;
+}
+
+.lesson {
+  width: 25vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  place-content: center;
+  margin: 0%;
+}
+
+.grade {
+  width: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  place-content: center;
+  margin: 0%;
+}
+
+.value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  place-content: center;
+  margin: 0%;
+}
+
+.buttons {
+  display: flex;
+  place-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.editar {
+  width: 8em;
+}
+
+.cardstatusfalse {
+  background-color: rgb(208, 208, 208);
+  border-radius: 10px;
+  display: flex;
+  gap: 2em;
+  width: 100%;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+}
+
+.titlefalse{
+  width: 70vh;
+  display: flex;
+  font-size: 15px;
+  text-overflow: ellipsis;
+  text-align: center;
+  align-items: center;
+  place-content: center;
+  margin: 0%;
+  color: grey;
+}
+
+.lessonfalse{
+  width: 25vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  place-content: center;
+  margin: 0%;
+  color: grey;
+}
+
+.valuefalse{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  place-content: center;
+  margin: 0%;
+  color: grey;
+}

@@ -1,0 +1,134 @@
+.container {
+    background-color: rgb(143, 175, 230);
+    padding-top: 5%;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.colores{
+    color: rgba(227, 209, 43, 0.94)
+}
+
+.valoracion {
+    color: rgb(154, 154, 154);
+}
+
+.opiniones {
+    color: rgb(154, 154, 154);
+}
+
+.reviewsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding-top: 5%;
+    max-height: 50em;
+    overflow: scroll;
+    -ms-overflow-style: none;
+}
+
+.reviewsContainer::-webkit-scrollbar {
+    display: none;
+  }
+
+.commentContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cardComment {
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    width: 40em;
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+}
+
+.image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.imageContainer{
+    padding: 2%;
+}
+
+.textoContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 0.5em;
+}
+
+.comment {
+    margin: 0%;
+}
+
+.name {
+    font-weight: bold;
+    margin: 0%;
+}
+
+.botonReseña {
+    margin-bottom: 5%;
+    margin-top: 5%
+}
+
+.boxa {
+    background-color: rgb(255, 255, 255);
+    width: 40em;
+    padding: 2%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.ratingContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    padding-bottom: 5%;
+}
+
+.botones {
+    display: flex;
+    gap: 1em;
+}
+
+.textareaComment {
+    width: 40em;
+    height: 5em;
+}
+
+.ratingContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    padding-bottom: 5%;
+}
+
+.botones {
+    display: flex;
+    gap: 1em;
+}
+
+.textareaComment {
+    width: 40em;
+    height: 5em;
+}
+
+.star:hover {
+    cursor: pointer
+}

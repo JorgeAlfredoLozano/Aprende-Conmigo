@@ -1,0 +1,56 @@
+.paginado {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .paginado li {
+    margin: 0 4px;
+  }
+  
+  .paginado button {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .paginado button:focus {
+    outline: none;
+  }
+  
+  .paginado .number.active button {
+    color: #000000;
+    border-radius: 50%;
+    padding: 5px 8px;
+  }
+  
+  .inicioFin {
+    color: rgb(0, 0, 0); 
+    width: 55px;
+    margin: 0%;
+    display: flex;
+  }
+  
+  .paginado .disabled button {
+    color: #777171;
+    cursor: not-allowed;
+  }
+  
+
+  .container {
+    display: flex;
+    align-items: center;
+    place-content: center;
+    justify-content: center;
+  }
+
+  .inicio:hover {
+    cursor: pointer;
+  }
+
+  .inicio {
+    margin: 0%;
+  }

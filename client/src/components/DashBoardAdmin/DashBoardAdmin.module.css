@@ -1,0 +1,26 @@
+.container {
+  background-color: rgba(242, 242, 242, 0.675);
+  flex-direction: column;
+  padding: 5%;
+  padding-left: 25%;
+} 
+
+/* .card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card p {
+  margin-bottom: 4px;
+}
+
+/* Agrega más estilos según tus necesidades */

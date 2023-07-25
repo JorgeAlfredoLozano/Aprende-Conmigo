@@ -1,0 +1,19 @@
+.container button.selected {
+    background-color: rgb(63, 81, 181);
+    color: white;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    place-content: center;
+    gap:30px;
+    padding-top: 3%;
+  }
+
+  .botones {
+    display: flex;
+    gap:5px;
+  }

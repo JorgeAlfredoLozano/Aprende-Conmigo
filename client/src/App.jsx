@@ -3,28 +3,38 @@ import Home from './components/Home/Home';
 import Perfil from './components/Perfil/Perfil';
 import Faq from './components/Faq/Faq';
 import SearchPage from './components/SearchPage/SearchPage';
-import Checkout from './components/CheckoutForm/CheckoutForm'
-import PublicationUser from './components/PublicationUser/PublicationUser'
-import UpdatePubli from './components/UpdatePubli/UpdatePubli';
 import DetailAnuncio from './components/DetailAnuncio/DetailAnuncio';
-import Messages from './components/Messages/Messages';
+import PerfilPublic from './components/PublicPerfil/PerfilPublic';
+import NavBar from './components/NavBar/NavBar';
+import Footer from './components/Footer/Footer';
+import DashBoardAdmin from './components/DashBoardAdmin/DashBoardAdmin';
+import Purchases from './components/Purchase/Purchase';
+import Sales from './components/Sales/Sales';
+import Notifications from './components/NavBar/Notifications';
+import About from './components/About/About'
 
 function App() {
 
   return (
     <Router>
       <div className="App">
+        <NavBar/>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="/perfil" element={<Perfil/>}/>
+          <Route path="/perfil/:tab" element={<Perfil/>}/>
           <Route path="/preguntas" element={<Faq/>}/>
-          <Route path="/busqueda" element={<SearchPage/>}/>
-          <Route path='/pago/:id' element={<Checkout/>}/>
-          <Route path='/anuncios' element={<PublicationUser/>}/>
-          <Route path='/detail/:id' element={<UpdatePubli/>}/>
+          <Route path="/admin" element={<DashBoardAdmin/>}/>
+          <Route path="/busqueda/:lesson" element={<SearchPage/>}/>
           <Route path='/anuncio/:id' element={<DetailAnuncio/>}/>
-          <Route path='/messages' element={<Messages/>}/>
+          <Route path='/perfilPublico/:id' element={<PerfilPublic/>}/>
+          <Route path='/compras' element={<Purchases/>}/>
+          <Route path='/sales' element={<Sales/>}/>
+          <Route path='*' element={<Home/>}/>
+          <Route path='/user' element={<DashBoardAdmin/>}/>
+          <Route path='/not' element={<Notifications/>}/>
+          <Route path='/about' element={<About/>}/>
         </Routes>
+        <Footer/>
       </div>
     </Router>
   )
