@@ -15,15 +15,14 @@ const SearchPage = () => {
   useEffect(() => {
     // Verificamos si lessonParam es igual a 'todo'
     if (lessonParam && lessonParam.toLowerCase() === 'todo') {
-      setLesson(null); // Si es así, seteamos lesson en null para mostrar todos los resultados
+      setLesson('');
     } else if (lessonParam) {
       setLesson(lessonParam);
     }
 
-    // Simulamos una carga asincrónica aquí (puedes reemplazar esto con tus operaciones reales)
     setTimeout(() => {
-      setIsLoading(false); // Cambiamos el estado a falso para mostrar el contenido real
-    }, 1500); // 2000 ms = 2 segundos (esto es solo un ejemplo, ajusta el tiempo según tus necesidades)
+      setIsLoading(false);
+    }, 1500);
   }, [lessonParam]);
 
   const updateLesson = (newLesson) => {

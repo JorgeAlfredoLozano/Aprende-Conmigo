@@ -13,6 +13,7 @@ import Purchases from '../Purchase/Purchase';
 import Sales from '../Sales/Sales';
 import UpdatePubli from '../UpdatePubli/UpdatePubli';
 import ReviewPerfil from '../Review/ReviewPerfil';
+import PopUp from '../PopUp/PopUp';
 
 const Perfil = ({ userData, getUser, getAllPublication }) => {
   const { tab } = useParams();
@@ -43,6 +44,8 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   const [updateId, setUpdateId] = useState(null);
   const [renderReview, setRenderReview] = useState(false);
   const [reviewId, setReviewId] = useState(null);
+  const [renderPopUp, setRenderPopUp] = useState(false); console.log(renderPopUp);
+  const [text, setText] = useState('');
 
   useEffect(() => {
     if (tab === 'usuario') {
@@ -206,6 +209,7 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
           </p>
         </div>
         <section className={style.contenedorInfo}>
+        {renderPopUp && <PopUp renderPopUp={renderPopUp} setRenderPopUp={setRenderPopUp} text={text} setText={setText}/>}
           {renderProfile && (
             <>
               <section className={style.datos}>
@@ -243,7 +247,7 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
                 <div className={style.imgCont} style={containerStyle}></div>
                 <SendPhoto className={style.send} onSubmit={handlePhotoSubmit} />
               </section>
-              {renderForm && <FormUpdate isVisible={renderForm} onCancel={cancelarForm} onSubmit={handleFormSubmit} />}
+              {renderForm && <FormUpdate isVisible={renderForm} onCancel={cancelarForm} onSubmit={handleFormSubmit} renderPopUp={renderPopUp} setRenderPopUp={setRenderPopUp} text={text} setText={setText}/>}
             </>
           )}
           {renderAnuncios && (
@@ -258,7 +262,7 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
                 </div>
               </div>
               {renderFormAnuncio && (
-                <FormAnuncio isVisible={renderFormAnuncio} onCancel={cancelarFormAnuncio} onSubmit={handleFormSubmitAnuncio} />
+                <FormAnuncio isVisible={renderFormAnuncio} onCancel={cancelarFormAnuncio} onSubmit={handleFormSubmitAnuncio} renderPopUp={renderPopUp} setRenderPopUp={setRenderPopUp} text={text} setText={setText}/>
               )}
               {renderUpdatePubli && (
               <UpdatePubli isVisible={renderUpdatePubli} renderUpdatePubli={renderUpdatePubli} setRenderUpdatePubli={setRenderUpdatePubli} updateId={updateId}/>

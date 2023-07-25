@@ -38,10 +38,12 @@ function ToSearchPage() {
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
       event.preventDefault();
-      if (selectedOption) {
+
+      if (inputValue === '') {
+        navigate(`/busqueda/todo`);
+      } else if (selectedOption) {
         navigate(`/busqueda/${selectedOption.label}`);
       } else {
-        // Check if the entered value exists in the options
         const inputValueLowerCase = inputValue.toLowerCase();
         const matchedOption = options.find((option) =>
           option.label.toLowerCase().includes(inputValueLowerCase)
@@ -58,7 +60,7 @@ function ToSearchPage() {
   const customStyles = {
     placeholder: (provided, state) => ({
       ...provided,
-      textAlign: 'center',
+      textAlign: 'center'
     }),
   };
 
@@ -77,7 +79,7 @@ function ToSearchPage() {
         onBlur={handleMenuClose}
         menuIsOpen={isMenuOpen}
         components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }}
-        onKeyDown={handleKeyDown} // Añadimos el evento onKeyDown para capturar la tecla ENTER
+        onKeyDown={handleKeyDown}
         styles={customStyles}
       />
     </div>
