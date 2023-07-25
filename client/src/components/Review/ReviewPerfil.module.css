@@ -5,11 +5,8 @@
   border-radius: 10px;
   backdrop-filter: blur(4px);
   background-color: rgb(255, 255, 255);
-<<<<<<< HEAD
-=======
   display: flex;
   flex-direction: column;
->>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
   align-items: center;
   place-content: center;
   justify-content: center;
@@ -89,8 +86,6 @@
   place-content: center;
   gap:1em;
   padding: 1em;
-<<<<<<< HEAD
-=======
 }
 
 .contenedorComentarioNuevo {
@@ -117,7 +112,6 @@
 .botonesComentarioNuevo {
   display: flex;
   gap: 1em;
->>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
 }
 
 /*////////////////////////animaciones//////////////////////////*/

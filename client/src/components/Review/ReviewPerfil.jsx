@@ -20,11 +20,7 @@ const ReviewPerfil =(props)=>{
     useEffect(() => {
         dispatch(getReviews(props.reviewId));
         dispatch(getAllPurchases(idUser))
-<<<<<<< HEAD
-    }, [dispatch],props.idPub,idUser);
-=======
     }, [dispatch],props.reviewId,idUser);
->>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
 
     const review = useSelector((state)=>state.reviews.data);
     const purchases = useSelector((state)=>state.purchases);
@@ -107,11 +103,7 @@ const ReviewPerfil =(props)=>{
               <p className={style.noReview}>Aún no has creado una reseña para este anuncio.</p>
               </div>
               </div>
-<<<<<<< HEAD
-              </div>}
-=======
               </div>}{renderPopUp && <PopUp setRenderPopUp={setRenderPopUp} renderPopUp={renderPopUp} text={text} setText={setText}/>}
->>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
               <div className={style.buttonsContainer}>
             <button className={style.botonReseña} id='renderizar' onClick={(event) => handleReviewComment(event)}>Añadir reseña</button>
             <button id='volver' onClick={(event) => handleReviewComment(event)}>Volver</button>

@@ -19,7 +19,6 @@ const Favoritos = () => {
   },[dispatch])
   
     return (
-<<<<<<< HEAD
         <div className={style.cardContainer}>
          
       {myFavorites.length === 0 ? (
@@ -44,11 +43,6 @@ const Favoritos = () => {
       )}
       
       </div>
-=======
-        <>
-        <p>Estos son los FAv</p>
-        </>
->>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
     )
 }
 

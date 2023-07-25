@@ -1,17 +1,4 @@
 .container {
-<<<<<<< HEAD
-  display: flex;
-  top: 30%;
-  left: 5%;
-  min-height: 95vh;
-}
-
-.anuncio {
-  background-color: rgb(238, 241, 247);
-  flex: 1;
-  text-align: center;
-  padding-top: 5%;
-=======
     display: flex;
     top: 30%;
     left: 5%;
@@ -44,7 +31,6 @@
 .boxAbout {
   top: 21%;
   position: sticky;
->>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -139,21 +125,6 @@ gap: 1em
   place-content: center;
 }
 
-<<<<<<< HEAD
-.botones {
-  display: flex;
-  gap: 1em;
-}
-
-.payment {
-  background-color: white;
-  position: fixed;
-  top:20%;
-  z-index: 4;
-  padding: 2%;
-  left: 30%;
-}
-=======
   .botones {
     display: flex;
     gap: 1em;
@@ -167,4 +138,3 @@ gap: 1em
     padding: 2%;
     left: 30%;
   }
->>>>>>> aafe7807b8685c3b4013083c344c2714acef8042

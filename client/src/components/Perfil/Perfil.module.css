@@ -1,12 +1,4 @@
 .contenedorPerfil {
-<<<<<<< HEAD
-  display: flex;
-  flex-direction: column;
-  margin: -1%;
-  width: 100%;
-  min-height: 100vh;
-}
-=======
     display: flex;
     flex-direction: column;
     margin: -1%;
@@ -21,7 +13,6 @@
     place-content: center;
     padding-top: 1%;
   }
->>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
 
 .contenedorTabs {
   background-color: rgb(63, 81, 181);
@@ -146,48 +137,6 @@ padding-right: 3%;
 
 .tabHistorial {
   margin: 0%;
-<<<<<<< HEAD
-  padding: 1%;
-  border-radius: 10px;
-  font-weight: bolder;
-}
-
-.tabHistorial:hover {
-  border-radius: 10px;
-  background-color: rgba(208, 225, 255, 0.493);
-  transition: 0.2s linear;
-  cursor: pointer;
-}
-
-.hr {
-  padding: 0%;
-  margin: 0%;
-  border-width: thick;
-  color: transparent;
-}
-
-.panuncio {
-  margin: 0%;
-  padding: 1%;
-  border-radius: 10px;
-  font-weight: bolder;
-  text-align: center;
-}
-
-.panuncio:hover {
-  border-radius: 10px;
-  background-color: rgba(208, 225, 255, 0.493);
-  transition: 0.2s linear;
-  cursor: pointer;
-}
-
-.container {
-  margin: 0%;
-  padding: 0%;
-  display: flex;
-  justify-content: center;
-}
-=======
   text-align: center;
   color: rgb(255, 255, 255);
   padding: 20px;
@@ -346,4 +295,3 @@ padding-right: 3%;
     display: flex;
     justify-content: center;
   }
->>>>>>> aafe7807b8685c3b4013083c344c2714acef8042

@@ -1,9 +1,5 @@
 .card_publication {
-<<<<<<< HEAD
-  background-color: rgb(208, 225, 255);
-=======
   background-color: rgb(216, 233, 253);
->>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
   border-radius: 10px;
   display: flex;
   gap: 2em;

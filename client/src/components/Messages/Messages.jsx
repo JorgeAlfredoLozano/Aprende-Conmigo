@@ -92,16 +92,10 @@ const Messages = () => {
       });
   
       return (
-<<<<<<< HEAD
-        <li key={user.id} onClick={() => userClickHandler(user.id)}>
-          {user.name} - {userNotRead.length} mensajes no leídos
-        </li>
-=======
         <p className={style.user} style={{margin:"0%", paddingBottom:"20px", color:"rgb(63, 81, 181)", display:"flex", flexDirection:"column", alignItems:"center"}} key={user.id} onClick={() => userClickHandler(user.id)}>
           <span style={{fontFamily:"Roboto", fontWeight:"600"}}>{user.name}</span> 
           <span>({userNotRead.length} mensajes no leídos)</span>
         </p>
->>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
       );
     });
   };

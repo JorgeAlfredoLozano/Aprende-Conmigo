@@ -1,16 +1,4 @@
 .publication_user_container {
-<<<<<<< HEAD
-  margin-top: 2.1%;
-  margin-bottom: 2%;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  align-items: center;
-  justify-content: center;
-  place-content: center;
-  width: 100%;
-}
-=======
     margin-top: 2.1%;
     margin-bottom: 2%;
     display: flex;
@@ -21,4 +9,3 @@
     place-content: center;
     width: 100%;
   }
->>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
