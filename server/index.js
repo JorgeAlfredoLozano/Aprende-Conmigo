@@ -5,9 +5,10 @@ const { conn } = require('./src/db.js');
 const lessonsJson=require('./src/utils/lessons.json')
 const {Lesson}=require('./src/db.js')
 const postLessonHandler=require('./src/handlers/lesson/postLessonHandler.js')
-const cors = require('cors')
-server.use(cors({origin: 'aprende-conmigo-production.up.railway.app:3001'}))
+const allowCors = require('./allowCors.js')
 const whatsapp = require('./src/whatsapp.js')
+
+server.use(allowCors);
 
 conn.sync({ Altern: true })  //alter force
 .then(() => postLessonHandler(lessonsJson, Lesson))
