@@ -48,7 +48,7 @@ const {error, paymentMethod} = await stripe.createPaymentMethod({
 if(!error) { 
 
 const {id} = paymentMethod || 0
-const {data} = await axios.post('http://localhost:3001/purchase/', {
+const {data} = await axios.post('aprende-conmigo-production.up.railway.app:3001/purchase/', {
     id,
     amount:infoFiltered[0].value * horas * 100,
     email,
