@@ -6,7 +6,7 @@ const lessonsJson=require('./src/utils/lessons.json')
 const {Lesson}=require('./src/db.js')
 const postLessonHandler=require('./src/handlers/lesson/postLessonHandler.js')
 const cors = require('cors')
-server.use(cors({origin: 'http://localhost:5173'}))
+server.use(cors({origin: 'aprende-conmigo-production.up.railway.app:3001'}))
 const whatsapp = require('./src/whatsapp.js')
 
 conn.sync({ Altern: true })  //alter force
