@@ -203,18 +203,32 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
           {renderProfile && (
             <>
               <section className={style.datos}>
-                <p className={style.infoLabel}>Nombre: {renderUser.name}</p>
-                <p className={style.infoLabel}>Email: {renderUser.email}</p>
-                <p className={style.infoLabel}>Fecha de Nacimiento: {renderUser.date}</p>
-                <p className={style.infoLabel}>Género: {
+                <p className={style.infoLabel}>
+                  <span style={{color:"rgb(35, 128, 211)", fontFamily:"Roboto", fontWeight:"900", fontStyle:"oblique"}}>Nombre: </span> 
+                  <span>{renderUser.name}</span>
+                  </p>
+                <p className={style.infoLabel}>
+                  <span style={{color:"rgb(35, 128, 211)", fontFamily:"Roboto", fontWeight:"900", fontStyle:"oblique"}}>Email: </span>
+                  <span>{renderUser.email}</span>
+                  </p>
+                <p className={style.infoLabel}>
+                  <span style={{color:"rgb(35, 128, 211)", fontFamily:"Roboto", fontWeight:"900", fontStyle:"oblique"}}>Fecha de Nacimiento: </span>
+                  <span>{renderUser.date}</span>
+                  </p>
+                <p className={style.infoLabel}>
+                  <span style={{color:"rgb(35, 128, 211)", fontFamily:"Roboto", fontWeight:"900", fontStyle:"oblique"}}>Género: </span>
+                  <span>{
                 renderUser.gender === 'male'
                 ? 'Hombre' 
                 :renderUser.gender === 'female'
                   ? 'Mujer'
                   : 'Otro'  
-                }</p>
-                <p className={style.infoLabel}>Teléfono: {renderUser.phone}</p>
-                <p className={style.infoLabel}>Certificados: {renderUser.certificate}</p>
+                }</span>
+                </p>
+                <p className={style.infoLabel}>
+                  <span style={{color:"rgb(35, 128, 211)", fontFamily:"Roboto", fontWeight:"900", fontStyle:"oblique"}}>Teléfono: </span>
+                  <span>{renderUser.phone}</span>
+                  </p>
                 <button className={style.botonForm} onClick={updateData}>
                   Modificar Perfil
                 </button>

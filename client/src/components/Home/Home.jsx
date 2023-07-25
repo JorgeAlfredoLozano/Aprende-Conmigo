@@ -29,7 +29,7 @@ import ToSearchPage from './ToSearchPage';
               <div style={containerStyle3} className={style.img3}></div>
             </div>
             <div className={style.search}>
-              <p style={{ fontSize:"60px", textAlign:"right", color:"black", fontFamily:"Roboto", fontWeight:"900"}}>¡Encuentra la clase que buscas entre nuestros profes online!</p>
+              <p className={style.texto} style={{ fontSize:"50px", textAlign:"center", color:"black", fontFamily:"Roboto", fontWeight:"900"}}>¡Encuentra la clase que buscas entre nuestros profesores online!</p>
              {/* <NavLink to='/busqueda'><button style={{marginBottom:"500px"}}>Cursos</button></NavLink> */}
              <ToSearchPage/>
             </div>
