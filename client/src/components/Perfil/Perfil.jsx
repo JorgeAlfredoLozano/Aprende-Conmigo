@@ -80,6 +80,7 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
 
   const changeTab = (event) => {
     const clickedTab = event.target.id;
+    
     if (clickedTab === 'usuario') {
       setRenderProfile(true);
       setRenderAnuncios(false);
@@ -188,19 +189,19 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
     <div className={style.container}>
       <div className={style.contenedorPerfil}>
         <div className={style.contenedorTabs}>
-          <p id='usuario' onClick={changeTab} className={renderProfile ? `${style.tabs} ${style.active}` : style.tabs}>Mi perfil</p>
-          <p id='anuncios' onClick={changeTab} className={renderAnuncios ? `${style.tabs} ${style.active}` : style.tabs}>Anuncios</p>
+          <p id='usuario' onClick={changeTab} className={renderProfile ? style.active : style.tabs}>Mi perfil</p>
+          <p id='anuncios' onClick={changeTab} className={renderAnuncios ? style.active : style.tabs}>Anuncios</p>
           <p
             id='anunciosfav'
             onClick={changeTab}
-            className={renderAnunciosFavoritos ? `${style.tabs} ${style.active}` : style.tabs}
+            className={renderAnunciosFavoritos ? style.active : style.tabs}
           >
             Anuncios Favoritos
           </p>
-          <p id='historial' onClick={changeTab} className={renderHistorial ? `${style.tabs} ${style.active}` : style.tabs}>
+          <p id='historial' onClick={changeTab} className={renderHistorial ? style.active : style.tabs}>
             Historial
           </p>
-          <p id='mensajes' onClick={changeTab} className={renderMensajes ? `${style.tabs} ${style.active}` : style.tabs}>
+          <p id='mensajes' onClick={changeTab} className={renderMensajes ? style.active : style.tabs}>
             Mensajes
           </p>
         </div>
