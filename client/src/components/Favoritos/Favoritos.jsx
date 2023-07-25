@@ -2,7 +2,7 @@
 const Favoritos = () => {
     return (
         <>
-        <h1>Estos son los FAv</h1>
+        <p>Estos son los FAv</p>
         </>
     )
 }
