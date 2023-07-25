@@ -33,19 +33,21 @@ a {
 }
 
 button {
+  font-family: "Roboto";
+  font-weight: 900;
   border-radius: 0.8em;
   height: 7vh;
   border-color: transparent;
   padding-left: 2vh;
   padding-right: 2vh;
-  background-color: white;
+  background-color: rgb(63, 81, 181);
   transition: 0.2s linear;
   position: relative;
-  color: rgb(117, 117, 117);
+  color: white;
 }
 
 button:hover {
-  background-color: rgb(63, 81, 181);
+  background-color: rgb(0, 0, 0);
   color: white;
   transition: 0.3s linear
 }

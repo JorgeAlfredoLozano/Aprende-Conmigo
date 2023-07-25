@@ -127,7 +127,7 @@ const Login = ({ userData, getUser }) => {
     <div className={style.container}>
       {!logged && (
         <button className={style.boton} onClick={changeDidLog}>
-          Iniciar Sesión
+          Conéctate
         </button>
       )}
       {logged && (
