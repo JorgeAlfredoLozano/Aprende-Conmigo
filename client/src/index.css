@@ -51,19 +51,11 @@ button {
   background-color: rgb(63, 81, 181);
   transition: 0.1s linear;
   position: relative;
-<<<<<<< HEAD
-  color: rgb(117, 117, 117);
-}
-
-button:hover {
-  background-color: rgb(63, 81, 181);
-=======
   color: white;
 }
 
 button:hover {
   background-color: rgb(0, 0, 0);
->>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
   color: white;
   transition: 0.3s linear
 }
