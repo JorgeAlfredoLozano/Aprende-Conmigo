@@ -1,14 +1,15 @@
 import axios from 'axios';
 //users
+const url="https://aprende-conmigo-production.up.railway.app:3001"
 export const checkUserData = (user)=> {
-  axios.post('aprende-conmigo-production.up.railway.app:3001/user/login', user )       
+  axios.post(`${url}/user/login`, user )       
 };
 export const putUser = (email, input) => {
    return async function (dispatch) {
      try {
        // const response = await axios.put(`http://localhost:3001/user/update/${email}`, input); //envio el cambio
        // const updatedUser = await axios.get(`http://localhost:3001/user/update/${email}`); //recibo el cambio
-       const response = await axios.put(`aprende-conmigo-production.up.railway.app:3001/user/update/${email}`, input); //envio el cambio
+       const response = await axios.put(`${url}/user/update/${email}`, input); //envio el cambio
        const updatedUser = await axios.get(`aprende-conmigo-production.up.railway.app:3001/${email}`); //recibo el cambio
        
        const updatedUserInfo = updatedUser.data;
@@ -24,7 +25,7 @@ export const putUser = (email, input) => {
 };
 export const sendPhoto = (email, payload)=>{
    return async function(dispatch){
-      const response=await axios.put(`aprende-conmigo-production.up.railway.app:3001/user/update/img/${email}`, payload)
+      const response=await axios.put(`${url}/user/update/img/${email}`, payload)
      return dispatch({
        type:'SEND_PHOTO',
        payload: response
@@ -35,7 +36,7 @@ export const getUser = (email)=>{
    
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`aprende-conmigo-production.up.railway.app:3001/user/update/${email}`);
+      const { data } = await axios.get(`${url}/user/update/${email}`);
       const userData = data; // Obtener los datos del usuario desde la respuesta
       return dispatch({
         type: 'GET_USER',
@@ -78,7 +79,7 @@ export const getAllPublication = (email)=>{
 export const getLesson = ()=>{
    
   return async (dispatch) => {
-     const {data} = await axios.get(`aprende-conmigo-production.up.railway.app:3001/lesson/all`);
+     const {data} = await axios.get(`${url}/lesson/all`);
         return dispatch({
            type: 'GET_LESSON',
            payload: data,
@@ -218,7 +219,7 @@ export const getAllUsers = ()=>{
 
 export const putUserEmail = (email, aux )=>{
   return async function(dispatch){
-     const response=await axios.put(`aprende-conmigo-production.up.railway.app:3001/user/update/${email}`, aux)
+     const response=await axios.put(`${url}/user/update/${email}`, aux)
     return dispatch({
       type:'PUT_USER_EMAIL',
       payload: response
