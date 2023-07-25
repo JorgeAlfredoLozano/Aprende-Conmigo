@@ -25,6 +25,7 @@ function GeneralFilters({ filtro, setFiltro, lesson, setLesson, setPrecio, preci
   function handleSelect(selectedOption) {
     setSelectedOption(selectedOption);
     setLesson(selectedOption.label);
+    window.history.pushState(null, null, `/busqueda/${selectedOption.label}`);
   }
 
   const handleSelectNivel = (nivel) => {
@@ -46,10 +47,12 @@ function GeneralFilters({ filtro, setFiltro, lesson, setLesson, setPrecio, preci
     if (event.target.id === 'nivel') {
       setSelectedNivel(null); // Reseteamos el nivel seleccionado
       setFiltro('');
+      window.history.pushState(null, null, `/busqueda/todo`);
     }
     if (event.target.id === 'materia') {
       setSelectedOption(null); // Reseteamos la opción seleccionada
       setLesson('');
+      window.history.pushState(null, null, `/busqueda/todo`);
     }
   };
 
