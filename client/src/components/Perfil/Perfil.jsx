@@ -13,10 +13,7 @@ import Purchases from '../Purchase/Purchase';
 import Sales from '../Sales/Sales';
 import UpdatePubli from '../UpdatePubli/UpdatePubli';
 import ReviewPerfil from '../Review/ReviewPerfil';
-<<<<<<< HEAD
-=======
 import PopUp from '../PopUp/PopUp';
->>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
 
 const Perfil = ({ userData, getUser, getAllPublication }) => {
   const { tab } = useParams();
@@ -47,11 +44,8 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   const [updateId, setUpdateId] = useState(null);
   const [renderReview, setRenderReview] = useState(false);
   const [reviewId, setReviewId] = useState(null);
-<<<<<<< HEAD
-=======
   const [renderPopUp, setRenderPopUp] = useState(false); console.log(renderPopUp);
   const [text, setText] = useState('');
->>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
 
   useEffect(() => {
     if (tab === 'usuario') {
@@ -89,10 +83,7 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
 
   const changeTab = (event) => {
     const clickedTab = event.target.id;
-<<<<<<< HEAD
-=======
     
->>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
     if (clickedTab === 'usuario') {
       setRenderProfile(true);
       setRenderAnuncios(false);
@@ -201,13 +192,8 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
     <div className={style.container}>
       <div className={style.contenedorPerfil}>
         <div className={style.contenedorTabs}>
-<<<<<<< HEAD
-          <p id='usuario' onClick={changeTab} className={renderProfile ? `${style.tabs} ${style.active}` : style.tabs}>Mi perfil</p>
-          <p id='anuncios' onClick={changeTab} className={renderAnuncios ? `${style.tabs} ${style.active}` : style.tabs}>Anuncios</p>
-=======
           <p id='usuario' onClick={changeTab} className={renderProfile ? style.active : style.tabs}>Mi perfil</p>
           <p id='anuncios' onClick={changeTab} className={renderAnuncios ? style.active : style.tabs}>Anuncios</p>
->>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
           <p
             id='anunciosfav'
             onClick={changeTab}
@@ -228,21 +214,6 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
             <>
               <section className={style.datos}>
                 <p className={style.infoLabel}>
-<<<<<<< HEAD
-                  <span style={{color:"rgb(35, 128, 211)", fontFamily:"Roboto", fontWeight:"900", fontStyle:"oblique"}}>Nombre: </span> 
-                  <span>{renderUser.name}</span>
-                  </p>
-                <p className={style.infoLabel}>
-                  <span style={{color:"rgb(35, 128, 211)", fontFamily:"Roboto", fontWeight:"900", fontStyle:"oblique"}}>Email: </span>
-                  <span>{renderUser.email}</span>
-                  </p>
-                <p className={style.infoLabel}>
-                  <span style={{color:"rgb(35, 128, 211)", fontFamily:"Roboto", fontWeight:"900", fontStyle:"oblique"}}>Fecha de Nacimiento: </span>
-                  <span>{renderUser.date}</span>
-                  </p>
-                <p className={style.infoLabel}>
-                  <span style={{color:"rgb(35, 128, 211)", fontFamily:"Roboto", fontWeight:"900", fontStyle:"oblique"}}>Género: </span>
-=======
                   <span style={{color:"rgb(63, 81, 181)", fontFamily:"Roboto", fontWeight:"900"}}>Nombre: </span> 
                   <span>{renderUser.name}</span>
                   </p>
@@ -256,7 +227,6 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
                   </p>
                 <p className={style.infoLabel}>
                   <span style={{color:"rgb(63, 81, 181)", fontFamily:"Roboto", fontWeight:"900"}}>Género: </span>
->>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
                   <span>{
                 renderUser.gender === 'male'
                 ? 'Hombre' 
@@ -266,11 +236,7 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
                 }</span>
                 </p>
                 <p className={style.infoLabel}>
-<<<<<<< HEAD
-                  <span style={{color:"rgb(35, 128, 211)", fontFamily:"Roboto", fontWeight:"900", fontStyle:"oblique"}}>Teléfono: </span>
-=======
                   <span style={{color:"rgb(63, 81, 181)", fontFamily:"Roboto", fontWeight:"900"}}>Teléfono: </span>
->>>>>>> aafe7807b8685c3b4013083c344c2714acef8042
                   <span>{renderUser.phone}</span>
                   </p>
                 <button className={style.botonForm} onClick={updateData}>
