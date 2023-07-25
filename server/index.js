@@ -8,12 +8,12 @@ const postLessonHandler=require('./src/handlers/lesson/postLessonHandler.js')
 const allowCors = require('./allowCors.js')
 const whatsapp = require('./src/whatsapp.js')
 const cors = require('cors');
-// server.use(allowCors);
+
 
 server.use(cors({
   origin: 'https://aprende-one.vercel.app'
 }));
-
+server.use(allowCors);
 conn.sync({ Altern: true })  //alter force
 .then(() => postLessonHandler(lessonsJson, Lesson))
 .then(() => whatsapp)
