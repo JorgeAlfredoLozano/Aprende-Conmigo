@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CardPublication from '../CardPublication/CardPublication';
 import { getAllPublication } from '../../Redux/actions';
-import style from "./Publication.module.css"
+import style from "./Publication.module.css";
 
 const PublicationUser = ({ submitFormAnuncio, renderUpdatePubli, setRenderUpdatePubli, formId }) => {
   const dispatch = useDispatch();

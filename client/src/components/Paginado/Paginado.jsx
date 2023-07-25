@@ -39,7 +39,7 @@ export default function Paginado({ anunciosPerPage, allAnuncios, paginado, curre
       paginado(pageNumber);
       setInputPage("");
     } else {
-      setErrorInput("Only numbers within the range");
+      setErrorInput("Sólo números dentro del rango");
     }
   };
 
@@ -56,17 +56,17 @@ export default function Paginado({ anunciosPerPage, allAnuncios, paginado, curre
   }
 
   return (
-    <nav>
-      <ul className={styles.paginado} style={{ display: "flex", alignItems: "center" }}>
+    <div className={styles.container} style={{marginBottom: "15px"}}>
+      <ul className={styles.paginado} style={{ display: "flex", alignItems: "center", gap: "1em" }}>
 
         {/* BOTON HOME DE LA NAV */}
-        <li><button onClick={handleHomeBtn}>Home</button></li>
+        <li><p className={styles.inicio} onClick={handleHomeBtn}>Inicio</p></li>
         
         {/* BOTON ANTERIOR DE LA NAV */}
         <li className={currentPage === 1 ? styles.disabled : ""}>
-          <button onClick={() => paginado(currentPage - 1)} disabled={currentPage === 1}>
+          <p style={{cursor:"pointer", margin:"0%"}} onClick={() => paginado(currentPage - 1)} disabled={currentPage === 1}>
             {"<"}
-          </button>
+          </p>
 
         {/* BOTON NUMEROS DE LA NAV */}
         </li>
@@ -75,15 +75,15 @@ export default function Paginado({ anunciosPerPage, allAnuncios, paginado, curre
             className={currentPage === number ? `${styles.number} ${styles.active}` : styles.number}
             key={number}
           >
-            <button onClick={() => paginado(number)}>{number}</button>
+            <p style={{margin:"0%"}} onClick={() => paginado(number)}>{number}</p>
           </li>
         ))}
 
         {/* BOTON SIGUIENTE DE LA NAV */}
         <li className={currentPage === Math.ceil(allAnuncios / anunciosPerPage) ? styles.disabled : ""}>
-          <button onClick={() => paginado(currentPage + 1)} disabled={currentPage === Math.ceil(allAnuncios / anunciosPerPage)}>
+          <p style={{cursor:"pointer", margin:"0%"}} onClick={() => paginado(currentPage + 1)} disabled={currentPage === Math.ceil(allAnuncios / anunciosPerPage)}>
             {">"}
-          </button>
+          </p>
         </li>
 
         {/* LABEL ACTUAL/ULTIMA DE LA NAV */}
@@ -94,24 +94,18 @@ export default function Paginado({ anunciosPerPage, allAnuncios, paginado, curre
         </li>
 
         {/* BOTON IR A UNA PAGINA DE LA NAV */}
-        <li>
+      </ul>
+        <li style={{display:"flex", gap:"1em"}}>
+          <p style={{ cursor: "pointer", margin:"0%" }} onClick={handleGoToPage}>
+          Ir a
+          </p>
           <input
-            type="text"
-            value={inputPage}
-            onChange={handleInputChange}
-            placeholder=""
-            style={{ width: "20px" }}
-            onKeyDown={handleKeyDown}
+            type="text" value={inputPage} onChange={handleInputChange} placeholder="" style={{ width: "25px" }} onKeyDown={handleKeyDown}
           />
-          <button style={{ cursor: "pointer" }} onClick={handleGoToPage}>
-            Go
-          </button>
-          
         </li>
         <p style={{ color: "red", marginTop: "5px", height: "8px", marginLeft: "10px" }} disabled={!errorInput}>
           {errorInput && errorInput}
         </p>
-      </ul>
-    </nav>
+    </div>
   );
 }

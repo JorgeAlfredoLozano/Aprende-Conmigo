@@ -1,5 +1,13 @@
+@font-face {
+  font-family: 'Roboto'; /* Nombre que le das a la fuente personalizada */
+  src: url('./assets/fonts/Roboto-Black.ttf') format('truetype');
+
+  font-family: 'Roboto-bold';
+  src: url('./assets/fonts/Roboto-Bold.ttf') format('truetype');
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif, Roboto;
   line-height: 1.5;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -20,7 +28,7 @@ body {
   display: flex;
   flex-direction: column;
   place-items: center;
-  background-color: rgb(136, 136, 136);
+  background-color: rgb(245, 250, 255);
   width: 100%;
 }
 
@@ -33,19 +41,23 @@ a {
 }
 
 button {
+  font-family: "Roboto";
+  font-weight: 900;
   border-radius: 0.8em;
   height: 7vh;
   border-color: transparent;
   padding-left: 2vh;
   padding-right: 2vh;
-  background-color: white;
+  background-color: rgb(63, 81, 181);
   transition: 0.2s linear;
   position: relative;
+  color: white;
 }
 
 button:hover {
-  background-color: rgb(23, 23, 23);
+  background-color: rgb(0, 0, 0);
   color: white;
+  transition: 0.3s linear
 }
 
 input {
@@ -62,4 +74,8 @@ textarea {
 select {
   border-radius: 5px;
   border: transparent;
+}
+
+* {
+  box-sizing: border-box;
 }

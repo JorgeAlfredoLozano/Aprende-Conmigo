@@ -9,16 +9,19 @@ import style from './CheckoutForm.module.css';
 const VITE_API_STRIPE=import.meta.env.VITE_API_STRIPE;
 
 let email = 'none';
+let email2 = 'none';
+let userName ='none';
 let idUs=0;
 
 const stripePromise = loadStripe(`${VITE_API_STRIPE}`);
 const localStorageContent = localStorage.getItem("cachedUser")
-const  parser  = JSON.parse(localStorageContent);
+const parser  = JSON.parse(localStorageContent);
 
 if(parser)email=parser.email;
+if(parser)userName=parser.name;
 if(parser)idUs=parser.id;
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ setShowCheckoutForm }) => {
 const stripe = useStripe();
 const elements = useElements();
 const navigate = useNavigate();
@@ -26,8 +29,9 @@ const navigate = useNavigate();
 const params = useParams();
 const idPub = params.id;
 const info=useSelector((state)=>state.allAnuncios.data);
-
 const infoFiltered=info.filter((inf)=> inf.id===idPub);
+
+email2=infoFiltered[0].User.email; //email profesor
 const [horas,setHoras]=useState(1);
 const number=[1,2,3,4,5,6,7,8,9,10];
 
@@ -42,19 +46,24 @@ const {error, paymentMethod} = await stripe.createPaymentMethod({
     card:elements.getElement(CardElement)
 })
 if(!error) { 
-const {id} = paymentMethod
+
+const {id} = paymentMethod || 0
 const {data} = await axios.post('http://localhost:3001/purchase/', {
     id,
     amount:infoFiltered[0].value * horas * 100,
     email,
+    email2,
     datos: infoFiltered[0],
     idUser: idUs,
     idPub: idPub,
-    hora: horas
+    hora: horas,
+    userName,
 })
+
 elements.getElement(CardElement).clear()
 if(data.message==="successfull payment"){
-    alert('pago realizado con exito')
+    alert('pago realizado con exito');
+    setShowCheckoutForm(false);
     navigate('/')
 }
 else {
@@ -77,7 +86,7 @@ return(
     <div className="form-group">
         <CardElement className="form-control" options={{ style: { base: { fontSize: '16px' } } }}/> 
     </div>   
-    <button  className="btn btn-success" disabled={!stripe}>buy</button>
+    <button  className="btn btn-success" disabled={!stripe}>Comprar</button>
     </form>
     </div>
 )}

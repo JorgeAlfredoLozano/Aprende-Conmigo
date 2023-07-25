@@ -1,5 +1,5 @@
 .container {
-    background-color: rgb(220, 220, 220);
+    background-color: rgb(143, 175, 230);
     padding-top: 5%;
     margin-top: 5%;
     display: flex;
@@ -10,6 +10,14 @@
 
 .colores{
     color: rgba(227, 209, 43, 0.94)
+}
+
+.valoracion {
+    color: rgb(154, 154, 154);
+}
+
+.opiniones {
+    color: rgb(154, 154, 154);
 }
 
 .reviewsContainer {
@@ -42,12 +50,16 @@
 }
 
 .image {
+    width: 70px;
     height: 70px;
-    width: auto;
-    border-radius: 100%;
-    margin-top: 1em;
-    margin-left: 1em;
-    margin-right: 1em;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.imageContainer{
+    padding: 2%;
 }
 
 .textoContainer {
@@ -72,10 +84,13 @@
 }
 
 .boxa {
-    background-color: rgb(184, 184, 184);
+    background-color: rgb(255, 255, 255);
     width: 40em;
     padding: 2%;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
 }
 
 .ratingContainer {

@@ -1,43 +1,89 @@
-.formu {
-    position: fixed;
-    display: flex;
-    background-color: rgba(242, 242, 242, 0.675);
-    flex-direction: column;
-    gap: 2em;
-    padding: 4%;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(4px);
-    left: 40%;
-    top: 15%;
-    border-radius: 1em;
-}
-
-.weas {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2em;
-}
-
-.error {
-  color: red;
-  display: flex;
-  position: fixed;
-  width: 100%;
-  margin-left: -10.5%;
-}
-
-.date,
-.name,
-.phone,
-.gender {
-    width: 200px;
-}
-
 .container {
-  position:absolute;
+  position:fixed;
+  top:25%;
+  left:25%;
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
+  background-color: rgb(255, 255, 255);
+  align-items: center;
+  place-content: center;
+  justify-content: center;
+  box-shadow: 0px 5px 10px rgba(37, 37, 37, 0.294);
+}
+
+.noReview {
+  text-align: center;
+  width: 100%;
+  color: rgb(117, 117, 117);
+}
+
+.texto {
+  color: rgb(63, 81, 181)
+}
+
+.reviewsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding-top: 5%;
+  max-height: 50em;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  align-items: center;
+}
+
+.reviewsContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.commentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardComment {
+  width: 40em;
+  display: flex;
+  flex-direction: row;
+}
+
+.image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.imageContainer{
+  padding-left: 4%;
+  padding-right: 4%;
+}
+
+.textoContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.5em;
+}
+
+.comment {
+  margin: 0%;
+}
+
+.name {
+  font-weight: bold;
+  margin: 0%;
+}
+
+.buttonsContainer {
+  display: flex;
+  align-items: center;
+  place-content: center;
+  gap:1em;
+  padding: 1em;
 }
 
 /*////////////////////////animaciones//////////////////////////*/
