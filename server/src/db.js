@@ -1,13 +1,13 @@
 require('dotenv').config()  // Carga las variables de entorno desde el archivo .env
 const { Sequelize } = require('sequelize') //Importa la clase Sequelize del paquete sequelize
-//const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME} = process.env // Obtiene los valores de las variables de entorno relacionadas con la base de datos
-const { POSTGRES_URL } = process.env.local // Obtiene los valores de las variables de entorno relacionadas con la base de datos
+//cons { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME} = process.env // Obtiene los valores de las variables de entorno relacionadas con la base de datos
+const  POSTGRES_URL  = process.env.local // Obtiene los valores de las variables de entorno relacionadas con la base de datos
 const fs = require('fs'); // Módulo de manejo de archivos del sistema
 const path = require('path');  // Módulo para trabajar con rutas de archivos y directorios
 
 
-const sequelize = new Sequelize(POSTGRES_URL, // => localhost
-{logging: false, native: false}
+const sequelize = new Sequelize("postgres://default:6TcdBhHW3lfC@ep-mute-wave-69703131-pooler.us-east-1.postgres.vercel-storage.com/verceldb", // => localhost
+{logging: false, native: false, dialectOptions: { ssl: { require: true, rejectUnauthorized: false } } }
 )
 
 const basename = path.basename(__filename); 
