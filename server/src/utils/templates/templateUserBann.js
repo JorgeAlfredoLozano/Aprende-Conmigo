@@ -106,7 +106,7 @@ const templateUserBann=(nombre,contactar)=>{
         <td class="pad" style="vertical-align: middle; color: #000000; font-family: inherit; font-size: 14px; text-align: center;">
         <table align="center" cellpadding="0" cellspacing="0" class="alignment" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
         <tr>
-        <td style="vertical-align: middle; text-align: center; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px;"><img align="center" alt="Company Logo" class="icon" height="64" src="images/isologo.png" style="height: auto; display: block; margin: 0 auto; border: 0;" width="179"/></td>
+        <td style="vertical-align: middle; text-align: center; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px;"><img align="center" alt="Company Logo" class="icon" height="64" src="https://imgur.com/2uc1BnP.jpg" style="height: auto; display: block; margin: 0 auto; border: 0;" width="179"/></td>
         </tr>
         </table>
         </td>
@@ -164,7 +164,7 @@ const templateUserBann=(nombre,contactar)=>{
         <table border="0" cellpadding="0" cellspacing="0" class="image_block block-1" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
         <tr>
         <td class="pad" style="width:100%;padding-right:0px;padding-left:0px;">
-        <div align="center" class="alignment" style="line-height:10px"><img class="fullWidth" src="images/userBanned.jpg" style="height: auto; display: block; border: 0; max-width: 400px; width: 100%;" width="400"/></div>
+        <div align="center" class="alignment" style="line-height:10px"><img class="fullWidth" src="https://imgur.com/iF1ex7c.jpg" style="height: auto; display: block; border: 0; max-width: 400px; width: 100%;" width="400"/></div>
         </td>
         </tr>
         </table>
@@ -196,7 +196,7 @@ const templateUserBann=(nombre,contactar)=>{
         <table border="0" cellpadding="0" cellspacing="0" class="image_block block-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
         <tr>
         <td class="pad" style="width:100%;padding-right:0px;padding-left:0px;">
-        <div align="left" class="alignment" style="line-height:10px"><img src="images/isologo.png" style="height: auto; display: block; border: 0; max-width: 229.60000000000002px; width: 100%;" width="229.60000000000002"/></div>
+        <div align="left" class="alignment" style="line-height:10px"><img src="https://imgur.com/2uc1BnP.jpg" style="height: auto; display: block; border: 0; max-width: 229.60000000000002px; width: 100%;" width="229.60000000000002"/></div>
         </td>
         </tr>
         </table>
@@ -247,7 +247,7 @@ const templateUserBann=(nombre,contactar)=>{
         <!--[if !vml]><!-->
         <table cellpadding="0" cellspacing="0" class="icons-inner" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; display: inline-block; margin-right: -4px; padding-left: 0px; padding-right: 0px;"><!--<![endif]-->
         <tr>
-        <td style="vertical-align: middle; text-align: center; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 6px;"><a href="https://www.designedwithbee.com/?utm_source=editor&utm_medium=bee_pro&utm_campaign=free_footer_link" style="text-decoration: none;" target="_blank"><img align="center" alt="Designed with BEE" class="icon" height="32" src="images/bee.png" style="height: auto; display: block; margin: 0 auto; border: 0;" width="34"/></a></td>
+        <td style="vertical-align: middle; text-align: center; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 6px;"><a href="https://www.designedwithbee.com/?utm_source=editor&utm_medium=bee_pro&utm_campaign=free_footer_link" style="text-decoration: none;" target="_blank"><img align="center" alt="Designed with BEE" class="icon" height="32" src="https://imgur.com/Q5E1Zsj.jpg" style="height: auto; display: block; margin: 0 auto; border: 0;" width="34"/></a></td>
         <td style="font-family: 'Lato', Tahoma, Verdana, Segoe, sans-serif; font-size: 15px; color: #9d9d9d; vertical-align: middle; letter-spacing: undefined; text-align: center;"><a href="https://www.designedwithbee.com/?utm_source=editor&utm_medium=bee_pro&utm_campaign=free_footer_link" style="color: #9d9d9d; text-decoration: none;" target="_blank">Designed with BEE</a></td>
         </tr>
         </table>

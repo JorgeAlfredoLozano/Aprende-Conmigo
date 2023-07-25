@@ -24,7 +24,7 @@ function App() {
           <Route path="/perfil/:tab" element={<Perfil/>}/>
           <Route path="/preguntas" element={<Faq/>}/>
           <Route path="/admin" element={<DashBoardAdmin/>}/>
-          <Route path="/busqueda" element={<SearchPage/>}/>
+          <Route path="/busqueda/:lesson" element={<SearchPage/>}/>
           <Route path='/anuncio/:id' element={<DetailAnuncio/>}/>
           <Route path='/perfilPublico/:id' element={<PerfilPublic/>}/>
           <Route path='/compras' element={<Purchases/>}/>

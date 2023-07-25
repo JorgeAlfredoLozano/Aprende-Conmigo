@@ -2,11 +2,12 @@
 .about-container {
   text-align: center;
   background-color: white;
-}
-
-.about-container h2 {
-  font-size: 28px;
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: -webkit-linear-gradient(-1deg, rgb(55, 129, 196), rgb(198, 226, 255), rgb(241, 248, 255));
+  background: linear-gradient(-1deg, rgb(55, 129, 196), rgb(198, 226, 255), rgb(241, 248, 255));
 }
 
 .about-container p {
@@ -15,19 +16,24 @@
 }
 
 .participants-container {
+  margin-top: 3%;
   display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  gap: 2em;
+  align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin-bottom: 5%;
 }
 
 /* Estilo para cada columna de participante */
 .participant-column {
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 10px;
   padding: 20px; /* Aumentar el padding para hacer el contenedor más grande */
-  border: 1px solid #ccc;
   border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   /* Configuración para el flip */
@@ -38,7 +44,7 @@
 }
 
 .participant-column:hover {
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 12px rgba(127, 127, 127, 0.2);
 }
 
 .participant-column img {
@@ -62,23 +68,52 @@
   margin: 5px;
 }
 
-.contact-icons img:hover {
-  transform: scale(1.5);
-}
+/* .contact-icons img:hover {
+  transform: scale(1.08);
+  transition: 0.3s linear;
+} */
 
 /* Estilo para el efecto de flip */
 .participant-column.flipped {
   transform: rotateY(180deg);
-  background-color: rgb(58, 58, 58);
+  background-color: rgb(63, 81, 181);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  place-content: center;
+  text-align: center;
 }
 
 .posterior-text {
   transform: rotateY(180deg);
-  color: rgb(226, 226, 103);
- 
+  color: white; 
 }
 
 .paragraph-container {
   width: 80%;
   margin: 0 auto;
+}
+
+.paragraph-container p {
+  color: white;
+}
+
+.about-container h4 {
+  color: white;
+}
+
+.equipo {
+  color: rgb(131, 170, 255);
+  text-shadow: 1px 1px 3px rgb(131, 170, 255);
+}
+
+.historia {
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 3px rgb(255, 255, 255);
+}
+
+.containerhistoria {
+  background-color: black;
+  padding: 5%;
 }
