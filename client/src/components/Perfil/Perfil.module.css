@@ -1,7 +1,7 @@
 .contenedorPerfil {
     display: flex;
     flex-direction: column;
-    margin: -1%;
+    margin: 0%;
     width: 100%;
     min-height: 100vh;
   }
@@ -11,7 +11,7 @@
     display: flex;
     align-items: center;
     place-content: center;
-    padding-top: 1%;
+    margin: 0%;
   }
 
   .tabs {
@@ -21,6 +21,7 @@
   padding: 20px;
   padding-left: 3%;
   padding-right: 3%;
+  padding-top: 2%;
   }
 
   .active {
@@ -31,6 +32,7 @@
     padding-right: 3%;
     background-color: rgb(255, 255, 255);
     color: rgb(63, 81, 181);
+    padding-top: 2%;
   }
 
   .tabs:hover {

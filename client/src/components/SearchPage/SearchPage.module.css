@@ -3,8 +3,12 @@
    flex-direction: column;
    align-items: center;
    gap: 5em;
-   margin-bottom: 5%;
-   margin-top: 5%;
+   padding-bottom: 5%;
+   padding-top: 5%;
+ }
+
+ .body{
+  min-height: 100vh;
  }
 
  .busqueda {
