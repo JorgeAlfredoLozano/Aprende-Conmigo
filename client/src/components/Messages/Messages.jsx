@@ -62,7 +62,7 @@ const Messages = () => {
     for (const userId of uniqueUserIds) {
       try {
         if (userId !== id) {
-          const response = await axios.get(`${URL}/user/get/${userId}`);
+          const response = await axios.get(`/user/get/${userId}`);
           const user = response.data;
           users.push(user);
         }
@@ -94,7 +94,7 @@ const Messages = () => {
   
       return (
         <p className={style.user} style={{margin:"0%", paddingBottom:"20px", color:"rgb(63, 81, 181)", display:"flex", flexDirection:"column", alignItems:"center"}} key={user.id} onClick={() => userClickHandler(user.id)}>
-          <span style={{fontFamily:"Roboto", fontWeight:"600"}}>{user.name}</span> 
+          <span style={{ fontWeight:"600"}}>{user.name}</span> 
           <span>({userNotRead.length} mensajes no leídos)</span>
         </p>
       );
@@ -171,12 +171,12 @@ const Messages = () => {
       {/* <h1 className={style.centro}>Mensajes</h1> */}
       <div className={style.tabContainer}>
       <div className={style.sidebar}>
-        <h2 style={{color:"rgb(63, 81, 181)", fontFamily:"Roboto", fontWeight:"900", marginBottom:"5%"}}>Chats</h2>
+        <h2 style={{color:"rgb(63, 81, 181)", fontWeight:"900", marginBottom:"5%"}}>Chats</h2>
         <ul className={style.userList}>{renderUserList()}</ul>
       </div>
       <div className={style.messageContainer}>
         <div className={style.chat}>
-          <h2 style={{color:"rgb(63, 81, 181)", fontFamily:"Roboto", fontWeight:"900"}}>
+          <h2 style={{color:"rgb(63, 81, 181)", fontWeight:"900"}}>
             {/* Mensajes con{" "} */}
             {selectedUserId &&
               userList.find((user) => user.id === selectedUserId)?.name}

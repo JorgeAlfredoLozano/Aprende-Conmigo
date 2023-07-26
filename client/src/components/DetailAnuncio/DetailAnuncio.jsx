@@ -114,9 +114,9 @@ const DetailAnuncio = () => {
                     (<>
                     <button id='notLogged' onClick={(event) => handleRenderMessage(event)} className={style.botonMensaje}>Enviar mensaje a {userTeacher && userTeacher.data.name}</button>
                     </>)}{showCheckoutForm && (
-            <div className={style.payment}>                              
-              <CheckoutForm showCheckoutForm={(event)=>showCheckoutForm} setShowCheckoutForm={(event)=>setShowCheckoutForm()} />
-              <button onClick={handleCancelPayment}>Cancelar</button>
+            <div className={style.payment}>
+              <CheckoutForm showCheckoutForm={showCheckoutForm} setShowCheckoutForm={setShowCheckoutForm} />
+              <button className={style.cancelPayment} onClick={handleCancelPayment}>Cancelar</button>
             </div>
           )}
             <Review idPub={id}/>

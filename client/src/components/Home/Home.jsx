@@ -35,13 +35,11 @@ import { useNavigate } from 'react-router';
               <div style={containerStyle3} className={style.img3}></div>
             </div>
             <div className={style.search}>
-              <p className={style.texto} style={{ fontSize:"50px", textAlign:"center", color:"black", fontFamily:"Roboto", fontWeight:"900"}}>¡Encuentra la clase que buscas entre nuestros profesores online!</p>
-             {/* <NavLink to='/busqueda'><button style={{marginBottom:"500px"}}>Cursos</button></NavLink> */}
+              <p className={style.texto} style={{ fontSize:"50px", textAlign:"center", color:"black", fontWeight:"900"}}>¡Encuentra la clase que buscas entre nuestros profesores online!</p>
              <ToSearchPage/>
              <button onClick={handleNavigateSearchPage}>Ver todos los cursos</button>
             </div>
             </div>
-        {/* <Footer/> */}
         </div>
     )
  }
