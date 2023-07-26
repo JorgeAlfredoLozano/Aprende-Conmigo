@@ -1,20 +1,18 @@
 import axios from 'axios';
+const URL = "https://aprende-conmigo-production.up.railway.app"
 //users
 // const url="https://aprende-conmigo-production.up.railway.app:3001"
 const url="http://localhost:3001";
 export const checkUserData = (user)=> {
-  axios.post(`${url}/user/login`, user )       
+  axios.post(`${URL}/user/login`, user )       
 };
 export const putUser = (email, input) => {
    return async function (dispatch) {
      try {
-       // const response = await axios.put(`http://localhost:3001/user/update/${email}`, input); //envio el cambio
-       // const updatedUser = await axios.get(`http://localhost:3001/user/update/${email}`); //recibo el cambio
-       const response = await axios.put(`${url}/user/update/${email}`, input); //envio el cambio
-       const updatedUser = await axios.get(`${url}/${email}`); //recibo el cambio
+       const response = await axios.put(`${URL}/user/update/${email}`, input); //envio el cambio
+       const updatedUser = await axios.get(`${URL}/${email}`); //recibo el cambio
        
        const updatedUserInfo = updatedUser.data;
- 
        return dispatch({
          type: 'PUT_USER',
          payload: updatedUserInfo, //aca se actualiza la store cuando llega al reducer
@@ -26,7 +24,7 @@ export const putUser = (email, input) => {
 };
 export const sendPhoto = (email, payload)=>{
    return async function(dispatch){
-      const response=await axios.put(`${url}/user/update/img/${email}`, payload)
+      const response=await axios.put(`${URL}/user/update/img/${email}`, payload)
      return dispatch({
        type:'SEND_PHOTO',
        payload: response
@@ -37,7 +35,7 @@ export const getUser = (email)=>{
    
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`${url}/user/update/${email}`);
+      const { data } = await axios.get(`${URL}/user/update/${email}`);
       const userData = data; // Obtener los datos del usuario desde la respuesta
       return dispatch({
         type: 'GET_USER',
@@ -51,7 +49,7 @@ export const getUser = (email)=>{
 //publications
 export const sendAnuncio = (email, input )=>{
    return async function(dispatch){
-      const response=await axios.post(`${url}/publication/save/${email}`, input)
+      const response=await axios.post(`${URL}/publication/save/${email}`, input)
      return dispatch({
        type:'SEND_ANUNCIO',
        payload: response
@@ -60,7 +58,7 @@ export const sendAnuncio = (email, input )=>{
 };
 export const updateAnuncio = (id, aux )=>{
   return async function(dispatch){
-     const response=await axios.put(`${url}/publication/save/${id}`, aux)
+     const response=await axios.put(`${URL}/publication/save/${id}`, aux)
     return dispatch({
       type:'UPDATE_ANUNCIO',
       payload: response
@@ -69,7 +67,7 @@ export const updateAnuncio = (id, aux )=>{
 };
 export const getAllPublication = (email)=>{
   return async function(dispatch){
-     const response=await axios.get(`${url}/publication/get/${email}`)
+     const response=await axios.get(`${URL}/publication/get/${email}`)
     return dispatch({
       type:'GET_ALL_PUBLICATION',
       payload: response
@@ -80,7 +78,7 @@ export const getAllPublication = (email)=>{
 export const getLesson = ()=>{
    
   return async (dispatch) => {
-     const {data} = await axios.get(`${url}/lesson/all`);
+     const {data} = await axios.get(`${URL}/lesson/all`);
         return dispatch({
            type: 'GET_LESSON',
            payload: data,
@@ -91,7 +89,7 @@ export const getLesson = ()=>{
 export const getAllAnuncios = (page=0)=>{
 
   return async function(dispatch){
-     const response=await axios.get(`${url}/publication/get/anouncements?page=${page}`)
+     const response=await axios.get(`${URL}/publication/get/anouncements?page=${page}`)
     return dispatch({
       type:'GET_ALL_ANUNCIOS',
       payload: response
@@ -100,7 +98,7 @@ export const getAllAnuncios = (page=0)=>{
 };
 export const getUserById = (id) => {
   return async function(dispatch){
-    const response=await axios.get(`${url}/user/get/${id}`)
+    const response=await axios.get(`${URL}/user/get/${id}`)
    return dispatch({
      type:'GET_USER_BY_ID',
      payload: response
@@ -110,7 +108,7 @@ export const getUserById = (id) => {
 export const getAssetsById = async (id) => {
   try {
     const response = await axios
-      .get(`${url}/user/get/${id}`);
+      .get(`${URL}/user/get/${id}`);
     return response.data;
   } catch (error) {
     console.error(error);
@@ -120,7 +118,7 @@ export const getAssetsById = async (id) => {
 //Messages
 export const getAllMessages = (id)=>{ // Trae todos los mensajes del usuario ID
   return async function(dispatch){
-     const response=await axios.get(`${url}/message/getallmessage/${id}`)
+     const response=await axios.get(`${URL}/message/getallmessage/${id}`)
     return dispatch({
       type:'GET_ALL_MESSAGES',
       payload: response.data
@@ -129,7 +127,7 @@ export const getAllMessages = (id)=>{ // Trae todos los mensajes del usuario ID
 };
 export const getNotReadMessages = (idSend,idReceived)=>{ // Trae todos los mensajes del usuario ID
   return async function(dispatch){
-     const response=await axios.get(`${url}/message/notread/${idSend}/${idReceived}`)
+     const response=await axios.get(`${URL}/message/notread/${idSend}/${idReceived}`)
     return dispatch({
       type:'GET_NOT_READ',
       payload: response.data
@@ -138,7 +136,7 @@ export const getNotReadMessages = (idSend,idReceived)=>{ // Trae todos los mensa
 };
 export const sendChat = ( send )=>{ // Enviar el chat a la bd
   return async function(dispatch){
-     const response=await axios.post(`${url}/message/sendmessage`, send)
+     const response=await axios.post(`${URL}/message/sendmessage`, send)
     return dispatch({
       type:'SEND_CHAT',
       payload: response
@@ -147,7 +145,7 @@ export const sendChat = ( send )=>{ // Enviar el chat a la bd
 };
 export const putSeen = ( idSend,idReceived )=>{ // Enviar el chat a la bd
   return async function(dispatch){
-     const response=await axios.put(`${url}/message/seen/` + idSend + '/' + idReceived)
+     const response=await axios.put(`${URL}/message/seen/` + idSend + '/' + idReceived)
     return dispatch({
       type:'PUT_SEEN',
       payload: response
@@ -157,7 +155,7 @@ export const putSeen = ( idSend,idReceived )=>{ // Enviar el chat a la bd
 //Purchases
 export const sendPurchase = (info)=>{ // Trae todos los mensajes del usuario ID
   return async function(dispatch){
-     const response=await axios.post(`${url}/purchase/`,info)
+     const response=await axios.post(`${URL}/purchase/`,info)
     return dispatch({
       type:'SEND_PURCHASES',
       payload: response.data
@@ -166,7 +164,7 @@ export const sendPurchase = (info)=>{ // Trae todos los mensajes del usuario ID
 };
 export const getAllPurchases = (id)=>{ // Trae todos los mensajes del usuario ID
   return async function(dispatch){
-     const response=await axios.get(`${url}/purchase/getuser/${id}`)
+     const response=await axios.get(`${URL}/purchase/getuser/${id}`)
     return dispatch({
       type:'GET_ALL_PURCHASES',
       payload: response.data
@@ -175,7 +173,7 @@ export const getAllPurchases = (id)=>{ // Trae todos los mensajes del usuario ID
 };
 export const getAllSales = (id)=>{ // Trae todas las ventas de un usuario(profe)
   return async function(dispatch){
-     const response=await axios.get(`${url}/purchase/getsale/${id}`)
+     const response=await axios.get(`${URL}/purchase/getsale/${id}`)
     return dispatch({
       type:'GET_ALL_SALES',
       payload: response.data
@@ -185,7 +183,7 @@ export const getAllSales = (id)=>{ // Trae todas las ventas de un usuario(profe)
 //Reviews
 export const getReviews = ( idPub )=>{ // traer las reviews de una publi
   return async function(dispatch){
-     const response=await axios.get(`${url}/review/get/`+ idPub)
+     const response=await axios.get(`${URL}/review/get/`+ idPub)
     return dispatch({
       type:'GET_REVIEWS',
       payload: response
@@ -200,7 +198,7 @@ export const postReview = ( comment, rating, idPub, idUser ) => { // postea una 
       idPub,
       idUser
     }
-    const response = await axios.post(`${url}/review`, data)
+    const response = await axios.post(`${URL}/review`, data)
     return dispatch ({
       type: 'POST_REVIEW',
       payload: response
@@ -210,7 +208,7 @@ export const postReview = ( comment, rating, idPub, idUser ) => { // postea una 
 
 export const getAllUsers = ()=>{
   return async function(dispatch){
-     const response= await axios.get(`${url}/user/alluser`)
+     const response= await axios.get(`${URL}/user/alluser`)
     return dispatch({
       type:'GET_ALL_USERS',
       payload: response
@@ -220,7 +218,7 @@ export const getAllUsers = ()=>{
 
 export const putUserEmail = (email, aux )=>{
   return async function(dispatch){
-     const response=await axios.put(`${url}/user/update/${email}`, aux)
+     const response=await axios.put(`${URL}/user/update/${email}`, aux)
     return dispatch({
       type:'PUT_USER_EMAIL',
       payload: response

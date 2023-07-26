@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import {useState} from 'react';
 import style from './CheckoutForm.module.css';
 const VITE_API_STRIPE=import.meta.env.VITE_API_STRIPE;
-
+const URL = "https://aprende-conmigo-production.up.railway.app"
 let email = 'none';
 let email2 = 'none';
 let userName ='none';
@@ -48,7 +48,7 @@ const {error, paymentMethod} = await stripe.createPaymentMethod({
 if(!error) { 
 
 const {id} = paymentMethod || 0
-const {data} = await axios.post('aprende-conmigo-production.up.railway.app:3001/purchase/', {
+const {data} = await axios.post(`${URL}/purchase/`, {
     id,
     amount:infoFiltered[0].value * horas * 100,
     email,
