@@ -74,7 +74,7 @@ const About = () => {
   return (
     <div className={styles['about-container']}>
       <br />
-      <h2 className={styles.equipo} style={{ marginTop:"35px", fontSize: "60px"}}>El equipo</h2>
+      <h2 className={styles.equipo} style={{ marginTop:"35px", fontSize: "60px", fontFamily:"Roboto"}}>Desarrolladores</h2>
       <div className={styles['participants-container']}>
         {participants.map((participant, index) => (
           <div
@@ -112,8 +112,8 @@ const About = () => {
       <div />
       <div className={styles.containerhistoria} >
       <h2 className={styles.historia} style={{ marginBottom: "30px", fontSize: "55px" }}>
-      <span style={{ color: "white" }}>Nuestra Historia:</span>
-      <span style={{ color: "yellow", textShadow: "1px 1px 3px yellow" }}> Trabajando Juntos para el Éxito</span>
+      <span style={{ color: "white",  fontFamily:"Roboto" }}>Nuestra Historia:</span>
+      <span style={{ color: "yellow", textShadow: "1px 1px 3px yellow",  fontFamily:"Roboto" }}> Trabajando Juntos para el Éxito</span>
     </h2>
       <div className={styles['paragraph-container']}>
         <p>En Aprende Conmigo, el camino hacia el éxito fue trazado por un grupo de desconocidos. Cada miembro llegó al equipo sin previo conocimiento entre sí, pero con un objetivo común y firme: construir un espacio de aprendizaje sólido y consolidado.</p>

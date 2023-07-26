@@ -1,6 +1,8 @@
 import axios from 'axios';
 const URL = "https://aprende-conmigo-production.up.railway.app"
 //users
+// const url="https://aprende-conmigo-production.up.railway.app:3001"
+const url="http://localhost:3001";
 export const checkUserData = (user)=> {
   axios.post(`${URL}/user/login`, user )       
 };

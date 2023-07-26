@@ -98,11 +98,15 @@ const FormAnuncio = (props) => {
       
       dispatch(sendAnuncio(email, modifiedInput));
       props.onSubmit();
-      alert("¡Anuncio creado exitosamente!");
+      props.setRenderPopUp(true);
+      props.setText('¡Anuncio creado exitosamente!');
+      // alert("¡Anuncio creado exitosamente!");
       setInput({});
       selectedBtnsRef.current = []; // Restablecer los botones seleccionados después de enviar el formulario
     } else {
-      alert("El formulario contiene errores. Por favor, verifica los campos.");
+      props.setRenderPopUp(true);
+      props.setText('El formulario contiene errores. Por favor, verifica los campos.');
+      // alert("El formulario contiene errores. Por favor, verifica los campos.");
     }
   };  
 
