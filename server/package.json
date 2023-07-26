@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "nodemon -L &&  node src/whatsapp.js",
+        "start": "node ./index.js &&  node src/whatsapp.js",
         "deploy": "node ./index.js"
     },
     "dependencies": {
@@ -24,6 +24,7 @@
         "pg": "^8.11.1",
         "pg-hstore": "^2.3.4",
         "qrcode-terminal": "^0.12.0",
+        "railway": "^2.0.17",
         "sequelize": "^6.32.1",
         "stripe": "^12.12.0",
         "tmp": "^0.2.1",

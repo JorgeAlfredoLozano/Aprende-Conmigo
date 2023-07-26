@@ -15,7 +15,8 @@ const Messages = () => {
   const localStorageContent = localStorage.getItem("cachedUser");
   const { id } = JSON.parse(localStorageContent);
   const textareaRef = useRef();
-
+  const URL = "https://aprende-conmigo-production.up.railway.app"
+  
   const scrollChatToBottom = () => {
     if (textareaRef.current) {
       const textarea = textareaRef.current;
@@ -61,7 +62,7 @@ console.log(messagesNR)
     for (const userId of uniqueUserIds) {
       try {
         if (userId !== id) {
-          const response = await axios.get(`aprende-conmigo-production.up.railway.app:3001/user/get/${userId}`);
+          const response = await axios.get(`${URL}/user/get/${userId}`);
           const user = response.data;
           users.push(user);
         }
