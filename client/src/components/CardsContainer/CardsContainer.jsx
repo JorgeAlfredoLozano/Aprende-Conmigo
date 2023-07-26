@@ -52,7 +52,7 @@ const CardsContainer = ({ filtro, lesson, precio }) => {
     }
 
     setFilteredCards(filteredData);
-  }, [filtro, lesson, precio, datoPublication.data,filteredData,filteredCards,setFilteredCards]);
+  }, [filtro, lesson, precio, datoPublication.data,filteredData,filteredCards]);
 
   /* PAGINADO */
   useEffect(() => {

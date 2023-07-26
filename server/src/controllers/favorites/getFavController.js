@@ -4,12 +4,9 @@ const getFavController = async(UserId)=>{
     const allFav = await Favorite.findAll({
         where:{UserId:UserId},
         include:{
-            model: Publication,
-            // attributes: [],
-           
+            model: Publication,         
            }
-    })
-    
+    })  
    if(allFav) return allFav;
    return "No se encontro favorito"
 }
