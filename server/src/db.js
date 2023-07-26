@@ -5,13 +5,13 @@ const fs = require('fs'); // Módulo de manejo de archivos del sistema
 const path = require('path');  // Módulo para trabajar con rutas de archivos y directorios
 
 
-// const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, // => localhost
-// {logging: false, native: false}
-// )
-
-const sequelize = new Sequelize(DB_DEPLOY, // => localhost
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, // => localhost
 {logging: false, native: false}
 )
+
+// const sequelize = new Sequelize(DB_DEPLOY, // => localhost
+// {logging: false, native: false}
+// )
 
 const basename = path.basename(__filename); 
 const modelDefiners = [];  
@@ -27,13 +27,17 @@ let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { Publication, Lesson, User, Message, Purchase, Review } = sequelize.models;
+
+const { Publication, Lesson, User, Message, Purchase,Favorite, Review } = sequelize.models;
 
 User.hasMany(Publication)
 Publication.belongsTo(User)
 
 Publication.belongsToMany(Lesson, {through: 'PublicationLesson'})
 Lesson.belongsToMany(Publication, {through: 'PublicationLesson'})
+
+Favorite.belongsTo(User);
+Favorite.belongsTo(Publication);
 
 User.hasMany(Purchase); // un usuario puede terner muchas compras
 Publication.hasMany(Purchase); // una publicacion puede estar en varias compras

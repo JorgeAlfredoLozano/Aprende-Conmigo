@@ -62,7 +62,7 @@ const Messages = () => {
     for (const userId of uniqueUserIds) {
       try {
         if (userId !== id) {
-          const response = await axios.get(`${URL}/user/get/${userId}`);
+          const response = await axios.get(`/user/get/${userId}`);
           const user = response.data;
           users.push(user);
         }

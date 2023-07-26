@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from '../Card/Card';
-import { getAllAnuncios } from '../../Redux/actions';
-import { NavLink } from 'react-router-dom';
+import { getAllAnuncios, getAllFav } from '../../Redux/actions';
 import style from './CardsContainer.module.css';
 import Paginado from '../Paginado/Paginado';
 
 const CardsContainer = ({ filtro, lesson, precio }) => {
+
+  const localStorageContent = localStorage.getItem("cachedUser");
+  const  parser  = JSON.parse(localStorageContent);
+  const user_id = parser.id;
+
 
   const dispatch = useDispatch();
   const datoPublication = useSelector((state) => state.allAnuncios);
@@ -18,8 +22,10 @@ const CardsContainer = ({ filtro, lesson, precio }) => {
   const indexLastAnuncio = currentPage * anunciosPerPage; //
   const indexOfFirstAnuncio = indexLastAnuncio - anunciosPerPage;
 
+  
   useEffect(() => {
     dispatch(getAllAnuncios());
+    dispatch(getAllFav(user_id))
   }, [dispatch]);
   let filteredData = datoPublication.data || [];
   useEffect(() => {
@@ -85,7 +91,7 @@ const CardsContainer = ({ filtro, lesson, precio }) => {
             .map((card) =>
               card.status && (
                 <div key={card.id} className={style.card_container}>
-                  <NavLink to={`/anuncio/${card.id}`} className={style.details_link}>
+                 
                     <Card
                       id={card.id}
                       title={card.title}
@@ -96,7 +102,6 @@ const CardsContainer = ({ filtro, lesson, precio }) => {
                       grade={card.grade}
                       userId={card.UserId}
                     />
-                  </NavLink>
                 </div>
               )
             )
