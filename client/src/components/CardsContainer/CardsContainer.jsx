@@ -104,7 +104,6 @@ const CardsContainer = ({ filtro, lesson, precio }) => {
                       grade={card.grade}
                       userId={card.UserId}
                     />
-                 
                 </div>
               )
             )

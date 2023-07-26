@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 
-const Card = ({id, title, value, lesson, grade, userId , isFavo}) => {
+const Card = ({id, title, value, lesson, grade, userId , isFavo, assets}) => {
   const [data, setData] = useState();
   const [isFav, setIsfav] = useState(false);
 
@@ -38,7 +38,7 @@ const Card = ({id, title, value, lesson, grade, userId , isFavo}) => {
 
   const containerStyle = {
     backgroundImage: data ? `url(${data.assets})` : "none",
-  };
+  }; 
 
   const handleFavorite= (event)=>{
     if(id){
@@ -53,18 +53,14 @@ const Card = ({id, title, value, lesson, grade, userId , isFavo}) => {
     }
 
   return (
-    <div className={style.card_publication}>
-
+    <div className={style.card_publication}>      
       <div className={style.favoriteButton} onClick={(event) =>handleFavorite(event)}>
         {isFav ? "❤️" : "🤍"}
       </div>
-      
       <NavLink to={`/anuncio/${id}`} className={style.details_link}>
-      <div className={style.assets} style={containerStyle}></div>
+      <div className={style.assets} style={containerStyle}><h4 className={style.title}>{title}</h4></div>
       <div className={style.texto}>
-        <div className={style.titlecont}>
-          <h4 className={style.title}>{title}</h4>
-        </div>
+          {/* <h4 className={style.title}>{title}</h4> */}
         <div className={style.contlesson}>
           <h5 className={style.lesson}>{lesson}</h5>
           <h6 className={style.grade}>{grade.split(",").join(" - ")}</h6>
