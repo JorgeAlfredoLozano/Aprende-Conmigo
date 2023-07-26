@@ -1,9 +1,20 @@
 import style from "./Cards.module.css";
-import { getAssetsById } from "../../Redux/actions";
+import { getAssetsById , remove_fav, addFav} from "../../Redux/actions";
 import { useEffect, useState } from "react";
+import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
-const Card = ({ title, value, lesson, grade, userId }) => {
+
+const Card = ({id, title, value, lesson, grade, userId , isFavo}) => {
   const [data, setData] = useState();
+  const [isFav, setIsfav] = useState(false);
+
+  const dispatch= useDispatch()
+  const myFavorites = useSelector((state) => state.myFavorites);
+
+  const localStorageContent = localStorage.getItem("cachedUser");
+  const  parser  = JSON.parse(localStorageContent);
+  const user_id = parser.id;
 
   useEffect(() => {
     getAssetsById(userId)
@@ -15,12 +26,40 @@ const Card = ({ title, value, lesson, grade, userId }) => {
       });
   }, []);
 
+      //MANEJA LOS FAVORITOS PARA QUE AL INGRESAR NUEVAMENTE ESTE CLICKEADOS LOS FAVORITOS QUE ESTABAN
+      useEffect(() => {
+        if (!isFavo) {
+          setIsfav( myFavorites.some((fav) =>  fav.PublicationId === id ))
+        } else {
+          setIsfav(true)
+        }
+        
+     }, [myFavorites, id, isFav]);
+
   const containerStyle = {
     backgroundImage: data ? `url(${data.assets})` : "none",
   };
 
+  const handleFavorite= (event)=>{
+    if(id){
+    if (isFav === true) {
+      setIsfav(false) 
+      dispatch(remove_fav(id) )
+    }
+  else if (isFav === false) {
+      setIsfav(true) 
+      dispatch(addFav(id, user_id))}
+     }
+    }
+
   return (
     <div className={style.card_publication}>
+
+      <div className={style.favoriteButton} onClick={(event) =>handleFavorite(event)}>
+        {isFav ? "❤️" : "🤍"}
+      </div>
+      
+      <NavLink to={`/anuncio/${id}`} className={style.details_link}>
       <div className={style.assets} style={containerStyle}></div>
       <div className={style.texto}>
         <div className={style.titlecont}>
@@ -32,6 +71,7 @@ const Card = ({ title, value, lesson, grade, userId }) => {
           <h6 className={style.value}>💲{value}💸</h6>
         </div>
       </div>
+      </NavLink>
     </div>
   );
 };

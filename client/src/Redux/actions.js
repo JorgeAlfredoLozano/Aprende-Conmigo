@@ -222,3 +222,61 @@ export const putUserEmail = (email, aux )=>{
     });  
    };
 };
+
+export const  addFav = (PublicationId, UserId)=> { 
+  //deberia recibir los datos de quien hace el post, que usuario y a que publicacion
+
+    return async (dispatch) => {
+        try {
+          const favorito = {PublicationId, UserId}
+          
+
+          const response = await axios.post(`http://localhost:3001/fav`, favorito);
+            return dispatch({
+                type: "ADDFAV",
+                payload: response.data
+             });
+
+        } catch (error) {
+         
+        }
+
+    };
+}
+//________________________________________
+export const getAllFav = (UserId)=> {
+  //recibe el id del usuario, sobre este id traeme todos los fav
+  
+  return async (dispatch) => {
+      try {
+        const response = await axios.get(`http://localhost:3001/fav/${UserId}`);
+      
+          return dispatch({
+              type: "GETALLFAV",
+              payload: response.data
+           });
+
+      } catch (error) {
+        console.log(error)
+      }
+
+  };
+}
+//________________________________________
+export const remove_fav= (PublicationId)=>{
+  //recibe el id del favorito osea card a eliminar
+
+ 
+  return async (dispatch) => {
+      try {
+          const response= await axios.delete(`http://localhost:3001/fav/${PublicationId}`)
+    
+          return dispatch({
+              type: "REMOVE_FAV",
+              payload:response.data.deleteId
+        });
+      } catch (error) {
+        console.log(error)
+      }   
+  };
+}
