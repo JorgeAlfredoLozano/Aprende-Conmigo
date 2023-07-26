@@ -6,8 +6,8 @@ import App from './App';
 import './index.css';
 import axios from 'axios';
 
-axios.defaults.baseURL = `http://localhost:3001`;
-// axios.defaults.baseURL = `https://aprende-conmigo-production.up.railway.app:3001`;
+// axios.defaults.baseURL = `http://localhost:3001`;
+axios.defaults.baseURL = `https://aprende-conmigo-production.up.railway.app:3001`;
 
 ReactDOM.createRoot(
   document.getElementById('root')
