@@ -31,6 +31,7 @@ const SearchPage = () => {
 
   return (
     <div className={style.body}>
+      {isLoading ? <LoadingAnimation /> :
       <div className={style.container}>
         <div className={style.contenedorBusqueda}>
           <GeneralFilters
@@ -43,11 +44,9 @@ const SearchPage = () => {
           />
         </div>
         <div className={style.busqueda}>
-          {isLoading ? <LoadingAnimation /> : <CardsContainer filtro={filtro} lesson={lesson} precio={precio} />}
-          {/* Mostramos LoadingAnimation mientras isLoading sea true,
-              y CardsContainer (contenido real) cuando isLoading sea false */}
+          <CardsContainer filtro={filtro} lesson={lesson} precio={precio} />
         </div>
-      </div>
+      </div>}
     </div>
   );
 };
