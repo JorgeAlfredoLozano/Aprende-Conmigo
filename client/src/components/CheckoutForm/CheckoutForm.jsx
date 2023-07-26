@@ -7,6 +7,8 @@ import { useSelector } from "react-redux";
 import {useState} from 'react';
 import style from './CheckoutForm.module.css';
 const VITE_API_STRIPE=import.meta.env.VITE_API_STRIPE;
+import PopUp from '../PopUp/PopUp';
+import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
 
 let email = 'none';
 let email2 = 'none';
@@ -25,6 +27,9 @@ const CheckoutForm = ({ setShowCheckoutForm }) => {
 const stripe = useStripe();
 const elements = useElements();
 const navigate = useNavigate();
+const [renderPopUp, setRenderPopUp] = useState(false);
+const [text, setText] = useState('');
+const [loading, setLoading] = useState(false);
 
 const params = useParams();
 const idPub = params.id;
@@ -41,6 +46,8 @@ const handleSelect=async (event)=>{
 
 const handleSubmit = async (event) => { 
 event.preventDefault()
+setLoading(true);
+
 const {error, paymentMethod} = await stripe.createPaymentMethod({
     type:'card',
     card:elements.getElement(CardElement)
@@ -62,31 +69,39 @@ const {data} = await axios.post('/purchase/', {
 
 elements.getElement(CardElement).clear()
 if(data.message==="successfull payment"){
-    alert('pago realizado con exito');
-    setShowCheckoutForm(false);
-    navigate('/')
+    setLoading(false);
+    // alert('pago realizado con exito');
+    setRenderPopUp(true);
+    setText('¡Pago realizado con éxito!')
+    
+    if (renderPopUp === false) {
+        setShowCheckoutForm(false)
+    }
 }
 else {
+    setLoading(false);
     alert('pago rechazado')
 }
 }}
+
 return( 
 
-    <div className={style.container}>    
-    <form onSubmit={handleSubmit} className="card card-body">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Stripe_Logo%2C_revised_2016.svg/512px-Stripe_Logo%2C_revised_2016.svg.png" alt="imagenn" className="img-fluid"/>
-    <h3 className="text-center my-2">Detalles de la compra: </h3>
-    <p>Precio por Hora:{infoFiltered[0].value}$ </p>
+    <div style={{display:"flex", alignItems:"center", placeContent:"center", justifyContent:"center"}}>
+    {renderPopUp && <PopUp text={text} setText={setText} renderPopUp={renderPopUp} setRenderPopUp={setRenderPopUp}/>}
+    {loading && <div style={{position:"absolute", backgroundColor:"white", padding:"35%", paddingTop:"10%", paddingBottom:"20%", zIndex:"5"}}><LoadingAnimation /></div>}
+    <form className={style.containerForm} onSubmit={handleSubmit}>
+    <h3 className="text-center my-2" >Detalles de la compra</h3>
+    <p>Precio por Hora: {infoFiltered[0].value}$ </p>
     <p>Cantidad de Horas: <select onChange={handleSelect}>
-    {number.map((num)=> <option value={num}>{num} 
+    {number.map((num)=> <option value={num}>{num}
     </option>)}
     </select>
     </p>
     <p>Total a pagar: {infoFiltered[0].value * horas}$</p>
     <div className="form-group">
-        <CardElement className="form-control" options={{ style: { base: { fontSize: '16px' } } }}/> 
-    </div>   
-    <button  className="btn btn-success" disabled={!stripe}>Comprar</button>
+        <CardElement className="form-control" options={{ style: { base: { fontSize: '16px' } } }}/>
+    </div>
+    <button type="submit" disabled={!stripe}>Comprar</button>
     {/* <button>Cancelar</button> */}
     </form>
     </div>
@@ -98,15 +113,11 @@ return (
     <>
     <Elements stripe={stripePromise}>
     <div className={style.container}>
-        <div className="row">
-        <div className=".col-md-4.offset-md-4">
         <CheckoutForm/>
-        </div>
-        </div>
     </div>
     </Elements>
     </>
 )
 }
 
-export default Checkout
+export default Checkout;

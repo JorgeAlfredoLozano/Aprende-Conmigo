@@ -116,7 +116,7 @@ const DetailAnuncio = () => {
                     </>)}{showCheckoutForm && (
             <div className={style.payment}>
               <CheckoutForm showCheckoutForm={showCheckoutForm} setShowCheckoutForm={setShowCheckoutForm} />
-              <button onClick={handleCancelPayment}>Cancelar</button>
+              <button className={style.cancelPayment} onClick={handleCancelPayment}>Cancelar</button>
             </div>
           )}
             <Review idPub={id}/>
