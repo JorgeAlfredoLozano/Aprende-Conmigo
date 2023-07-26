@@ -30,6 +30,7 @@ const Favoritos = () => {
             <Card
               key={fav.Publication.id}
               id={fav.Publication.id}
+              userId={fav.Publication.UserId}
               title={fav.Publication.title}
               about_class={fav.Publication.about_class}
               about_teacher={fav.Publication.about_teacher}

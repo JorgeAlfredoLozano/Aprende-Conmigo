@@ -58,11 +58,9 @@ const Card = ({id, title, value, lesson, grade, userId , isFavo}) => {
       <div className={style.favoriteButton} onClick={(event) =>handleFavorite(event)}>
         {isFav ? "❤️" : "🤍"}
       </div>
-
-      <div className={style.assets} style={containerStyle}></div>
-
+      
       <NavLink to={`/anuncio/${id}`} className={style.details_link}>
-
+      <div className={style.assets} style={containerStyle}></div>
       <div className={style.texto}>
         <div className={style.titlecont}>
           <h4 className={style.title}>{title}</h4>
