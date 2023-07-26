@@ -10,7 +10,7 @@ const LoadingAnimation = () => {
   return (
     <div className={style.container}>
       <div className={style.img} style={containerStyle}></div>
-      <span style={{fontFamily:"Roboto", color:"black", fontWeight:"600"}}>Cargando...</span>
+      <span style={{color:"black", fontWeight:"600"}}>Cargando...</span>
     </div>
   );
 };
