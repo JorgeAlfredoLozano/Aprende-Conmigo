@@ -44,7 +44,7 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   const [updateId, setUpdateId] = useState(null);
   const [renderReview, setRenderReview] = useState(false);
   const [reviewId, setReviewId] = useState(null);
-  const [renderPopUp, setRenderPopUp] = useState(false); console.log(renderPopUp);
+  const [renderPopUp, setRenderPopUp] = useState(false); 
   const [text, setText] = useState('');
 
   useEffect(() => {
@@ -245,7 +245,7 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
               </section>
               <section className={style.imagen}>
                 <div className={style.imgCont} style={containerStyle}></div>
-                <SendPhoto className={style.send} onSubmit={handlePhotoSubmit} />
+                <SendPhoto className={style.send} onSubmit={(event)=>handlePhotoSubmit} />
               </section>
               {renderForm && <FormUpdate isVisible={renderForm} onCancel={cancelarForm} onSubmit={handleFormSubmit} renderPopUp={renderPopUp} setRenderPopUp={setRenderPopUp} text={text} setText={setText}/>}
             </>

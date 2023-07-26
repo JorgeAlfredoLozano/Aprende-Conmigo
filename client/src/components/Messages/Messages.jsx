@@ -16,7 +16,7 @@ const Messages = () => {
   const { id } = JSON.parse(localStorageContent);
   const textareaRef = useRef();
   const URL = "https://aprende-conmigo-production.up.railway.app"
-  
+  //const URL ="http://localhost:3001"
   const scrollChatToBottom = () => {
     if (textareaRef.current) {
       const textarea = textareaRef.current;

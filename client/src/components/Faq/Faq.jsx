@@ -6,7 +6,10 @@ import WhatsAppButton from '../WhatsappBtn/WhatsappBtn'
 const Faq = () => {
   const [expandedGroups, setExpandedGroups] = useState([]);
   const [expandedResponses, setExpandedResponses] = useState([]);
-
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth', // Para un scroll suave, añade esta opción
+  });
   const handleGroupClick = (grupo) => {
     if (expandedGroups.includes(grupo)) {
       setExpandedGroups(expandedGroups.filter((group) => group !== grupo));

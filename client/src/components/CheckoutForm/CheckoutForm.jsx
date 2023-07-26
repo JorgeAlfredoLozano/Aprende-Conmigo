@@ -8,6 +8,7 @@ import {useState} from 'react';
 import style from './CheckoutForm.module.css';
 const VITE_API_STRIPE=import.meta.env.VITE_API_STRIPE;
 const URL = "https://aprende-conmigo-production.up.railway.app"
+//const URL ="http://localhost:3001"
 let email = 'none';
 let email2 = 'none';
 let userName ='none';
@@ -21,7 +22,7 @@ if(parser)email=parser.email;
 if(parser)userName=parser.name;
 if(parser)idUs=parser.id;
 
-const CheckoutForm = ({ setShowCheckoutForm }) => {
+const CheckoutForm = ({ showCheckoutForm,setShowCheckoutForm }) => {
 const stripe = useStripe();
 const elements = useElements();
 const navigate = useNavigate();
@@ -45,6 +46,7 @@ const {error, paymentMethod} = await stripe.createPaymentMethod({
     type:'card',
     card:elements.getElement(CardElement)
 })
+
 if(!error) { 
 
 const {id} = paymentMethod || 0
@@ -64,7 +66,6 @@ elements.getElement(CardElement).clear()
 if(data.message==="successfull payment"){
     alert('pago realizado con exito');
     setShowCheckoutForm(false);
-    navigate('/')
 }
 else {
     alert('pago rechazado')
@@ -73,7 +74,7 @@ else {
 return( 
 
     <div className={style.container}>    
-    <form onSubmit={handleSubmit} className="card card-body">
+    <form onSubmit={(event)=>handleSubmit(event)} className="card card-body">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Stripe_Logo%2C_revised_2016.svg/512px-Stripe_Logo%2C_revised_2016.svg.png" alt="imagenn" className="img-fluid"/>
     <h3 className="text-center my-2">Detalles de la compra: </h3>
     <p>Precio por Hora:{infoFiltered[0].value}$ </p>
