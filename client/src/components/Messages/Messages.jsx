@@ -15,8 +15,8 @@ const Messages = () => {
   const localStorageContent = localStorage.getItem("cachedUser");
   const { id } = JSON.parse(localStorageContent);
   const textareaRef = useRef();
-  const URL = "https://aprende-conmigo-production.up.railway.app"
-  
+  //const URL = "https://aprende-conmigo-production.up.railway.app"
+  const URL ="http://localhost:3001"
   const scrollChatToBottom = () => {
     if (textareaRef.current) {
       const textarea = textareaRef.current;

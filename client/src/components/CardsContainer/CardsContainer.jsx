@@ -23,14 +23,12 @@ const CardsContainer = ({ filtro, lesson, precio }) => {
   }, [dispatch]);
   let filteredData = datoPublication.data || [];
   useEffect(() => {
-  
     if(precio.value === 'ASC'){
-      filteredData = filteredData.sort((a, b) => a.value - b.value);
-      console.log(filteredData)
+      filteredData = filteredData.sort((a, b) => a.value - b.value);    
+
     }
     else if(precio.value === 'DESC'){
-      filteredData = filteredData.sort((a, b) => b.value - a.value);
-      console.log(filteredData)
+      filteredData = filteredData.sort((a, b) => b.value - a.value);   
     }
 
     if (filtro) {
@@ -48,7 +46,7 @@ const CardsContainer = ({ filtro, lesson, precio }) => {
     }
 
     setFilteredCards(filteredData);
-  }, [filtro, lesson, precio, datoPublication.data,filteredData]);
+  }, [filtro, lesson, precio, datoPublication.data,filteredData,filteredCards,setFilteredCards]);
 
   /* PAGINADO */
   useEffect(() => {

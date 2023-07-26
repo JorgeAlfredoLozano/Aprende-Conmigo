@@ -28,7 +28,9 @@ const SearchPage = () => {
   const updateLesson = (newLesson) => {
     setLesson(newLesson);
   };
-
+  const updatePrecio = (newPrecio) => {
+    setPrecio(newPrecio);
+  };
   return (
     <div className={style.body}>
       {isLoading ? <LoadingAnimation /> :
@@ -40,7 +42,7 @@ const SearchPage = () => {
             setFiltro={setFiltro}
             lesson={lesson}
             setLesson={updateLesson}
-            setPrecio={setPrecio}
+            setPrecio={updatePrecio}
           />
         </div>
         <div className={style.busqueda}>

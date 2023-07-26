@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Footer.module.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -28,7 +29,10 @@ const Footer = () => {
         </div>
         <div className={styles.column}>
           <h3 className={styles.titulo}>Asistencia</h3>
-          <p><a className={styles.link} href="mailto:aprendeconmigohenry@gmail.com?subject=Contacto%20desde%20mi%20sitio%20web&amp;body=Hola,%0D%0A%0D%0AQuería contactar con ustedes para obtener más información.%0D%0A%0D%0AGracias.%0D%0A%0D%0ASaludos">¿Necesitas ayuda?</a></p>
+          <Link to='/preguntas'>
+          <p><a className={styles.link}>¿Necesitas ayuda?</a></p>
+          </Link>
+          
           <p><a href="/Preguntas" target="_blank" rel="noopener noreferrer" className={styles.link}>Preguntas Frecuentes</a></p>
         </div>
       </div>

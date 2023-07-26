@@ -1,8 +1,8 @@
 import axios from 'axios';
-const URL = "https://aprende-conmigo-production.up.railway.app"
+//const URL = "https://aprende-conmigo-production.up.railway.app"
+const URL ="http://localhost:3001"
 //users
 // const url="https://aprende-conmigo-production.up.railway.app:3001"
-const url="http://localhost:3001";
 export const checkUserData = (user)=> {
   axios.post(`${URL}/user/login`, user )       
 };
@@ -205,7 +205,6 @@ export const postReview = ( comment, rating, idPub, idUser ) => { // postea una 
     })
   }
 }
-
 export const getAllUsers = ()=>{
   return async function(dispatch){
      const response= await axios.get(`${URL}/user/alluser`)
@@ -215,7 +214,6 @@ export const getAllUsers = ()=>{
     });  
    };
 };
-
 export const putUserEmail = (email, aux )=>{
   return async function(dispatch){
      const response=await axios.put(`${URL}/user/update/${email}`, aux)
