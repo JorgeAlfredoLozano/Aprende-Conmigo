@@ -7,8 +7,8 @@ import { useSelector } from "react-redux";
 import {useState} from 'react';
 import style from './CheckoutForm.module.css';
 const VITE_API_STRIPE=import.meta.env.VITE_API_STRIPE;
-//const URL = "https://aprende-conmigo-production.up.railway.app"
-const URL ="http://localhost:3001"
+const URL = "https://aprende-conmigo-production.up.railway.app"
+//const URL ="http://localhost:3001"
 let email = 'none';
 let email2 = 'none';
 let userName ='none';

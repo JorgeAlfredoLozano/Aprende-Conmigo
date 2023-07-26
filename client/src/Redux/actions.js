@@ -1,8 +1,7 @@
 import axios from 'axios';
-//const URL = "https://aprende-conmigo-production.up.railway.app"
-const URL ="http://localhost:3001"
-//users
-// const url="https://aprende-conmigo-production.up.railway.app:3001"
+const URL = "https://aprende-conmigo-production.up.railway.app"
+//const URL ="http://localhost:3001"
+//users     
 export const checkUserData = (user)=> {
   axios.post(`${URL}/user/login`, user )       
 };
