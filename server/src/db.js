@@ -1,12 +1,15 @@
 require('dotenv').config()  // Carga las variables de entorno desde el archivo .env
 const { Sequelize } = require('sequelize') //Importa la clase Sequelize del paquete sequelize
-//const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME} = process.env // Obtiene los valores de las variables de entorno relacionadas con la base de datos
-//const { POSTGRES_URL } = process.env.local // Obtiene los valores de las variables de entorno relacionadas con la base de datos
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_DEPLOY} = process.env // Obtiene los valores de las variables de entorno relacionadas con la base de datos
 const fs = require('fs'); // Módulo de manejo de archivos del sistema
 const path = require('path');  // Módulo para trabajar con rutas de archivos y directorios
 
 
-const sequelize = new Sequelize('postgresql://postgres:2B4rBjmcr93Jv2uv2zZE@containers-us-west-71.railway.app:7241/railway', // => localhost
+// const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, // => localhost
+// {logging: false, native: false}
+// )
+
+const sequelize = new Sequelize(DB_DEPLOY, // => localhost
 {logging: false, native: false}
 )
 
@@ -24,13 +27,17 @@ let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { Publication, Lesson, User, Message, Purchase, Review } = sequelize.models;
+
+const { Publication, Lesson, User, Message, Purchase,Favorite, Review } = sequelize.models;
 
 User.hasMany(Publication)
 Publication.belongsTo(User)
 
 Publication.belongsToMany(Lesson, {through: 'PublicationLesson'})
 Lesson.belongsToMany(Publication, {through: 'PublicationLesson'})
+
+Favorite.belongsTo(User);
+Favorite.belongsTo(Publication);
 
 User.hasMany(Purchase); // un usuario puede terner muchas compras
 Publication.hasMany(Purchase); // una publicacion puede estar en varias compras

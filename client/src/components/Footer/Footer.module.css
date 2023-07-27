@@ -3,8 +3,8 @@
     margin-right: -5px;
     margin-bottom: -2%;
     text-align: center;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding-top: 2%;
+    padding-bottom: 0.2%;
     width: 100%;
     color: rgb(255, 255, 255);
 }
@@ -28,4 +28,15 @@
 
   .link {
     color: white
+  }
+
+  .caca {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .caquita {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
   }

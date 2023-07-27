@@ -5,7 +5,6 @@ import { getLesson } from '../../Redux/actions';
 import Select from 'react-select';
 
 function GeneralFilters({ filtro, setFiltro, lesson, setLesson, setPrecio, precio }) {
-  const [input, setInput] = useState({});
   const [selectedOption, setSelectedOption] = useState(null);
   const [selectedNivel, setSelectedNivel] = useState(null);
   const [selectedPrecio, setSelectedPrecio] = useState(null); // seteamos el estado para el select
@@ -93,6 +92,32 @@ function GeneralFilters({ filtro, setFiltro, lesson, setLesson, setPrecio, preci
       options={optionPrecio}
       placeholder="Ordenar por precio..."
       />
+      {/* <label>
+        <input
+          type="checkbox"
+          checked={selectedPrecio}
+          onChange={(event)=>handlePrecio}
+        />
+        $ Asc
+      </label>
+      <label>
+        <input
+          type="checkbox"
+          checked={selectedPrecio}
+          onChange={handlePrecio}
+        />
+        $ Desc
+      </label> */}
+    {/* <div>
+    <select name="" value={selectedPrecio} onChange={handlePrecio}>
+        <option value="ASC">Asc</option>
+        <option value="DESC">Desc</option>
+      </select>
+      
+    </div> */}
+      
+
+
       <button id='materia' onClick={handleReset}>Mostrar todo</button>
     </div>
   );

@@ -1,8 +1,5 @@
-/* .container {
-    background-color: white;
-    z-index: 4;
-    position: fixed;
-    top: 20%;
-    padding: 2%;
-    left: 33%;
-} */
+.containerForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
