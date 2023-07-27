@@ -121,7 +121,7 @@ const DetailAnuncio = () => {
           <LoadingAnimation />
           ) : (
             <div className={style.anuncio}>
-            <button onClick={handleGoBack}>Volver</button>
+            <button onClick={handleGoBack} style={{zIndex:"6"}}>Volver</button>
             <h1 className={style.title}>{filteredData[0].title}</h1>
             <div className={style.claseContainer}>
               <h1>Acerca de la clase</h1>
