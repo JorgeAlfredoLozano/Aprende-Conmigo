@@ -32,38 +32,6 @@ const Review =({idPub})=>{
             promedio /= review.length
             promedio.toFixed(1)
         }
-    
-    // const handleReviewComment = (event) => {
-    //     event.preventDefault();
-    //     const boton = event.target.id;
-    
-    //     if (boton === 'renderizar') {
-    //       const hasUserReviewed = review.some(
-    //         (item) => item.UserId === idUser && item.PublicationId === idPub
-    //       );
-    
-    //       if (hasUserReviewed) {
-    //         alert('Ya has creado una reseña para esta publicación.');
-    //       } else if (!purchases.some((item) => item.PublicationId === idPub)) {
-    //         alert('Debes comprar la clase para dejar una reseña.');
-    //         setRenderReviewInput(false);
-    //       } else {
-    //         setRenderReviewInput(true);
-    //       }
-    //     } else if (boton === 'cancelar') {
-    //       setRenderReviewInput(false);
-    //       setRating(0);
-    //       setComment('')
-    //     } else if (boton === 'comentar') {
-    //       if (purchases.some((item) => item.PublicationId === idPub)) {
-    //         const puntos = rating.toString();
-    //         dispatch(postReview(comment, puntos, idPub, idUser));
-    //         alert('¡Reseña creada con éxito!');
-    //         setRenderReviewInput(false);
-    //       }
-    //     }
-    //   };
-
     const handleRatingChange = (newRating) => {
         setRating(newRating);
       };
@@ -81,13 +49,14 @@ const Review =({idPub})=>{
                 <Stars editable={false} rating={promedio}/>
                 <span className={style.opiniones}>{review.length} opiniones</span>
             </div>}
+            <h4 style={{marginTop:"5%"}}>Reseñas</h4>
             {review && review.map((rev)=>{
               const containerStyle = {
                 backgroundImage: `url(${rev && rev.User.assets})`,
               };   
             return (
             <div className={style.reviewsContainer} >
-              <h4>Reseñas</h4>
+              
               <div className={style.commentContainer}>
                 <div className={style.cardComment}>
                   <div className={style.imageContainer}>

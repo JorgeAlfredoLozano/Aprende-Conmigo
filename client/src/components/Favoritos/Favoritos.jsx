@@ -2,6 +2,7 @@ import Card from "../Card/Card";
 import { getAllFav} from "../../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import style from './Favoritos.module.css';
 
 const Favoritos = () => {
   const dispatch= useDispatch()
@@ -14,11 +15,11 @@ const Favoritos = () => {
   },[dispatch,user_id]) 
   
     return (
-        <div >        
+        <div>        
       {myFavorites.length === 0 ? (
         <p>No tienes favoritos seleccionados.</p>
       ) : (
-        <div >
+        <div className={style.card_publication} >
           {myFavorites?.map((fav) => (
             (fav.Publication &&
             <Card
