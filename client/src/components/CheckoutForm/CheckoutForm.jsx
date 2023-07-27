@@ -2,7 +2,7 @@ import "bootswatch/dist/lux/bootstrap.min.css"
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements, CardElement, useStripe, useElements} from '@stripe/react-stripe-js'
 import axios from 'axios'
-import { useParams,useNavigate } from "react-router-dom";
+import { useParams,useNavigate} from "react-router-dom";
 import { useSelector } from "react-redux";
 import {useState} from 'react';
 import style from './CheckoutForm.module.css';
@@ -66,7 +66,7 @@ const {data} = await axios.post('/purchase/', {
 })
 
 elements.getElement(CardElement).clear()
-if(data.message==="successfull payment"){
+if(data.message==="successfull payment"){  
     setLoading(false);
     // alert('pago realizado con exito');
     handleCancelPayment();

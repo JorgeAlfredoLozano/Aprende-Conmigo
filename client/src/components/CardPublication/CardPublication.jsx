@@ -1,7 +1,7 @@
 import style from "./CardPublication.module.css"
 import React, { useState,useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { updateAnuncio } from "../../Redux/actions";
+import { getAllPublication, updateAnuncio } from "../../Redux/actions";
 
 const CardPublication = ({ title, value, lesson, status, id, setRenderUpdatePubli, formId }) => {
   const [isMostrar, setIsMostrar] = useState(status);
@@ -11,6 +11,7 @@ const CardPublication = ({ title, value, lesson, status, id, setRenderUpdatePubl
   useEffect(() => {
     const aux = { status: isMostrar };
     dispatch(updateAnuncio(id, aux));
+    dispatch(getAllPublication(email))
   }, [isMostrar, id]);
 
   const click = (event) => {

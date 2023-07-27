@@ -96,7 +96,7 @@ const Login = ({ userData, getUser }) => {
             setLogged(true);
             localStorage.setItem('currentUser', email);
             navigate('/');
-            window.location.reload()
+            setTimeout(()=>{window.location.reload()},2000) 
           }
           )
         .catch((error) => {
@@ -112,7 +112,7 @@ const Login = ({ userData, getUser }) => {
           localStorage.removeItem('currentUser');
           localStorage.removeItem('cachedUser');         
           navigate('/');
-          window.location.reload()
+          window.location.reload()      
         })
         .catch((error) => {
           console.error('Error al cerrar sesión:', error);
