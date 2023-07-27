@@ -29,6 +29,7 @@ const sendmail = async(type, email, datos, email2, userName, hora, nombre, title
           };
   }
   if (type==="payment") {
+     
       const buy=templateUserBuy(userName.toUpperCase(),datos.title,contactar)
       const sale=templateUserSale(userName.toUpperCase(),datos.User.name.toUpperCase(), datos.title, hora, contactar)
       msg1 = {
@@ -57,7 +58,7 @@ const sendmail = async(type, email, datos, email2, userName, hora, nombre, title
     };
   };
   if (type==="userOff") {
-    const userOff=templatePublicationBann(nombre.toUpperCase(),contactar)
+    const userOff=templateUserBann(nombre.toUpperCase(),contactar)
     msg1 = {
       to: email,
       from: 'aprendeconmigohenry@gmail.com',

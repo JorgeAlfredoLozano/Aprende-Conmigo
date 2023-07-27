@@ -13,6 +13,7 @@ import Purchases from '../Purchase/Purchase';
 import Sales from '../Sales/Sales';
 import UpdatePubli from '../UpdatePubli/UpdatePubli';
 import ReviewPerfil from '../Review/ReviewPerfil';
+import PopUp from '../PopUp/PopUp';
 
 const Perfil = ({ userData, getUser, getAllPublication }) => {
   const { tab } = useParams();
@@ -43,9 +44,11 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   const [updateId, setUpdateId] = useState(null);
   const [renderReview, setRenderReview] = useState(false);
   const [reviewId, setReviewId] = useState(null);
+  const [renderPopUp, setRenderPopUp] = useState(false); 
+  const [text, setText] = useState('');
 
   useEffect(() => {
-    if (tab === 'profile') {
+    if (tab === 'usuario') {
       setRenderProfile(true);
       setRenderAnuncios(false);
       setRenderAnunciosFavoritos(false);
@@ -80,36 +83,42 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
 
   const changeTab = (event) => {
     const clickedTab = event.target.id;
-    if (clickedTab === 'profile') {
+    
+    if (clickedTab === 'usuario') {
       setRenderProfile(true);
       setRenderAnuncios(false);
       setRenderAnunciosFavoritos(false);
       setRenderHistorial(false);
       setRenderMensajes(false);
+      window.history.pushState(null, null, `/perfil/usuario`);
     } else if (clickedTab === 'anuncios') {
       setRenderAnuncios(true);
       setRenderProfile(false);
       setRenderAnunciosFavoritos(false);
       setRenderHistorial(false);
       setRenderMensajes(false);
+      window.history.pushState(null, null, `/perfil/anuncios`);
     } else if (clickedTab === 'anunciosfav') {
       setRenderAnunciosFavoritos(true);
       setRenderProfile(false);
       setRenderAnuncios(false);
       setRenderHistorial(false);
       setRenderMensajes(false);
+      window.history.pushState(null, null, `/perfil/anunciosfav`);
     } else if (clickedTab === 'historial') {
       setRenderHistorial(true);
       setRenderProfile(false);
       setRenderAnuncios(false);
       setRenderAnunciosFavoritos(false);
       setRenderMensajes(false);
+      window.history.pushState(null, null, `/perfil/historial`);
     } else if (clickedTab === 'mensajes') {
       setRenderMensajes(true);
       setRenderProfile(false);
       setRenderAnuncios(false);
       setRenderAnunciosFavoritos(false);
       setRenderHistorial(false);
+      window.history.pushState(null, null, `/perfil/mensajes`);
     }
   };
 
@@ -180,43 +189,44 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   }
   
   return (
-    <div>
+    <div className={style.container}>
       <div className={style.contenedorPerfil}>
         <div className={style.contenedorTabs}>
-          <p id='profile' onClick={changeTab} className={renderProfile ? `${style.tabs} ${style.active}` : style.tabs}>Mi perfil</p>
-          <p id='anuncios' onClick={changeTab} className={renderAnuncios ? `${style.tabs} ${style.active}` : style.tabs}>Anuncios</p>
+          <p id='usuario' onClick={changeTab} className={renderProfile ? style.active : style.tabs}>Mi perfil</p>
+          <p id='anuncios' onClick={changeTab} className={renderAnuncios ? style.active : style.tabs}>Anuncios</p>
           <p
             id='anunciosfav'
             onClick={changeTab}
-            className={renderAnunciosFavoritos ? `${style.tabs} ${style.active}` : style.tabs}
+            className={renderAnunciosFavoritos ? style.active : style.tabs}
           >
             Anuncios Favoritos
           </p>
-          <p id='historial' onClick={changeTab} className={renderHistorial ? `${style.tabs} ${style.active}` : style.tabs}>
+          <p id='historial' onClick={changeTab} className={renderHistorial ? style.active : style.tabs}>
             Historial
           </p>
-          <p id='mensajes' onClick={changeTab} className={renderMensajes ? `${style.tabs} ${style.active}` : style.tabs}>
+          <p id='mensajes' onClick={changeTab} className={renderMensajes ? style.active : style.tabs}>
             Mensajes
           </p>
         </div>
         <section className={style.contenedorInfo}>
+        {renderPopUp && <PopUp renderPopUp={renderPopUp} setRenderPopUp={setRenderPopUp} text={text} setText={setText}/>}
           {renderProfile && (
             <>
               <section className={style.datos}>
                 <p className={style.infoLabel}>
-                  <span style={{color:"rgb(35, 128, 211)", fontFamily:"Roboto", fontWeight:"900", fontStyle:"oblique"}}>Nombre: </span> 
+                  <span style={{color:"rgb(63, 81, 181)", fontWeight:"900"}}>Nombre: </span> 
                   <span>{renderUser.name}</span>
                   </p>
                 <p className={style.infoLabel}>
-                  <span style={{color:"rgb(35, 128, 211)", fontFamily:"Roboto", fontWeight:"900", fontStyle:"oblique"}}>Email: </span>
+                  <span style={{color:"rgb(63, 81, 181)", fontWeight:"900"}}>Email: </span>
                   <span>{renderUser.email}</span>
                   </p>
                 <p className={style.infoLabel}>
-                  <span style={{color:"rgb(35, 128, 211)", fontFamily:"Roboto", fontWeight:"900", fontStyle:"oblique"}}>Fecha de Nacimiento: </span>
+                  <span style={{color:"rgb(63, 81, 181)", fontWeight:"900"}}>Fecha de Nacimiento: </span>
                   <span>{renderUser.date}</span>
                   </p>
                 <p className={style.infoLabel}>
-                  <span style={{color:"rgb(35, 128, 211)", fontFamily:"Roboto", fontWeight:"900", fontStyle:"oblique"}}>Género: </span>
+                  <span style={{color:"rgb(63, 81, 181)", fontWeight:"900"}}>Género: </span>
                   <span>{
                 renderUser.gender === 'male'
                 ? 'Hombre' 
@@ -226,7 +236,7 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
                 }</span>
                 </p>
                 <p className={style.infoLabel}>
-                  <span style={{color:"rgb(35, 128, 211)", fontFamily:"Roboto", fontWeight:"900", fontStyle:"oblique"}}>Teléfono: </span>
+                  <span style={{color:"rgb(63, 81, 181)", fontWeight:"900"}}>Teléfono: </span>
                   <span>{renderUser.phone}</span>
                   </p>
                 <button className={style.botonForm} onClick={updateData}>
@@ -235,9 +245,9 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
               </section>
               <section className={style.imagen}>
                 <div className={style.imgCont} style={containerStyle}></div>
-                <SendPhoto className={style.send} onSubmit={handlePhotoSubmit} />
+                <SendPhoto className={style.send} onSubmit={(event)=>handlePhotoSubmit} />
               </section>
-              {renderForm && <FormUpdate isVisible={renderForm} onCancel={cancelarForm} onSubmit={handleFormSubmit} />}
+              {renderForm && <FormUpdate isVisible={renderForm} onCancel={cancelarForm} onSubmit={handleFormSubmit} renderPopUp={renderPopUp} setRenderPopUp={setRenderPopUp} text={text} setText={setText}/>}
             </>
           )}
           {renderAnuncios && (
@@ -252,7 +262,7 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
                 </div>
               </div>
               {renderFormAnuncio && (
-                <FormAnuncio isVisible={renderFormAnuncio} onCancel={cancelarFormAnuncio} onSubmit={handleFormSubmitAnuncio} />
+                <FormAnuncio isVisible={renderFormAnuncio} onCancel={cancelarFormAnuncio} onSubmit={handleFormSubmitAnuncio} renderPopUp={renderPopUp} setRenderPopUp={setRenderPopUp} text={text} setText={setText}/>
               )}
               {renderUpdatePubli && (
               <UpdatePubli isVisible={renderUpdatePubli} renderUpdatePubli={renderUpdatePubli} setRenderUpdatePubli={setRenderUpdatePubli} updateId={updateId}/>

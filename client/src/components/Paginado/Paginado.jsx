@@ -7,7 +7,7 @@ export default function Paginado({ anunciosPerPage, allAnuncios, paginado, curre
   /* CALCULOS Y MANEJO DEL PAGINADO */
   useEffect(() => {
     const totalPages = Math.ceil(allAnuncios / anunciosPerPage);
-    const maxDisplayPages = 5; //cantidad de paginas en la nav
+    const maxDisplayPages = 3; //cantidad de paginas en la nav
     let startPage = Math.max(currentPage - Math.floor(maxDisplayPages / 2), 1);
     let endPage = Math.min(startPage + maxDisplayPages - 1, totalPages);
 

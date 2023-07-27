@@ -4,7 +4,7 @@ import whaImageH from '../../assets/imagenes/whatsapp-icon-black.png';
 
 const WhatsAppButton = () => {
   const phoneNumber = '+523311023777';
-  const message = 'ayuda';
+  const message = 'Necesito ayuda';
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   const [hovered, setHovered] = useState(false);
