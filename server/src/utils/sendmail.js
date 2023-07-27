@@ -62,8 +62,8 @@ const sendmail = async(type, email, datos, email2, userName, hora, nombre, title
     msg1 = {
       to: email,
       from: 'aprendeconmigohenry@gmail.com',
-      subject: '¡Tu usuario ha sido bloqueada!',
-      preheader: 'tu cuenta ha sido bloqueada',
+      subject: '¡Tu usuario ha sido bloqueado!',
+      preheader: 'tu cuenta ha sido bloqueado',
       html: userOff,
     };
   };
