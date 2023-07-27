@@ -23,7 +23,7 @@ if(parser)email=parser.email;
 if(parser)userName=parser.name;
 if(parser)idUs=parser.id;
 
-const CheckoutForm = ({ setShowCheckoutForm }) => {
+const CheckoutForm = ({ showCheckoutForm,setShowCheckoutForm }) => {
 const stripe = useStripe();
 const elements = useElements();
 const navigate = useNavigate();
@@ -52,6 +52,7 @@ const {error, paymentMethod} = await stripe.createPaymentMethod({
     type:'card',
     card:elements.getElement(CardElement)
 })
+
 if(!error) { 
 
 const {id} = paymentMethod || 0

@@ -4,7 +4,7 @@ import { sendPhoto } from '../../Redux/actions';
 import { useDispatch } from 'react-redux';
 import style from './SendPhoto.module.css';
 
-const apiKey = '9f6c6345c293cd9ea633a1d2e70f1b01';
+const VITE_IMGBB_KEY = import.meta.env.VITE_IMGBB_KEY
 
 const SendPhoto = (props) => {
   const email = localStorage.getItem('currentUser');
@@ -16,15 +16,15 @@ const SendPhoto = (props) => {
     setSelectedFile(file);
   };
 
-  const handleUpload = () => {
+  const handleUpload = async () => {
     if (selectedFile) {
       const formData = new FormData();
       formData.append('image', selectedFile);
 
-      axios
+      await axios
         .post('https://api.imgbb.com/1/upload', formData, {
           params: {
-            key: apiKey,
+            key: VITE_IMGBB_KEY,
           },
         })
         .then((response) => {

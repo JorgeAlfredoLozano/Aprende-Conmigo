@@ -13,7 +13,6 @@ export const putUser = (email, input) => {
        const updatedUser = await axios.get(`/${email}`); //recibo el cambio
        
        const updatedUserInfo = updatedUser.data;
- 
        return dispatch({
          type: 'PUT_USER',
          payload: updatedUserInfo, //aca se actualiza la store cuando llega al reducer
@@ -206,7 +205,6 @@ export const postReview = ( comment, rating, idPub, idUser ) => { // postea una 
     })
   }
 }
-
 export const getAllUsers = ()=>{
   return async function(dispatch){
      const response= await axios.get(`/user/alluser`)
@@ -216,7 +214,6 @@ export const getAllUsers = ()=>{
     });  
    };
 };
-
 export const putUserEmail = (email, aux )=>{
   return async function(dispatch){
      const response=await axios.put(`/user/update/${email}`, aux)
@@ -229,52 +226,40 @@ export const putUserEmail = (email, aux )=>{
 
 export const  addFav = (PublicationId, UserId)=> { 
   //deberia recibir los datos de quien hace el post, que usuario y a que publicacion
-
     return async (dispatch) => {
         try {
           const favorito = {PublicationId, UserId}
-          
-
           const response = await axios.post(`/fav`, favorito);
             return dispatch({
                 type: "ADDFAV",
                 payload: response.data
              });
-
         } catch (error) {
-         
+          console.log(error)
         }
-
     };
 }
 //________________________________________
 export const getAllFav = (UserId)=> {
   //recibe el id del usuario, sobre este id traeme todos los fav
-  
   return async (dispatch) => {
       try {
         const response = await axios.get(`/fav/${UserId}`);
-      
           return dispatch({
               type: "GETALLFAV",
               payload: response.data
            });
-
       } catch (error) {
         console.log(error)
       }
-
   };
 }
 //________________________________________
 export const remove_fav= (PublicationId)=>{
   //recibe el id del favorito osea card a eliminar
-
- 
   return async (dispatch) => {
       try {
           const response= await axios.delete(`/fav/${PublicationId}`)
-    
           return dispatch({
               type: "REMOVE_FAV",
               payload:response.data.deleteId

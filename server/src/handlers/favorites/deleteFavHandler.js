@@ -3,14 +3,12 @@ const deleteFavController= require("../../controllers/favorites/deleteFavControl
 
 const deleteFavHandler = async(req, res)=>{
     const {id}= req.params;
-
-    console.log("tiene id?", id)
    try {
     const deleteFav = await deleteFavController(id)
     return res.status(200).send(deleteFav)
    } catch (error) {
     return res.status(400).send(error)
    }
-} 
+};
 
 module.exports= deleteFavHandler;

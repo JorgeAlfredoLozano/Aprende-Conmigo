@@ -5,8 +5,7 @@
     "main": "index.js",
     "scripts": {
         "start": "node ./index.js",
-        "deploy": "node ./index.js",
-        "startcomentarioestovaenelstartparaelchat": " && node src/whatsapp.js "
+        "deploy": "node ./index.js"
     },
     "dependencies": {
         "@sendgrid/mail": "^7.7.0",
@@ -25,9 +24,9 @@
         "pg": "^8.11.1",
         "pg-hstore": "^2.3.4",
         "qrcode-terminal": "^0.12.0",
+        "railway": "^2.0.17",
         "sequelize": "^6.32.1",
         "stripe": "^12.12.0",
-        "tmp": "^0.2.1",
-        "whatsapp-web.js": "^1.21.0"
+        "tmp": "^0.2.1"
     }
 }

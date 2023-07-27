@@ -44,7 +44,7 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   const [updateId, setUpdateId] = useState(null);
   const [renderReview, setRenderReview] = useState(false);
   const [reviewId, setReviewId] = useState(null);
-  const [renderPopUp, setRenderPopUp] = useState(false); console.log(renderPopUp);
+  const [renderPopUp, setRenderPopUp] = useState(false); 
   const [text, setText] = useState('');
 
   useEffect(() => {
@@ -214,19 +214,19 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
             <>
               <section className={style.datos}>
                 <p className={style.infoLabel}>
-                  <span style={{color:"rgb(63, 81, 181)", fontFamily:"Roboto", fontWeight:"900"}}>Nombre: </span> 
+                  <span style={{color:"rgb(63, 81, 181)", fontWeight:"900"}}>Nombre: </span> 
                   <span>{renderUser.name}</span>
                   </p>
                 <p className={style.infoLabel}>
-                  <span style={{color:"rgb(63, 81, 181)", fontFamily:"Roboto", fontWeight:"900"}}>Email: </span>
+                  <span style={{color:"rgb(63, 81, 181)", fontWeight:"900"}}>Email: </span>
                   <span>{renderUser.email}</span>
                   </p>
                 <p className={style.infoLabel}>
-                  <span style={{color:"rgb(63, 81, 181)", fontFamily:"Roboto", fontWeight:"900"}}>Fecha de Nacimiento: </span>
+                  <span style={{color:"rgb(63, 81, 181)", fontWeight:"900"}}>Fecha de Nacimiento: </span>
                   <span>{renderUser.date}</span>
                   </p>
                 <p className={style.infoLabel}>
-                  <span style={{color:"rgb(63, 81, 181)", fontFamily:"Roboto", fontWeight:"900"}}>Género: </span>
+                  <span style={{color:"rgb(63, 81, 181)", fontWeight:"900"}}>Género: </span>
                   <span>{
                 renderUser.gender === 'male'
                 ? 'Hombre' 
@@ -236,7 +236,7 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
                 }</span>
                 </p>
                 <p className={style.infoLabel}>
-                  <span style={{color:"rgb(63, 81, 181)", fontFamily:"Roboto", fontWeight:"900"}}>Teléfono: </span>
+                  <span style={{color:"rgb(63, 81, 181)", fontWeight:"900"}}>Teléfono: </span>
                   <span>{renderUser.phone}</span>
                   </p>
                 <button className={style.botonForm} onClick={updateData}>
@@ -245,7 +245,7 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
               </section>
               <section className={style.imagen}>
                 <div className={style.imgCont} style={containerStyle}></div>
-                <SendPhoto className={style.send} onSubmit={handlePhotoSubmit} />
+                <SendPhoto className={style.send} onSubmit={(event)=>handlePhotoSubmit} />
               </section>
               {renderForm && <FormUpdate isVisible={renderForm} onCancel={cancelarForm} onSubmit={handleFormSubmit} renderPopUp={renderPopUp} setRenderPopUp={setRenderPopUp} text={text} setText={setText}/>}
             </>

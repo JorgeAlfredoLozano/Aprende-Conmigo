@@ -1,8 +1,8 @@
 .card_publication {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap:3em;
-  align-items: center;
-  place-content: center;
-}
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:3em;
+    align-items: center;
+    place-content: center;
+  }
