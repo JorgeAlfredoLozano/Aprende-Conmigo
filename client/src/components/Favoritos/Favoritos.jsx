@@ -1,30 +1,25 @@
 import Card from "../Card/Card";
 import { getAllFav} from "../../Redux/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import style from "./Favoritos.module.css";
-
-
+import { useEffect } from "react";
+import style from './Favoritos.module.css';
 
 const Favoritos = () => {
   const dispatch= useDispatch()
   const localStorageContent = localStorage.getItem("cachedUser");
-  const  parser  = JSON.parse(localStorageContent);
+  const parser  = JSON.parse(localStorageContent);
   const user_id = parser.id;
-   
   const myFavorites = useSelector((state) => state.myFavorites);
-
   useEffect(()=>{
-    dispatch(getAllFav(user_id))
-  },[dispatch])
+    if (user_id) dispatch(getAllFav(user_id))
+  },[dispatch,user_id]) 
   
     return (
-        <div className={style.cardContainer}>
-         
+        <div>        
       {myFavorites.length === 0 ? (
         <p>No tienes favoritos seleccionados.</p>
       ) : (
-        <div className={style.card_publication}>
+        <div className={style.card_publication} >
           {myFavorites?.map((fav) => (
             (fav.Publication &&
             <Card

@@ -18,11 +18,11 @@
 }
 
 .boxtitulo {
-  width: 110vh;
-  height: 15vh;
-  display: flex;
-  gap: 1em;
-}
+    width: 110vh;
+    height: 15vh;
+    display: flex;
+    gap: 1em;
+  }
 
 .title {
     width: 70vh;
@@ -35,14 +35,14 @@
 }
 
 .lesson {
-  width: 25vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  place-content: center;
-  margin: 0%;
-}
+    width: 25vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    place-content: center;
+    margin: 0%;
+  }
 
   .value {
     display: flex;
@@ -60,9 +60,13 @@
     justify-content: center;
   }
 
-.none {
-  margin-top: 7.2%;
-}
+  .fecha {
+    color: black;
+    text-align: center;
+    font-size: 12px;
+    width: 100px;
+    margin: 0%;
+  }
 
   .none {
     margin-top: 7.2%;

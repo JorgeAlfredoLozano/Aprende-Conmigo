@@ -13,6 +13,3 @@ const putPhotoHandler=async(req,res)=>{
   }; 
 module.exports = putPhotoHandler;
 
-
-
-

@@ -13,7 +13,11 @@
     padding-top: 3%;
   }
 
-.botones {
-  display: flex;
-  gap:5px;
-}
+  .botones {
+    display: flex;
+    gap:5px;
+  }
+
+  .select {
+    width: 250px;
+  }

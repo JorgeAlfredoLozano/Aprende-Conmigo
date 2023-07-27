@@ -29,4 +29,3 @@ const getAllAnouncementsController = async (page) => {
 
 module.exports = getAllAnouncementsController;
 
-

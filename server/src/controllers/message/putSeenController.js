@@ -11,4 +11,3 @@ const putSeenController = async (idSend,idReceived) => {
 
 module.exports = putSeenController;
 
-

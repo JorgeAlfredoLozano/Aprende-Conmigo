@@ -6,14 +6,14 @@ const lessonsJson=require('./src/utils/lessons.json')
 const {Lesson}=require('./src/db.js')
 const postLessonHandler=require('./src/handlers/lesson/postLessonHandler.js')
 const cors = require('cors')
-server.use(cors({origin: 'http://localhost:5173'}))
-const whatsapp = require('../server/src/whatsapp.js')
+server.use(cors())
 
-conn.sync({ altern: true })  //altern force
+port = process.env.PORT
+
+conn.sync({ Altern: true })  
 .then(() => postLessonHandler(lessonsJson, Lesson))
-.then(() => whatsapp)
 .then(() => {
-    server.listen(3001, () => {
-      console.log('server listening at 3001'); // eslint-disable-line no-console
+    server.listen(port, () => {
+      console.log(`server listening at ${port}`); // eslint-disable-line no-console
     });
 });

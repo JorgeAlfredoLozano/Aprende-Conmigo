@@ -78,7 +78,7 @@ const DetailAnuncio = () => {
     }
   }
 
-  const handleRenderCheckoutForm = () => {
+  const handleRenderCheckoutForm = (event) => {
     setShowCheckoutForm(true);
   };
 
@@ -116,7 +116,7 @@ const DetailAnuncio = () => {
                     </>)}{showCheckoutForm && (
             <div className={style.payment}>
               <CheckoutForm showCheckoutForm={showCheckoutForm} setShowCheckoutForm={setShowCheckoutForm} />
-              <button onClick={handleCancelPayment}>Cancelar</button>
+              <button className={style.cancelPayment} onClick={handleCancelPayment}>Cancelar</button>
             </div>
           )}
             <Review idPub={id}/>
@@ -130,7 +130,13 @@ const DetailAnuncio = () => {
 
                     </div>
                 <h3>{userTeacher.data.name}</h3>
-                <h5>{userTeacher.data.gender}</h5>
+                {/* <h5>{userTeacher.data.gender === 'male'?
+                <h5>MASCULINO</h5>
+                : userTeacher.data.gender==='female'?
+                <h5>FEMENINO</h5>
+                :<h5>OTRO</h5>
+
+              }</h5> */}
                 {idLog ? (
                     <Link to={`/perfilPublico/${userTeacher.data.id}`}>
                         <button>+info</button>
@@ -150,7 +156,7 @@ const DetailAnuncio = () => {
          (
           idLog !== filteredData[0].UserId ? 
   (<div>
-      <button onClick={handleRenderCheckoutForm}>Contratar este profesor</button>
+      <button onClick={(event)=>handleRenderCheckoutForm(event)}>Contratar este profesor</button>
     </div>
     ) : (
       <p></p>
