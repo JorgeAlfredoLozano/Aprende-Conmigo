@@ -42,7 +42,7 @@ const sendmail = async(type, email, datos, email2, userName, hora, nombre, title
         msg2 = {
             to: email2,
             from: 'aprendeconmigohenry@gmail.com',
-            subject: `¡Su curso de ${datos.Lessons[0].lesson_name} ha sido comprado!`,
+            subject: `¡Su curso de ${datos?.Lessons[0]?.lesson_name} ha sido comprado!`,
             preheader: 'Se registro un pago de su curso',
             html: sale,
         };
@@ -52,7 +52,7 @@ const sendmail = async(type, email, datos, email2, userName, hora, nombre, title
     msg1 = {
       to: email,
       from: 'aprendeconmigohenry@gmail.com',
-      subject: '¡Tu publicacion ha sido bloqueada!',
+      subject: '¡Tu publicacion ha sido bloqueado!',
       preheader: 'nawuebonaa',
       html: publiOff,
     };
