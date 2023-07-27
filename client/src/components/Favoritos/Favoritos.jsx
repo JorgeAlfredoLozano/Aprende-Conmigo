@@ -19,7 +19,7 @@ const Favoritos = () => {
   },[dispatch])
   
     return (
-        <div className={style.cardContainer}>
+        <div className={style.container}>
          
       {myFavorites.length === 0 ? (
         <p>No tienes favoritos seleccionados.</p>

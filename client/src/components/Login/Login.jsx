@@ -48,7 +48,7 @@ const Login = ({ userData, getUser }) => {
 
   useEffect(() => {
     const cachedUser = JSON.parse(localStorage.getItem('cachedUser'));
-    if (cachedUser && cachedUser.length !==0) {
+    if (cachedUser && cachedUser.length > 0) {
       setLogged(true);
     }
   }, []);

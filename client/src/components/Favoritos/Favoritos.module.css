@@ -1,5 +1,8 @@
-/* .card_publication {
-    border-radius: 10px;
-   
-  } */
- 
+.card_publication {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap:3em;
+  align-items: center;
+  place-content: center;
+}
