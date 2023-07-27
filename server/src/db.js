@@ -5,13 +5,11 @@ const fs = require('fs'); // Módulo de manejo de archivos del sistema
 const path = require('path');  // Módulo para trabajar con rutas de archivos y directorios
 
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, // => localhost
-{logging: false, native: false}
-)
-
-// const sequelize = new Sequelize(DB_DEPLOY, // => localhost
+// const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, // => localhost
 // {logging: false, native: false}
 // )
+
+https://aprender-conmig-server-production.up.railway.app/
 
 const basename = path.basename(__filename); 
 const modelDefiners = [];  
