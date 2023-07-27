@@ -13,7 +13,7 @@ const initialState = {
   reviews:[],
   allUsers:[],
   allUserEmail:[],
-  myFavorites: [] 
+  myFavorites: []
   };
 
 const reducer = (state = initialState, {type, payload}) => {
