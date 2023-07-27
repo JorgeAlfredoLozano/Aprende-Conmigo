@@ -20,14 +20,16 @@
 }
 
 .texto {
-  color: rgb(63, 81, 181)
+  color: rgb(63, 81, 181);
+  padding-top: 3%;
 }
 
 .reviewsContainer {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  padding-top: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
   max-height: 50em;
   overflow: scroll;
   -ms-overflow-style: none;

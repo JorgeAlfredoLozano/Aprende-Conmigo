@@ -16,7 +16,7 @@ const CardsContainer = ({ filtro, lesson, precio }) => {
   const [currentPage, setCurrentPage] = useState(
     parseInt(localStorage.getItem('currentPage')) || 1
   );
-  const anunciosPerPage = 3;
+  const anunciosPerPage = 12;
   const indexLastAnuncio = currentPage * anunciosPerPage;
   const indexOfFirstAnuncio = indexLastAnuncio - anunciosPerPage;
 
