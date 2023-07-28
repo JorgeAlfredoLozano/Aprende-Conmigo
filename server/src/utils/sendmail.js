@@ -29,6 +29,7 @@ const sendmail = async(type, email, datos, email2, userName, hora, nombre, title
           };
   }
   if (type==="payment") {
+     
       const buy=templateUserBuy(userName.toUpperCase(),datos.title,contactar)
       const sale=templateUserSale(userName.toUpperCase(),datos.User.name.toUpperCase(), datos.title, hora, contactar)
       msg1 = {
@@ -41,7 +42,7 @@ const sendmail = async(type, email, datos, email2, userName, hora, nombre, title
         msg2 = {
             to: email2,
             from: 'aprendeconmigohenry@gmail.com',
-            subject: `¡Su curso de ${datos.Lessons[0].lesson_name} ha sido comprado!`,
+            subject: `¡Su curso de ${datos?.Lessons[0]?.lesson_name} ha sido comprado!`,
             preheader: 'Se registro un pago de su curso',
             html: sale,
         };
@@ -51,18 +52,18 @@ const sendmail = async(type, email, datos, email2, userName, hora, nombre, title
     msg1 = {
       to: email,
       from: 'aprendeconmigohenry@gmail.com',
-      subject: '¡Tu publicacion ha sido bloqueada!',
+      subject: '¡Tu publicacion ha sido bloqueado!',
       preheader: 'nawuebonaa',
       html: publiOff,
     };
   };
   if (type==="userOff") {
-    const userOff=templatePublicationBann(nombre.toUpperCase(),contactar)
+    const userOff=templateUserBann(nombre.toUpperCase(),contactar)
     msg1 = {
       to: email,
       from: 'aprendeconmigohenry@gmail.com',
-      subject: '¡Tu usuario ha sido bloqueada!',
-      preheader: 'tu cuenta ha sido bloqueada',
+      subject: '¡Tu usuario ha sido bloqueado!',
+      preheader: 'tu cuenta ha sido bloqueado',
       html: userOff,
     };
   };

@@ -5,18 +5,13 @@ const createUserLoginController = async (name, email, assets) => {
  
   if (!exist) {
     const newUser = await User.create({ name, email, assets });
-
     // Envía el correo de bienvenida utilizando SendGrid
-
-
     if (newUser) {
       sendemail("register",email,datos=name)
       return newUser;
     }
   }
-
   console.log('El usuario ya está creado');
 };
 
 module.exports = createUserLoginController;
-

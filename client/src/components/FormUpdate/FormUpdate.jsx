@@ -7,8 +7,8 @@ import ValidationsPerfil from '../Validations/ValidationsPerfil';
 const FormUpdate = (props) => {
   const email = localStorage.getItem("currentUser");
   const parser=localStorage.getItem("cachedUser");
-  const infoUser=JSON.parse(parser)
-  console.log(infoUser)
+  const infoUser=JSON.parse(parser);
+  
   const dispatch = useDispatch();
   
   const [input, setInput] = useState({
@@ -49,19 +49,25 @@ const FormUpdate = (props) => {
       if (Object.keys(completedFields).length > 0) {
         dispatch(putUser(email, completedFields));
         props.onSubmit();
-        alert("¡Tus datos han sido actualizados correctamente!");
+        props.setRenderPopUp(true);
+        props.setText('¡Tus datos han sido actualizados correctamente!');
+        // alert("¡Tus datos han sido actualizados correctamente!");
         setInput({
           name: '',
           date: '',
           gender: '',
           phone: ''
         });
-        setErrors({});
+        setErrors({});      
       } else {
-        alert("Completa al menos un campo antes de enviar.");
+        props.setRenderPopUp(true);
+        props.setText('Completa al menos un campo antes de enviar.');
+        // alert("Completa al menos un campo antes de enviar.");
       }
     } else {
-      alert("El formulario contiene errores. Por favor, verifica los campos.");
+      props.setRenderPopUp(true);
+      props.setText('El formulario contiene errores. Por favor, verifica los campos.');
+      // alert("El formulario contiene errores. Por favor, verifica los campos.");
     }
   }
 
@@ -84,7 +90,6 @@ const FormUpdate = (props) => {
             <option disabled value=''>Selecciona un género</option>
             <option value="male">Hombre</option>
             <option value="female">Mujer</option>
-            {/* <option value="other">No binario</option> */}
             <option value="other">Otro</option>
           </select>
         </div>

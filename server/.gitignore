@@ -244,3 +244,4 @@ server/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb
 
 # lock files
 package-lock.json
+.vercel
