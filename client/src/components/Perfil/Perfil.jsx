@@ -17,7 +17,6 @@ import PopUp from '../PopUp/PopUp';
 
 const Perfil = ({ userData, getUser, getAllPublication }) => {
   const { tab } = useParams();
-
   useEffect(() => {
     setRenderUser(userData);
   }, [userData]);
@@ -140,6 +139,9 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   const handleFormSubmit = () => {
     getUser(currentUser);
     setRenderForm(false);
+    // setTimeout(() => {
+    //   window.location.reload();
+    // }, "1000");
   };
 
   const handleFormSubmitAnuncio = () => {
