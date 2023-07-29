@@ -95,7 +95,7 @@ const Messages = () => {
       return (
         <p className={style.user} style={{margin:"0%", paddingBottom:"20px", color:"rgb(63, 81, 181)", display:"flex", flexDirection:"column", alignItems:"center"}} key={user.id} onClick={() => userClickHandler(user.id)}>
           <span style={{ fontWeight:"600"}}>{user.name}</span> 
-          <span>({userNotRead.length} mensajes no leídos)</span>
+          <span >({userNotRead.length} mensajes no leídos)</span>
         </p>
       );
     });
@@ -122,7 +122,7 @@ const Messages = () => {
             <textarea
               ref={textareaRef}
               className={style.chatArea}
-              style={{ width: "45em", height: "280px", borderColor:"rgb(216, 233, 253)", borderStyle:"solid", borderWidth:"5px", borderRadius:"1em" }}
+              style={{ width: "40em", height: "350px", borderColor:"rgb(216, 233, 253)", borderStyle:"solid", borderWidth:"5px", borderRadius:"1em" }}
               readOnly
               value={userMessages
                 .map(
@@ -138,7 +138,7 @@ const Messages = () => {
               id="myInput"
               value={inputValue}
               onChange={handleChange}
-              style={{ width: "36em", height: "35px", outline:"none", borderColor:"rgb(216, 233, 253)", borderStyle:"solid", borderWidth:"5px", borderRadius:"1em"}}
+              style={{ width: "31em", height: "35px", outline:"none", borderColor:"rgb(216, 233, 253)", borderStyle:"solid", borderWidth:"5px", borderRadius:"1em"}}
               className={style.inputChat}
             />
             <button
@@ -153,7 +153,7 @@ const Messages = () => {
       }
     }
 
-    return <p style={{textAlign:"center", color:"rgb(63, 81, 181)"}}>Selecciona un chat para ver los mensajes.</p>;
+    return <p style={{textAlign:"center", color:"rgb(63, 81, 181)", marginTop:"15%"}}>Selecciona un chat para ver los mensajes.</p>;
   };
 
   const handleClick = () => {
