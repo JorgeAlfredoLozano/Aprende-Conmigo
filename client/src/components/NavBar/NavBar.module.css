@@ -1,9 +1,9 @@
-.container {
+.container{
     height: 10%;
     background-color: rgb(35, 128, 211);
     position: fixed;
     width: 100%;
-    top: 0%;
+    top:0%;
     left: 0%;
     z-index: 2;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.561);

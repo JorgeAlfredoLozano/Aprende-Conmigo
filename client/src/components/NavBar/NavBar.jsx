@@ -1,28 +1,33 @@
+import React from "react";
 import style from "./NavBar.module.css";
 import Login from "../Login/Login";
-import { Link } from 'react-router-dom';
-import loguito from '../../assets/logo-aprende.png';
-import faqicon from '../../assets/faq-icon.png';
+import { Link } from "react-router-dom";
+import loguito from "../../assets/logo-aprende.png";
+import faqicon from "../../assets/faq-icon.png";
 import Notifications from "./Notifications";
 
 const NavBar = () => {
+  const email = localStorage.getItem("currentUser");
+  console.log(email);
   return (
     <div className={style.container}>
-      <Link to='/'>
-        <img className={style.logo} src={loguito} />
+      <Link to="/">
+        <img className={style.logo} src={loguito} alt="Logo" />
       </Link>
       <Login />
-      <div className={style.notificationContainer}>
-        <Link to='/perfil/mensajes'>
+      {email ? (
+        <div className={style.notificationContainer}>
+          <Link to="/perfil/mensajes">
             <Notifications />
-        </Link>
-      </div>
-
+          </Link>
+        </div>
+      ) : null}
       <Link to="/Preguntas">
-        <img src={faqicon} className={style.faq} />
+        <img src={faqicon} className={style.faq} alt="FAQ" />
       </Link>
     </div>
   );
-}
+};
 
 export default NavBar;
+
