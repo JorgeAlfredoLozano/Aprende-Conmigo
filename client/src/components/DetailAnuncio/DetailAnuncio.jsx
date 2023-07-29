@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './DetailAnuncio.module.css';
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllAnuncios, getUserById, sendChat } from "../../Redux/actions";
 import Review from '../Review/Review';
@@ -8,8 +9,24 @@ import { useEffect, useState } from 'react';
 import Checkout from '../CheckoutForm/CheckoutForm';
 import LoadingAnimation from '../LoadingAnimation/LoadingAnimation'; // Importamos la animación de carga
 import PopUp from '../PopUp/PopUp';
+import Checkout from '../CheckoutForm/CheckoutForm';
+import LoadingAnimation from '../LoadingAnimation/LoadingAnimation'; // Importamos la animación de carga
+import PopUp from '../PopUp/PopUp';
 
 const DetailAnuncio = () => {
+  const localStorageContent = localStorage.getItem("cachedUser");
+  const parser = JSON.parse(localStorageContent);
+  const idLog = parser.id;
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [showInput, setShowInput] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+  const [renderMessage, setRenderMessage] = useState(false);
+  const [showCheckoutForm, setShowCheckoutForm] = useState(false);
+  const [userFetched, setUserFetched] = useState(false);
+  const [renderPopUp, setRenderPopUp] = useState(false);
+  const [text, setText] = useState('');
   const localStorageContent = localStorage.getItem("cachedUser");
   const parser = JSON.parse(localStorageContent);
   const idLog = parser.id;
@@ -80,7 +97,12 @@ const DetailAnuncio = () => {
   const handleChange = (event) => {
     setInputValue(event.target.value);
   };
+  const handleChange = (event) => {
+    setInputValue(event.target.value);
+  };
 
+  const handleGoBack = () => {
+    navigate(-1);
   const handleGoBack = () => {
     navigate(-1);
   };
@@ -88,8 +110,9 @@ const DetailAnuncio = () => {
   const handleRenderMessage = (event) => {
     event.preventDefault();
     const boton = event.target.id;
-
+    
     if (boton === 'notLogged') {
+      alert(`Debes iniciar sesión para contactar a ${userTeacher && userTeacher.data.name}.`);
       alert(`Debes iniciar sesión para contactar a ${userTeacher && userTeacher.data.name}.`);
     } else if(boton === 'renderMessage'){
       setRenderMessage(true);
@@ -99,6 +122,7 @@ const DetailAnuncio = () => {
     } else if (boton === 'cancelar') {
       setRenderMessage(false);
     }
+  };
   };
 
   const handleRenderCheckoutForm = (event) => {
@@ -113,7 +137,20 @@ const DetailAnuncio = () => {
     setText('¡Pago realizado con éxito!');
     setRenderPopUp(true);
   };
+    setShowCheckoutForm(false);
+  };
 
+  const handleSuccessfulPurchase = () => {
+    setText('¡Pago realizado con éxito!');
+    setRenderPopUp(true);
+  };
+
+  return (
+    <div>
+      <div className={style.container}>
+        {!userDataAvailable && !userTeacherDataAvailable ? (
+          <LoadingAnimation />
+          ) : (
   return (
     <div>
       <div className={style.container}>
@@ -122,16 +159,47 @@ const DetailAnuncio = () => {
           ) : (
             <div className={style.anuncio}>
             <button onClick={handleGoBack} style={{zIndex:"6"}}>Volver</button>
+            <button onClick={handleGoBack} style={{zIndex:"6"}}>Volver</button>
             <h1 className={style.title}>{filteredData[0].title}</h1>
             <div className={style.claseContainer}>
               <h1>Acerca de la clase</h1>
+              <h5 className={style.grade}>Nivel: {filteredData[0].grade.split(',').join(' - ')}</h5>
+              <p className={style.aboutWea}>{filteredData[0].about_class}</p>
               <h5 className={style.grade}>Nivel: {filteredData[0].grade.split(',').join(' - ')}</h5>
               <p className={style.aboutWea}>{filteredData[0].about_class}</p>
             </div>
             <div className={style.teacherContainer}>
               <h1>Sobre {userTeacher && userTeacher.data.name}</h1>
               <p className={style.aboutWea}>{filteredData[0].about_teacher}</p>
+              <p className={style.aboutWea}>{filteredData[0].about_teacher}</p>
             </div>
+            {idLog ? (
+              <>
+                <button id='renderMessage' onClick={(event) => handleRenderMessage(event)} className={style.botonMensaje}>Enviar mensaje a {userTeacher && userTeacher.data.name}</button>
+                {renderMessage && (
+                  <div className={style.messageContainer}>
+                    <textarea className={style.textareaComment} placeholder='Escribe tu mensaje...' id='message' value={inputValue} onChange={(event) => handleChange(event)} />
+                    <div className={style.botones}>
+                      <button id='enviar' onClick={(event) => handleRenderMessage(event)}>Comentar</button>
+                      <button id='cancelar' onClick={(event) => handleRenderMessage(event)}>Cancelar</button>
+                    </div>
+                  </div>
+                )}
+              </>
+            ) : (
+              <>
+                <button id='notLogged' onClick={(event) => handleRenderMessage(event)} className={style.botonMensaje}>Enviar mensaje a {userTeacher && userTeacher.data.name}</button>
+              </>
+            )}
+            <div className={style.popup}>
+            {renderPopUp && <PopUp text={text} setText={setText} renderPopUp={renderPopUp} setRenderPopUp={setRenderPopUp}/>}
+            </div>
+            {showCheckoutForm && (
+              <div className={style.payment}>
+                <Checkout setShowCheckoutForm={setShowCheckoutForm} handleCancelPayment={handleCancelPayment} handleSuccessfulPurchase={handleSuccessfulPurchase}/>
+                <button className={style.cancelPayment} onClick={handleCancelPayment}>Cancelar</button>
+              </div>
+            )}
             {idLog ? (
               <>
                 <button id='renderMessage' onClick={(event) => handleRenderMessage(event)} className={style.botonMensaje}>Enviar mensaje a {userTeacher && userTeacher.data.name}</button>

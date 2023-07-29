@@ -4,6 +4,8 @@ import img1 from '../../assets/imagenes/estudiantes-universitarios.png';
 import img2 from '../../assets/imagenes/matematicas.jpg';
 import img3 from '../../assets/imagenes/clases.png';
 import ToSearchPage from './ToSearchPage';
+import Steps from './Steps';
+import Carrousel from './Carrousel'
 import { useNavigate } from 'react-router';
 
  const Home = () => {
@@ -37,9 +39,14 @@ import { useNavigate } from 'react-router';
             <div className={style.search}>
               <p className={style.texto} style={{ fontSize:"50px", textAlign:"center", color:"black", fontWeight:"900"}}>¡Encuentra la clase que buscas entre nuestros profesores online!</p>
              <ToSearchPage/>
+             
              <button onClick={handleNavigateSearchPage}>Ver todos los cursos</button>
             </div>
+            
             </div>
+            <div><Steps/></div>
+            
+            <div><Carrousel/></div>
         </div>
     )
  }
