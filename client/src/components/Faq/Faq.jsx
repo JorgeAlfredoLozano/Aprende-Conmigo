@@ -39,8 +39,8 @@ const Faq = () => {
                   style={{ fontSize:"20px",  color:"#3A4D61", fontWeight:"900"}}>{item.grupo}</p>
                       <div>
                         {accordion === index ?
-                          <span className={style.verticle}>-</span> 
-                          : <span className={style.horizental}>+</span>}
+                          <span className={style.verticle} style={{ fontSize:"15px",  color:"#3A4D61"}}>-</span> 
+                          : <span className={style.horizental} style={{ fontSize:"15px",  color:"#3A4D61"}}>+</span>}
                       </div>
                 </div>
 
