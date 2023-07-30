@@ -18,14 +18,14 @@
     height: 7%;
     width: auto;
     top: 1.5%;
-    left: 5%
+    left: 5%;
 }
 
 .logo:hover {
     cursor: pointer;
 }
 
-.faq{
+.faq {
     width: auto;
     height: 20px;
     position: fixed;
@@ -40,3 +40,11 @@
 .notis:hover {
     cursor: pointer;
 }
+
+.notificationContainer {
+    position: absolute;
+    top: 5%;
+    right: 23%;
+    padding: 4px 8px;
+ 
+  }

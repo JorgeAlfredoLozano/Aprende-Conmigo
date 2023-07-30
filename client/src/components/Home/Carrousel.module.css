@@ -1,0 +1,71 @@
+/* Carousel.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Edu+SA+Beginner:wght@500&family=Roboto:ital,wght@1,300&display=swap');
+
+.carousel-container {
+    /* Estilos del contenedor principal */
+    text-align: center;
+  }
+  
+  .carousel-cards {
+    /* Estilos para el contenedor de las tarjetas */
+    display: flex;
+    justify-content: center; /* Centrar las tarjetas horizontalmente */
+    overflow: hidden;
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px; /* Agregamos un padding para separar las tarjetas */
+  }
+  
+  .card {
+    /* Estilos de cada tarjeta */
+    width: calc(33.33% - 20px); /* Ancho del 33.33% menos el espacio entre tarjetas */
+    height: 150px;
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px; /* Espacio entre tarjetas */
+  }
+  
+  .card:last-child {
+    margin-right: 0; /* Quitamos el margen derecho de la última tarjeta */
+  }
+  
+  .card-image {
+    /* Estilos de la imagen dentro de la tarjeta */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .card-text {
+    /* Estilos del texto superpuesto en la imagen */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    pointer-events: none; /* Para evitar que el texto afecte los clics en la tarjeta */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Transiciones para las cartas adicionales */
+  .card:nth-child(n + 4) {
+    opacity: 0; /* Ocultar las cartas adicionales */
+    pointer-events: none; /* Desactivar interacciones con las cartas ocultas */
+    transition: opacity 0.3s, pointer-events 0s 0.3s;
+  }
+  
+  .card:nth-child(n + 4).show {
+    opacity: 1; /* Mostrar las cartas adicionales */
+    pointer-events: auto; /* Activar interacciones con las cartas mostradas */
+    transition: opacity 0.3s;
+  }
+  
+  .carousel-title {
+    font-family: "Edu SA Beginner", verdana; /* Establecer la fuente EB Garamond para el título */
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
