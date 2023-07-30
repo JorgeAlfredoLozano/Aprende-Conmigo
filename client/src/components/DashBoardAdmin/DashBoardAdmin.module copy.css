@@ -1,0 +1,45 @@
+/* DashBoardAdmin.module.css */
+
+.container {
+  background-color: rgba(242, 242, 242, 0.675);
+  padding: 5%;
+}
+
+.anuncios-list,
+.usuario-list {
+  list-style: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.anuncios-list-item,
+.usuario-list-item {
+  margin-bottom: 10px;
+}
+
+.informacion-adicional {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.usuario-details {
+  display: flex;
+  align-items: center;
+}
+
+.usuario-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.usuario-actions {
+  display: flex;
+  align-items: center;
+}
+
+.usuario-actions button {
+  margin-right: 10px;
+}
