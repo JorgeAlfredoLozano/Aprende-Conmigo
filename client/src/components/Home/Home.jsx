@@ -94,7 +94,7 @@ const Home = () => {
       <div ref={stepsRef} style={{ opacity: 0 }}>
         <Steps />
       </div>
-      <div ref={carrouselRef} style={{ opacity: 0 }}>
+      <div className={style.carru} ref={carrouselRef} style={{ opacity: 0 }}>
         <Carrousel />
       </div>
     </div>

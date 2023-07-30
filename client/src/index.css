@@ -23,8 +23,13 @@
   src: url('./assets/fonts/Poppins-ExtraBold.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Poppins-Italic';
+  src: url('./assets/fonts/Poppins-Italic.ttf') format('truetype');
+}
+
 :root {
-  font-family: 'Poppins', 'Poppins-Bold', 'Poppins-Medium', 'Poppins-SemiBold', 'Poppins-ExtraBold';
+  font-family: 'Poppins', 'Poppins-Bold', 'Poppins-Medium', 'Poppins-SemiBold', 'Poppins-ExtraBold', 'Poppins-Italic';
   line-height: 1.5;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -41,13 +46,14 @@
 body {
   margin: 0%;
   padding: 0%;
-  font-family: 'Poppins', 'Poppins-Bold', 'Poppins-Medium', 'Poppins-SemiBold', 'Poppins-ExtraBold';
+  font-family: 'Poppins', 'Poppins-Bold', 'Poppins-Medium', 'Poppins-SemiBold', 'Poppins-ExtraBold', 'Poppins-Italic';
   padding-top: 4.5%;
   display: flex;
   flex-direction: column;
   place-items: center;
   background-color: rgb(255, 255, 255);
   width: 100%;
+  overflow-x: hidden;
 }
 
 section {

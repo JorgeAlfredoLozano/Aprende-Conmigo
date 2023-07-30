@@ -49,29 +49,25 @@ const Review =({idPub})=>{
                 <Stars editable={false} rating={promedio}/>
                 <span className={style.opiniones}>{review.length} opiniones</span>
             </div>}
-            <h4 style={{marginTop:"5%"}}>Reseñas</h4>
-            {review && review.map((rev)=>{
-              const containerStyle = {
-                backgroundImage: `url(${rev && rev.User.assets})`,
-              };   
-            return (
-            <div className={style.reviewsContainer} >
-              
-              <div className={style.commentContainer}>
-                <div className={style.cardComment}>
-                  <div className={style.imageContainer}>
-                  <div className={style.image} style={containerStyle}></div>
-                </div>
-                <div className={style.textoContainer}>
-                <p className={style.name}>{rev.User.name}</p>
-                 <Stars editable={false} rating={rev.rating}/> 
-                <p className={style.comment}>{rev.comment}</p>
-                </div>
-                </div>
-                </div>
-            </div> 
-            )   
-            })}
+            <h4 style={{marginTop:"5%", color:"rgb(63, 81, 181)"}}>Reseñas</h4>
+            {review && review.length > 0 ? (
+  review.map((rev) => {
+    const containerStyle = {
+      backgroundImage: `url(${rev && rev.User.assets})`,
+    };
+    return (
+      <div className={style.reviewsContainer} key={rev.id}>
+          <div className={style.commentContainer}>
+            <div className={style.cardComment}>
+            <div className={style.imageContainer}>
+            <div className={style.image} style={containerStyle}></div>
+            </div>
+            <div className={style.textoContainer}>
+            <p className={style.name}>{rev.User.name}</p>
+            <Stars editable={false} rating={rev.rating} />
+            <p className={style.comment}>{rev.comment}</p>
+            </div></div></div></div>
+            );})) : (<p style={{marginTop:"3%"}}>Esta publicación aún no tiene reseñas.</p>)}
             {/* <button className={style.botonReseña} id='renderizar' onClick={(event) => handleReviewComment(event)}>Añadir reseña</button> */}
                 {/* {renderReviewInput && (
                     <div className={style.ratingContainer}>

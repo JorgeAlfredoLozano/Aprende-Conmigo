@@ -65,6 +65,8 @@ const Carousel = () => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <h4 className={styles['carousel-title']}>Algunas de las materias que encuentras disponibles en nuestro sitio</h4>
+      <div className={styles['contSlides']}>
+      <p className={styles['buttonprev']} onClick={handlePrevSlide}>&lt;&lt;</p>
       <div className={styles['carousel-cards']}>
         {[0, 1, 2].map((index) => {
           const subjectIndex = (currentIndex + index) % subjects.length;
@@ -80,8 +82,8 @@ const Carousel = () => {
           );
         })}
       </div>
-      {/* <button onClick={handlePrevSlide}>&lt;&lt;</button>
-      <button onClick={handleNextSlide}>&gt;&gt;</button> */}
+      <p className={styles['buttonnext']} onClick={handleNextSlide}>&gt;&gt;</p>
+    </div>
     </div>
   );
 };

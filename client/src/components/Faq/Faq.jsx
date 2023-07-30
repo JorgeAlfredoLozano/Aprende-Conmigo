@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from "react";
 import style from './Faq.module.css';
 import dataFq from './dataFq';
-import WhatsAppButton from '../WhatsappBtn/WhatsappBtn'
+import WhatsAppButton from '../WhatsappBtn/WhatsappBtn';
+import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
 
 const Faq = () => {
   const [expandedGroups, setExpandedGroups] = useState([]);
   const [expandedResponses, setExpandedResponses] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); 
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth', // Para un scroll suave, añade esta opción
     });
+
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
   }, []);
+  
   const handleGroupClick = (grupo) => {
     if (expandedGroups.includes(grupo)) {
       setExpandedGroups(expandedGroups.filter((group) => group !== grupo));
@@ -30,6 +38,7 @@ const Faq = () => {
 
   return (
     <div>
+      {isLoading ? <LoadingAnimation /> :
       <div className={style.container}>
         <h1>Preguntas frecuentes</h1>
         {dataFq.map((mapeo, index) => (
@@ -67,7 +76,7 @@ const Faq = () => {
         <div className={style.wasap}>
         <WhatsAppButton />
         </div>
-      </div>
+      </div>}
     </div>
   );
 };

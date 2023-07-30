@@ -10,7 +10,7 @@
     justify-content: center; /* Centrar las tarjetas horizontalmente */
     overflow: hidden;
     width: 80%;
-    margin: 0 auto;
+    margin: 0;
     padding: 10px; /* Agregamos un padding para separar las tarjetas */
   }
   
@@ -67,4 +67,30 @@
     font-family: "Poppins"; /* Establecer la fuente EB Garamond para el título */
     font-size: 20px;
     margin-bottom: 2.5%;
+  }
+
+  .buttonprev {
+    position: relative;
+    margin: 0%;
+    padding: 0%;
+  }
+
+  .buttonnext {
+    margin: 0%;
+    padding: 0%;
+  }
+
+  .buttonprev:hover,
+  .buttonnext:hover {
+    transition: 0.2s linear;
+    cursor: pointer;
+    opacity: 85%;
+  }
+
+  .contSlides {
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+    justify-content: center;
+    align-items: center;
   }

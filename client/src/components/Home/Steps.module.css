@@ -67,4 +67,8 @@
     width: 260px;
     padding: 10px;
   }
-  
+
+  .column-title:hover,
+  .column-text:hover {
+    cursor: default;
+  }

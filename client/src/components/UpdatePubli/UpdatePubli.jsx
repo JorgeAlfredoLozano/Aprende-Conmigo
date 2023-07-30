@@ -2,12 +2,14 @@ import { useState,useEffect } from "react";
 import { useDispatch,useSelector } from "react-redux";
 import {updateAnuncio,getLesson} from '../../Redux/actions';
 import style from './UpdatePubli.module.css';
+import PopUp from '../PopUp/PopUp';
 
 const UpdatePubli = (props) => {
   const dispatch=useDispatch();
   const datoPublication = useSelector((state) => state.allPublication); //Estado de todas la publicaciones
   const id = props.updateId;
   const datoId=datoPublication.data.filter((el)=>el.id===id)[0] //Avisos del usuario ID
+
   useEffect(()=>{
     dispatch(getLesson());    
   },[dispatch]);
@@ -19,6 +21,7 @@ const UpdatePubli = (props) => {
     value:datoId.value,
     status:datoId.status
   })
+
   function handleChange(event) { //control de los input
         const { name, value } = event.target;
         setInput((prevState) =>({
@@ -26,19 +29,22 @@ const UpdatePubli = (props) => {
           [name]: value,
         }))
   }; 
+
   const handleSubmit=(event)=> { //control de botones del form Actualizar/Eliminar/Volver
         event.preventDefault();
         const boton = event.target.name
         if (boton === 'actualizar') { 
-            dispatch(updateAnuncio(id, input)) 
-            alert("¡Publicación actualizada con éxito!")
-            props.setRenderUpdatePubli(false)
+            dispatch(updateAnuncio(id, input))
+            // alert("¡Publicación actualizada con éxito!")
+            props.setText('¡Publicación actualizada con éxito!');
+            props.setRenderPopUp(true);            
+            props.setRenderUpdatePubli(false);
+            
         } else if (boton === 'volver') {
           props.setRenderUpdatePubli(false)
         };
   }
     
-       
   return (
     <div className={`${style.x} ${props.isVisible ? style.fadeIn : style.fadeOut}`}>
             <form className={style.container} onSubmit={(event)=>handleSubmit(event)}>
