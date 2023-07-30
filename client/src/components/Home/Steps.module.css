@@ -1,43 +1,70 @@
 .steps-container {
     /* Estilos del contenedor principal */
     text-align: center;
-    margin-top: 50px;
+    padding-top: 6%;
     margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    align-items: center;
   }
   
   .title {
     /* Estilos del título */
     font-size: 64px;
-    font-weight: bold;
+    font-family: 'Poppins-Bold';
     margin-bottom: 10px;
   }
   
   .subtitle {
-    font-size: 30px;
+    font-size: 35px;
     margin-bottom: 20px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    text-align: center;
   }
   
   .columns {
-    
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap:2em
   }
   
   .column {
+    box-shadow: 0px 5px 12px rgba(114, 114, 114, 0.201),
+    0px 4px 10px rgba(255, 255, 255, 0.907);
     text-align: center;
     width: 23%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    padding: 10px;
+    border-radius: 1em;
+  }
+
+  .column:hover {
+    box-shadow: 0px 5px 14px rgba(114, 114, 114, 0.318),
+    0px 4px 10px rgba(255, 255, 255, 0.907);
+    transform: scale(1.03);
+    transition: 0.2s linear;
+  }
+
+  .column:not(hover) {
+    transform: scale(1);
+    transition: 0.2s linear;
   }
   
   .column-title {
-    /* Estilos para los títulos de las columnas */
-    font-size: 34px;
+    font-size: 30px;
     font-weight: bold;
     margin-bottom: 5px;
   }
   
   .column-text {
-    /* Estilos para el texto descriptivo de las columnas */
-    font-size: 24px;
-
+    font-size: 14px;
+    width: 260px;
+    padding: 10px;
   }
   

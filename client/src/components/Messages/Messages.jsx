@@ -80,7 +80,7 @@ const Messages = () => {
 
   const renderUserList = () => {
     if (userList.length === 0) {
-      return <p>No hay usuarios con mensajes</p>;
+      return <p style={{textAlign:"center"}}>Aún no has conversado con nadie.</p>;
     }
   
     return userList.map((user) => {
@@ -108,7 +108,7 @@ const Messages = () => {
 
   const renderSelectedUserChat = () => {
     if (messages.length === 0) {
-      return <p>No hay mensajes disponibles</p>;
+      return <p style={{marginTop:"15%"}}>No hay mensajes disponibles.</p>;
     }
     if (selectedUserId) {
       const userMessages = messages.find(

@@ -7,8 +7,11 @@ import imagen_literatura from '../../assets/imagenes/imagen_literatura.jpg';
 import imagen_programacion from '../../assets/imagenes/imagen_programacion.jpg';
 import imagen_quimica from '../../assets/imagenes/imagen_quimica.jpg';
 import imagen_arte from '../../assets/imagenes/imagen_arte.jpg';
+import { useNavigate } from 'react-router';
 
 const Carousel = () => {
+  const navigate = useNavigate();
+
   const subjects = [
     { name: 'Matemáticas', imageUrl: imagen_matematicas },
     { name: 'Geografía', imageUrl: imagen_geografia },
@@ -48,7 +51,11 @@ const Carousel = () => {
   };
 
   const handleCardClick = (name) => {
-    console.log('Materia seleccionada:', name);
+    navigate(`/busqueda/${name}`);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   };
 
   return (
@@ -57,23 +64,15 @@ const Carousel = () => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <p className={styles['carousel-title']}>Algunas de las materias que encuentras disponibles en nuestro sitio</p>
+      <h4 className={styles['carousel-title']}>Algunas de las materias que encuentras disponibles en nuestro sitio</h4>
       <div className={styles['carousel-cards']}>
         {[0, 1, 2].map((index) => {
           const subjectIndex = (currentIndex + index) % subjects.length;
           const subject = subjects[subjectIndex];
 
           return (
-            <div
-              key={index}
-              className={styles['card']}
-              onClick={() => handleCardClick(subject.name)}
-            >
-              <img
-                src={subject.imageUrl}
-                alt={subject.name}
-                className={styles['card-image']}
-              />
+            <div key={index} className={styles['card']} onClick={() => handleCardClick(subject.name)}>
+              <img src={subject.imageUrl} alt={subject.name} className={styles['card-image']}/>
               <div className={styles['card-text']}>
                 <p>{subject.name}</p>
               </div>
@@ -81,8 +80,8 @@ const Carousel = () => {
           );
         })}
       </div>
-      <button onClick={handlePrevSlide}>&lt;&lt;</button>
-      <button onClick={handleNextSlide}>&gt;&gt;</button>
+      {/* <button onClick={handlePrevSlide}>&lt;&lt;</button>
+      <button onClick={handleNextSlide}>&gt;&gt;</button> */}
     </div>
   );
 };

@@ -45,7 +45,6 @@ const CardPublication = ({ title, value, lesson, status, id, setRenderUpdatePubl
       <div className={style.buttons}>
       <button onClick={renderFormUpdate} className={style.editar}>Editar</button>
       <button className={style.editar} onClick={click}>{status ? "Mostrar" : "No Mostrar"}</button>
-      <button className={style.editar} onClick={click}>{status ? "Mostrar" : "No Mostrar"}</button>
       </div>
     </div>
   );

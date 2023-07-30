@@ -2,13 +2,13 @@ import React from "react";
 import style from "./NavBar.module.css";
 import Login from "../Login/Login";
 import { Link } from "react-router-dom";
-import loguito from "../../assets/logo-aprende.png";
+import loguito from "../../assets/imagenes/isologo-light.png";
 import faqicon from "../../assets/faq-icon.png";
 import Notifications from "./Notifications";
 
 const NavBar = () => {
   const email = localStorage.getItem("currentUser");
-  console.log(email);
+
   return (
     <div className={style.container}>
       <Link to="/">
