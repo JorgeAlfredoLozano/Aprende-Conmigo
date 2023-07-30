@@ -4,73 +4,84 @@ import dataFq from './dataFq';
 import WhatsAppButton from '../WhatsappBtn/WhatsappBtn'
 
 const Faq = () => {
-  const [expandedGroups, setExpandedGroups] = useState([]);
-  const [expandedResponses, setExpandedResponses] = useState([]);
+  const [accordion, setActiveAccordion] = useState(-1);
+  const [pepito, setPepito] = useState(-1);
+
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth', // Para un scroll suave, añade esta opción
-    });
-  }, []);
-  const handleGroupClick = (grupo) => {
-    if (expandedGroups.includes(grupo)) {
-      setExpandedGroups(expandedGroups.filter((group) => group !== grupo));
-    } else {
-      setExpandedGroups([...expandedGroups, grupo]);
-    }
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth', // Para un scroll suave, añade esta opción
+        });
+      }, []);
+
+  function toggleAccordion(index) {
+    setActiveAccordion((prevAccordion) => (prevAccordion === index ? -1 : index));
   };
 
-  const handleQuestionClick = (pregunta) => {
-    if (expandedResponses.includes(pregunta)) {
-      setExpandedResponses(expandedResponses.filter((question) => question !== pregunta));
-    } else {
-      setExpandedResponses([...expandedResponses, pregunta]);
-    }
-  };
+  function toggleAccordionDos(preguntaIndex, event) {
+    event.stopPropagation()
+    // Si haces clic nuevamente en la misma pregunta, la cierra
+  setPepito((prevPepito) => (prevPepito === preguntaIndex ? -1 : preguntaIndex));
+}
 
   return (
-    <div>
+    <>
       <div className={style.container}>
-        <h1>Preguntas frecuentes</h1>
-        {dataFq.map((mapeo, index) => (
-          <div key={index}>
-            <div
-              onClick={() => handleGroupClick(mapeo.grupo)}
-              className="grupo"
-              style={{ cursor: 'pointer', fontWeight: 'bold' }}
-            >
-             <h2>{mapeo.grupo}</h2>
-            </div>
-            {expandedGroups.includes(mapeo.grupo) && (
-              <div>
-                {mapeo.preguntasRespuestas.map((elemento, index) => (
-                  <div key={index}>
-                    <div
-                      className="pregunta"
-                      style={{ marginLeft: '50px', cursor: 'pointer',fontWeight: 'bold' }}
-                      onClick={() => handleQuestionClick(elemento.pregunta)}
-                    >
-                      <h3><img src="https://cdn-icons-png.flaticon.com/128/545/545678.png"/>{elemento.pregunta} </h3>
-                    </div>
-                    {expandedResponses.includes(elemento.pregunta) && (
-                      <div className="respuesta" style={{ marginLeft: '20%', marginRight: '20%', fontSize : '30px' }}>
-                       <p> {elemento.respuesta}</p>
-                       
+        <div>       
+          <p className={style.texto} style={{ fontSize:"30px",  color:"#3A4D61", fontWeight:"900"}}>Preguntas frecuentes</p>
+        </div>
+        <div className={style.accordion__faq}>
+          { dataFq.map((item, index) =>
+              <div key={index} onClick={() => toggleAccordion(index)}>
+
+                <div className={style.accordion__faq_heading} >
+                  <p className={accordion === index ? style.active : style.nada}
+                  style={{ fontSize:"20px",  color:"#3A4D61", fontWeight:"900"}}>{item.grupo}</p>
+                      <div>
+                        {accordion === index ?
+                          <span className={style.verticle}>-</span> 
+                          : <span className={style.horizental}>+</span>}
                       </div>
-                    )}
+                </div>
+
+                
+         {/* ------------------------------------------------------------------- */}
+                   <div className={style.accordion__faq_heading}>
+                  <p className={accordion === index ? style.active : style.inactive} 
+                  style={{ fontSize:"16px",  color:"#3A4D61", fontWeight:"900"}}>
+                     {item.preguntasRespuestas.map((preguntita, preguntaIndex) => (
+
+                        <div key={preguntaIndex} onClick={(event)=>toggleAccordionDos(preguntaIndex, event)}
+                         >
+                          <div >
+                           <div >{preguntita.pregunta}</div> 
+                           
+                          </div>
+                                <div >
+                                  {pepito === preguntaIndex ?
+                                    <span className={style.verticle} >-</span> 
+                                    : <span className={style.horizental}>+</span>}
+                                </div>
+
+                                <div>
+                                  <p className={pepito === preguntaIndex ?  style.active : style.inactive }
+                                 style={{ fontSize:"14px",  color:"#3A4D61", fontWeight:"900"}}>
+                                  {preguntita.respuesta}
+                                  </p>
+                                </div>
+
+                          </div>))}    
+                  </p>
                   </div>
-                ))}
-              </div>
-            )}
-          </div>
-        ))}
-        <div className={style.wasap}>
-        <WhatsAppButton />
+             </div> 
+            )
+          }
+          <WhatsAppButton />
         </div>
       </div>
-    </div>
+    </>
   );
+
 };
 
 export default Faq;
-

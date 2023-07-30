@@ -1,7 +1,7 @@
 const dataFq = [
   
   {
-    grupo: '🔎 Cursos',
+    grupo: 'Cursos',
     preguntasRespuestas: [
       {
         pregunta: "Busqueda de cursos",
@@ -18,7 +18,7 @@ const dataFq = [
     ]
   },
   {
-    grupo: '🔎 Profesores',
+    grupo: 'Profesores',
     preguntasRespuestas: [
       {
         pregunta: "Buscar un profe",
@@ -35,7 +35,7 @@ const dataFq = [
     ]
   },
   {
-    grupo: '🔎 Mi cuenta',
+    grupo: 'Mi cuenta',
     preguntasRespuestas: [
       {
         pregunta: "Crear una cuenta",
