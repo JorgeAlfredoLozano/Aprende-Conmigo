@@ -1,42 +1,59 @@
-.container{
-    height: 10%;
-    background-color: rgb(35, 128, 211);
+.container {
+    height: 12%;
+    background-color: rgb(255, 255, 255);
     position: fixed;
     width: 100%;
-    top:0%;
+    top: 0%;
     left: 0%;
-    z-index: 2;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.561);
+    z-index: 6;
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     align-items: center;
-}
-
-.logo {
+  }
+  
+  .logo {
     position: fixed;
     color: rgb(32, 32, 32);
     height: 7%;
     width: auto;
-    top: 1.5%;
-    left: 5%
-}
-
-.logo:hover {
+    top: 2.5%;
+    left: 5%;
+  }
+  
+  .logo:hover {
     cursor: pointer;
-}
-
-.faq{
+  }
+  
+  .faq {
     width: auto;
     height: 20px;
     position: fixed;
     top: 3.5%;
     right: 2%;
-}
-
-.faq:hover {
+    display: none;
+  }
+  
+  .faq:hover {
     cursor: pointer;
-}
-
-.notis:hover {
+  }
+  
+  .notis:hover {
     cursor: pointer;
-}
+  }
+  
+  .notificationContainer {
+    position: absolute;
+    top: 5%;
+    right: 23%;
+    padding: 4px 8px;
+  }
+  
+  .menu {
+    margin-right: 50px;
+    transition: 0.5s linear;
+  }
+  
+  .menuHover {
+    cursor: pointer;
+    margin-right: 50px;
+  }

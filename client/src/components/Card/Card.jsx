@@ -52,21 +52,28 @@ const Card = ({id, title, value, lesson, grade, userId , isFavo, assets}) => {
      }
     }
 
+    const scrollToTopAndNavigate = (id) => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });}
+
   return (
     <div className={style.card_publication}>      
       <div className={style.favoriteButton} onClick={(event) =>handleFavorite(event)}>
         {isFav ? "❤️" : "🤍"}
       </div>
-      <NavLink to={`/anuncio/${id}`} className={style.details_link}>
-      <div className={style.assets} style={containerStyle}><h4 className={style.title}>{title}</h4></div>
-      <div className={style.texto}>
-          {/* <h4 className={style.title}>{title}</h4> */}
-        <div className={style.contlesson}>
-          <h5 className={style.lesson}>{lesson}</h5>
-          <h6 className={style.grade}>{grade.split(",").join(" - ")}</h6>
-          <h6 className={style.value}>💲{value}💸</h6>
+      <NavLink to={`/anuncio/${id}`} className={style.details_link} onClick={() => scrollToTopAndNavigate(id)}>
+        <div className={style.assets} style={containerStyle}>
+          <h4 className={style.title}>{title}</h4>
         </div>
-      </div>
+        <div className={style.texto}>
+          <div className={style.contlesson}>
+            <h5 className={style.lesson}>{lesson}</h5>
+            <h6 className={style.grade}>{grade.split(",").join(" - ")}</h6>
+            <h6 className={style.value}>💲{value}💸</h6>
+          </div>
+        </div>
       </NavLink>
     </div>
   );

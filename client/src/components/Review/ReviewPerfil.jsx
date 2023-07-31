@@ -74,7 +74,7 @@ const ReviewPerfil =(props)=>{
      
     return(
         <div className={`${style.container} ${props.isVisible ? style.fadeIn : style.fadeOut}`} >
-           <h4 className={style.texto}>Reseña</h4>
+           {/* <h4 className={style.texto}>Reseña</h4> */}
             {review && review.map((rev)=>{
               const containerStyle = {
                 backgroundImage: `url(${rev && rev.User.assets})`,

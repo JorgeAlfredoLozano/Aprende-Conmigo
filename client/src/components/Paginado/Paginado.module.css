@@ -24,7 +24,7 @@
   .paginado .number.active {
     color: white;
     border-radius: 10px;
-    padding: 5px 8px;
+    padding: 5px 12px;
     background-color: rgb(63, 81, 181);
   }
 
@@ -40,7 +40,7 @@
   }
   
   .paginado .disabled button {
-    color: #777171;
+    color: #9b9b9b;
     cursor: not-allowed;
   }
   
