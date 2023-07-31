@@ -88,7 +88,7 @@ export default function Paginado({ anunciosPerPage, allAnuncios, paginado, curre
 
         {/* LABEL ACTUAL/ULTIMA DE LA NAV */}
         <li>
-          <p className={styles.inicioFin}>
+          <p className={styles.inicioFin} style={{color:"#9b9b9b"}}>
             {currentPage} / {Math.ceil(allAnuncios / anunciosPerPage)}
           </p>
         </li>
@@ -100,7 +100,7 @@ export default function Paginado({ anunciosPerPage, allAnuncios, paginado, curre
           Ir a
           </p>
           <input
-            type="text" value={inputPage} onChange={handleInputChange} placeholder="" style={{ width: "25px" }} onKeyDown={handleKeyDown}
+            type="text" value={inputPage} onChange={handleInputChange} placeholder="" style={{ width: "25px", backgroundColor:"rgba(198, 221, 255, 0.5)" }} onKeyDown={handleKeyDown}
           />
         </li>
         <p style={{ color: "red", marginTop: "5px", height: "8px", marginLeft: "10px" }} disabled={!errorInput}>

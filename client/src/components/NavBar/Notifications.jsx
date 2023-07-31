@@ -38,7 +38,7 @@ const Notifications = () => {
   useEffect(() => {
     // Update the list of users with their unread messages when messagesNR changes
     if (messagesNR.notRead) {
-      console.log(messagesNR.notRead)
+      // console.log(messagesNR.notRead)
       const uniqueIds = Array.from(new Set(messagesNR.notRead.map((message) => message.idSend)));
       // Fetch user information for unique ids
       const fetchUsers = async () => {

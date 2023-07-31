@@ -111,7 +111,7 @@ const About = () => {
       </div>
       <div />
       <div className={styles.containerhistoria} >
-      <h2 className={styles.historia} style={{ marginBottom: "30px", fontSize: "40px", width:"80%", textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", placeContent:"center", width:"100%" }}>
+      <h2 className={styles.historia} style={{ marginBottom: "30px", fontSize: "40px", width:"80%", textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", placeContent:"center" }}>
       <span style={{ color: "white" }}>Nuestra Historia:</span>
       <span style={{ color: "yellow", textShadow: "1px 1px 3px yellow" }}> Trabajando Juntos para el Éxito</span>
     </h2>
