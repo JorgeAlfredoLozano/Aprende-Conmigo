@@ -1,6 +1,6 @@
 require('dotenv').config()  // Carga las variables de entorno desde el archivo .env
 const { Sequelize } = require('sequelize') //Importa la clase Sequelize del paquete sequelize
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME} = process.env // Obtiene los valores de las variables de entorno relacionadas con la base de datos
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_DEPLOY} = process.env // Obtiene los valores de las variables de entorno relacionadas con la base de datos
 const fs = require('fs'); // Módulo de manejo de archivos del sistema
 const path = require('path');  // Módulo para trabajar con rutas de archivos y directorios
 
