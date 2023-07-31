@@ -30,6 +30,10 @@ const Home = () => {
 
   const handleNavigateSearchPage = () => {
     navigate(`/busqueda/todo`);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   };
 
   useEffect(() => {

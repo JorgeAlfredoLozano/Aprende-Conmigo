@@ -2,51 +2,40 @@ import React, { useState, useEffect } from "react";
 import styles from "./Paginado.module.css";
 
 export default function Paginado({ anunciosPerPage, allAnuncios, paginado, currentPage }) {
-  if (allAnuncios === 0) {
-    return null;
-  }
-  const [displayPages, setDisplayPages] = useState([]);
+  const [displayPages, setDisplayPages] = useState([]); //la paginas a mostrarse 
 
+  /* CALCULOS Y MANEJO DEL PAGINADO */
   useEffect(() => {
-    if (allAnuncios > 0) {
-      // Restricción para currentPage
-      
-      if (currentPage < 1) {
-        paginado(1);
-      } else if (currentPage > Math.ceil(allAnuncios / anunciosPerPage)) {
-        paginado(Math.ceil(allAnuncios / anunciosPerPage));
-      }
+    const totalPages = Math.ceil(allAnuncios / anunciosPerPage);
+    const maxDisplayPages = 3; //cantidad de paginas en la nav
+    let startPage = Math.max(currentPage - Math.floor(maxDisplayPages / 2), 1);
+    let endPage = Math.min(startPage + maxDisplayPages - 1, totalPages);
 
-      // Restricción para displayPages
-      const totalPages = Math.ceil(allAnuncios / anunciosPerPage);
-      const maxDisplayPages = 3;
-      let startPage = Math.max(currentPage - Math.floor(maxDisplayPages / 2), 1);
-      let endPage = Math.min(startPage + maxDisplayPages - 1, totalPages);
+    if (endPage - startPage < maxDisplayPages - 1) {
+      startPage = Math.max(endPage - maxDisplayPages + 1, 1);
+    }
 
-      if (endPage - startPage < maxDisplayPages - 1) {
-        startPage = Math.max(endPage - maxDisplayPages + 1, 1);
-      }
+    const pages = [];
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(i);
+    }
 
-      const pages = [];
-      for (let i = startPage; i <= endPage; i++) {
-        pages.push(i);
-      }
-
-      setDisplayPages(pages);
-    } 
+    setDisplayPages(pages); //mostrar las paginas
   }, [currentPage, allAnuncios, anunciosPerPage]);
 
   const [inputPage, setInputPage] = useState("");
   const [errorInput, setErrorInput] = useState("");
 
+  /* HANDLER DEL INPUT PARA GO TO PAGE */
   const handleInputChange = (event) => {
     setInputPage(event.target.value);
     setErrorInput("");
   };
 
-  const handleGoToPage = () => {
+  /* HANDLER BOTON GO TO PAGE */
+  const handleGoToPage = () => { 
     const pageNumber = parseInt(inputPage, 10);
-    if (pageNumber >= 1 && pageNumber <= Math.ceil(allAnuncios / anunciosPerPage)) {
+    if (pageNumber >= 1 && pageNumber <= Math.ceil(allAnuncios / anunciosPerPage)) { //controlo si es valido o tiro el error
       paginado(pageNumber);
       setInputPage("");
     } else {
@@ -54,85 +43,60 @@ export default function Paginado({ anunciosPerPage, allAnuncios, paginado, curre
     }
   };
 
+  /* HANDLER PARA CAPTURAR EL ENTER */  
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       handleGoToPage();
     }
   };
 
+  /* HANDLER BOTON GO TO HOME EN NAV DE PAGINADO */
   const handleHomeBtn = () => {
     paginado(1);
-  };
-
-  const isFirstPage = currentPage === 1;
-  const isLastPage = currentPage === Math.ceil(allAnuncios / anunciosPerPage);
+  }
 
   return (
-    <div className={styles.container} style={{ marginBottom: "15px" }}>
+    <div className={styles.container} style={{marginBottom: "15px"}}>
       <ul className={styles.paginado} style={{ display: "flex", alignItems: "center", gap: "1em" }}>
-        {/* BOTON HOME DE LA NAV */}
-        <li>
-          <p className={styles.inicio} onClick={handleHomeBtn}>
-            Inicio
-          </p>
-        </li>
 
-        <li>
-          <p
-            style={{
-              cursor: isFirstPage ? "not-allowed" : "pointer",
-              margin: "0%",
-              color: isFirstPage ? "#777171" : "inherit",
-              pointerEvents: isFirstPage ? "none" : "auto",
-            }}
-            onClick={() => {
-              if (!isFirstPage) {
-                paginado(currentPage - 1);
-              }
-            }}
-          >
+        {/* BOTON HOME DE LA NAV */}
+        <li><p className={styles.inicio} onClick={handleHomeBtn}>Inicio</p></li>
+        
+        {/* BOTON ANTERIOR DE LA NAV */}
+        <li className={currentPage === 1 ? styles.disabled : ""}>
+          <p style={{cursor:"pointer", margin:"0%"}} onClick={() => paginado(currentPage - 1)} disabled={currentPage === 1}>
             {"<"}
           </p>
-        </li>
 
+        {/* BOTON NUMEROS DE LA NAV */}
+        </li>
         {displayPages.map((number) => (
           <li
             className={currentPage === number ? `${styles.number} ${styles.active}` : styles.number}
             key={number}
           >
-            <p style={{ margin: "0%" }} onClick={() => paginado(number)}>
-              {number}
-            </p>
+            <p style={{margin:"0%"}} onClick={() => paginado(number)}>{number}</p>
           </li>
         ))}
 
-        <li>
-          <p
-            style={{
-              cursor: isLastPage ? "not-allowed" : "pointer",
-              margin: "0%",
-              color: isLastPage ? "#777171" : "inherit",
-              pointerEvents: isLastPage ? "none" : "auto",
-            }}
-            onClick={() => {
-              if (!isLastPage) {
-                paginado(currentPage + 1);
-              }
-            }}
-          >
+        {/* BOTON SIGUIENTE DE LA NAV */}
+        <li className={currentPage === Math.ceil(allAnuncios / anunciosPerPage) ? styles.disabled : ""}>
+          <p style={{cursor:"pointer", margin:"0%"}} onClick={() => paginado(currentPage + 1)} disabled={currentPage === Math.ceil(allAnuncios / anunciosPerPage)}>
             {">"}
           </p>
         </li>
 
+        {/* LABEL ACTUAL/ULTIMA DE LA NAV */}
         <li>
           <p className={styles.inicioFin} style={{color:"#9b9b9b"}}>
             {currentPage} / {Math.ceil(allAnuncios / anunciosPerPage)}
           </p>
         </li>
-      </ul>
 
-      <div style={{ display: "flex", gap: "1em" }}>
-        <p style={{ cursor: "pointer", margin: "0%" }} onClick={handleGoToPage}>
+        {/* BOTON IR A UNA PAGINA DE LA NAV */}
+      </ul>
+        <li style={{display:"flex", gap:"1em"}}>
+          <p style={{ cursor: "pointer", margin:"0%" }} onClick={handleGoToPage}>
           Ir a
           </p>
           <input
