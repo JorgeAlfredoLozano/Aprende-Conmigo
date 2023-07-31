@@ -13,7 +13,9 @@ const initialState = {
   reviews:[],
   allUsers:[],
   allUserEmail:[],
-  myFavorites: [] 
+  myFavorites: [],
+  register:null,
+  verification:null
   };
 
 const reducer = (state = initialState, {type, payload}) => {
@@ -52,7 +54,6 @@ const reducer = (state = initialState, {type, payload}) => {
   return{
     ...state,
     allAnuncios: payload,
-    // todos:[...allAnuncios]
     }
     case 'GET_USER_BY_ID':
       return{
@@ -114,8 +115,7 @@ const reducer = (state = initialState, {type, payload}) => {
               myFavorites:  payload
             }
             //-------------------
-            case "REMOVE_FAV":
-        
+            case "REMOVE_FAV":       
               // Encuentra el índice del favorito en myFavorites que tiene el PublicationId igual al payload
               const favIndex = state.myFavorites.findIndex((fav) => fav.PublicationId === payload)
               if (favIndex !== -1) {
@@ -125,7 +125,17 @@ const reducer = (state = initialState, {type, payload}) => {
               ...state,
               myFavorites: newFavorites
             }
-          }        
+          }
+          case "POST_NEW_USER_DB":           
+          return{
+            ...state,
+            register: payload
+          }
+          case "PUT_VERIFICATION_USER_DB":           
+          return{
+            ...state,
+            verification: payload
+          }         
   default:
     return { ...state };
   }

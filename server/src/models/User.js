@@ -39,5 +39,10 @@ sequelize.define('User', {
         type:DataTypes.BOOLEAN,
         defaultValue: true
     },
+    isVerified:{
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+    } 
 },{timestamps:false,freezeTableName:true}
 )}

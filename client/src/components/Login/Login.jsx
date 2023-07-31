@@ -48,7 +48,7 @@ const Login = ({ userData, getUser }) => {
 
   useEffect(() => {
     const cachedUser = JSON.parse(localStorage.getItem('cachedUser'));
-    if (cachedUser && cachedUser.length !==0) {
+    if (cachedUser && cachedUser.length > 0) {
       setLogged(true);
     }
   }, []);
@@ -96,7 +96,7 @@ const Login = ({ userData, getUser }) => {
             setLogged(true);
             localStorage.setItem('currentUser', email);
             navigate('/');
-            window.location.reload()
+            setTimeout(()=>{window.location.reload()},2000) 
           }
           )
         .catch((error) => {
@@ -112,7 +112,7 @@ const Login = ({ userData, getUser }) => {
           localStorage.removeItem('currentUser');
           localStorage.removeItem('cachedUser');         
           navigate('/');
-          window.location.reload()
+          window.location.reload();     
         })
         .catch((error) => {
           console.error('Error al cerrar sesión:', error);
@@ -124,12 +124,36 @@ const Login = ({ userData, getUser }) => {
     backgroundImage: `url(${userData && userData.assets})`,
   };
 
+  const changeWindow = (event) => {
+    event.preventDefault();
+
+    if (event.target.id === 'panel') {
+      navigate('/admin');
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    } else if (event.target.id === 'perfil') {
+      navigate('/perfil/usuario');
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    } else if (event.target.id === 'favoritos') {
+      navigate('/perfil/anunciosfav');
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }
+  }
+
   return (
     <div className={style.container}>
       {!logged && (
-        <button className={style.boton} onClick={changeDidLog}>
+        <p className={style.boton} onClick={changeDidLog}>
           Conéctate
-        </button>
+        </p>
       )}
       {logged && (
         <div className={style.container}>
@@ -137,9 +161,9 @@ const Login = ({ userData, getUser }) => {
           {showLogoutButton && (
             <div className={style.panel}>
               <div ref={panelRef} className={style.desplegable} onClick={() => setShowLogoutButton(!showLogoutButton)} >
-                {admin && <Link to='/admin'><p className={style.botones}>Panel de Control</p></Link>}
-                <Link to='/perfil/usuario'><p className={style.botones}>Mi Perfil</p></Link>
-                <Link to='/perfil/anunciosfav'><p className={style.botones}>Favoritos</p></Link>
+                {admin && <p id='panel' onClick={(event)=> {changeWindow(event)}} className={style.botones}>Panel de Control</p>}
+                <p id='perfil' onClick={(event)=> {changeWindow(event)}} className={style.botones}>Mi Perfil</p>
+                <p id='favoritos' onClick={(event)=> {changeWindow(event)}} className={style.botones}>Favoritos</p>
                 <p onClick={changeDidLog} className={style.botones}>Cerrar Sesión</p>
               </div>
             </div>

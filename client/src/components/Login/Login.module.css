@@ -10,7 +10,7 @@
 .greet {
     position: fixed;
     width: 250px;
-    color: rgb(255, 255, 255);
+    color: rgb(35, 128, 211);
     font-weight: bolder;
     font-size: 1.2vw;
     text-align: right;
@@ -58,4 +58,16 @@
     color:white;
     cursor: pointer;
     transition: 0.3s ease;
+}
+
+.boton {
+    color: rgb(35, 128, 211);
+    margin: 0%;
+    font-family: 'Poppins-Bold';
+    transition: 0.2s linear;
+}
+
+.boton:hover {
+    opacity: 90%;
+    cursor: pointer;
 }

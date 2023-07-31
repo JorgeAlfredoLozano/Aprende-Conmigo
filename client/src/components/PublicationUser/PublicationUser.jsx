@@ -46,6 +46,9 @@ const PublicationUser = ({ submitFormAnuncio, renderUpdatePubli, setRenderUpdate
                 about_teacher={card.about_teacher}
                 grade={card.grade}
                 status={card.status}
+                renderUpdatePubli={renderUpdatePubli}
+                setRenderUpdatePubli={setRenderUpdatePubli}
+                formId={formId}
               />
              
               

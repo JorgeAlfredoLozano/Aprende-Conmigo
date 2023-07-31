@@ -43,6 +43,10 @@ function ToSearchPage() {
         navigate(`/busqueda/todo`);
       } else if (selectedOption) {
         navigate(`/busqueda/${selectedOption.label}`);
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth', 
+        });
       } else {
         const inputValueLowerCase = inputValue.toLowerCase();
         const matchedOption = options.find((option) =>
@@ -50,8 +54,16 @@ function ToSearchPage() {
         );
         if (matchedOption) {
           navigate(`/busqueda/${matchedOption.label}`);
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth', 
+          });
         } else {
           navigate(`/busqueda/${inputValue}`);
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth', 
+          });
         }
       }
     }

@@ -14,10 +14,14 @@ import Sales from '../Sales/Sales';
 import UpdatePubli from '../UpdatePubli/UpdatePubli';
 import ReviewPerfil from '../Review/ReviewPerfil';
 import PopUp from '../PopUp/PopUp';
+import perfilIcon from '../../assets/icon-perfil-blanco.png';
+import anunciosIcon from '../../assets/icon-anuncio-blanco.png';
+import favoritosIcon from '../../assets/icon-fav-blanco.png';
+import historialIcon from '../../assets/icon-historial-blanco.png';
+import mensajesIcon from '../../assets/icon-mensajes-blanco.png';
 
-const Perfil = ({ userData, getUser, getAllPublication }) => {
+const Perfil = ({ userData, getUser, getAllPublication, renderMenu, setRenderMenu }) => {
   const { tab } = useParams();
-
   useEffect(() => {
     setRenderUser(userData);
   }, [userData]);
@@ -140,6 +144,9 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   const handleFormSubmit = () => {
     getUser(currentUser);
     setRenderForm(false);
+    // setTimeout(() => {
+    //   window.location.reload();
+    // }, "1000");
   };
 
   const handleFormSubmitAnuncio = () => {
@@ -191,42 +198,44 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
   return (
     <div className={style.container}>
       <div className={style.contenedorPerfil}>
-        <div className={style.contenedorTabs}>
-          <p id='usuario' onClick={changeTab} className={renderProfile ? style.active : style.tabs}>Mi perfil</p>
-          <p id='anuncios' onClick={changeTab} className={renderAnuncios ? style.active : style.tabs}>Anuncios</p>
-          <p
-            id='anunciosfav'
-            onClick={changeTab}
-            className={renderAnunciosFavoritos ? style.active : style.tabs}
-          >
-            Anuncios Favoritos
-          </p>
-          <p id='historial' onClick={changeTab} className={renderHistorial ? style.active : style.tabs}>
-            Historial
-          </p>
-          <p id='mensajes' onClick={changeTab} className={renderMensajes ? style.active : style.tabs}>
-            Mensajes
-          </p>
-        </div>
+        {renderMenu && <div className={style.wea}>
+          <div className={style.contenedorTabs}>
+          <div className={style.boxA}>
+          <div className={style.tabsIcon}><p id='usuario' onClick={changeTab} className={renderProfile ? style.active : style.tabs}>Mi perfil</p><img className={style.icon} src={perfilIcon}/></div>
+          <hr className={style.hr}/>
+          </div>
+          <div className={style.boxB}>
+          <div className={style.tabsIcon}><p id='anuncios' onClick={changeTab} className={renderAnuncios ? style.active : style.tabs}>Anuncios</p><img className={style.icon} src={anunciosIcon}/></div>
+          <div className={style.tabsIcon}><p id='anunciosfav' onClick={changeTab} className={renderAnunciosFavoritos ? style.active : style.tabs}>Favoritos</p><img className={style.icon} src={favoritosIcon}/></div>
+          <div className={style.tabsIcon}><p id='historial' onClick={changeTab} className={renderHistorial ? style.active : style.tabs}>Historial</p><img className={style.icon} src={historialIcon}/></div>
+          </div>
+          <div className={style.boxC}>
+          <hr className={style.hr}/>
+          <div className={style.tabsIcon}><p id='mensajes' onClick={changeTab} className={renderMensajes ? style.active : style.tabs}>Mensajes</p><img className={style.icon} src={mensajesIcon}/></div>
+          </div></div></div>}
         <section className={style.contenedorInfo}>
         {renderPopUp && <PopUp renderPopUp={renderPopUp} setRenderPopUp={setRenderPopUp} text={text} setText={setText}/>}
           {renderProfile && (
-            <>
+            <div className={style.contPerfil}>
+            <section className={style.imagen}>
+                <div className={style.imgCont} style={containerStyle}></div>
+                <SendPhoto className={style.send} onSubmit={(event)=>handlePhotoSubmit} />
+              </section>
               <section className={style.datos}>
                 <p className={style.infoLabel}>
-                  <span style={{color:"rgb(63, 81, 181)", fontWeight:"900"}}>Nombre: </span> 
+                  <span style={{color:"rgb(63, 81, 181)", fontFamily:"Poppins-Medium"}}>Nombre: </span> 
                   <span>{renderUser.name}</span>
                   </p>
                 <p className={style.infoLabel}>
-                  <span style={{color:"rgb(63, 81, 181)", fontWeight:"900"}}>Email: </span>
+                  <span style={{color:"rgb(63, 81, 181)", fontFamily:"Poppins-Medium"}}>Email: </span>
                   <span>{renderUser.email}</span>
                   </p>
                 <p className={style.infoLabel}>
-                  <span style={{color:"rgb(63, 81, 181)", fontWeight:"900"}}>Fecha de Nacimiento: </span>
+                  <span style={{color:"rgb(63, 81, 181)", fontFamily:"Poppins-Medium"}}>Fecha de Nacimiento: </span>
                   <span>{renderUser.date}</span>
                   </p>
                 <p className={style.infoLabel}>
-                  <span style={{color:"rgb(63, 81, 181)", fontWeight:"900"}}>Género: </span>
+                  <span style={{color:"rgb(63, 81, 181)", fontFamily:"Poppins-Medium"}}>Género: </span>
                   <span>{
                 renderUser.gender === 'male'
                 ? 'Hombre' 
@@ -236,19 +245,16 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
                 }</span>
                 </p>
                 <p className={style.infoLabel}>
-                  <span style={{color:"rgb(63, 81, 181)", fontWeight:"900"}}>Teléfono: </span>
+                  <span style={{color:"rgb(63, 81, 181)", fontFamily:"Poppins-Medium"}}>Teléfono: </span>
                   <span>{renderUser.phone}</span>
                   </p>
                 <button className={style.botonForm} onClick={updateData}>
-                  Modificar Perfil
+                  Modificar Datos
                 </button>
               </section>
-              <section className={style.imagen}>
-                <div className={style.imgCont} style={containerStyle}></div>
-                <SendPhoto className={style.send} onSubmit={(event)=>handlePhotoSubmit} />
-              </section>
+              
               {renderForm && <FormUpdate isVisible={renderForm} onCancel={cancelarForm} onSubmit={handleFormSubmit} renderPopUp={renderPopUp} setRenderPopUp={setRenderPopUp} text={text} setText={setText}/>}
-            </>
+            </div>
           )}
           {renderAnuncios && (
             <div>
@@ -265,7 +271,7 @@ const Perfil = ({ userData, getUser, getAllPublication }) => {
                 <FormAnuncio isVisible={renderFormAnuncio} onCancel={cancelarFormAnuncio} onSubmit={handleFormSubmitAnuncio} renderPopUp={renderPopUp} setRenderPopUp={setRenderPopUp} text={text} setText={setText}/>
               )}
               {renderUpdatePubli && (
-              <UpdatePubli isVisible={renderUpdatePubli} renderUpdatePubli={renderUpdatePubli} setRenderUpdatePubli={setRenderUpdatePubli} updateId={updateId}/>
+              <UpdatePubli isVisible={renderUpdatePubli} renderUpdatePubli={renderUpdatePubli} setRenderUpdatePubli={setRenderUpdatePubli} updateId={updateId} renderPopUp={renderPopUp} setRenderPopUp={setRenderPopUp} text={text} setText={setText}/>
               )}
             </div>
           )}

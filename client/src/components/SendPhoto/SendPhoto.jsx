@@ -52,7 +52,7 @@ const SendPhoto = (props) => {
   return (
     <div className={style.contenedor}>
       <input type="file" ref={fileInputRef} onChange={handleFileChange} style={{ display: 'none' }}/>
-      <button onClick={() => fileInputRef.current.click()}>Cambiar avatar</button>
+      <p className={style.boton} onClick={() => fileInputRef.current.click()}>Cambiar avatar</p>
     </div>
   );
 };

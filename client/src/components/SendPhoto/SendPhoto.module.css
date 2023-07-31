@@ -1,6 +1,14 @@
-/* .contenedor {
-    /* position: absolute;
-    right: 10%;
-    top: 60%;
-    margin-top: 3%;
-}*/
+.contenedor {
+    position: relative;
+    margin-top: 2%;
+}
+
+.boton {
+    color: rgb(63, 81, 181);
+}
+
+.boton:hover {
+    opacity: 85%;
+    cursor: pointer;
+    transition: 0.3s linear;
+}

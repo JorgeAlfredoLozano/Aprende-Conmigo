@@ -28,7 +28,7 @@ let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].s
 sequelize.models = Object.fromEntries(capsEntries);
 
 
-const { Publication, Lesson, User, Message, Purchase,Favorite, Review } = sequelize.models;
+const { Publication, Lesson, User, Message, Purchase,Favorite, Review, Login } = sequelize.models;
 
 User.hasMany(Publication)
 Publication.belongsTo(User)
@@ -45,11 +45,11 @@ Publication.hasMany(Purchase); // una publicacion puede estar en varias compras
 Purchase.belongsTo(User); // una compra pertenece a un usuario
 Purchase.belongsTo(Publication); //una compra pertenece a una publicacion
 
-User.hasMany(Review);// un User puede hacer muchas Review
-Review.belongsTo(User);// una Review pertenece a una User
+User.hasMany(Review); // un User puede hacer muchas Review
+Review.belongsTo(User); // una Review pertenece a una User
 
 Publication.hasMany(Review); // una Publication puede tener muchas Review
-Review.belongsTo(Publication);// una Review pertenece a una Publication
+Review.belongsTo(Publication); // una Review pertenece a una Publication
 
 module.exports = {
     ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

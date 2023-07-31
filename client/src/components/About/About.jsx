@@ -12,14 +12,6 @@ const About = () => {
       cv: 'Full-Stack Developer | React.js | JavaScript | Node.js | Postgres | CSS | Freelance Illustrator | Computer Science Student'
     },
     {
-      name: 'Ivana Carmona',
-      place: 'Argentina',
-      photo: 'https://media.licdn.com/dms/image/D4D35AQHjSmNJsA-3yw/profile-framedphoto-shrink_800_800/0/1689523582847?e=1690732800&v=beta&t=ergcF_5JUzKkTlcvH_qjvvX6mPTk3g3uEIf65XofrVM',
-      LINKEDIN: 'https://www.linkedin.com/in/antonella-carmona-5a166520a/',
-      icon: 'https://static.vecteezy.com/system/resources/previews/017/339/646/non_2x/linkedin-icon-free-png.png',
-      cv: 'Full-Stack Developer | React.js | JavaScript | Node.js | Postgres | CSS | TypeScript'
-    },
-    {
       name: 'Bachir Nasser',
       place: 'Venezuela',
       photo: 'https://media.licdn.com/dms/image/D4E03AQEs-hFk4THOaA/profile-displayphoto-shrink_200_200/0/1675105858893?e=1695859200&v=beta&t=MLnHhVvQz4_8SqtE-Xm2G1Rd9YZnB0szkUBWMkRprQI',
@@ -34,6 +26,14 @@ const About = () => {
       LINKEDIN: 'https://www.linkedin.com/in/jorgealozano/',
       icon: 'https://static.vecteezy.com/system/resources/previews/017/339/646/non_2x/linkedin-icon-free-png.png',
       cv: 'Full-Stack Developer | Testing/QA en Codo a Codo | React.js | JavaScript | Node.js | Postgres | CSS | Técnico Superior en Seguros'
+    },
+    {
+      name: 'Ivana Carmona',
+      place: 'Argentina',
+      photo: 'https://media.licdn.com/dms/image/D4D35AQHjSmNJsA-3yw/profile-framedphoto-shrink_800_800/0/1689523582847?e=1690732800&v=beta&t=ergcF_5JUzKkTlcvH_qjvvX6mPTk3g3uEIf65XofrVM',
+      LINKEDIN: 'https://www.linkedin.com/in/antonella-carmona-5a166520a/',
+      icon: 'https://static.vecteezy.com/system/resources/previews/017/339/646/non_2x/linkedin-icon-free-png.png',
+      cv: 'Full-Stack Developer | React.js | JavaScript | Node.js | Postgres | CSS | TypeScript'
     },
     {
       name: 'Alí Garay Vega',
@@ -74,7 +74,7 @@ const About = () => {
   return (
     <div className={styles['about-container']}>
       <br />
-      <h2 className={styles.equipo} style={{ marginTop:"35px", fontSize: "60px"}}>Desarrolladores</h2>
+      <p className={styles.equipo} style={{ marginTop:"35px", fontSize: "40px", fontFamily:"Poppins-Medium", color:"rgb(35, 128, 211)"}}>¿Quiénes somos?</p>
       <div className={styles['participants-container']}>
         {participants.map((participant, index) => (
           <div
@@ -111,12 +111,12 @@ const About = () => {
       </div>
       <div />
       <div className={styles.containerhistoria} >
-      <h2 className={styles.historia} style={{ marginBottom: "30px", fontSize: "55px" }}>
+      <h2 className={styles.historia} style={{ marginBottom: "30px", fontSize: "40px", width:"80%", textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", placeContent:"center" }}>
       <span style={{ color: "white" }}>Nuestra Historia:</span>
       <span style={{ color: "yellow", textShadow: "1px 1px 3px yellow" }}> Trabajando Juntos para el Éxito</span>
     </h2>
       <div className={styles['paragraph-container']}>
-        <p>En Aprende Conmigo, el camino hacia el éxito fue trazado por un grupo de desconocidos. Cada miembro llegó al equipo sin previo conocimiento entre sí, pero con un objetivo común y firme: construir un espacio de aprendizaje sólido y consolidado.</p>
+        <p>En <span style={{ color: "yellow" }}> Aprende Conmigo</span>, el camino hacia el éxito fue trazado por un grupo de desconocidos. Cada miembro llegó al equipo sin previo conocimiento entre sí, pero con un objetivo común y firme: <span style={{fontFamily:"Poppins-Italic"}}>construir un espacio de aprendizaje sólido y consolidado.</span></p>
         <p>Desde el primer día, nos sumergimos en un arduo trabajo diario, donde la colaboración y el esfuerzo se convirtieron en nuestras mejores herramientas. Unidos por nuestra pasión compartida por el conocimiento y la enseñanza, nos embarcamos en la emocionante misión de desarrollar este sitio, con la convicción profunda de que juntos podríamos alcanzar grandes logros.</p>
         <p>Cada miembro de este equipo aportó sus habilidades únicas y conocimientos especializados, enriqueciendo así nuestro entorno de aprendizaje. Superamos desafíos y obstáculos, fortaleciendo nuestra unión a medida que avanzábamos en esta trayectoria conjunta.</p>
         <p>Nuestra dedicación y compromiso nos llevaron a ofrecer lo mejor de nosotros en cada paso del proceso. Cada línea de código, diseño y recurso se crearon con una pasión inquebrantable para brindar una experiencia excepcional a nuestros visitantes.</p>

@@ -7,7 +7,7 @@ const templateUserBuy = require('./templates/templateUserBuy')
 const templateUserSale = require('./templates/templateUserSale')
 const templateUserBann = require('./templates/templateUserBann')
 const templatePublicationBann = require('./templates/templatePublicationBann')
-
+const templateToken = require('./templates/templateToken')
 const publicar = ''
 const pagina = ''
 const contactar = `https://wa.me/+523311023777?text=${encodeURIComponent('Necesito ayuda')}`
@@ -16,8 +16,8 @@ let msg1={}
 let msg2={}
 sgMail.setApiKey(SENDGRID);
 
-const sendmail = async(type, email, datos, email2, userName, hora, nombre, title) => {
-     console.log(type,title,nombre,'tyyyypeee')
+const sendmail = async(type, email, datos, email2, userName, hora, nombre, title, tokenUrl) => {
+   
   if (type==="register") {
       const saludo=templateRegister(datos,contactar,pagina,publicar)
         msg1 = {
@@ -42,7 +42,7 @@ const sendmail = async(type, email, datos, email2, userName, hora, nombre, title
         msg2 = {
             to: email2,
             from: 'aprendeconmigohenry@gmail.com',
-            subject: `¡Su curso de ${datos.Lessons[0].lesson_name} ha sido comprado!`,
+            subject: `¡Su curso de ${datos?.Lessons[0]?.lesson_name} ha sido comprado!`,
             preheader: 'Se registro un pago de su curso',
             html: sale,
         };
@@ -52,7 +52,7 @@ const sendmail = async(type, email, datos, email2, userName, hora, nombre, title
     msg1 = {
       to: email,
       from: 'aprendeconmigohenry@gmail.com',
-      subject: '¡Tu publicacion ha sido bloqueada!',
+      subject: '¡Tu publicacion ha sido bloqueado!',
       preheader: 'nawuebonaa',
       html: publiOff,
     };
@@ -62,11 +62,21 @@ const sendmail = async(type, email, datos, email2, userName, hora, nombre, title
     msg1 = {
       to: email,
       from: 'aprendeconmigohenry@gmail.com',
-      subject: '¡Tu usuario ha sido bloqueada!',
-      preheader: 'tu cuenta ha sido bloqueada',
+      subject: '¡Tu usuario ha sido bloqueado!',
+      preheader: 'tu cuenta ha sido bloqueado',
       html: userOff,
     };
   };
+  if(type==="token"){
+    const verification=templateToken(tokenUrl,contactar)
+    msg1 = {
+      to: email,
+      from: 'aprendeconmigohenry@gmail.com',
+      subject: '¡Verificacion de cuenta',
+      preheader: 'verifica tu cuenta',
+      html: verification,
+    };
+  }
 
       try {
         if (type === "register") {
@@ -78,10 +88,11 @@ const sendmail = async(type, email, datos, email2, userName, hora, nombre, title
           await sgMail.send(msg1);
         } else if (type==="userOff"){
           await sgMail.send(msg1);
+        } else if(type==="token"){
+          await sgMail.send(msg1);
         }
-        console.log('Correo electrónico enviado correctamente');
       } catch (error) {
-        console.error('Error al enviar el correo electrónico', error);
+        
       }
 }
 
