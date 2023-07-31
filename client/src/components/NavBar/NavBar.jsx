@@ -63,6 +63,7 @@ const NavBar = ({renderMenu, setRenderMenu}) => {
           onMouseEnter={() => setIsMenuIconHovered(true)}
           onMouseLeave={() => setIsMenuIconHovered(false)}
           onClick={handleMenu}
+          style={{height:"20px", width:"auto"}}
         />
       )}
     </div>

@@ -193,7 +193,7 @@
 
   .tabHistorial:hover {
     border-radius: 10px;
-    background-color: rgba(208, 225, 255, 0.493);
+    opacity: 85%;
     transition: 0.2s linear;
     cursor: pointer;
   }
@@ -241,7 +241,7 @@
 
   .panuncio:hover {
     border-radius: 10px;
-    background-color: rgba(208, 225, 255, 0.493);
+    opacity: 85%;
     transition: 0.2s linear;
     cursor: pointer;
   }

@@ -68,12 +68,12 @@ const Notifications = () => {
           <span
             style={{
               position: "absolute",
-              top: "7px",
+              top: "15px",
               right: "13px",
               backgroundColor: "rgb(35, 128, 211)",
               borderRadius: "50%",
               color: "white",
-              padding: "4px 8px",
+              padding: "4px 10px",
               fontSize: "12px",
             }}
           >

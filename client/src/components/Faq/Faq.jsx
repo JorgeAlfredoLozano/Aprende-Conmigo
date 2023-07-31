@@ -2,23 +2,26 @@ import React, { useState, useEffect } from "react";
 import style from './Faq.module.css';
 import dataFq from './dataFq';
 import WhatsAppButton from '../WhatsappBtn/WhatsappBtn';
-import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
+import LoadingAnimation from "../LoadingAnimation/LoadingAnimation";
 
 const Faq = () => {
-  const [expandedGroups, setExpandedGroups] = useState([]);
-  const [expandedResponses, setExpandedResponses] = useState([]);
+  const [accordion, setActiveAccordion] = useState(-1);
+  const [pepito, setPepito] = useState(-1);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth', // Para un scroll suave, añade esta opción
-    });
-  }, []);
-  const handleGroupClick = (grupo) => {
-    if (expandedGroups.includes(grupo)) {
-      setExpandedGroups(expandedGroups.filter((group) => group !== grupo));
-    } else {
-      setExpandedGroups([...expandedGroups, grupo]);
-    }
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth', // Para un scroll suave, añade esta opción
+        });
+
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1500);
+      }, []);
+
+  function toggleAccordion(index) {
+    setActiveAccordion((prevAccordion) => (prevAccordion === index ? -1 : index));
   };
 
   function toggleAccordionDos(preguntaIndex, event) {
@@ -28,8 +31,10 @@ const Faq = () => {
 }
 
   return (
-    <div>
+    <>
+    {isLoading ? <LoadingAnimation /> :
       <div className={style.container}>
+        
         <div>       
           <p className={style.texto} style={{ fontSize:"30px",  color:"#3A4D61", fontWeight:"900"}}>Preguntas frecuentes</p>
         </div>
@@ -47,9 +52,7 @@ const Faq = () => {
                       </div>
                 </div>
 
-                
-         {/* ------------------------------------------------------------------- */}
-                   <div className={style.accordion__faq_heading}>
+                  <div className={style.accordion__faq_heading}>
                   <p className={accordion === index ? style.active : style.inactive} 
                   style={{ fontSize:"16px",  color:"#3A4D61", fontWeight:"900"}}>
                      {item.preguntasRespuestas.map((preguntita, preguntaIndex) => (
@@ -81,7 +84,7 @@ const Faq = () => {
           }
           <WhatsAppButton />
         </div>
-      </div>
+      </div>}
     </>
   );
 
