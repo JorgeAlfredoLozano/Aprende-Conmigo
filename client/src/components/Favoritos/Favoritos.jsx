@@ -17,7 +17,7 @@ const Favoritos = () => {
     return (
         <div>        
       {myFavorites.length === 0 ? (
-        <p>No tienes favoritos seleccionados.</p>
+        <p style={{paddingTop:"45%"}}>No tienes favoritos seleccionados.</p>
       ) : (
         <div className={style.card_publication} >
           {myFavorites?.map((fav) => (

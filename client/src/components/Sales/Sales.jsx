@@ -29,7 +29,6 @@ const Sales =()=>{
      <h4 className={`${style.title}`}>{pub.Publication.title}</h4>
   <h5 className={`${style.lesson}`}>{pub.Publication.Lessons[0].lesson_name}</h5>
   </div>
-  {/* <h6 className={`${style.grade}`}>{pub.Publication.grade.split(",").join(" - ")}</h6> */}
   <h6 className={`${style.value}`}>${pub.Publication.value}</h6>
   </div>
   </>

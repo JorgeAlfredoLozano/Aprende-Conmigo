@@ -1,3 +1,4 @@
+import React from 'react';
 import style from './DetailAnuncio.module.css';
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
@@ -80,6 +81,10 @@ const DetailAnuncio = () => {
 
   const handleGoBack = () => {
     navigate(-1);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   };
 
   const handleRenderMessage = (event) => {
@@ -118,15 +123,15 @@ const DetailAnuncio = () => {
           <LoadingAnimation />
           ) : (
             <div className={style.anuncio}>
-            <button onClick={handleGoBack} style={{zIndex:"6"}}>Volver</button>
-            <h1 className={style.title}>{filteredData[0].title}</h1>
+            <button onClick={handleGoBack} style={{zIndex:"5"}}>Volver</button>
+            <h1 className={style.title} style={{color:"rgb(63, 81, 181)"}}>{filteredData[0].title}</h1>
             <div className={style.claseContainer}>
-              <h1>Acerca de la clase</h1>
-              <h5 className={style.grade}>Nivel: {filteredData[0].grade.split(',').join(' - ')}</h5>
+              <h1 style={{color:"rgb(63, 81, 181)"}}>Acerca de la clase</h1>
+              <h5 className={style.grade} style={{color:"rgb(63, 81, 181)"}}>Nivel: {filteredData[0].grade.split(',').join(' - ')}</h5>
               <p className={style.aboutWea}>{filteredData[0].about_class}</p>
             </div>
             <div className={style.teacherContainer}>
-              <h1>Sobre {userTeacher && userTeacher.data.name}</h1>
+              <h1 style={{color:"rgb(63, 81, 181)"}}>Sobre {userTeacher && userTeacher.data.name}</h1>
               <p className={style.aboutWea}>{filteredData[0].about_teacher}</p>
             </div>
             {idLog ? (
@@ -163,21 +168,21 @@ const DetailAnuncio = () => {
           <section className={style.about}>
             <div className={style.boxAbout}>
               <div className={style.imgCont} style={{ backgroundImage: `url(${userTeacher.data.assets})` }}></div>
-              <h3>{userTeacher.data.name}</h3>
+              <h3 >{userTeacher.data.name}</h3>
               {idLog ? (
                 <Link to={`/perfilPublico/${userTeacher.data.id}`}>
-                  <button>+info</button>
+                  {/* <button>+info</button> */}
                 </Link>
               ) : (
                 <>
-                  {showLoginMessage && (
+                  {/* {showLoginMessage && (
                     <div>
                       <button onClick={() => setShowLoginMessage(false)}>continuar</button>
                     </div>
                   )}
                   <button onClick={() => setShowLoginMessage(true)}>
                     +info
-                  </button>
+                  </button> */}
                 </>
               )}
               <h3>💲{filteredData[0].value}💸</h3>

@@ -1,18 +1,18 @@
 /* Estilos para todo el componente */
 .about-container {
+  margin-top: 3%;
   text-align: center;
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: -webkit-linear-gradient(-1deg, rgb(55, 129, 196), rgb(198, 226, 255), rgb(241, 248, 255));
-  background: linear-gradient(-1deg, rgb(55, 129, 196), rgb(198, 226, 255), rgb(241, 248, 255));
+  background: -webkit-linear-gradient(90deg, rgb(55, 129, 196), rgb(198, 226, 255), rgb(255, 255, 255));
 }
 
 .about-container p {
   font-size: 16px;
-  color: #666;
+  color: rgb(35, 128, 211);
 }
 
 .participants-container {
@@ -44,7 +44,8 @@
 }
 
 .participant-column:hover {
-  box-shadow: 0 2px 12px rgba(127, 127, 127, 0.2);
+  transform: scale(1.03);
+  box-shadow: 0 2px 12px rgba(67, 67, 67, 0.145);
 }
 
 .participant-column img {
@@ -97,6 +98,8 @@
 
 .paragraph-container p {
   color: white;
+  font-size: 14px;
+  margin-top: 35px;
 }
 
 .about-container h4 {
@@ -108,6 +111,11 @@
   text-shadow: 1px 1px 3px rgb(131, 170, 255);
 }
 
+.equipo {
+	-webkit-animation: text-pop-up-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: text-pop-up-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
 .historia {
   color: rgb(255, 255, 255);
   text-shadow: 1px 1px 3px rgb(255, 255, 255);
@@ -116,4 +124,39 @@
 .containerhistoria {
   background-color: black;
   padding: 5%;
+}
+
+/**/
+
+@-webkit-keyframes text-pop-up-top {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+    text-shadow: none;
+  }
+  100% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+    -webkit-transform-origin: 25% 50%;
+            transform-origin: 25% 25%;
+    text-shadow: 0 1px 0 #ffffff, 0 2px 0 #ffffff, 0 3px 0 #ffffff, 0 4px 0 #ffffff, 0 5px 0 #ffffff, 0 6px 0 #ffffff, 0 7px 0 #ffffff, 0 8px 0 #ffffff, 0 15px 15px rgba(63, 81, 181, 0.3);
+  }
+}
+@keyframes text-pop-up-top {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-transform-origin: 25% 25%;
+            transform-origin: 25% 25%;
+    text-shadow: none;
+  }
+  100% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+    -webkit-transform-origin: 25% 25%;
+            transform-origin: 25% 25%;
+    text-shadow: 0 1px 0 #ffffff, 0 2px 0 #ffffff, 0 3px 0 #ffffff, 0 4px 0 #ffffff, 0 5px 0 #ffffff, 0 6px 0 #ffffff, 0 7px 0 #ffffff, 0 8px 0 #ffffff, 0 15px 15px rgba(63, 81, 181, 0.3);
+  }
 }

@@ -1,78 +1,83 @@
 .container {
-    margin-top: 3%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.2em;
+  margin-top: 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3em;
+  width: 100%;
 }
 
 .card_publication {
-    background-color: rgb(216, 233, 253);
-    display: flex;
-    gap: 2em;
-    padding-left: 1.5%;
-    padding-right: 1.5%;
+  background-color: rgb(216, 233, 253);
+  display: flex;
+  gap: 1em;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  align-items: center;
+  width: 100%;
 }
 
 .boxtitulo {
-    width: 110vh;
-    height: 15vh;
-    display: flex;
-    gap: 1em;
-  }
+  width: 110vh;
+  height: 15vh;
+  display: flex;
+  gap: 1em;
+}
 
 .title {
-    width: 70vh;
-    display: flex;
-    text-align: left;
-    align-items: center;
-    place-content: center;
-    margin: 0%;
+  width: 70vh;
+  text-overflow: ellipsis;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  place-content: center;
+  margin: 0%;
 }
 
 .lesson {
-    width: 25vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    place-content: center;
-    margin: 0%;
-  }
+  width: 25vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  place-content: center;
+  margin: 0%;
+}
 
-  .grade {
-    width: 15vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    place-content: center;
-    margin: 0%;
-  }
+.value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  place-content: center;
+  margin: 0%;
+  padding-right: 2%;
+}
 
-  .value {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    place-content: center;
-    margin: 0%;
-    padding-right: 3%;
-  }
+.boxfecha {
+  display: flex;
+  align-items: center;
+  place-content: center;
+  justify-content: center;
+}
 
-  .boxfecha {
-    background-color: rgb(226, 226, 226); 
-    display: flex;
-    align-items: center;
-    place-content: center;
-    justify-content: center;
-  }
+.fecha {
+  color: black;
+  text-align: center;
+  font-size: 12px;
+  width: 100px;
+  margin: 0%;
+}
 
-  .fecha {
-    color: black;
-    text-align: center;
-    font-size: 12px;
-    width: 100px;
-    margin: 0%;
-  }
+.none {
+  margin-top: 7.2%;
+}
 
-  .none {
-    margin-top: 10%;
-  }
+.generalContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.boton {
+  margin: 0%;
+  margin-right: 10px;
+}

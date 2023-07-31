@@ -3,10 +3,11 @@
   top: 30%;
   left: 5%;
   min-height: 95vh;
+  background-color: rgb(212, 231, 255);
 }
 
 .anuncio {
-  background-color: rgb(238, 241, 247);
+  /* background-color: rgb(212, 231, 255); */
   flex: 1;
   text-align: center;
   padding-top: 5%;
@@ -113,22 +114,22 @@ gap: 1em
   background-color: white;
   position: fixed;
   top:8%;
-  z-index: 4;
+  z-index: 6;
   padding: 5%;
   left: 30%;
   border-radius: 10px;
   box-shadow: 0px 5px 10px rgba(37, 37, 37, 0.294);
 }
 
-.cancelPayment {
-  margin-top: 1em;
-  width: 100%;
-}
+  .cancelPayment {
+    margin-top: 1em;
+    width: 100%;
+  }
 
-.popup {
-  position: fixed;
-  top:8%;
-  z-index: 4;
-  padding: 5%;
-  left: 30%;
-}
+  .popup {
+    position: fixed;
+    top:8%;
+    z-index: 4;
+    padding: 5%;
+    left: 30%;
+  }
