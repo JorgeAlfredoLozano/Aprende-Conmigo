@@ -30,29 +30,35 @@ const CardsContainer = ({ filtro, lesson, precio }) => {
 
   let filteredData = datoPublication.data || [];
 
+  // Nueva variable para almacenar los datos filtrados sin afectar el original
+  let filteredDataCopy = filteredData.slice();
+
   useEffect(() => {
     if (precio.value === 'ASC') {
-      filteredData = filteredData.sort((a, b) => a.value - b.value);
+      filteredDataCopy = filteredDataCopy.sort((a, b) => a.value - b.value);
     } else if (precio.value === 'DESC') {
-      filteredData = filteredData.sort((a, b) => b.value - a.value);
+      filteredDataCopy = filteredDataCopy.sort((a, b) => b.value - a.value);
     }
 
     if (filtro) {
-      filteredData = filteredData.filter((card) =>
+      filteredDataCopy = filteredDataCopy.filter((card) =>
         card.grade.toLowerCase().includes(filtro.toLowerCase())
       );
     }
 
     if (lesson) {
-      filteredData = filteredData.filter((card) =>
+      filteredDataCopy = filteredDataCopy.filter((card) =>
         card.Lessons.some((lessonItem) =>
           lessonItem.lesson_name.toLowerCase().includes(lesson.toLowerCase())
         )
       );
     }
 
+    // Filtrar las publicaciones con status === true
+    filteredDataCopy = filteredDataCopy.filter((card) => card.status);
+
     // Calcular el número total de páginas después de aplicar el filtro
-    const totalFilteredPages = Math.ceil(filteredData.length / anunciosPerPage);
+    const totalFilteredPages = Math.ceil(filteredDataCopy.length / anunciosPerPage);
     setTotalPages(totalFilteredPages);
 
     // Verificar que la página actual no sea mayor que el número total de páginas disponibles
@@ -61,7 +67,7 @@ const CardsContainer = ({ filtro, lesson, precio }) => {
     }
 
     // Actualizar el estado totalFilteredAnuncios con la cantidad de anuncios filtrados
-    setFilteredCards(filteredData);
+    setFilteredCards(filteredDataCopy);
   }, [filtro, lesson, precio, datoPublication.data, currentPage]);
 
   useEffect(() => {
