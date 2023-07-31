@@ -250,7 +250,7 @@ export const getAllFav = (UserId)=> {
               payload: response.data
            });
       } catch (error) {
-        console.log(error)
+      
       }
   };
 }
@@ -265,7 +265,28 @@ export const remove_fav= (PublicationId)=>{
               payload:response.data.deleteId
         });
       } catch (error) {
-        console.log(error)
+        
       }   
   };
 }
+//REGISTRO USUARIO NUEVO CON BACHI3000
+export const postNewUserDb = (info)=>{
+  return async function(dispatch){
+     const response = await axios.post(`/login/register`, info)
+     //responseUser
+    return dispatch({
+      type:'POST_NEW_USER_DB',
+      payload: response
+    });  
+   };
+};
+//VERIFICACION DEL USUARIO
+export const putVerificationUserDb = (data)=>{
+  return async function(dispatch){
+    const response = await axios.put(`/login/verification`, data)
+    return dispatch({
+      type:'PUT_VERIFICATION_USER_DB',
+      payload: response
+    });  
+   };
+};

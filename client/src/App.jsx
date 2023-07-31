@@ -12,7 +12,9 @@ import Purchases from './components/Purchase/Purchase';
 import Sales from './components/Sales/Sales';
 import Notifications from './components/NavBar/Notifications';
 import About from './components/About/About'
-
+import Email from './components/Email/Email';
+import RegistrationForm from './components/Registration/Registration'
+import Verification from './components/Verification/Verification'
 function App() {
 
   return (
@@ -33,6 +35,9 @@ function App() {
           <Route path='/user' element={<DashBoardAdmin/>}/>
           <Route path='/not' element={<Notifications/>}/>
           <Route path='/about' element={<About/>}/>
+          <Route path='/email' element={<Email/>}/>
+          {/* <Route path='/registro' element={<RegistrationForm/>}/>
+          <Route path='/verificacion' element={<Verification/>}/> */}
         </Routes>
         <Footer/>
       </div>

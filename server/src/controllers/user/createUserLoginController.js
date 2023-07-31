@@ -11,7 +11,6 @@ const createUserLoginController = async (name, email, assets) => {
       return newUser;
     }
   }
-  console.log('El usuario ya está creado');
 };
 
 module.exports = createUserLoginController;
