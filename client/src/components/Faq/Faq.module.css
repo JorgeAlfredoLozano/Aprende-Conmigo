@@ -1,14 +1,12 @@
 .container{
   max-width: 1110px;
   margin: auto;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: 'Poppins';
     display: flex;
     flex-direction: column;
     padding-top: 5%;
     padding-bottom: 5%;
     min-height: 80vh; 
-        
     transition: all 0.3s ease;
 }
 
@@ -19,7 +17,6 @@ h1 {
   margin: 0px;
   margin-bottom: 30px;
   padding-bottom: 25px;
-  
 }
 
 .accordion-simple > .active {
@@ -32,12 +29,12 @@ h1 {
 
 .accordion__faq > div{
   background-color: var(--white);
-  margin-bottom: 20px;
-  padding: 0px 15px;
+  margin-top: 3%;
+  margin-bottom: 1%;
   border-radius: 5px;
+  padding: 2%;
   cursor: pointer;
-  background-color: #D8E9FD; 
-  border:1px solid black;
+  background-color: #D8E9FD;
 }
 
 
@@ -45,6 +42,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0%;
 }
 
 .accordion__faq_heading .active{
@@ -55,18 +53,20 @@ h1 {
   color: none;
 }
 
-.accordion__faq_heading h3{
-  font-weight: 600;
-}
-
 .accordion__faq p {
   margin: 0px;
-  padding-bottom: 30px;
 }
 
+ .botonW {
+  margin-top: 5%;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+ }
 
-
-.texto {
-  text-shadow: 0px 1px 0px #7C848C,
-  0px 6px 5px rgba(2, 2, 2, 0.130);
+ .linea:hover {
+  transform: scale(1.01);
+  /* text-shadow: 0px 2px 0px rgba(255, 255, 255, 0.663), 1px 3px 0px rgba(255, 255, 255, 0.663); */
+  transition: 0.3s linear;
  }

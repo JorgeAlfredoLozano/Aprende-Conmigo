@@ -119,6 +119,9 @@ const DetailAnuncio = () => {
   return (
     <div>
       <div className={style.container}>
+      <div className={style.popup}>
+            {renderPopUp && <PopUp text={text} setText={setText} renderPopUp={renderPopUp} setRenderPopUp={setRenderPopUp}/>}
+            </div>
         {!userDataAvailable && !userTeacherDataAvailable ? (
           <LoadingAnimation />
           ) : (
@@ -152,9 +155,9 @@ const DetailAnuncio = () => {
                 <button id='notLogged' onClick={(event) => handleRenderMessage(event)} className={style.botonMensaje}>Enviar mensaje a {userTeacher && userTeacher.data.name}</button>
               </>
             )}
-            <div className={style.popup}>
+            {/* <div className={style.popup}>
             {renderPopUp && <PopUp text={text} setText={setText} renderPopUp={renderPopUp} setRenderPopUp={setRenderPopUp}/>}
-            </div>
+            </div> */}
             {showCheckoutForm && (
               <div className={style.payment}>
                 <Checkout setShowCheckoutForm={setShowCheckoutForm} handleCancelPayment={handleCancelPayment} handleSuccessfulPurchase={handleSuccessfulPurchase}/>

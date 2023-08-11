@@ -6,7 +6,7 @@ const About = () => {
     {
       name: 'Camila Cufré',
       place: 'Argentina',
-      photo: 'https://media.licdn.com/dms/image/D4D35AQG2rG8vc9As0Q/profile-framedphoto-shrink_800_800/0/1688342498366?e=1690732800&v=beta&t=YQ9qR807QOE2uoyAOs69frxHv6i-xJnlP0DTT4-G9QQ',
+      photo: 'https://media.licdn.com/dms/image/D4D35AQG2rG8vc9As0Q/profile-framedphoto-shrink_200_200/0/1688342498366?e=1691388000&v=beta&t=f26EcjkAoNfIPd91BJvL94WNRlwb9DCPXJ4wmY_nHZo',
       LINKEDIN: 'https://www.linkedin.com/in/camilacufre/',
       icon: 'https://static.vecteezy.com/system/resources/previews/017/339/646/non_2x/linkedin-icon-free-png.png',
       cv: 'Full-Stack Developer | React.js | JavaScript | Node.js | Postgres | CSS | Freelance Illustrator | Computer Science Student'
@@ -14,15 +14,15 @@ const About = () => {
     {
       name: 'Bachir Nasser',
       place: 'Venezuela',
-      photo: 'https://media.licdn.com/dms/image/D4E03AQEs-hFk4THOaA/profile-displayphoto-shrink_200_200/0/1675105858893?e=1695859200&v=beta&t=MLnHhVvQz4_8SqtE-Xm2G1Rd9YZnB0szkUBWMkRprQI',
-      LINKEDIN: 'https://www.linkedin.com/in/bachir-nasser-83b1b3263/',
+      photo: 'https://media.licdn.com/dms/image/D4E35AQFby6EJXY-mWw/profile-framedphoto-shrink_800_800/0/1690741241622?e=1691388000&v=beta&t=NEfslk09V4Xe5LQWv6sGgmxSQeNKz33kEogF-KMetMg',
+      LINKEDIN: 'https://www.linkedin.com/in/bachir-nassr-nasser-83b1b3263/',
       icon: 'https://static.vecteezy.com/system/resources/previews/017/339/646/non_2x/linkedin-icon-free-png.png',
       cv: 'Full-Stack Developer | React.js | JavaScript | Node.js | Postgres | CSS | C'
     },
     {
       name: 'Jorge Lozano',
       place: 'Argentina',
-      photo: 'https://media.licdn.com/dms/image/D4D03AQHJDDuSfAf8-w/profile-displayphoto-shrink_100_100/0/1687963946330?e=1695859200&v=beta&t=7p_GSUSv6nE8qDNzyOA7FvNowLfqespdWrxiyRXgtHA',
+      photo: 'https://media.licdn.com/dms/image/D4D35AQHYlkJgbCf0Rw/profile-framedphoto-shrink_800_800/0/1690736625494?e=1691388000&v=beta&t=mz99QNq0w6vGdHlUDLywdYOsQwHYSE8bPsSKI3BM0vM',
       LINKEDIN: 'https://www.linkedin.com/in/jorgealozano/',
       icon: 'https://static.vecteezy.com/system/resources/previews/017/339/646/non_2x/linkedin-icon-free-png.png',
       cv: 'Full-Stack Developer | Testing/QA en Codo a Codo | React.js | JavaScript | Node.js | Postgres | CSS | Técnico Superior en Seguros'
@@ -30,7 +30,7 @@ const About = () => {
     {
       name: 'Ivana Carmona',
       place: 'Argentina',
-      photo: 'https://media.licdn.com/dms/image/D4D35AQHjSmNJsA-3yw/profile-framedphoto-shrink_800_800/0/1689523582847?e=1690732800&v=beta&t=ergcF_5JUzKkTlcvH_qjvvX6mPTk3g3uEIf65XofrVM',
+      photo: 'https://media.licdn.com/dms/image/D4D35AQHjSmNJsA-3yw/profile-framedphoto-shrink_800_800/0/1689523582847?e=1691388000&v=beta&t=tP0HP9GZ5y0M7Rt2HcbyJNZH7Fs-7ED52vaB3FapADU',
       LINKEDIN: 'https://www.linkedin.com/in/antonella-carmona-5a166520a/',
       icon: 'https://static.vecteezy.com/system/resources/previews/017/339/646/non_2x/linkedin-icon-free-png.png',
       cv: 'Full-Stack Developer | React.js | JavaScript | Node.js | Postgres | CSS | TypeScript'
@@ -54,7 +54,7 @@ const About = () => {
     {
       name: 'Alejandro García',
       place: 'Colombia',
-      photo: 'https://media.licdn.com/dms/image/D4E35AQHqINcRU_d7JQ/profile-framedphoto-shrink_200_200/0/1689278730479?e=1690736400&v=beta&t=dH3OuUKV4wk9pgjPb-qu2yTEUXmIT3NaM-5_JZaIz18',
+      photo: 'https://media.licdn.com/dms/image/D4E35AQHqINcRU_d7JQ/profile-framedphoto-shrink_800_800/0/1689278730479?e=1691388000&v=beta&t=cr2uouVmUomeYpgYCcjsJeNsPSq7dUdktfg7We3LQdo',
       LINKEDIN: 'https://www.linkedin.com/in/alejandro-garcia-6179b9260/',
       icon: 'https://static.vecteezy.com/system/resources/previews/017/339/646/non_2x/linkedin-icon-free-png.png',
       cv: 'Full-Stack Developer | React.js | JavaScript | Node.js | Postgres | CSS'
@@ -111,7 +111,7 @@ const About = () => {
       </div>
       <div />
       <div className={styles.containerhistoria} >
-      <h2 className={styles.historia} style={{ marginBottom: "30px", fontSize: "40px", width:"80%", textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", placeContent:"center" }}>
+      <h2 className={styles.historia} style={{ marginBottom: "30px", fontSize: "40px", width:"100%", textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", placeContent:"center" }}>
       <span style={{ color: "white" }}>Nuestra Historia:</span>
       <span style={{ color: "yellow", textShadow: "1px 1px 3px yellow" }}> Trabajando Juntos para el Éxito</span>
     </h2>

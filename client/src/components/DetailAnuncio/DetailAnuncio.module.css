@@ -129,7 +129,7 @@ gap: 1em
   .popup {
     position: fixed;
     top:8%;
-    z-index: 4;
+    z-index: 7;
     padding: 5%;
     left: 30%;
   }

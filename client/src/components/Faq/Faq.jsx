@@ -36,7 +36,7 @@ const Faq = () => {
       <div className={style.container}>
         
         <div>       
-          <p className={style.texto} style={{ fontSize:"30px",  color:"#3A4D61", fontWeight:"900"}}>Preguntas frecuentes</p>
+          <p className={style.texto} style={{ fontSize:"30px",  color:"rgb(35, 128, 211)", fontFamily:"Poppins-Bold", width:"100%", textAlign:"center"}}>Preguntas frecuentes</p>
         </div>
         <div className={style.accordion__faq}>
           { dataFq.map((item, index) =>
@@ -44,34 +44,35 @@ const Faq = () => {
 
                 <div className={style.accordion__faq_heading} >
                   <p className={accordion === index ? style.active : style.nada}
-                  style={{ fontSize:"20px",  color:"#3A4D61", fontWeight:"900"}}>{item.grupo}</p>
+                  style={{ fontSize:"30px",  color:"rgb(35, 128, 211)", fontFamily:"Poppins-Medium", margin:"0%"}}>{item.grupo}</p>
                       <div>
                         {accordion === index ?
-                          <span className={style.verticle} style={{ fontSize:"15px",  color:"#3A4D61"}}>-</span> 
-                          : <span className={style.horizental} style={{ fontSize:"15px",  color:"#3A4D61"}}>+</span>}
+                          <span className={style.verticle} style={{ fontSize:"25px",  color:"rgb(35, 128, 211)"}}>-</span> 
+                          : <span className={style.horizental} style={{ fontSize:"25px",  color:"rgb(35, 128, 211)"}}>+</span>}
                       </div>
                 </div>
 
                   <div className={style.accordion__faq_heading}>
                   <p className={accordion === index ? style.active : style.inactive} 
-                  style={{ fontSize:"16px",  color:"#3A4D61", fontWeight:"900"}}>
+                  style={{ fontSize:"20px",  color:"rgb(35, 128, 211)"}}>
                      {item.preguntasRespuestas.map((preguntita, preguntaIndex) => (
 
-                        <div key={preguntaIndex} onClick={(event)=>toggleAccordionDos(preguntaIndex, event)}
+                        <div style={{display:"flex", flexDirection:"column", gap:"1em"}} key={preguntaIndex} onClick={(event)=>toggleAccordionDos(preguntaIndex, event)}
                          >
+                          <div className={style.linea} style={{display:"flex", flexDirection:"row", marginTop:"25px"}}>
                           <div >
-                           <div >{preguntita.pregunta}</div> 
+                           <div style={{color:"rgba(35, 128, 211, 0.650)", fontFamily:"Poppins-Medium"}}>{preguntita.pregunta}</div> 
                            
                           </div>
                                 <div >
                                   {pepito === preguntaIndex ?
-                                    <span className={style.verticle} >-</span> 
-                                    : <span className={style.horizental}>+</span>}
+                                    <span className={style.verticle} ></span> 
+                                    : <span className={style.horizental}></span>}
                                 </div>
-
+                                </div>
                                 <div>
                                   <p className={pepito === preguntaIndex ?  style.active : style.inactive }
-                                 style={{ fontSize:"14px",  color:"#3A4D61", fontWeight:"900"}}>
+                                 style={{ fontSize:"14px",  color:"#3A4D61", backgroundColor:"white", borderRadius:"1em", padding:"15px", marginBottom:"15px"}}>
                                   {preguntita.respuesta}
                                   </p>
                                 </div>
@@ -82,7 +83,8 @@ const Faq = () => {
              </div> 
             )
           }
-          <WhatsAppButton />
+          <section className={style.botonW}>
+          <WhatsAppButton /></section>
         </div>
       </div>}
     </>

@@ -95,6 +95,7 @@ const Perfil = ({ userData, getUser, getAllPublication, renderMenu, setRenderMen
       setRenderHistorial(false);
       setRenderMensajes(false);
       window.history.pushState(null, null, `/perfil/usuario`);
+      setRenderMenu(false);
     } else if (clickedTab === 'anuncios') {
       setRenderAnuncios(true);
       setRenderProfile(false);
@@ -102,6 +103,7 @@ const Perfil = ({ userData, getUser, getAllPublication, renderMenu, setRenderMen
       setRenderHistorial(false);
       setRenderMensajes(false);
       window.history.pushState(null, null, `/perfil/anuncios`);
+      setRenderMenu(false);
     } else if (clickedTab === 'anunciosfav') {
       setRenderAnunciosFavoritos(true);
       setRenderProfile(false);
@@ -109,6 +111,7 @@ const Perfil = ({ userData, getUser, getAllPublication, renderMenu, setRenderMen
       setRenderHistorial(false);
       setRenderMensajes(false);
       window.history.pushState(null, null, `/perfil/anunciosfav`);
+      setRenderMenu(false);
     } else if (clickedTab === 'historial') {
       setRenderHistorial(true);
       setRenderProfile(false);
@@ -116,6 +119,7 @@ const Perfil = ({ userData, getUser, getAllPublication, renderMenu, setRenderMen
       setRenderAnunciosFavoritos(false);
       setRenderMensajes(false);
       window.history.pushState(null, null, `/perfil/historial`);
+      setRenderMenu(false);
     } else if (clickedTab === 'mensajes') {
       setRenderMensajes(true);
       setRenderProfile(false);
@@ -123,6 +127,7 @@ const Perfil = ({ userData, getUser, getAllPublication, renderMenu, setRenderMen
       setRenderAnunciosFavoritos(false);
       setRenderHistorial(false);
       window.history.pushState(null, null, `/perfil/mensajes`);
+      setRenderMenu(false);
     }
   };
 

@@ -74,6 +74,7 @@ const ReviewPerfil =(props)=>{
      
     return(
         <div className={`${style.container} ${props.isVisible ? style.fadeIn : style.fadeOut}`} >
+          {renderPopUp && <PopUp setRenderPopUp={setRenderPopUp} renderPopUp={renderPopUp} text={text} setText={setText}/>}
            {/* <h4 className={style.texto}>Reseña</h4> */}
             {review && review.map((rev)=>{
               const containerStyle = {
@@ -102,7 +103,7 @@ const ReviewPerfil =(props)=>{
               <p className={style.noReview}>Aún no has creado una reseña para este anuncio.</p>
               </div>
               </div>
-              </div>}{renderPopUp && <PopUp setRenderPopUp={setRenderPopUp} renderPopUp={renderPopUp} text={text} setText={setText}/>}
+              </div>}
               <div className={style.buttonsContainer}>
             <button className={style.botonReseña} id='renderizar' onClick={(event) => handleReviewComment(event)}>Añadir reseña</button>
             <button id='volver' onClick={(event) => handleReviewComment(event)}>Volver</button>
